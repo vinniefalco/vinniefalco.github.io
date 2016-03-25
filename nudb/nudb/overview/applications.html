@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Applications</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../overview.html" title="Overview">
+<link rel="prev" href="performance.html" title="Performance">
+<link rel="next" href="../types.html" title="Type Requirements">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="performance.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../overview.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../types.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.overview.applications"></a><a class="link" href="applications.html" title="Applications">Applications</a>
+</h3></div></div></div>
+<p>
+        Content addressable storage associates data with its cryptographic digest.
+        This type of storage is commonly used in decentralized blockchain applications.
+      </p>
+<p>
+        Often these applications require following hash chains -- where one object
+        contains the hash of another object that ultimately leads to the object desired.
+        NuDB's low latency and high speed are particularly advantageous in these
+        kinds of applications.
+      </p>
+<p>
+        NuDB is append only and does not support a delete operation. To support retaining
+        limited historical information, NuDB is often used in a dual database configuration.
+        One database is older and is read only, the other is newer and is read/write.
+        Periodically, the older database is discarded and the newer database becomes
+        the new read only database and a new read/write database is created.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="performance.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../overview.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../types.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

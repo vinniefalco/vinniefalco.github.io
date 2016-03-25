@@ -1,0 +1,317 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::parser_v1</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__parse_flag__values.html" title="http::parse_flag::values">
+<link rel="next" href="http__parser_v1/complete.html" title="http::parser_v1::complete">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__parse_flag__values.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__parser_v1/complete.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__parser_v1"></a><a class="link" href="http__parser_v1.html" title="http::parser_v1">http::parser_v1</a>
+</h3></div></div></div>
+<p>
+        A parser for producing HTTP/1 messages.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">parser_v1</span> <span class="special">:</span>
+    <span class="keyword">public</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="special">&gt;,</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">conditional</span><span class="special">::</span><span class="identifier">type</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">parser_request</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">parser_response</span> <span class="special">&gt;</span>
+</pre>
+<h5>
+<a name="beast.ref.http__parser_v1.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__parser_v1.types"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/message_type.html" title="http::parser_v1::message_type"><span class="bold"><strong>message_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type of message this parser produces.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.http__parser_v1.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__parser_v1.member_functions"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/complete.html" title="http::parser_v1::complete"><span class="bold"><strong>complete</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the parse has completed succesfully.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/flags.html" title="http::parser_v1::flags"><span class="bold"><strong>flags</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns internal flags associated with the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/get.html" title="http::parser_v1::get"><span class="bold"><strong>get</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the parsed message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/http_major.html" title="http::parser_v1::http_major"><span class="bold"><strong>http_major</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the major HTTP version number.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/http_minor.html" title="http::parser_v1::http_minor"><span class="bold"><strong>http_minor</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the minor HTTP version number.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/keep_alive.html" title="http::parser_v1::keep_alive"><span class="bold"><strong>keep_alive</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the connection should be kept open.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/needs_eof.html" title="http::parser_v1::needs_eof"><span class="bold"><strong>needs_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the message end is indicated by eof.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/operator_eq_.html" title="http::parser_v1::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/parser_v1.html" title="http::parser_v1::parser_v1"><span class="bold"><strong>parser_v1</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Construct the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/release.html" title="http::parser_v1::release"><span class="bold"><strong>release</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the parsed message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/set_option.html" title="http::parser_v1::set_option"><span class="bold"><strong>set_option</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the expect body option.
+                </p>
+                <p>
+                  Set options on the parser.
+                </p>
+                <p>
+                  Set the headers maximum size option.
+                </p>
+                <p>
+                  Set the body maximum size option.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/status_code.html" title="http::parser_v1::status_code"><span class="bold"><strong>status_code</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the numeric HTTP Status-Code of a response.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/upgrade.html" title="http::parser_v1::upgrade"><span class="bold"><strong>upgrade</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the message is an upgrade message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/write.html" title="http::parser_v1::write"><span class="bold"><strong>write</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Write a sequence of buffers to the parser.
+                </p>
+                <p>
+                  Write a single buffer of data to the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/write_eof.html" title="http::parser_v1::write_eof"><span class="bold"><strong>write_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called to indicate the end of file.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        This class uses the basic HTTP/1 wire format parser to convert a series of
+        octets into a <code class="computeroutput"><span class="identifier">message_v1</span></code>.
+      </p>
+<h5>
+<a name="beast.ref.http__parser_v1.h2"></a>
+        <span class="phrase"><a name="beast.ref.http__parser_v1.remarks"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.remarks">Remarks</a>
+      </h5>
+<p>
+        A new instance of the parser is required for each message.
+      </p>
+<h5>
+<a name="beast.ref.http__parser_v1.h3"></a>
+        <span class="phrase"><a name="beast.ref.http__parser_v1.requirements"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/parser_v1.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__parse_flag__values.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__parser_v1/complete.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

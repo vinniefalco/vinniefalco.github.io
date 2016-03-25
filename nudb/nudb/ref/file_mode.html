@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>file_mode</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="error_condition.html" title="error_condition">
+<link rel="next" href="generic_category.html" title="generic_category">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="error_condition.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="generic_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.ref.file_mode"></a><a class="link" href="file_mode.html" title="file_mode">file_mode</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id960285"></a>
+File create and open modes.
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">file_mode</span>
+</pre>
+<p>
+        <a class="indexterm" name="id960283"></a>
+ <a class="indexterm" name="id960321"></a>
+ <a class="indexterm" name="id960296"></a>
+ <a class="indexterm" name="id960297"></a>
+
+      </p>
+<h5>
+<a name="nudb.ref.file_mode.h0"></a>
+        <span class="phrase"><a name="nudb.ref.file_mode.values"></a></span><a class="link" href="file_mode.html#nudb.ref.file_mode.values">Values</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">scan</span></dt>
+<dd><p>
+              Open the file for sequential reads.
+            </p></dd>
+<dt><span class="term">read</span></dt>
+<dd><p>
+              Open the file for random reads.
+            </p></dd>
+<dt><span class="term">append</span></dt>
+<dd><p>
+              Open the file for random reads and appending writes.
+            </p></dd>
+<dt><span class="term">write</span></dt>
+<dd><p>
+              Open the file for random reads and writes.
+            </p></dd>
+</dl>
+</div>
+<p>
+        These are used by <a class="link" href="native_file.html" title="native_file"><code class="computeroutput"><span class="identifier">native_file</span></code></a>.
+      </p>
+<h5>
+<a name="nudb.ref.file_mode.h1"></a>
+        <span class="phrase"><a name="nudb.ref.file_mode.requirements"></a></span><a class="link" href="file_mode.html#nudb.ref.file_mode.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">nudb/file.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="error_condition.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="generic_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

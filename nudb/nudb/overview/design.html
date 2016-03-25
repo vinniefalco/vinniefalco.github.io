@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Design</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../overview.html" title="Overview">
+<link rel="prev" href="history.html" title="History">
+<link rel="next" href="performance.html" title="Performance">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="history.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../overview.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="performance.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.overview.design"></a><a class="link" href="design.html" title="Design">Design</a>
+</h3></div></div></div>
+<p>
+        NuDB uses three files to hold the data and indexes. The data file is append
+        only and contains sufficient information to rebuild the index. The index
+        file is random access and contains hash buckets. When an update is in progress,
+        a temporary journal file is used to roll the update back if needed.
+      </p>
+<p>
+        NuDB uses linear hashing to dynamically increase the number of buckets in
+        the index file as the data size grows. Bucket overflows are handled by adding
+        "overflow" records to the data file. Bucket overflows can be minimized
+        by increasing the number of buckets, leading to a size/speed tradeoff. Typical
+        databases keep the average bucket half full (or half empty, depending on
+        your point of view) resulting in spill records accounting for less than 1%
+        of reads.
+      </p>
+<p>
+        Inserts are buffered in memory and appended to the data file immediately.
+        Updates to the index file are performed as an atomic operation. Fetch operations
+        retrieve records in the process of being modified from memory during the
+        update operation so that writes do not block fetches.
+      </p>
+<p>
+        Before the index file is modified, a journal file is created to recover consistency
+        in the event of a crash during the update. The recovery process will index
+        all records written to the data file, so the aggregation of index updates
+        does not increase the time which a crash would result in loss of data.
+      </p>
+<p>
+        Iteration can be performed on the data file directly. Since it is append
+        only, there is no risk of other operations corrupting an iteration in progress.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="history.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../overview.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="performance.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

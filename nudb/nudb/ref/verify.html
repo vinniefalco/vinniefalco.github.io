@@ -1,0 +1,162 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>verify</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="system_error.html" title="system_error">
+<link rel="next" href="verify_info.html" title="verify_info">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="system_error.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="verify_info.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.ref.verify"></a><a class="link" href="verify.html" title="verify">verify</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id967398"></a>
+Verify consistency of the key and data files.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../types/Hasher.html" title="Hasher"><span class="bold"><strong>Hasher</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="../types/Progress.html" title="Progress"><span class="bold"><strong>Progress</strong></span></a><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">verify</span><span class="special">(</span>
+    <span class="identifier">verify_info</span><span class="special">&amp;</span> <span class="identifier">info</span><span class="special">,</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">dat_path</span><span class="special">,</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">key_path</span><span class="special">,</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">bufferSize</span><span class="special">,</span>
+    <span class="identifier">Progress</span><span class="special">&amp;&amp;</span> <span class="identifier">progress</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<p>
+        This function opens the key and data files, and performs the following checks
+        on the contents:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Data file header validity
+          </li>
+<li class="listitem">
+            Key file header validity
+          </li>
+<li class="listitem">
+            Data and key file header agreements
+          </li>
+<li class="listitem">
+            Check that each value is contained in a bucket
+          </li>
+<li class="listitem">
+            Check that each bucket item reflects a value
+          </li>
+<li class="listitem">
+            Ensure no values with duplicate keys
+          </li>
+</ul></div>
+<p>
+        Undefined behavior results when verifying a database that still has a log
+        file. Use <a class="link" href="recover.html" title="recover"><code class="computeroutput"><span class="identifier">recover</span></code></a>
+        on such databases first.
+      </p>
+<p>
+        This function selects one of two algorithms to use, the normal version, and
+        a faster version that can take advantage of a buffer of sufficient size.
+        Depending on the value of the bufferSize argument, the appropriate algorithm
+        is chosen.
+      </p>
+<p>
+        A good value of bufferSize is one that is a large fraction of the key file
+        size. For example, 20% of the size of the key file. Larger is better, with
+        the highest usable value depending on the size of the key file. If presented
+        with a buffer size that is too large to be of extra use, the fast algorithm
+        will simply allocate what it needs.
+      </p>
+<h5>
+<a name="nudb.ref.verify.h0"></a>
+        <span class="phrase"><a name="nudb.ref.verify.template_parameters"></a></span><a class="link" href="verify.html#nudb.ref.verify.template_parameters">Template
+        Parameters</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">Hasher</span></dt>
+<dd><p>
+              The hash function to use. This type must meet the requirements of HashFunction.
+              The hash function must be the same as that used to create the database,
+              or else an error is returned.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="nudb.ref.verify.h1"></a>
+        <span class="phrase"><a name="nudb.ref.verify.parameters"></a></span><a class="link" href="verify.html#nudb.ref.verify.parameters">Parameters</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">info</span></dt>
+<dd><p>
+              A structure which will be default constructed inside this function,
+              and filled in if the operation completes successfully. If an error
+              is indicated, the contents of this variable are undefined.
+            </p></dd>
+<dt><span class="term">dat_path</span></dt>
+<dd><p>
+              The path to the data file.
+            </p></dd>
+<dt><span class="term">key_path</span></dt>
+<dd><p>
+              The path to the key file.
+            </p></dd>
+<dt><span class="term">bufferSize</span></dt>
+<dd><p>
+              The number of bytes to allocate for the buffer. If this number is too
+              small, or zero, a slower algorithm will be used that does not require
+              a buffer.
+            </p></dd>
+<dt><span class="term">progress</span></dt>
+<dd>
+<p>
+              A function which will be called periodically as the algorithm proceeds.
+              The equivalent signature of the progress function must be:
+            </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">progress</span><span class="special">(</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span> <span class="identifier">amount</span><span class="special">,</span>   <span class="comment">// Amount of work done so far</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span> <span class="identifier">total</span>     <span class="comment">// Total amount of work to do</span>
+<span class="special">);</span>
+</pre>
+</dd>
+<dt><span class="term">ec</span></dt>
+<dd><p>
+              Set to the error, if any occurred.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="nudb.ref.verify.h2"></a>
+        <span class="phrase"><a name="nudb.ref.verify.requirements"></a></span><a class="link" href="verify.html#nudb.ref.verify.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">nudb/verify.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="system_error.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="verify_info.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

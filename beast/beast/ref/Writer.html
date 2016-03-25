@@ -1,0 +1,316 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Writer requirements</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="streams.html" title="Streams requirements">
+<link rel="next" href="async_completion.html" title="async_completion">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="streams.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="async_completion.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.Writer"></a><a class="link" href="Writer.html" title="Writer requirements">Writer requirements</a>
+</h3></div></div></div>
+<p>
+        A <code class="computeroutput"><span class="identifier">Writer</span></code> serializes the message
+        body. The implementation creates an instance of this type when serializing
+        a message, and calls into it zero or more times to provide buffers containing
+        the data. The interface of <code class="computeroutput"><span class="identifier">Writer</span></code>
+        is intended to allow serialization in these scenarios:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            A body that does not entirely fit in memory.
+          </li>
+<li class="listitem">
+            A body produced incrementally from coroutine output.
+          </li>
+<li class="listitem">
+            A body represented by zero or more buffers already in memory.
+          </li>
+<li class="listitem">
+            A body as a series of buffers when the content size is not known ahead
+            of time.
+          </li>
+<li class="listitem">
+            Body data generated on demand from other threads.
+          </li>
+<li class="listitem">
+            Body data computed algorithmically.
+          </li>
+</ul></div>
+<p>
+        In this table:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">X</span></code> denotes a type meeting
+            the requirements of <code class="computeroutput"><span class="identifier">Writer</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">a</span></code> denotes a value of
+            type <code class="computeroutput"><span class="identifier">X</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">m</span></code> denotes a value of
+            type <code class="computeroutput"><span class="identifier">message</span> <span class="keyword">const</span><span class="special">&amp;</span></code> where <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_same</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">m</span><span class="special">.</span><span class="identifier">body</span><span class="special">),</span> <span class="identifier">Body</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;:</span><span class="identifier">value</span>
+            <span class="special">==</span> <span class="keyword">true</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">rc</span></code> is an object of type
+            <a class="link" href="http__resume_context.html" title="http::resume_context">resume_context</a>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">ec</span></code> is a value of type
+            <code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">wf</span></code> is a <span class="bold"><strong>write
+            function</strong></span>: a function object of unspecified type provided by
+            the implementation which accepts any value meeting the requirements of
+            <code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code> as
+            its single parameter.
+          </li>
+</ul></div>
+<div class="table">
+<a name="beast.ref.Writer.writer_requirements"></a><p class="title"><b>Table&#160;7.&#160;Writer requirements</b></p>
+<div class="table-contents"><table class="table" summary="Writer requirements">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  operation
+                </p>
+              </th>
+<th>
+                <p>
+                  type
+                </p>
+              </th>
+<th>
+                <p>
+                  semantics, pre/post-conditions
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">X</span> <span class="identifier">a</span><span class="special">(</span><span class="identifier">m</span><span class="special">);</span></code>
+                </p>
+              </td>
+<td>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span></code> is constructible
+                  from <code class="computeroutput"><span class="identifier">m</span></code>. The lifetime
+                  of <code class="computeroutput"><span class="identifier">m</span></code> is guaranteed
+                  to end no earlier than after <code class="computeroutput"><span class="identifier">a</span></code>
+                  is destroyed.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span><span class="special">.</span><span class="identifier">init</span><span class="special">(</span><span class="identifier">ec</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="keyword">void</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called immediately after construction. If <code class="computeroutput"><span class="identifier">ec</span></code>
+                  is set, the serialization is aborted and the error is propagated
+                  to the caller.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span><span class="special">.</span><span class="identifier">content_length</span><span class="special">()</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  If this member is present, it is called after initialization and
+                  before calls to provide buffers. The serialized message will have
+                  the Content-Length field set to the value returned from this function.
+                  If this member is absent, the serialized message body will be chunk-encoded
+                  for HTTP versions 1.1 and later, else the serialized message body
+                  will be sent unmodified, with the error <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span></code>
+                  returned to the caller, to notify they should close the connection
+                  to indicate the end of the message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span><span class="special">(</span><span class="identifier">rc</span><span class="special">,</span>
+                  <span class="identifier">ec</span><span class="special">,</span>
+                  <span class="identifier">wf</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tribool</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called repeatedly after <code class="computeroutput"><span class="identifier">init</span></code>
+                  succeeds. <code class="computeroutput"><span class="identifier">wf</span></code> is
+                  a function object which takes as its single parameter, any value
+                  meeting the requirements of <code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code>.
+                  Buffers provided by the <code class="computeroutput"><span class="identifier">writer</span></code>
+                  to this <span class="bold"><strong>write function</strong></span> must remain
+                  valid until the next member function of <code class="computeroutput"><span class="identifier">writer</span></code>
+                  is invoked (which may be the destructor). This function returns
+                  <code class="computeroutput"><span class="keyword">true</span></code> to indicate all
+                  message body data has been written, or <code class="computeroutput"><span class="keyword">false</span></code>
+                  if there is more body data. If the return value is <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">indeterminate</span></code>, the implementation
+                  will suspend the operation until the writer invokes <code class="computeroutput"><span class="identifier">rc</span></code>. It is the writers responsibility
+                  when returning <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">indeterminate</span></code>,
+                  to acquire ownership of the <code class="computeroutput"><span class="identifier">resume_context</span></code>
+                  via move construction and eventually call it or else undefined
+                  behavior results.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          Definitions for required <code class="computeroutput"><span class="identifier">Writer</span></code>
+          member functions should be declared inline so the generated code becomes
+          part of the implementation.
+        </p></td></tr>
+</table></div>
+<p>
+        Exemplar:
+      </p>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">writer</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="comment">/** Construct the writer.
+
+        The msg object is guaranteed to exist for the lifetime of the writer.
+
+        Exceptions:
+            No-throw guarantee.
+
+        @param msg The message whose body is to be written.
+    */</span>
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">explicit</span>
+    <span class="identifier">writer</span><span class="special">(</span><span class="identifier">message</span><span class="special">&lt;</span><span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+
+    <span class="comment">/** Initialize the writer.
+
+        Called once immediately after construction.
+        The writer can perform initialization which may fail.
+
+        @param ec Contains the error code if any errors occur.
+    */</span>
+    <span class="keyword">void</span>
+    <span class="identifier">init</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+
+    <span class="comment">/** Returns the content length.
+
+        If this member is present, the implementation will set the
+        Content-Length field accordingly. If absent, the implementation will
+        use chunk-encoding or terminate the connection to indicate the end
+        of the message.
+    */</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span>
+    <span class="identifier">content_length</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+
+    <span class="comment">/** Write zero or one buffer representing the message body.
+
+        Postconditions:
+
+            If return value is `true`:
+                * Callee does not take ownership of resume.
+                * Callee made zero or one calls to `write`.
+                * There is no more data remaining to write.
+
+            If return value is `false`:
+                * Callee does not take ownership of resume.
+                * Callee made one call to `write`.
+
+            If return value is boost::indeterminate:
+                * Callee takes ownership of `resume`.
+                * Caller suspends the write operation
+                  until `resume` is invoked.
+
+        When the caller takes ownership of resume, the
+        asynchronous operation will not complete until the
+        caller destroys the object.
+
+        @param resume A functor to call to resume the write operation
+        after the writer has returned boost::indeterminate.
+
+        @param ec Set to indicate an error. This will cause an
+        asynchronous write operation to complete with the error.
+
+        @param write A functor the writer will call to provide the next
+        set of buffers. Ownership of the buffers is not transferred,
+        the writer must guarantee that the buffers remain valid until the
+        next member function is invoked, which may be the destructor.
+
+        @return `true` if there is data, `false` when done,
+                boost::indeterminate to suspend.
+
+        @note Undefined behavior if the callee takes ownership
+              of resume but does not return boost::indeterminate.
+    */</span>
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">WriteFunction</span><span class="special">&gt;</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tribool</span>
+    <span class="keyword">operator</span><span class="special">()(</span><span class="identifier">resume_context</span><span class="special">&amp;&amp;,</span> <span class="identifier">error_code</span><span class="special">&amp;,</span> <span class="identifier">WriteFunction</span><span class="special">&amp;&amp;</span> <span class="identifier">write</span><span class="special">);</span>
+<span class="special">};</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="streams.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="async_completion.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

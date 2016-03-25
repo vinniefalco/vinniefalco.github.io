@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>websocket::stream::read_frame (1 of 2 overloads)</title>
+<link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../../index.html" title="Beast">
+<link rel="up" href="../read_frame.html" title="websocket::stream::read_frame">
+<link rel="prev" href="../read_frame.html" title="websocket::stream::read_frame">
+<link rel="next" href="overload2.html" title="websocket::stream::read_frame (2 of 2 overloads)">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../read_frame.html"><img src="../../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../read_frame.html"><img src="../../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../../index.html"><img src="../../../../images/home.png" alt="Home"></a><a accesskey="n" href="overload2.html"><img src="../../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="beast.ref.websocket__stream.read_frame.overload1"></a><a class="link" href="overload1.html" title="websocket::stream::read_frame (1 of 2 overloads)">websocket::stream::read_frame
+          (1 of 2 overloads)</a>
+</h5></div></div></div>
+<p>
+            Read a message frame from the stream.
+          </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../../DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">read_frame</span><span class="special">(</span>
+    <span class="identifier">frame_info</span><span class="special">&amp;</span> <span class="identifier">fi</span><span class="special">,</span>
+    <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">);</span>
+</pre>
+<p>
+            This function is used to synchronously read a single message frame from
+            the stream. The call blocks until one of the following is true:
+          </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+                A complete frame is received.
+              </li>
+<li class="listitem">
+                An error occurs on the stream.
+              </li>
+</ul></div>
+<p>
+            This call is implemented in terms of one or more calls to the stream's
+            <code class="computeroutput"><span class="identifier">read_some</span></code> and <code class="computeroutput"><span class="identifier">write_some</span></code> operations.
+          </p>
+<p>
+            Upon success, fi is filled out to reflect the message payload contents.
+            op is set to binary or text, and the fin flag indicates if all the message
+            data has been read in. To read the entire message, callers should repeat
+            the read_frame operation until fi.fin is true. A message with no payload
+            will have fi.fin == true, and zero bytes placed into the stream buffer.
+          </p>
+<p>
+            Control frames encountered while reading frame or message data are handled
+            automatically. Pings are replied to automatically, pongs are routed to
+            the pong callback if the option is set, and close frames initiate the
+            WebSocket close procedure. When a close frame is received, this call
+            will eventually return <span class="red">error::closed</span>. Because
+            of the need to handle control frames, read operations can cause writes
+            to take place.
+          </p>
+<h6>
+<a name="beast.ref.websocket__stream.read_frame.overload1.h0"></a>
+            <span class="phrase"><a name="beast.ref.websocket__stream.read_frame.overload1.parameters"></a></span><a class="link" href="overload1.html#beast.ref.websocket__stream.read_frame.overload1.parameters">Parameters</a>
+          </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">fi</span></dt>
+<dd><p>
+                  An object to store metadata about the message.
+                </p></dd>
+<dt><span class="term">dynabuf</span></dt>
+<dd><p>
+                  A dynamic buffer to hold the message data after any masking or
+                  decompression has been applied.
+                </p></dd>
+</dl>
+</div>
+<h6>
+<a name="beast.ref.websocket__stream.read_frame.overload1.h1"></a>
+            <span class="phrase"><a name="beast.ref.websocket__stream.read_frame.overload1.exceptions"></a></span><a class="link" href="overload1.html#beast.ref.websocket__stream.read_frame.overload1.exceptions">Exceptions</a>
+          </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">boost::system::system_error</span></dt>
+<dd><p>
+                  Thrown on failure.
+                </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../read_frame.html"><img src="../../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../read_frame.html"><img src="../../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../../index.html"><img src="../../../../images/home.png" alt="Home"></a><a accesskey="n" href="overload2.html"><img src="../../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

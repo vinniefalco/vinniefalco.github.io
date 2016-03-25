@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>async_completion::async_completion</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="Beast">
+<link rel="up" href="../async_completion.html" title="async_completion">
+<link rel="prev" href="../async_completion.html" title="async_completion">
+<link rel="next" href="handler.html" title="async_completion::handler">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../async_completion.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_completion.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="handler.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="beast.ref.async_completion.async_completion"></a><a class="link" href="async_completion.html" title="async_completion::async_completion">async_completion::async_completion</a>
+</h4></div></div></div>
+<p>
+          <a class="indexterm" name="id971592"></a>
+Construct the helper.
+        </p>
+<pre class="programlisting"><span class="identifier">async_completion</span><span class="special">(</span>
+    <span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove_reference</span><span class="special">&lt;</span> <span class="identifier">CompletionHandler</span> <span class="special">&gt;::</span><span class="identifier">type</span><span class="special">&amp;</span> <span class="identifier">token</span><span class="special">);</span>
+</pre>
+<h6>
+<a name="beast.ref.async_completion.async_completion.h0"></a>
+          <span class="phrase"><a name="beast.ref.async_completion.async_completion.parameters"></a></span><a class="link" href="async_completion.html#beast.ref.async_completion.async_completion.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">token</span></dt>
+<dd><p>
+                The completion handler. Copies will be made as required. If <code class="computeroutput"><span class="identifier">CompletionHandler</span></code> is movable, it
+                may also be moved.
+              </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../async_completion.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_completion.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="handler.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Design choices</title>
+<link rel="stylesheet" href="../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Beast">
+<link rel="up" href="../index.html" title="Beast">
+<link rel="prev" href="examples.html" title="Examples">
+<link rel="next" href="design/http.html" title="HTTP">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="examples.html"><img src="../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="design/http.html"><img src="../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="beast.design"></a><a class="link" href="design.html" title="Design choices">Design choices</a>
+</h2></div></div></div>
+<p>
+      The implementations are driven by business needs of cryptocurrency server applications
+      (e.g. <a href="https://ripple.com" target="_top">Ripple</a>) written in C++. These
+      needs were not met by existing solutions so Beast was written from scratch
+      as a solution. Beast's design philosophy avoid flaws exhibited by other libraries:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          Don't sacrifice performance.
+        </li>
+<li class="listitem">
+          Don't do too much, otherwise interfaces become rigid.
+        </li>
+<li class="listitem">
+          Symmetric interfaces (client and server the same, or close to it).
+        </li>
+<li class="listitem">
+          Emulate Boost.Asio interfaces as much as possible, since Asio is proven
+          and it is familiar to users.
+        </li>
+<li class="listitem">
+          Let library users make the important decisions such as how to allocate
+          memory or how to leverage flow control.
+        </li>
+</ul></div>
+<p>
+      Beast uses the <a class="link" href="ref/DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong><code class="computeroutput"><span class="identifier">DynamicBuffer</span></code></strong></span></a> concept presented
+      in the Netwoking TS, and relies heavily on the Boost.Asio <span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span> and <span class="bold"><strong><code class="computeroutput"><span class="identifier">MutableBufferSequence</span></code></strong></span>
+      concepts for passing buffers to functions. The authors have found the dynamic
+      buffer and buffer sequence interfaces to be optimal for interacting with Asio,
+      and for other tasks such as incremental parsing of data in buffers (for example,
+      parsing websocket frames stored in a <a class="link" href="ref/static_streambuf.html" title="static_streambuf"><code class="computeroutput"><span class="identifier">static_streambuf</span></code></a>).
+    </p>
+<p>
+      During the development of Beast the authors have studied other software packages
+      and in particular the comments left during the Boost Review process of other
+      packages offering similar functionality. In this section we attempt to address
+      those issues.
+    </p>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term"> "I would also like to see instances of this library being used
+        in production. That would give some evidence that the design works in practice.""
+        </span></dt>
+<dd><p>
+            Beast.HTTP and Beast.WebSocket are production ready and currently running
+            on public servers receiving traffic and handling millions of dollars
+            worth of financial transactions daily. The servers run <span class="bold"><strong>rippled</strong></span>,
+            open source software (<a href="https://github.com/ripple/rippled" target="_top">repository</a>)
+            implementing the <a href="https://ripple.com/files/ripple_consensus_whitepaper.pdf" target="_top"><span class="bold"><strong>Ripple Consensus Protocol</strong></span></a>, technology
+            provided by <a href="http://ripple.com" target="_top">Ripple</a>.
+          </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="examples.html"><img src="../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="design/http.html"><img src="../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

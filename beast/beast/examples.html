@@ -1,0 +1,169 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Examples</title>
+<link rel="stylesheet" href="../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Beast">
+<link rel="up" href="../index.html" title="Beast">
+<link rel="prev" href="websocket/threads.html" title="Thread Safety">
+<link rel="next" href="design.html" title="Design choices">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket/threads.html"><img src="../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="design.html"><img src="../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="beast.examples"></a><a class="link" href="examples.html" title="Examples">Examples</a>
+</h2></div></div></div>
+<p>
+      These usage examples are intended to quickly impress upon readers the flavor
+      of the library. They are complete programs which may be built and run. Source
+      code and build scripts for these programs may be found in the examples directory.
+    </p>
+<h4>
+<a name="beast.examples.h0"></a>
+      <span class="phrase"><a name="beast.examples.http_get"></a></span><a class="link" href="examples.html#beast.examples.http_get">HTTP
+      GET</a>
+    </h4>
+<p>
+      Use HTTP to request the root page from a website and print the response:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">http</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+    <span class="comment">// Normal boost::asio setup</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="keyword">const</span> <span class="identifier">host</span> <span class="special">=</span> <span class="string">"boost.org"</span><span class="special">;</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_service</span> <span class="identifier">ios</span><span class="special">;</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span> <span class="identifier">r</span><span class="special">{</span><span class="identifier">ios</span><span class="special">};</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">sock</span><span class="special">{</span><span class="identifier">ios</span><span class="special">};</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">connect</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span>
+        <span class="identifier">r</span><span class="special">.</span><span class="identifier">resolve</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span><span class="special">::</span><span class="identifier">query</span><span class="special">{</span><span class="identifier">host</span><span class="special">,</span> <span class="string">"http"</span><span class="special">}));</span>
+
+    <span class="comment">// Send HTTP request using beast</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">request_v1</span><span class="special">&lt;</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">method</span> <span class="special">=</span> <span class="string">"GET"</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">url</span> <span class="special">=</span> <span class="string">"/"</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"Host"</span><span class="special">,</span> <span class="identifier">host</span> <span class="special">+</span> <span class="string">":"</span> <span class="special">+</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">to_string</span><span class="special">(</span><span class="identifier">sock</span><span class="special">.</span><span class="identifier">remote_endpoint</span><span class="special">().</span><span class="identifier">port</span><span class="special">()));</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"Beast"</span><span class="special">);</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">prepare</span><span class="special">(</span><span class="identifier">req</span><span class="special">);</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">);</span>
+
+    <span class="comment">// Receive and print HTTP response using beast</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">response_v1</span><span class="special">&lt;</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">streambuf_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">resp</span><span class="special">);</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="beast.examples.h1"></a>
+      <span class="phrase"><a name="beast.examples.websocket"></a></span><a class="link" href="examples.html#beast.examples.websocket">WebSocket</a>
+    </h4>
+<p>
+      Establish a WebSocket connection, send a message and receive the reply:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">core</span><span class="special">/</span><span class="identifier">to_string</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">websocket</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">asio</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+    <span class="comment">// Normal boost::asio setup</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="keyword">const</span> <span class="identifier">host</span> <span class="special">=</span> <span class="string">"echo.websocket.org"</span><span class="special">;</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">io_service</span> <span class="identifier">ios</span><span class="special">;</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span> <span class="identifier">r</span><span class="special">{</span><span class="identifier">ios</span><span class="special">};</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">sock</span><span class="special">{</span><span class="identifier">ios</span><span class="special">};</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">connect</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span>
+        <span class="identifier">r</span><span class="special">.</span><span class="identifier">resolve</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">resolver</span><span class="special">::</span><span class="identifier">query</span><span class="special">{</span><span class="identifier">host</span><span class="special">,</span> <span class="string">"80"</span><span class="special">}));</span>
+
+    <span class="comment">// WebSocket connect and send message using beast</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;&gt;</span> <span class="identifier">ws</span><span class="special">{</span><span class="identifier">sock</span><span class="special">};</span>
+    <span class="identifier">ws</span><span class="special">.</span><span class="identifier">handshake</span><span class="special">(</span><span class="identifier">host</span><span class="special">,</span> <span class="string">"/"</span><span class="special">);</span>
+    <span class="identifier">ws</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">buffer</span><span class="special">(</span><span class="string">"Hello, world!"</span><span class="special">));</span>
+
+    <span class="comment">// Receive WebSocket message, print and close using beast</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+    <span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">opcode</span> <span class="identifier">op</span><span class="special">;</span>
+    <span class="identifier">ws</span><span class="special">.</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">op</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">);</span>
+    <span class="identifier">ws</span><span class="special">.</span><span class="identifier">close</span><span class="special">(</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">close_code</span><span class="special">::</span><span class="identifier">normal</span><span class="special">);</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">sb</span><span class="special">.</span><span class="identifier">data</span><span class="special">())</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="beast.examples.h2"></a>
+      <span class="phrase"><a name="beast.examples.http_crawl"></a></span><a class="link" href="examples.html#beast.examples.http_crawl">HTTP
+      Crawl</a>
+    </h4>
+<p>
+      This example retrieves the page at each of the most popular domains as measured
+      by Alexa.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          <a href="../examples/http_crawl.cpp" target="_top">examples/http_crawl.cpp</a>
+        </li></ul></div>
+<h4>
+<a name="beast.examples.h3"></a>
+      <span class="phrase"><a name="beast.examples.http_server"></a></span><a class="link" href="examples.html#beast.examples.http_server">HTTP
+      Server</a>
+    </h4>
+<p>
+      This example demonstrates both synchronous and asynchronous server implementations.
+      It also provides an example of implementing a <span class="bold"><strong>Body</strong></span>
+      type, in <code class="computeroutput"><span class="identifier">file_body</span></code>.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a href="../examples/file_body.hpp" target="_top">examples/file_body.hpp</a>
+        </li>
+<li class="listitem">
+          <a href="../examples/http_async_server.hpp" target="_top">examples/http_async_server.hpp</a>
+        </li>
+<li class="listitem">
+          <a href="../examples/http_sync_server.hpp" target="_top">examples/http_sync_server.hpp</a>
+        </li>
+<li class="listitem">
+          <a href="../examples/http_server.cpp" target="_top">examples/http_server.cpp</a>
+        </li>
+</ul></div>
+<h4>
+<a name="beast.examples.h4"></a>
+      <span class="phrase"><a name="beast.examples.listings"></a></span><a class="link" href="examples.html#beast.examples.listings">Listings</a>
+    </h4>
+<p>
+      These are stand-alone listings of the HTTP and WebSocket examples.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <a href="../examples/http_example.cpp" target="_top">examples/http_example.cpp</a>
+        </li>
+<li class="listitem">
+          <a href="../examples/websocket_example.cpp" target="_top">examples/websocket_example.cpp</a>
+        </li>
+</ul></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket/threads.html"><img src="../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="design.html"><img src="../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

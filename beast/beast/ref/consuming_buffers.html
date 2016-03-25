@@ -1,0 +1,225 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>consuming_buffers</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="consumed_buffers.html" title="consumed_buffers">
+<link rel="next" href="consuming_buffers/begin.html" title="consuming_buffers::begin">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="consumed_buffers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="consuming_buffers/begin.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.consuming_buffers"></a><a class="link" href="consuming_buffers.html" title="consuming_buffers">consuming_buffers</a>
+</h3></div></div></div>
+<p>
+        Adapter to trim the front of a <code class="computeroutput"><span class="identifier">BufferSequence</span></code>.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="BufferSequence.html" title="BufferSequence requirements"><span class="bold"><strong>BufferSequence</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">ValueType</span> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">BufferSequence</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">consuming_buffers</span>
+</pre>
+<h5>
+<a name="beast.ref.consuming_buffers.h0"></a>
+        <span class="phrase"><a name="beast.ref.consuming_buffers.types"></a></span><a class="link" href="consuming_buffers.html#beast.ref.consuming_buffers.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/const_iterator.html" title="consuming_buffers::const_iterator"><span class="bold"><strong>const_iterator</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  A bidirectional iterator type that may be used to read elements.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/value_type.html" title="consuming_buffers::value_type"><span class="bold"><strong>value_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type for each element in the list of buffers.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.consuming_buffers.h1"></a>
+        <span class="phrase"><a name="beast.ref.consuming_buffers.member_functions"></a></span><a class="link" href="consuming_buffers.html#beast.ref.consuming_buffers.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/begin.html" title="consuming_buffers::begin"><span class="bold"><strong>begin</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get a bidirectional iterator to the first element.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/consume.html" title="consuming_buffers::consume"><span class="bold"><strong>consume</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Remove bytes from the beginning of the sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/consuming_buffers.html" title="consuming_buffers::consuming_buffers"><span class="bold"><strong>consuming_buffers</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move constructor.
+                </p>
+                <p>
+                  Copy constructor.
+                </p>
+                <p>
+                  Construct to represent a buffer sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/end.html" title="consuming_buffers::end"><span class="bold"><strong>end</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get a bidirectional iterator for one past the last element.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="consuming_buffers/operator_eq_.html" title="consuming_buffers::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move assignment.
+                </p>
+                <p>
+                  Copy assignment.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        This adapter wraps a buffer sequence to create a new sequence which may be
+        incrementally consumed. Bytes consumed are removed from the front of the
+        buffer. The underlying memory is not changed, instead the adapter efficiently
+        iterates through a subset of the buffers wrapped.
+      </p>
+<p>
+        The wrapped buffer is not modified, a copy is made instead. Ownership of
+        the underlying memory is not transferred, the application is still responsible
+        for managing its lifetime.
+      </p>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">BufferSequence</span></dt>
+<dd><p>
+              The buffer sequence to wrap.
+            </p></dd>
+<dt><span class="term">ValueType</span></dt>
+<dd><p>
+              The type of buffer of the final buffer sequence. This can be different
+              from the buffer type of the wrapped sequence. For example, a <code class="computeroutput"><span class="identifier">MutableBufferSequence</span></code> can be transformed
+              into a consumable <code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code>.
+              Violations of buffer const safety are not permitted, and will result
+              in a compile error.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.consuming_buffers.h2"></a>
+        <span class="phrase"><a name="beast.ref.consuming_buffers.requirements"></a></span><a class="link" href="consuming_buffers.html#beast.ref.consuming_buffers.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/core/consuming_buffers.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/core.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="consumed_buffers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="consuming_buffers/begin.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

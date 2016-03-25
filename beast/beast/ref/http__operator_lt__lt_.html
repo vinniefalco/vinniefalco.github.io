@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::operator&lt;&lt;</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__no_content_length.html" title="http::no_content_length">
+<link rel="next" href="http__param_list.html" title="http::param_list">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__no_content_length.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__param_list.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__operator_lt__lt_"></a><a class="link" href="http__operator_lt__lt_.html" title="http::operator&lt;&lt;">http::operator&lt;&lt;</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1013340"></a>
+Serialize a HTTP/1 message to an ostream.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span><span class="special">&amp;</span>
+<span class="keyword">operator</span><span class="special">&lt;&lt;(</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span><span class="special">&amp;</span> <span class="identifier">os</span><span class="special">,</span>
+    <span class="identifier">message_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+</pre>
+<p>
+        The function converts the message to its HTTP/1 serialized representation
+        and stores the result in the output stream.
+      </p>
+<p>
+        The implementation will automatically perform chunk encoding if the contents
+        of the message indicate that chunk encoding is required.
+      </p>
+<h5>
+<a name="beast.ref.http__operator_lt__lt_.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__operator_lt__lt_.parameters"></a></span><a class="link" href="http__operator_lt__lt_.html#beast.ref.http__operator_lt__lt_.parameters">Parameters</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">os</span></dt>
+<dd><p>
+              The ostream to write to.
+            </p></dd>
+<dt><span class="term">msg</span></dt>
+<dd><p>
+              The message to write.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.http__operator_lt__lt_.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__operator_lt__lt_.requirements"></a></span><a class="link" href="http__operator_lt__lt_.html#beast.ref.http__operator_lt__lt_.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/write.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__no_content_length.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__param_list.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

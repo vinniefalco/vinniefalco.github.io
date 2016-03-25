@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>HTTP</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../design.html" title="Design choices">
+<link rel="prev" href="../design.html" title="Design choices">
+<link rel="next" href="websocket.html" title="WebSocket">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../design.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../design.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.design.http"></a><a class="link" href="http.html" title="HTTP">HTTP</a>
+</h3></div></div></div>
+<p>
+        For HTTP we to model the message to maximize flexibility of implementation
+        strategies while allowing familiar verbs such as <span class="bold"><strong><code class="computeroutput"><span class="identifier">read</span></code></strong></span> and <span class="bold"><strong><code class="computeroutput"><span class="identifier">write</span></code></strong></span>. The HTTP interface is
+        further driven by the needs of the WebSocket module, as a WebSocket session
+        requires a HTTP Upgrade handshake exchange at the start. Other design goals:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            Don't try to invent a complete web server or client
+          </li>
+<li class="listitem">
+            Have simple free functions to send and receive messages.
+          </li>
+<li class="listitem">
+            Allow the message object to be customized,
+          </li>
+</ul></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term"> "Some more advanced examples, e.g. including TLS with client/server
+          certificates would help."" </span></dt>
+<dd><p>
+              The HTTP interface doesn't try to reinvent the wheel, it just uses
+              the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span></code> or <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>
+              that you set up beforehand. Callers use the interfaces already existing
+              on those objects to make outgoing connections, accept incoming connections,
+              or establish TLS sessions with certificates. We find the available
+              Asio examples for performing these tasks sufficient.
+            </p></dd>
+<dt><span class="term"> "A built-in router?" </span></dt>
+<dd><p>
+              We presume this means a facility to match expressions against the URI
+              in HTTP requests, and dispatch them to calling code. The authors feel
+              that this is a responsibility of higher level code. Beast.HTTP does
+              not try to offer a web server.
+            </p></dd>
+<dt><span class="term"> "Cookies? Forms/File Uploads?"" </span></dt>
+<dd><p>
+              Cookies, or managing these types of HTTP headers in general, is the
+              responsibility of higher levels. Beast.HTTP just tries to get complete
+              messages to and from the calling code. It deals in the HTTP headers
+              just enough to process the message body and leaves the rest to callers.
+              However, for forms and file uploads the symmetric interface of the
+              message class allows HTTP requests to include arbitrary body types
+              including those needed to upload a file or fill out a form.
+            </p></dd>
+<dt><span class="term"> "...supporting TLS (is this a feature? If not this would be
+          a show-stopper), etc. </span></dt>
+<dd><p>
+              Beast.HTTP does not provide direct facilities for implementing TLS
+              connections; however, the interfaces already existing on the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code> are available and can be used
+              to establish secure connections. Then, functions like <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span></code> or <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">async_write</span></code>
+              can work with those encrypted connections with no problem.
+            </p></dd>
+<dt><span class="term"> "There should also be more examples of how to integrate the
+          http service with getting files from the file system, generating responses
+          CGI-style" </span></dt>
+<dd><p>
+              The design goal for the library is to not try to invent a web server.
+              We feel that there is a strong need for a basic implementation that
+              models the HTTP message and provides functions to send and receive
+              them over Asio. Such an implementation should serve as a building block
+              upon which higher abstractions such as the aforementioned HTTP service
+              or cgi-gateway can be built.
+            </p></dd>
+<dt><span class="term"> "You should send a 100-continue to ask for the rest of the
+          body if required." </span></dt>
+<dd><p>
+              These behaviors are best left to the calling software. A future library
+              can build on Beast.HTTP to provide these behaviors.
+            </p></dd>
+<dt><span class="term"> "What about HTTP/2?"" </span></dt>
+<dd>
+<p>
+              Many reviewers feel that HTTP/2 support is an essential feature of
+              a HTTP library. The authors agree that HTTP/2 is important but also
+              feel that the most sensible implementation is one that does not re-use
+              the same network reading and writing interface for 2 as that for 1.0
+              and 1.1.
+            </p>
+<p>
+              The Beast.HTTP message model is suitable for HTTP/2 and can be re-used.
+              The IEFT HTTP Working Group adopted message compatiblity with HTTP/1.x
+              as an explicit goal. A parser can simply emit full headers after decoding
+              the compressed HTTP/2 headers. The stream ID is not logicaly part of
+              the message but rather message metadata and should be communicated
+              out-of-band (see below). HTTP/2 sessions begin with a traditional HTTP/1.1
+              Upgrade similar in fashion to the WebSocket upgrade. A HTTP/2 implementation
+              can use existing Beast.HTTP primitives to perform this handshake.
+            </p>
+<p>
+              Free functions for HTTP/2 sessions are not possible because of the
+              requirement to maintain per-session state. For example, to decode the
+              compressed headers. Or to remember and respect the remote peer's window
+              settings. The authors propose that a HTTP/2 implementation be written
+              as a separate class template, similar to the <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code>
+              but with additional interfaces to support version 2 features. We feel
+              that Beast.HTTP offers enough useful functionality to justify inclusion,
+              so that developers can take advantage of it right away instead of waiting.
+            </p>
+</dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../design.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../design.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

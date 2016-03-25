@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Streams requirements</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="Reader.html" title="Reader requirements">
+<link rel="next" href="Writer.html" title="Writer requirements">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="Reader.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="Writer.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.streams"></a><a class="link" href="streams.html" title="Streams requirements">Streams requirements</a>
+</h3></div></div></div>
+<p>
+        Stream types represent objects capable of performing synchronous or asynchronous
+        I/O. They are based on concepts from <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span></code>.
+      </p>
+<h5>
+<a name="beast.ref.streams.h0"></a>
+        <span class="phrase"><a name="beast.ref.streams.Stream"></a></span><a class="link" href="streams.html#beast.ref.streams.Stream">Stream</a>
+      </h5>
+<p>
+        A type modeling <span class="bold"><strong><code class="computeroutput"><span class="identifier">Stream</span></code></strong></span>
+        meets either or both of the following requirements:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">AsyncStream</span></code></strong></span>
+          </li>
+<li class="listitem">
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">SyncStream</span></code></strong></span>
+          </li>
+</ul></div>
+<h5>
+<a name="beast.ref.streams.h1"></a>
+        <span class="phrase"><a name="beast.ref.streams.AsyncStream"></a></span><a class="link" href="streams.html#beast.ref.streams.AsyncStream">AsyncStream</a>
+      </h5>
+<p>
+        A type modeling <span class="bold"><strong><code class="computeroutput"><span class="identifier">AsyncStream</span></code></strong></span>
+        meets the following requirements:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncReadStream.html" target="_top"><span class="bold"><strong><code class="computeroutput"><span class="identifier">AsyncReadStream</span></code></strong></span></a>
+          </li>
+<li class="listitem">
+            <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncWriteStream.html" target="_top"><span class="bold"><strong><code class="computeroutput"><span class="identifier">AsyncWriteStream</span></code></strong></span></a>
+          </li>
+</ul></div>
+<h5>
+<a name="beast.ref.streams.h2"></a>
+        <span class="phrase"><a name="beast.ref.streams.SyncStream"></a></span><a class="link" href="streams.html#beast.ref.streams.SyncStream">SyncStream</a>
+      </h5>
+<p>
+        A type modeling <span class="bold"><strong><code class="computeroutput"><span class="identifier">SyncStream</span></code></strong></span>
+        meets the following requirements:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong><code class="computeroutput"><span class="identifier">SyncReadStream</span></code></strong></span></a>
+          </li>
+<li class="listitem">
+            <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong><code class="computeroutput"><span class="identifier">SyncWriteStream</span></code></strong></span></a>
+          </li>
+</ul></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="Reader.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="Writer.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

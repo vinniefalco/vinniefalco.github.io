@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Headers</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="Using HTTP">
+<link rel="prev" href="message.html" title="Message">
+<link rel="next" href="body.html" title="Body">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="message.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="body.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.headers"></a><a class="link" href="headers.html" title="Headers">Headers</a>
+</h3></div></div></div>
+<p>
+        The <span class="bold"><strong><code class="computeroutput"><span class="identifier">Headers</span></code></strong></span>
+        type represents a container that can set or retrieve the headers in a message.
+        Beast provides the <a class="link" href="../ref/http__basic_headers.html" title="http::basic_headers"><code class="computeroutput"><span class="identifier">basic_headers</span></code></a> class which serves
+        the needs for most users. It supports modification and inspection of values.
+        The field names are not case-sensitive.
+      </p>
+<p>
+        These statements change the values of the headers in the message passed:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">set_fields</span><span class="special">(</span><span class="identifier">request_v1</span><span class="special">&lt;</span><span class="identifier">Body</span><span class="special">&gt;&amp;</span> <span class="identifier">req</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="keyword">if</span><span class="special">(!</span> <span class="identifier">req</span><span class="special">.</span><span class="identifier">exists</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">))</span>
+        <span class="identifier">req</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"myWebClient"</span><span class="special">);</span>
+
+    <span class="keyword">if</span><span class="special">(</span><span class="identifier">req</span><span class="special">.</span><span class="identifier">exists</span><span class="special">(</span><span class="string">"Accept-Charset"</span><span class="special">))</span>
+        <span class="identifier">req</span><span class="special">.</span><span class="identifier">erase</span><span class="special">(</span><span class="string">"Accept-Charset"</span><span class="special">);</span>
+
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"Accept"</span><span class="special">,</span> <span class="string">"text/plain"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h5>
+<a name="beast.http.headers.h0"></a>
+        <span class="phrase"><a name="beast.http.headers.advanced"></a></span><a class="link" href="headers.html#beast.http.headers.advanced">Advanced</a>
+      </h5>
+<p>
+        This illustration shows more detail about the <a class="link" href="../ref/http__message.html" title="http::message"><span class="bold"><strong><code class="computeroutput"><span class="identifier">message</span></code></strong></span></a>
+        class template (boilerplate present in the actual declaration has been removed
+        for clarity):
+      </p>
+<p>
+        <span class="inlinemediaobject"><img src="../../images/message.png" width="580"></span>
+      </p>
+<p>
+        User defined <span class="bold"><strong><code class="computeroutput"><span class="identifier">Headers</span></code></strong></span>
+        types are possible. To support serialization, the type must meet the requirements
+        of <a class="link" href="../ref/FieldSequence.html" title="FieldSequence requirements"><span class="bold"><strong><code class="computeroutput"><span class="identifier">FieldSequence</span></code></strong></span></a>. To support
+        parsing using the provided parser, the type must provide the <code class="computeroutput"><span class="identifier">insert</span></code> member function.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="message.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="body.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

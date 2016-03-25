@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>basic_store::open</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="NuDB">
+<link rel="up" href="../basic_store.html" title="basic_store">
+<link rel="prev" href="log_path.html" title="basic_store::log_path">
+<link rel="next" href="operator_eq_.html" title="basic_store::operator=">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="log_path.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../basic_store.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="operator_eq_.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="nudb.ref.basic_store.open"></a><a class="link" href="open.html" title="basic_store::open">basic_store::open</a>
+</h4></div></div></div>
+<p>
+          <a class="indexterm" name="id953724"></a>
+Open a database.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">open</span><span class="special">(</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">dat_path</span><span class="special">,</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">key_path</span><span class="special">,</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">log_path</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">,</span>
+    <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
+</pre>
+<p>
+          The database identified by the specified data, key, and log file paths
+          is opened. If a log file is present, the recovery mechanism is invoked
+          to restore database integrity before the function returns.
+        </p>
+<h6>
+<a name="nudb.ref.basic_store.open.h0"></a>
+          <span class="phrase"><a name="nudb.ref.basic_store.open.requirements"></a></span><a class="link" href="open.html#nudb.ref.basic_store.open.requirements">Requirements</a>
+        </h6>
+<p>
+          The database must be not be open.
+        </p>
+<h6>
+<a name="nudb.ref.basic_store.open.h1"></a>
+          <span class="phrase"><a name="nudb.ref.basic_store.open.thread_safety"></a></span><a class="link" href="open.html#nudb.ref.basic_store.open.thread_safety">Thread
+          safety</a>
+        </h6>
+<p>
+          Not thread safe. The caller is responsible for ensuring that no other member
+          functions are called concurrently.
+        </p>
+<h6>
+<a name="nudb.ref.basic_store.open.h2"></a>
+          <span class="phrase"><a name="nudb.ref.basic_store.open.parameters"></a></span><a class="link" href="open.html#nudb.ref.basic_store.open.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">dat_path</span></dt>
+<dd><p>
+                The path to the data file.
+              </p></dd>
+<dt><span class="term">key_path</span></dt>
+<dd><p>
+                The path to the key file.
+              </p></dd>
+<dt><span class="term">log_path</span></dt>
+<dd><p>
+                The path to the log file.
+              </p></dd>
+<dt><span class="term">ec</span></dt>
+<dd><p>
+                Set to the error, if any occurred.
+              </p></dd>
+<dt><span class="term">args</span></dt>
+<dd><p>
+                Optional arguments passed to File constructors.
+              </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="log_path.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../basic_store.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="operator_eq_.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

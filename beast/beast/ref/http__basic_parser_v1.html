@@ -1,0 +1,369 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::basic_parser_v1</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__basic_headers/_basic_headers.html" title="http::basic_headers::~basic_headers">
+<link rel="next" href="http__basic_parser_v1/basic_parser_v1.html" title="http::basic_parser_v1::basic_parser_v1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__basic_headers/_basic_headers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__basic_parser_v1/basic_parser_v1.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__basic_parser_v1"></a><a class="link" href="http__basic_parser_v1.html" title="http::basic_parser_v1">http::basic_parser_v1</a>
+</h3></div></div></div>
+<p>
+        A parser for decoding HTTP/1 wire format messages.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Derived</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">basic_parser_v1</span> <span class="special">:</span>
+    <span class="keyword">public</span> <span class="identifier">parser_base</span>
+</pre>
+<h5>
+<a name="beast.ref.http__basic_parser_v1.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser_v1.member_functions"></a></span><a class="link" href="http__basic_parser_v1.html#beast.ref.http__basic_parser_v1.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/basic_parser_v1.html" title="http::basic_parser_v1::basic_parser_v1"><span class="bold"><strong>basic_parser_v1</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Copy constructor.
+                </p>
+                <p>
+                  Default constructor.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/complete.html" title="http::basic_parser_v1::complete"><span class="bold"><strong>complete</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the parse has completed succesfully.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/flags.html" title="http::basic_parser_v1::flags"><span class="bold"><strong>flags</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns internal flags associated with the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/http_major.html" title="http::basic_parser_v1::http_major"><span class="bold"><strong>http_major</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the major HTTP version number.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/http_minor.html" title="http::basic_parser_v1::http_minor"><span class="bold"><strong>http_minor</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the minor HTTP version number.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/keep_alive.html" title="http::basic_parser_v1::keep_alive"><span class="bold"><strong>keep_alive</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the connection should be kept open.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/needs_eof.html" title="http::basic_parser_v1::needs_eof"><span class="bold"><strong>needs_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the message end is indicated by eof.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/operator_eq_.html" title="http::basic_parser_v1::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Copy assignment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/set_option.html" title="http::basic_parser_v1::set_option"><span class="bold"><strong>set_option</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set options on the parser.
+                </p>
+                <p>
+                  Set the headers maximum size option.
+                </p>
+                <p>
+                  Set the body maximum size option.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/status_code.html" title="http::basic_parser_v1::status_code"><span class="bold"><strong>status_code</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the numeric HTTP Status-Code of a response.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/upgrade.html" title="http::basic_parser_v1::upgrade"><span class="bold"><strong>upgrade</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the message is an upgrade message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/write.html" title="http::basic_parser_v1::write"><span class="bold"><strong>write</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Write a sequence of buffers to the parser.
+                </p>
+                <p>
+                  Write a single buffer of data to the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser_v1/write_eof.html" title="http::basic_parser_v1::write_eof"><span class="bold"><strong>write_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called to indicate the end of file.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        This parser is designed to efficiently parse messages in the HTTP/1 wire
+        format. It allocates no memory and uses minimal state. It will handle chunked
+        encoding and it understands the semantics of the Connection and Content-Length
+        header fields.
+      </p>
+<p>
+        The interface uses CRTP (Curiously Recurring Template Pattern). To use this
+        class, derive from basic_parser. When bytes are presented, the implementation
+        will make a series of zero or more calls to derived class members functions
+        (referred to as "callbacks" from here on) matching a specific signature.
+      </p>
+<p>
+        Callbacks are detected through SFINAE. The derived class may implement as
+        few or as many of the members as needed. These are the signatures of the
+        callbacks:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_start</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;)</span></code> Called when the first valid octet
+            of a new message is received
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_method</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called for each piece of the Request-Method
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_uri</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called for each piece of the Request-URI
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_reason</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called for each piece of the reason-phrase
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_request</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;)</span></code> Called after the entire Request-Line
+            has been parsed successfully.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_response</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;)</span></code> Called after the entire Response-Line
+            has been parsed successfully.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_field</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called for each piece of the current header field.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_value</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called for each piece of the current header value.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">int</span> <span class="identifier">on_headers</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span>
+            <span class="identifier">content_length</span><span class="special">,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called when all the headers have been parsed successfully.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_body</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;)</span></code>
+            Called for each piece of the body. If the headers indicated chunked encoding,
+            the chunk encoding is removed from the buffer before being passed to
+            the callback.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_complete</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;)</span></code> Called when the entire message
+            has been parsed successfully. At this point, @ref basic_parser_v1::complete
+            returns <code class="computeroutput"><span class="keyword">true</span></code>, and the parser
+            is ready to parse another message if keep_alive would return <code class="computeroutput"><span class="keyword">true</span></code>.
+          </li>
+</ul></div>
+<p>
+        The return value of <code class="computeroutput"><span class="identifier">on_headers</span></code>
+        is special, it controls whether or not the parser should expect a body. These
+        are the return values:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="emphasis"><em>0</em></span> The parser should expect a body
+          </li>
+<li class="listitem">
+            <span class="emphasis"><em>1</em></span> The parser should skip the body. For example,
+            this is used when sending a response to a HEAD request.
+          </li>
+<li class="listitem">
+            <span class="emphasis"><em>2</em></span> The parser should skip ths body, this is an upgrade
+            to a different protocol.
+          </li>
+</ul></div>
+<p>
+        The parser uses traits to determine if the callback is possible. If the Derived
+        type omits one or more callbacks, they are simply skipped with no compilation
+        error. The default behavior of <code class="computeroutput"><span class="identifier">on_body</span></code>
+        when the derived class does not provide the member, is to specify that the
+        body should not be skipped.
+      </p>
+<p>
+        If a callback sets an error, parsing stops at the current octet and the error
+        is returned to the caller.
+      </p>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">isRequest</span></dt>
+<dd><p>
+              A <code class="computeroutput"><span class="keyword">bool</span></code> indicating whether
+              the parser will be presented with request or response message.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.http__basic_parser_v1.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser_v1.requirements"></a></span><a class="link" href="http__basic_parser_v1.html#beast.ref.http__basic_parser_v1.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/basic_parser_v1.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__basic_headers/_basic_headers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__basic_parser_v1/basic_parser_v1.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

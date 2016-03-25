@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Thread Safety</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../websocket.html" title="WebSocket">
+<link rel="prev" href="io_service.html" title="The io_service">
+<link rel="next" href="../examples.html" title="Examples">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="io_service.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../websocket.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../examples.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.websocket.threads"></a><a class="link" href="threads.html" title="Thread Safety">Thread Safety</a>
+</h3></div></div></div>
+<p>
+        Like a regular asio socket, a <a class="link" href="../ref/websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">stream</span></code></a> is not thread safe. Callers
+        are responsible for synchronizing operations on the socket using an implicit
+        or explicit strand, as per the Asio documentation. The asynchronous interface
+        supports one active read and one active write simultaneously. Undefined behavior
+        results if two or more reads or two or more writes are attempted concurrently.
+        Caller initiated WebSocket ping, pong, and close operations each count as
+        an active write.
+      </p>
+<p>
+        The implementation uses composed asynchronous operations internally; a high
+        level read can cause both reads and writes to take place on the underlying
+        stream. This behavior is transparent to callers.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="io_service.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../websocket.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../examples.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
