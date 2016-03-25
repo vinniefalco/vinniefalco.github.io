@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>win32_file::open</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="NuDB">
+<link rel="up" href="../win32_file.html" title="win32_file">
+<link rel="prev" href="is_open.html" title="win32_file::is_open">
+<link rel="next" href="operator_eq_.html" title="win32_file::operator=">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="is_open.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../win32_file.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="operator_eq_.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="nudb.ref.win32_file.open"></a><a class="link" href="open.html" title="win32_file::open">win32_file::open</a>
+</h4></div></div></div>
+<p>
+          <a class="indexterm" name="id973055"></a>
+Open a file.
+        </p>
+<pre class="programlisting"><span class="keyword">void</span>
+<span class="identifier">open</span><span class="special">(</span>
+    <span class="identifier">file_mode</span> <span class="identifier">mode</span><span class="special">,</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">path</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<h6>
+<a name="nudb.ref.win32_file.open.h0"></a>
+          <span class="phrase"><a name="nudb.ref.win32_file.open.requirements"></a></span><a class="link" href="open.html#nudb.ref.win32_file.open.requirements">Requirements</a>
+        </h6>
+<p>
+          The file must not already be open.
+        </p>
+<h6>
+<a name="nudb.ref.win32_file.open.h1"></a>
+          <span class="phrase"><a name="nudb.ref.win32_file.open.parameters"></a></span><a class="link" href="open.html#nudb.ref.win32_file.open.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">mode</span></dt>
+<dd><p>
+                The open mode, which must be a valid <a class="link" href="../file_mode.html" title="file_mode"><code class="computeroutput"><span class="identifier">file_mode</span></code></a>.
+              </p></dd>
+<dt><span class="term">path</span></dt>
+<dd><p>
+                The path of the file to open.
+              </p></dd>
+<dt><span class="term">ec</span></dt>
+<dd><p>
+                Set to the error, if any occurred.
+              </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="is_open.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../win32_file.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="operator_eq_.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

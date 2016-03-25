@@ -1,0 +1,261 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>error</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="errc.html" title="errc">
+<link rel="next" href="error_category.html" title="error_category">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1600" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="errc.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="error_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.ref.error"></a><a class="link" href="error.html" title="error">error</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id959106"></a>
+Database error codes.
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">error</span>
+</pre>
+<p>
+        <a class="indexterm" name="id959101"></a>
+ <a class="indexterm" name="id959104"></a>
+ <a class="indexterm" name="id959168"></a>
+ <a class="indexterm" name="id959175"></a>
+ <a class="indexterm" name="id959163"></a>
+ <a class="indexterm" name="id959139"></a>
+ <a class="indexterm" name="id959191"></a>
+ <a class="indexterm" name="id959199"></a>
+ <a class="indexterm" name="id959202"></a>
+ <a class="indexterm" name="id959205"></a>
+ <a class="indexterm" name="id959196"></a>
+ <a class="indexterm" name="id959218"></a>
+ <a class="indexterm" name="id959252"></a>
+ <a class="indexterm" name="id959224"></a>
+ <a class="indexterm" name="id959244"></a>
+ <a class="indexterm" name="id959266"></a>
+ <a class="indexterm" name="id959282"></a>
+ <a class="indexterm" name="id959280"></a>
+ <a class="indexterm" name="id959290"></a>
+ <a class="indexterm" name="id959271"></a>
+ <a class="indexterm" name="id959312"></a>
+ <a class="indexterm" name="id959310"></a>
+ <a class="indexterm" name="id959301"></a>
+ <a class="indexterm" name="id959328"></a>
+ <a class="indexterm" name="id959355"></a>
+ <a class="indexterm" name="id959330"></a>
+ <a class="indexterm" name="id959358"></a>
+ <a class="indexterm" name="id959332"></a>
+ <a class="indexterm" name="id959365"></a>
+ <a class="indexterm" name="id959404"></a>
+ <a class="indexterm" name="id959379"></a>
+ <a class="indexterm" name="id959374"></a>
+ <a class="indexterm" name="id959388"></a>
+ <a class="indexterm" name="id959402"></a>
+ <a class="indexterm" name="id959422"></a>
+ <a class="indexterm" name="id959440"></a>
+ <a class="indexterm" name="id959427"></a>
+ <a class="indexterm" name="id959432"></a>
+ <a class="indexterm" name="id959464"></a>
+ <a class="indexterm" name="id959469"></a>
+
+      </p>
+<h5>
+<a name="nudb.ref.error.h0"></a>
+        <span class="phrase"><a name="nudb.ref.error.values"></a></span><a class="link" href="error.html#nudb.ref.error.values">Values</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">success</span></dt>
+<dd><p>
+              No error.
+            </p></dd>
+<dt><span class="term">key_not_found</span></dt>
+<dd><p>
+              The specified key was not found.
+            </p></dd>
+<dt><span class="term">key_exists</span></dt>
+<dd><p>
+              The specified key already exists.
+            </p></dd>
+<dt><span class="term">short_read</span></dt>
+<dd><p>
+              A file read returned less data than expected.
+            </p></dd>
+<dt><span class="term">log_file_exists</span></dt>
+<dd><p>
+              A log file is present.
+            </p></dd>
+<dt><span class="term">no_key_file</span></dt>
+<dd><p>
+              No key file exists.
+            </p></dd>
+<dt><span class="term">too_many_buckets</span></dt>
+<dd><p>
+              Too many buckets in key file.
+            </p></dd>
+<dt><span class="term">not_data_file</span></dt>
+<dd><p>
+              Not a data file.
+            </p></dd>
+<dt><span class="term">not_key_file</span></dt>
+<dd><p>
+              Not a key file.
+            </p></dd>
+<dt><span class="term">not_log_file</span></dt>
+<dd><p>
+              Not a log file.
+            </p></dd>
+<dt><span class="term">different_version</span></dt>
+<dd><p>
+              Different version.
+            </p></dd>
+<dt><span class="term">invalid_key_size</span></dt>
+<dd><p>
+              Invalid key size.
+            </p></dd>
+<dt><span class="term">invalid_block_size</span></dt>
+<dd><p>
+              Invalid block size.
+            </p></dd>
+<dt><span class="term">short_key_file</span></dt>
+<dd><p>
+              Short key file.
+            </p></dd>
+<dt><span class="term">short_bucket</span></dt>
+<dd><p>
+              Short bucket.
+            </p></dd>
+<dt><span class="term">short_spill</span></dt>
+<dd><p>
+              Short spill.
+            </p></dd>
+<dt><span class="term">short_data_record</span></dt>
+<dd><p>
+              Short record.
+            </p></dd>
+<dt><span class="term">short_value</span></dt>
+<dd><p>
+              Short value.
+            </p></dd>
+<dt><span class="term">hash_mismatch</span></dt>
+<dd><p>
+              Hash mismatch.
+            </p></dd>
+<dt><span class="term">invalid_load_factor</span></dt>
+<dd><p>
+              Invalid load factor.
+            </p></dd>
+<dt><span class="term">invalid_capacity</span></dt>
+<dd><p>
+              Invalid capacity.
+            </p></dd>
+<dt><span class="term">invalid_bucket_count</span></dt>
+<dd><p>
+              Invalid bucket count.
+            </p></dd>
+<dt><span class="term">invalid_bucket_size</span></dt>
+<dd><p>
+              Invalid bucket size.
+            </p></dd>
+<dt><span class="term">incomplete_data_file_header</span></dt>
+<dd><p>
+              The data file header was incomplete.
+            </p></dd>
+<dt><span class="term">incomplete_key_file_header</span></dt>
+<dd><p>
+              The key file header was incomplete.
+            </p></dd>
+<dt><span class="term">invalid_log_record</span></dt>
+<dd><p>
+              Invalid log record.
+            </p></dd>
+<dt><span class="term">invalid_log_spill</span></dt>
+<dd><p>
+              Invalid spill in log record.
+            </p></dd>
+<dt><span class="term">invalid_log_offset</span></dt>
+<dd><p>
+              Invalid offset in log record.
+            </p></dd>
+<dt><span class="term">invalid_log_index</span></dt>
+<dd><p>
+              Invalid index in log record.
+            </p></dd>
+<dt><span class="term">invalid_spill_size</span></dt>
+<dd><p>
+              Invalid size in spill.
+            </p></dd>
+<dt><span class="term">uid_mismatch</span></dt>
+<dd><p>
+              UID mismatch.
+            </p></dd>
+<dt><span class="term">appnum_mismatch</span></dt>
+<dd><p>
+              appnum mismatch
+            </p></dd>
+<dt><span class="term">key_size_mismatch</span></dt>
+<dd><p>
+              key size mismatch
+            </p></dd>
+<dt><span class="term">salt_mismatch</span></dt>
+<dd><p>
+              salt mismatch
+            </p></dd>
+<dt><span class="term">pepper_mismatch</span></dt>
+<dd><p>
+              pepper mismatch
+            </p></dd>
+<dt><span class="term">block_size_mismatch</span></dt>
+<dd><p>
+              block size mismatch
+            </p></dd>
+<dt><span class="term">orphaned_value</span></dt>
+<dd><p>
+              orphaned value
+            </p></dd>
+<dt><span class="term">missing_value</span></dt>
+<dd><p>
+              missing value
+            </p></dd>
+<dt><span class="term">size_mismatch</span></dt>
+<dd><p>
+              size mismatch
+            </p></dd>
+<dt><span class="term">duplicate_value</span></dt>
+<dd><p>
+              duplicate value
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="nudb.ref.error.h1"></a>
+        <span class="phrase"><a name="nudb.ref.error.requirements"></a></span><a class="link" href="error.html#nudb.ref.error.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">nudb/error.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="errc.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="error_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

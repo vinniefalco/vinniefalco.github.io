@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>visit</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="nudb__verify_info/waste.html" title="verify_info::waste">
+<link rel="next" href="nudb__win32_file.html" title="win32_file">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1270" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="nudb__verify_info/waste.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="nudb__win32_file.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.ref.nudb__visit"></a><a class="link" href="nudb__visit.html" title="visit">visit</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1003506"></a>
+Visit each key/data pair in a data file.
+      </p>
+<h5>
+<a name="nudb.ref.nudb__visit.h0"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__visit.synopsis"></a></span><a class="link" href="nudb__visit.html#nudb.ref.nudb__visit.synopsis">Synopsis</a>
+      </h5>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">Callback</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Progress</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">visit</span><span class="special">(</span>
+    <span class="identifier">path_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">path</span><span class="special">,</span>
+    <span class="identifier">Callback</span><span class="special">&amp;&amp;</span> <span class="identifier">callback</span><span class="special">,</span>
+    <span class="identifier">Progress</span><span class="special">&amp;&amp;</span> <span class="identifier">progress</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<h5>
+<a name="nudb.ref.nudb__visit.h1"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__visit.description"></a></span><a class="link" href="nudb__visit.html#nudb.ref.nudb__visit.description">Description</a>
+      </h5>
+<p>
+        This function will open and iterate the contents of a data file, invoking
+        the callback for each key/value pair found. Only a data file is necessary,
+        the key file may be omitted.
+      </p>
+<h5>
+<a name="nudb.ref.nudb__visit.h2"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__visit.parameters"></a></span><a class="link" href="nudb__visit.html#nudb.ref.nudb__visit.parameters">Parameters</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">path</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The path to the data file.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">callback</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A function which will be called with each item found in the data
+                  file. The equivalent signature of the callback must be:
+                </p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">void</span> <span class="identifier">callback</span><span class="special">(</span>
+    <span class="keyword">void</span> <span class="keyword">const</span><span class="special">*</span> <span class="identifier">key</span><span class="special">,</span>        <span class="comment">// A pointer to the item key</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">key_size</span><span class="special">,</span>   <span class="comment">// The size of the key (always the same)</span>
+    <span class="keyword">void</span> <span class="keyword">const</span><span class="special">*</span> <span class="identifier">data</span><span class="special">,</span>       <span class="comment">// A pointer to the item data</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">data_size</span><span class="special">,</span>  <span class="comment">// The size of the item data</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span>          <span class="comment">// Indicates an error (out parameter)</span>
+<span class="special">);</span>
+</pre>
+                <p>
+                  If the callback sets ec to an error, the visit is terminated.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">progress</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A function which will be called periodically as the algorithm proceeds.
+                  The equivalent signature of the progress function must be:
+                </p>
+<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="keyword">void</span> <span class="identifier">progress</span><span class="special">(</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span> <span class="identifier">amount</span><span class="special">,</span>   <span class="comment">// Amount of work done so far</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span> <span class="identifier">total</span>     <span class="comment">// Total amount of work to do</span>
+<span class="special">);</span>
+</pre>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">ec</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set to the error, if any occurred.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="nudb.ref.nudb__visit.h3"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__visit.header"></a></span><a class="link" href="nudb__visit.html#nudb.ref.nudb__visit.header">Header</a>
+      </h5>
+<p>
+        <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">nudb</span><span class="special">/</span><span class="identifier">visit</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="nudb__verify_info/waste.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="nudb__win32_file.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

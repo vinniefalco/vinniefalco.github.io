@@ -1,0 +1,591 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>error</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="NuDB">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="nudb__errc.html" title="errc">
+<link rel="next" href="nudb__error_category.html" title="error_category">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="NuDB Logo" width="1270" height="80" src="../../images/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="nudb__errc.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="nudb__error_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="nudb.ref.nudb__error"></a><a class="link" href="nudb__error.html" title="error">error</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id978149"></a>
+Database error codes.
+      </p>
+<h5>
+<a name="nudb.ref.nudb__error.h0"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__error.synopsis"></a></span><a class="link" href="nudb__error.html#nudb.ref.nudb__error.synopsis">Synopsis</a>
+      </h5>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">error</span>
+</pre>
+<p>
+        <a class="indexterm" name="id978192"></a>
+ <a class="indexterm" name="id978239"></a>
+ <a class="indexterm" name="id978217"></a>
+ <a class="indexterm" name="id978242"></a>
+ <a class="indexterm" name="id978229"></a>
+ <a class="indexterm" name="id978266"></a>
+ <a class="indexterm" name="id978270"></a>
+ <a class="indexterm" name="id978268"></a>
+ <a class="indexterm" name="id978253"></a>
+ <a class="indexterm" name="id978284"></a>
+ <a class="indexterm" name="id978296"></a>
+ <a class="indexterm" name="id978319"></a>
+ <a class="indexterm" name="id978322"></a>
+ <a class="indexterm" name="id978294"></a>
+ <a class="indexterm" name="id978305"></a>
+ <a class="indexterm" name="id978334"></a>
+ <a class="indexterm" name="id978356"></a>
+ <a class="indexterm" name="id978331"></a>
+ <a class="indexterm" name="id978338"></a>
+ <a class="indexterm" name="id978364"></a>
+ <a class="indexterm" name="id978386"></a>
+ <a class="indexterm" name="id978397"></a>
+ <a class="indexterm" name="id978380"></a>
+ <a class="indexterm" name="id978394"></a>
+ <a class="indexterm" name="id978413"></a>
+ <a class="indexterm" name="id978410"></a>
+ <a class="indexterm" name="id978403"></a>
+ <a class="indexterm" name="id978419"></a>
+ <a class="indexterm" name="id978444"></a>
+ <a class="indexterm" name="id978445"></a>
+ <a class="indexterm" name="id978442"></a>
+ <a class="indexterm" name="id978457"></a>
+ <a class="indexterm" name="id978461"></a>
+ <a class="indexterm" name="id978503"></a>
+ <a class="indexterm" name="id978498"></a>
+ <a class="indexterm" name="id978510"></a>
+ <a class="indexterm" name="id978488"></a>
+ <a class="indexterm" name="id978529"></a>
+ <a class="indexterm" name="id978553"></a>
+
+      </p>
+<h5>
+<a name="nudb.ref.nudb__error.h1"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__error.values"></a></span><a class="link" href="nudb__error.html#nudb.ref.nudb__error.values">Values</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  key_not_found
+                </p>
+              </td>
+<td>
+                <p>
+                  The specified key was not found.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  key_exists
+                </p>
+              </td>
+<td>
+                <p>
+                  The specified key already exists.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  short_read
+                </p>
+              </td>
+<td>
+                <p>
+                  A file read returned less data than expected.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  log_file_exists
+                </p>
+              </td>
+<td>
+                <p>
+                  A log file is present.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  no_key_file
+                </p>
+              </td>
+<td>
+                <p>
+                  No key file exists.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  too_many_buckets
+                </p>
+              </td>
+<td>
+                <p>
+                  Too many buckets in key file.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  not_data_file
+                </p>
+              </td>
+<td>
+                <p>
+                  Not a data file.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  not_key_file
+                </p>
+              </td>
+<td>
+                <p>
+                  Not a key file.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  not_log_file
+                </p>
+              </td>
+<td>
+                <p>
+                  Not a log file.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  different_version
+                </p>
+              </td>
+<td>
+                <p>
+                  Different version.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_key_size
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid key size.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_block_size
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid block size.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  short_key_file
+                </p>
+              </td>
+<td>
+                <p>
+                  Short key file.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  short_bucket
+                </p>
+              </td>
+<td>
+                <p>
+                  Short bucket.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  short_spill
+                </p>
+              </td>
+<td>
+                <p>
+                  Short spill.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  short_data_record
+                </p>
+              </td>
+<td>
+                <p>
+                  Short record.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  short_value
+                </p>
+              </td>
+<td>
+                <p>
+                  Short value.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  hash_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  Hash mismatch.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_load_factor
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid load factor.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_capacity
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid capacity.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_bucket_count
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid bucket count.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_bucket_size
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid bucket size.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  incomplete_data_file_header
+                </p>
+              </td>
+<td>
+                <p>
+                  The data file header was incomplete.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  incomplete_key_file_header
+                </p>
+              </td>
+<td>
+                <p>
+                  The key file header was incomplete.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_log_record
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid log record.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_log_spill
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid spill in log record.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_log_offset
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid offset in log record.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_log_index
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid index in log record.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  invalid_spill_size
+                </p>
+              </td>
+<td>
+                <p>
+                  Invalid size in spill.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  uid_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  UID mismatch.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  appnum_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  appnum mismatch
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  key_size_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  key size mismatch
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  salt_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  salt mismatch
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  pepper_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  pepper mismatch
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  block_size_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  block size mismatch
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  orphaned_value
+                </p>
+              </td>
+<td>
+                <p>
+                  orphaned value
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  missing_value
+                </p>
+              </td>
+<td>
+                <p>
+                  missing value
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  size_mismatch
+                </p>
+              </td>
+<td>
+                <p>
+                  size mismatch
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  duplicate_value
+                </p>
+              </td>
+<td>
+                <p>
+                  duplicate value
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="nudb.ref.nudb__error.h2"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__error.description"></a></span><a class="link" href="nudb__error.html#nudb.ref.nudb__error.description">Description</a>
+      </h5>
+<h5>
+<a name="nudb.ref.nudb__error.h3"></a>
+        <span class="phrase"><a name="nudb.ref.nudb__error.header"></a></span><a class="link" href="nudb__error.html#nudb.ref.nudb__error.header">Header</a>
+      </h5>
+<p>
+        <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">nudb</span><span class="special">/</span><span class="identifier">error</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2015, 2016 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="nudb__errc.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="nudb__error_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
