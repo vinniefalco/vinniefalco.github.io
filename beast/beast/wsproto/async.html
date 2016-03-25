@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Asynchronous interface</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../wsproto.html" title="WSProto">
+<link rel="prev" href="buffers.html" title="Buffers">
+<link rel="next" href="io_service.html" title="io_service">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="buffers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../wsproto.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="io_service.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.wsproto.async"></a><a class="link" href="async.html" title="Asynchronous interface">Asynchronous interface</a>
+</h3></div></div></div>
+<p>
+        Asynchronous versions are available for all functions:
+      </p>
+<pre class="programlisting"><span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">opcode</span> <span class="identifier">op</span><span class="special">;</span>
+<span class="identifier">ws</span><span class="special">.</span><span class="identifier">async_read</span><span class="special">(</span><span class="identifier">op</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span>
+    <span class="special">[](</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span>
+    <span class="special">{</span>
+        <span class="special">...</span>
+    <span class="special">});</span>
+</pre>
+<p>
+        Calls to asynchronous initiation functions support the extensible asynchronous
+        model developed by the Boost.Asio author, allowing for traditional completion
+        handlers, stackful or stackless coroutines, and even futures:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">echo</span><span class="special">(</span><span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&lt;</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;&amp;</span> <span class="identifier">ws</span><span class="special">,</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">yield_context</span> <span class="identifier">yield</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">ws</span><span class="special">.</span><span class="identifier">async_read</span><span class="special">(</span><span class="identifier">sb</span><span class="special">,</span> <span class="identifier">yield</span><span class="special">);</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">future</span><span class="special">&lt;</span><span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">&gt;</span> <span class="identifier">fut</span> <span class="special">=</span>
+        <span class="identifier">ws</span><span class="special">.</span><span class="identifier">async_write</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">use_future</span><span class="special">);</span>
+    <span class="special">...</span>
+<span class="special">}</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="buffers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../wsproto.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="io_service.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

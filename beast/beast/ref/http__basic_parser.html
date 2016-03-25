@@ -1,0 +1,409 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::basic_parser</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__basic_headers/_basic_headers.html" title="http::basic_headers::~basic_headers">
+<link rel="next" href="http__basic_parser/basic_parser.html" title="http::basic_parser::basic_parser">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__basic_headers/_basic_headers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__basic_parser/basic_parser.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__basic_parser"></a><a class="link" href="http__basic_parser.html" title="http::basic_parser">http::basic_parser</a>
+</h3></div></div></div>
+<p>
+        Parser for producing HTTP requests and responses.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../../">Derived</a><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">basic_parser</span>
+</pre>
+<h5>
+<a name="beast.ref.http__basic_parser.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.types"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/error_code.html" title="http::basic_parser::error_code"><span class="bold"><strong>error_code</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.http__basic_parser.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.member_functions"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/basic_parser.html" title="http::basic_parser::basic_parser"><span class="bold"><strong>basic_parser</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move constructor.
+                </p>
+                <p>
+                  Copy constructor.
+                </p>
+                <p>
+                  Construct the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/complete.html" title="http::basic_parser::complete"><span class="bold"><strong>complete</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if parsing is complete.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/operator_eq_.html" title="http::basic_parser::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move assignment.
+                </p>
+                <p>
+                  Copy assignment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/write.html" title="http::basic_parser::write"><span class="bold"><strong>write</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Write data to the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/write_eof.html" title="http::basic_parser::write_eof"><span class="bold"><strong>write_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called to indicate the end of file.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.http__basic_parser.h2"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.private_member_functions"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.private_member_functions">Private Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_body</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_complete</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_field</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_headers_complete</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_request</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_response</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>call_on_start</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>check_header</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>impl</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.http__basic_parser.h3"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.private_data_members"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.private_data_members">Private
+        Data Members</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>complete_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>ec_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>field_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>state_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>status_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>url_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>value_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        Callbacks: If a is an object of type Derived, and the call expression is
+        valid then the stated effects will take place: a.on_start() Called once when
+        a new message begins.
+      </p>
+<p>
+        a.on_field(std::string field, std::string value) Called for each field
+      </p>
+<p>
+        a.on_headers_complete(error_code&amp;) Called when all the header fields
+        have been received, but before any part of the body if any is received.
+      </p>
+<p>
+        a.on_request(method_t method, std::string url, int major, int minor, bool
+        keep_alive, bool upgrade) Called for requests when all the headers have been
+        received. This will precede any content body. When keep_alive is false: Server
+        roles respond with a "Connection: close" header. Client roles close
+        the connection. a.on_response(int status, std::string text, int major, int
+        minor, bool keep_alive, bool upgrade) Called for responses when all the headers
+        have been received. This will precede any content body. When keep_alive is
+        <code class="computeroutput"><span class="keyword">false</span></code>: Client roles close the
+        connection. Server roles respond with a "Connection: close" header.
+        This function should return <code class="computeroutput"><span class="keyword">true</span></code>
+        if upgrade is false and a content body is expected. When upgrade is true,
+        no content-body is expected, and the return value is ignored. a.on_body(void
+        const* data, std::size_t bytes, error_code&amp;) Called zero or more times
+        for the content body. Any transfer encoding is already decoded in the memory
+        pointed to by data.
+      </p>
+<p>
+        a.on_complete() Called when parsing completes successfully.
+      </p>
+<p>
+        The parser uses traits to determine if the callback is possible. If the Derived
+        type omits the callbacks, they are simply skipped with no compilation error.
+      </p>
+<h5>
+<a name="beast.ref.http__basic_parser.h4"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.requirements"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/basic_parser.h</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.h</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__basic_headers/_basic_headers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__basic_parser/basic_parser.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

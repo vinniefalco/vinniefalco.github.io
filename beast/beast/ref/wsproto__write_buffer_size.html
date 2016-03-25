@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>wsproto::write_buffer_size</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="wsproto__teardown/overload2.html" title="wsproto::teardown (2 of 2 overloads)">
+<link rel="next" href="wsproto_helpers__call_async_teardown.html" title="wsproto_helpers::call_async_teardown">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="wsproto__teardown/overload2.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="wsproto_helpers__call_async_teardown.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.wsproto__write_buffer_size"></a><a class="link" href="wsproto__write_buffer_size.html" title="wsproto::write_buffer_size">wsproto::write_buffer_size</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1088521"></a>
+Write buffer size option.
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">write_buffer_size</span> <span class="special">=</span> <span class="emphasis"><em>implementation-defined</em></span><span class="special">;</span>
+</pre>
+<p>
+        Sets the number of bytes allocated to the socket's write buffer. This buffer
+        is used to hold masked frame payload data. Lowering the size of the buffer
+        can decrease the memory requirements for each connection, at the cost of
+        an increased number of calls to perform socket writes. This setting does
+        not affect connections operating in the server role, since servers do not
+        apply a masking key to frame payloads. The default setting is 4096. The minimum
+        value is 1024.
+      </p>
+<h5>
+<a name="beast.ref.wsproto__write_buffer_size.h0"></a>
+        <span class="phrase"><a name="beast.ref.wsproto__write_buffer_size.remarks"></a></span><a class="link" href="wsproto__write_buffer_size.html#beast.ref.wsproto__write_buffer_size.remarks">Remarks</a>
+      </h5>
+<p>
+        Objects of this type are passed to <code class="computeroutput"><span class="identifier">socket</span><span class="special">::</span><span class="identifier">set_option</span></code>.
+      </p>
+<h5>
+<a name="beast.ref.wsproto__write_buffer_size.h1"></a>
+        <span class="phrase"><a name="beast.ref.wsproto__write_buffer_size.example"></a></span><a class="link" href="wsproto__write_buffer_size.html#beast.ref.wsproto__write_buffer_size.example">Example</a>
+      </h5>
+<p>
+        Setting the write buffer size.
+      </p>
+<pre class="programlisting"><span class="special">...</span>
+<span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;</span> <span class="identifier">ws</span><span class="special">(</span><span class="identifier">ios</span><span class="special">);</span>
+<span class="identifier">ws</span><span class="special">.</span><span class="identifier">set_option</span><span class="special">(</span><span class="identifier">write_buffer_size</span><span class="special">{</span><span class="number">8192</span><span class="special">});</span>
+</pre>
+<h5>
+<a name="beast.ref.wsproto__write_buffer_size.h2"></a>
+        <span class="phrase"><a name="beast.ref.wsproto__write_buffer_size.requirements"></a></span><a class="link" href="wsproto__write_buffer_size.html#beast.ref.wsproto__write_buffer_size.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/wsproto/option.h</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/wsproto.h</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="wsproto__teardown/overload2.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="wsproto_helpers__call_async_teardown.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

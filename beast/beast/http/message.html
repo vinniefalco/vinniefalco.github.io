@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Message model</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="HTTP">
+<link rel="prev" href="example.html" title="Example">
+<link rel="next" href="body.html" title="Body parameter">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="example.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="body.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.message"></a><a class="link" href="message.html" title="Message model">Message model</a>
+</h3></div></div></div>
+<p>
+        A HTTP message (referred to hereafter as "message") contains a
+        request or response line, a series of zero or more name/value pairs (collectively
+        termed "headers"), and a series of octets called the message body
+        which may be zero in length. Applications using HTTP often perform these
+        operations on messages:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>Parse</strong></span> a new message from a series of
+            octets.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Assemble</strong></span> a new message from scratch
+            or from an existing message.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Serialize</strong></span> a message into a series of
+            octets.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Read</strong></span> a message from a stream. This can
+            be thought of as a compound operation; a network read, followed by a
+            <span class="bold"><strong>parse</strong></span>.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Write</strong></span> a message to a stream. This can
+            be thought of as a compound operation: a <span class="bold"><strong>serialize</strong></span>
+            followed by a network write.
+          </li>
+</ul></div>
+<p>
+        The spectrum of hardware and software platforms which perform these typical
+        HTTP operations is vast, ranging from powerful servers in large datacenters
+        to tiny resource-limited embedded devices. No single concrete implementation
+        of a class intended to model messages can efficiently serve all needs. For
+        example, an object that minimizes resources during parsing may not be able
+        to edit and change headers dynamically. A message that represents the message
+        body as a disk file may support sending but not parsing. Many efficient and
+        correct models of messages exist, supporting some or all of the operations
+        listed above.
+      </p>
+<p>
+        To support a variety of implementation strategies, we introduce customization
+        points for the header and body via class template arguments. This illustration
+        shows the message class template (boilerplate present in the actual declaration
+        has been removed for clarity):
+      </p>
+<p>
+        <span class="inlinemediaobject"><img src="../../images/message.png" width="580"></span>
+      </p>
+<p>
+        The default constructor, move special members, and copy special members are
+        all defaulted. A message is movable, copyable, or default constructible based
+        on the capabilities of its template arguments.
+      </p>
+<p>
+        Messages modeled in this fashion are <span class="emphasis"><em>complete</em></span>, containing
+        all of the information required to perform the supported set of operations.
+        They are <span class="emphasis"><em>first-class types</em></span>, returnable from functions
+        and composable. HTTP requests and responses are distinct types, allowing
+        functions to be overloaded on the type of message.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="example.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="body.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

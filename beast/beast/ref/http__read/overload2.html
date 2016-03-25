@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::read (2 of 2 overloads)</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="Beast">
+<link rel="up" href="../http__read.html" title="http::read">
+<link rel="prev" href="overload1.html" title="http::read (1 of 2 overloads)">
+<link rel="next" href="../http__request_params.html" title="http::request_params">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overload1.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http__read.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../http__request_params.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="beast.ref.http__read.overload2"></a><a class="link" href="overload2.html" title="http::read (2 of 2 overloads)">http::read (2 of 2
+        overloads)</a>
+</h4></div></div></div>
+<p>
+          Read a HTTP message from a stream.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">SyncReadStream</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Streambuf</span><span class="special">,</span>
+    <span class="keyword">bool</span> <a class="link" href="../../../">isRequest</a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">read</span><span class="special">(</span>
+    <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
+    <span class="identifier">Streambuf</span><span class="special">&amp;</span> <span class="identifier">streambuf</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<h6>
+<a name="beast.ref.http__read.overload2.h0"></a>
+          <span class="phrase"><a name="beast.ref.http__read.overload2.parameters"></a></span><a class="link" href="overload2.html#beast.ref.http__read.overload2.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">stream</span></dt>
+<dd><p>
+                The stream to read the message from.
+              </p></dd>
+<dt><span class="term">streambuf</span></dt>
+<dd><p>
+                A Streambuf used to hold unread bytes. The implementation may read
+                past the end of the message. The extra bytes are stored here, to
+                be presented in a subsequent call to read.
+              </p></dd>
+<dt><span class="term">msg</span></dt>
+<dd><p>
+                An object used to store the read message. Any contents will be overwritten.
+              </p></dd>
+<dt><span class="term">ec</span></dt>
+<dd><p>
+                Set to the error, if any occurred.
+              </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overload1.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http__read.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../http__request_params.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

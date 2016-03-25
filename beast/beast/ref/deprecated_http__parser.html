@@ -1,0 +1,275 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>deprecated_http::parser</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="deprecated_http__message/_message.html" title="deprecated_http::message::~message">
+<link rel="next" href="deprecated_http__parser/complete.html" title="deprecated_http::parser::complete">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="deprecated_http__message/_message.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="deprecated_http__parser/complete.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.deprecated_http__parser"></a><a class="link" href="deprecated_http__parser.html" title="deprecated_http::parser">deprecated_http::parser</a>
+</h3></div></div></div>
+<p>
+        Parser for HTTP messages.
+      </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">parser</span> <span class="special">:</span>
+    <span class="keyword">public</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_parser</span><span class="special">&lt;</span> <span class="identifier">parser</span> <span class="special">&gt;</span>
+</pre>
+<h5>
+<a name="beast.ref.deprecated_http__parser.h0"></a>
+        <span class="phrase"><a name="beast.ref.deprecated_http__parser.types"></a></span><a class="link" href="deprecated_http__parser.html#beast.ref.deprecated_http__parser.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/error_code.html" title="deprecated_http::parser::error_code"><span class="bold"><strong>error_code</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.deprecated_http__parser.h1"></a>
+        <span class="phrase"><a name="beast.ref.deprecated_http__parser.member_functions"></a></span><a class="link" href="deprecated_http__parser.html#beast.ref.deprecated_http__parser.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/complete.html" title="deprecated_http::parser::complete"><span class="bold"><strong>complete</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if parsing is complete.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_body.html" title="deprecated_http::parser::on_body"><span class="bold"><strong>on_body</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_complete.html" title="deprecated_http::parser::on_complete"><span class="bold"><strong>on_complete</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_field.html" title="deprecated_http::parser::on_field"><span class="bold"><strong>on_field</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_headers_complete.html" title="deprecated_http::parser::on_headers_complete"><span class="bold"><strong>on_headers_complete</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_request.html" title="deprecated_http::parser::on_request"><span class="bold"><strong>on_request</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_response.html" title="deprecated_http::parser::on_response"><span class="bold"><strong>on_response</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/on_start.html" title="deprecated_http::parser::on_start"><span class="bold"><strong>on_start</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/operator_eq_.html" title="deprecated_http::parser::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/parser.html" title="deprecated_http::parser::parser"><span class="bold"><strong>parser</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Construct a parser for HTTP request or response.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/write.html" title="deprecated_http::parser::write"><span class="bold"><strong>write</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Write data to the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="deprecated_http__parser/write_eof.html" title="deprecated_http::parser::write_eof"><span class="bold"><strong>write_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called to indicate the end of file.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.deprecated_http__parser.h2"></a>
+        <span class="phrase"><a name="beast.ref.deprecated_http__parser.private_data_members"></a></span><a class="link" href="deprecated_http__parser.html#beast.ref.deprecated_http__parser.private_data_members">Private
+        Data Members</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>m_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../../"><span class="bold"><strong>write_body_</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        The result is stored in a message object.
+      </p>
+<h5>
+<a name="beast.ref.deprecated_http__parser.h3"></a>
+        <span class="phrase"><a name="beast.ref.deprecated_http__parser.requirements"></a></span><a class="link" href="deprecated_http__parser.html#beast.ref.deprecated_http__parser.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/parser.h</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.h</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="deprecated_http__message/_message.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="deprecated_http__parser/complete.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

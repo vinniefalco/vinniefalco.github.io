@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Example</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="HTTP">
+<link rel="prev" href="motivation.html" title="Motivation">
+<link rel="next" href="message.html" title="Message model">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="motivation.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="message.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.example"></a><a class="link" href="example.html" title="Example">Example</a>
+</h3></div></div></div>
+<p>
+        All examples and identifiers mentioned in this document are written as if
+        the following declarations are in effect:
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">http</span><span class="special">.</span><span class="identifier">h</span><span class="special">&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">;</span>
+</pre>
+<p>
+        Create a HTTP request:
+      </p>
+<pre class="programlisting"><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">({</span><span class="identifier">method_t</span><span class="special">::</span><span class="identifier">http_get</span><span class="special">,</span> <span class="string">"/"</span><span class="special">,</span> <span class="number">11</span><span class="special">});</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"Host"</span><span class="special">,</span> <span class="string">"127.0.0.1:80"</span><span class="special">);</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
+</pre>
+<p>
+        To send a message it must first be prepared through a call to <code class="computeroutput"><span class="identifier">prepare</span></code>. This customization point transforms
+        the <code class="computeroutput"><span class="identifier">message</span></code> into a <code class="computeroutput"><span class="identifier">prepared_message</span></code>, filling in some standard
+        HTTP behavior and allowing the Body associated with the message to perform
+        preparatory steps. For example, a string body may set the Content-Length
+        and Content-Type appropriately.
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">send_request</span><span class="special">(</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;</span> <span class="identifier">sock</span><span class="special">,</span>
+    <span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;&amp;&amp;</span> <span class="identifier">req</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="comment">// Send the request on the socket</span>
+    <span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">prepare</span><span class="special">(</span><span class="identifier">req</span><span class="special">,</span> <span class="identifier">connection</span><span class="special">(</span><span class="identifier">keep_alive</span><span class="special">));</span>
+<span class="special">}</span>
+</pre>
+<p>
+        Messages can be read from the network and parsed into a <code class="computeroutput"><span class="identifier">parsed_message</span></code>
+        object, which extends the <code class="computeroutput"><span class="identifier">message</span></code>
+        by adding parse-specific metadata such as the keep-alive which is context
+        sensitive (depending on the HTTP version for example). When preparing a response
+        for sending, <code class="computeroutput"><span class="identifier">prepare</span></code> must
+        be called with an additional parameter, the corresponding parsed request.
+        The implementation inspects the contents of the request to set dependent
+        fields of the response. This example reads a message, builds a response,
+        and sends it.
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_connection</span><span class="special">(</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;</span> <span class="identifier">sock</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">parsed_request</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+    <span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">);</span>
+    <span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+    <span class="special">...</span>
+    <span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">prepare</span><span class="special">(</span><span class="identifier">resp</span><span class="special">,</span> <span class="identifier">req</span><span class="special">));</span>
+<span class="special">}</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="motivation.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="message.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::async_read</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="has_get_io_service/value.html" title="has_get_io_service::value">
+<link rel="next" href="http__async_write.html" title="http::async_write">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="has_get_io_service/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__async_write.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__async_read"></a><a class="link" href="http__async_read.html" title="http::async_read">http::async_read</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id982266"></a>
+Start reading a HTTP message from a stream asynchronously.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">AsyncReadStream</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Streambuf</span><span class="special">,</span>
+    <span class="keyword">bool</span> <a class="link" href="../../">isRequest</a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">CompletionToken</span><span class="special">&gt;</span>
+<a class="link" href="../../"><span class="emphasis"><em>void-or-deduced</em></span></a>
+<span class="identifier">async_read</span><span class="special">(</span>
+    <span class="identifier">AsyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
+    <span class="identifier">Streambuf</span><span class="special">&amp;</span> <span class="identifier">streambuf</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">CompletionToken</span> <span class="special">&amp;&amp;</span> <span class="identifier">token</span><span class="special">);</span>
+</pre>
+<h5>
+<a name="beast.ref.http__async_read.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__async_read.parameters"></a></span><a class="link" href="http__async_read.html#beast.ref.http__async_read.parameters">Parameters</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">stream</span></dt>
+<dd><p>
+              The stream to read the message from.
+            </p></dd>
+<dt><span class="term">streambuf</span></dt>
+<dd><p>
+              A Streambuf used to hold unread bytes. The implementation may read
+              past the end of the message. The extra bytes are stored here, to be
+              presented in a subsequent call to async_read.
+            </p></dd>
+<dt><span class="term">msg</span></dt>
+<dd><p>
+              An object used to store the read message. Any contents will be overwritten.
+            </p></dd>
+<dt><span class="term">token</span></dt>
+<dd>
+<p>
+              The handler to be called when the request completes. Copies will be
+              made of the handler as required. The equivalent function signature
+              of the handler must be:
+            </p>
+<pre class="programlisting"> <span class="keyword">void</span> <span class="identifier">handler</span><span class="special">(</span>
+    <span class="identifier">error_code</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">error</span> <span class="comment">// result of operation</span>
+<span class="special">);</span>
+</pre>
+<p>
+              Regardless of whether the asynchronous operation completes immediately
+              or not, the handler will not be invoked from within this function.
+              Invocation of the handler will be performed in a manner equivalent
+              to using boost::asio::io_service::post().
+            </p>
+</dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.http__async_read.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__async_read.requirements"></a></span><a class="link" href="http__async_read.html#beast.ref.http__async_read.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/read.h</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.h</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="has_get_io_service/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__async_write.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

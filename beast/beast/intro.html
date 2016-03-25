@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Introduction</title>
+<link rel="stylesheet" href="../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Beast">
+<link rel="up" href="../index.html" title="Beast">
+<link rel="prev" href="../index.html" title="Beast">
+<link rel="next" href="intro/requirements.html" title="Requirements">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../index.html"><img src="../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="intro/requirements.html"><img src="../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="beast.intro"></a><a class="link" href="intro.html" title="Introduction">Introduction</a>
+</h2></div></div></div>
+<div class="toc"><dl class="toc">
+<dt><span class="section"><a href="intro/requirements.html">Requirements</a></span></dt>
+<dt><span class="section"><a href="intro/example.html">Examples</a></span></dt>
+<dt><span class="section"><a href="intro/credits.html">Credits</a></span></dt>
+</dl></div>
+<p>
+      Beast is a cross-platform C++ library built on Boost, containing two modules
+      implementing widely used network protocols. Beast.HTTP offers a universal model
+      for describing, sending, and receiving HTTP messages while Beast.WSProto provides
+      a complete implementation of the WebSocket protocol. Their design achieves
+      these goals:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>Symmetry.</strong></span> Interfaces are role-agnostic;
+          the same interfaces can be used to build clients, servers, or both.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Ease of Use.</strong></span> HTTP messages are modeled
+          using simple, readily accessible objects. Functions and classes used to
+          send and receive HTTP or WebSocket messages are designed to resemble Boost.Asio
+          as closely as possible. Users familiar with Boost.Asio will be immediately
+          comfortable using this library.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Flexibility.</strong></span> Interfaces do not mandate
+          specific implementation strategies; important decisions such as buffer
+          or thread management are left to users of the library.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Performance.</strong></span> The implementation performs
+          competitively, making it a realistic choice for building a high performance
+          network server.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Scalability.</strong></span> Development of network applications
+          that scale to thousands of concurrent connections is possible with the
+          implementation.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Basis for further abstraction.</strong></span> The interfaces
+          facilitate the development of other libraries that provide higher levels
+          of abstraction.
+        </li>
+</ul></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../index.html"><img src="../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="intro/requirements.html"><img src="../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

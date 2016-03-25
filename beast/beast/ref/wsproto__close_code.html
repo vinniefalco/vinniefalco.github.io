@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>wsproto::close_code</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="wsproto__auto_fragment_size.html" title="wsproto::auto_fragment_size">
+<link rel="next" href="wsproto__close_reason.html" title="wsproto::close_reason">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="wsproto__auto_fragment_size.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="wsproto__close_reason.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.wsproto__close_code"></a><a class="link" href="wsproto__close_code.html" title="wsproto::close_code">wsproto::close_code</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1062725"></a>
+Close status codes.
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">close_code</span>
+</pre>
+<p>
+        <a class="indexterm" name="id1062781"></a>
+ <a class="indexterm" name="id1062759"></a>
+ <a class="indexterm" name="id1062784"></a>
+ <a class="indexterm" name="id1062756"></a>
+ <a class="indexterm" name="id1062771"></a>
+ <a class="indexterm" name="id1062822"></a>
+ <a class="indexterm" name="id1062807"></a>
+ <a class="indexterm" name="id1062790"></a>
+ <a class="indexterm" name="id1062799"></a>
+ <a class="indexterm" name="id1062795"></a>
+ <a class="indexterm" name="id1062853"></a>
+ <a class="indexterm" name="id1062845"></a>
+ <a class="indexterm" name="id1062863"></a>
+ <a class="indexterm" name="id1062840"></a>
+ <a class="indexterm" name="id1062870"></a>
+ <a class="indexterm" name="id1062885"></a>
+ <a class="indexterm" name="id1062886"></a>
+
+      </p>
+<h5>
+<a name="beast.ref.wsproto__close_code.h0"></a>
+        <span class="phrase"><a name="beast.ref.wsproto__close_code.values"></a></span><a class="link" href="wsproto__close_code.html#beast.ref.wsproto__close_code.values">Values</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">none</span></dt>
+<dd></dd>
+<dt><span class="term">normal</span></dt>
+<dd></dd>
+<dt><span class="term">going_away</span></dt>
+<dd></dd>
+<dt><span class="term">protocol_error</span></dt>
+<dd></dd>
+<dt><span class="term">unknown_data</span></dt>
+<dd></dd>
+<dt><span class="term">bad_payload</span></dt>
+<dd></dd>
+<dt><span class="term">policy_error</span></dt>
+<dd></dd>
+<dt><span class="term">too_big</span></dt>
+<dd></dd>
+<dt><span class="term">needs_extension</span></dt>
+<dd></dd>
+<dt><span class="term">internal_error</span></dt>
+<dd></dd>
+<dt><span class="term">service_restart</span></dt>
+<dd></dd>
+<dt><span class="term">try_again_later</span></dt>
+<dd></dd>
+<dt><span class="term">reserved1</span></dt>
+<dd></dd>
+<dt><span class="term">no_status</span></dt>
+<dd></dd>
+<dt><span class="term">abnormal</span></dt>
+<dd></dd>
+<dt><span class="term">reserved2</span></dt>
+<dd></dd>
+<dt><span class="term">last</span></dt>
+<dd></dd>
+</dl>
+</div>
+<p>
+        These codes accompany close frames.
+      </p>
+<h5>
+<a name="beast.ref.wsproto__close_code.h1"></a>
+        <span class="phrase"><a name="beast.ref.wsproto__close_code.requirements"></a></span><a class="link" href="wsproto__close_code.html#beast.ref.wsproto__close_code.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/wsproto/rfc6455.h</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/wsproto.h</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="wsproto__auto_fragment_size.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="wsproto__close_reason.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Body parameter</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="HTTP">
+<link rel="prev" href="message.html" title="Message model">
+<link rel="next" href="headers.html" title="Headers container">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="message.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="headers.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.body"></a><a class="link" href="body.html" title="Body parameter">Body parameter</a>
+</h3></div></div></div>
+<p>
+        The <code class="computeroutput"><span class="identifier">Body</span></code> template argument
+        in the <code class="computeroutput"><span class="identifier">message</span></code> class must
+        meet the <a class="link" href="../types/Body.html" title="Body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">Body</span></code></strong></span> requirements</a>. It
+        provides customization of the data member in the message, the algorithm for
+        parsing, and the algorithm for serialization:
+      </p>
+<p>
+        <span class="inlinemediaobject"><img src="../../images/body.png" width="510"></span>
+      </p>
+<p>
+        The following types, provided by the library, meet the <code class="computeroutput"><span class="identifier">Body</span></code>
+        requirements:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <a class="link" href="../ref/http__empty_body.html" title="http::empty_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">empty_body</span></code>:</strong></span></a> An empty
+            message body. Used in GET requests where there is no message body.
+          </li>
+<li class="listitem">
+            <a class="link" href="../ref/http__string_body.html" title="http::string_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">string_body</span></code>:</strong></span></a> A body
+            with a <code class="computeroutput"><span class="identifier">value_type</span></code> of
+            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>. Useful for quickly putting
+            together a request or response with simple text in the message body (such
+            as an error message). Subject to the performance limit of strings if
+            large amounts of data are inserted.
+          </li>
+<li class="listitem">
+            <a class="link" href="../ref/http__basic_streambuf_body.html" title="http::basic_streambuf_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">basic_streambuf_body</span></code>:</strong></span></a>
+            A body with a <code class="computeroutput"><span class="identifier">value_type</span></code>
+            of <code class="computeroutput"><span class="identifier">streambuf</span></code>. A streambuf
+            is an efficient storage object which uses multiple octet arrays of varying
+            lengths to represent data.
+          </li>
+</ul></div>
+<p>
+        Instances of the optional nested types <code class="computeroutput"><span class="identifier">writer</span></code>
+        and <code class="computeroutput"><span class="identifier">reader</span></code> perform serialization
+        and deserialization of the message body. If either or both of these types
+        are present, the message becomes serializable, parsable, or both. They model
+        <a class="link" href="../types/Reader.html" title="Reader"><span class="bold"><strong><code class="computeroutput"><span class="identifier">Reader</span></code></strong></span></a>
+        and <a class="link" href="../types/Writer.html" title="Writer"><span class="bold"><strong><code class="computeroutput"><span class="identifier">Writer</span></code></strong></span></a> respectively.
+      </p>
+<p>
+        For specialized applications, users may implement their own types which meet
+        the requirements. The examples included with this library provide a Body
+        implementation used to serve files in a HTTP server.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="message.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="headers.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

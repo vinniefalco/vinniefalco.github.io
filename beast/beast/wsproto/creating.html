@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Creating the socket</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../wsproto.html" title="WSProto">
+<link rel="prev" href="motivation.html" title="Motivation">
+<link rel="next" href="connecting.html" title="Making connections">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="motivation.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../wsproto.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="connecting.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.wsproto.creating"></a><a class="link" href="creating.html" title="Creating the socket">Creating the socket</a>
+</h3></div></div></div>
+<p>
+        The interface to Beast's WebSocket implementation is a single template class
+        which wraps an object meeting the requirements of <code class="computeroutput"><span class="identifier">SyncStream</span></code>
+        if synchronous operations are performed, <code class="computeroutput"><span class="identifier">AsyncStream</span></code>
+        if asynchronous operations are performed, or both. Arguments supplied during
+        construction are passed to the <code class="computeroutput"><span class="identifier">Stream</span></code>
+        constructor. Here we declare two websockets which contain the underlying
+        stream:
+      </p>
+<pre class="programlisting"><span class="identifier">io_service</span> <span class="identifier">ios</span><span class="special">;</span>
+<span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;</span> <span class="identifier">ws</span><span class="special">(</span><span class="identifier">ios</span><span class="special">);</span>
+
+<span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span> <span class="identifier">ctx</span><span class="special">(</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span><span class="special">::</span><span class="identifier">sslv23</span><span class="special">);</span>
+<span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&lt;</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;&gt;</span> <span class="identifier">wss</span><span class="special">(</span><span class="identifier">ios</span><span class="special">,</span> <span class="identifier">ctx</span><span class="special">);</span>
+</pre>
+<p>
+        For servers that can handshake in multiple protocols, it may be desired to
+        wrap a socket that already exists. The socket can be moved in:
+      </p>
+<pre class="programlisting"><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;&amp;</span> <span class="identifier">sock</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;</span> <span class="identifier">ws</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">sock</span><span class="special">));</span>
+</pre>
+<p>
+        Or, the wrapper can be constructed with a non-owning reference. In this case,
+        the caller is responsible for managing the lifetime of the underlying socket
+        being wrapped:
+      </p>
+<pre class="programlisting"><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span> <span class="identifier">sock</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;&gt;</span> <span class="identifier">ws</span><span class="special">(</span><span class="identifier">sock</span><span class="special">);</span>
+</pre>
+<p>
+        The stream being wrapped can be accessed through the websocket's "next
+        layer", permitting callers to interact directly with its interface.
+      </p>
+<pre class="programlisting"><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span> <span class="identifier">ctx</span><span class="special">(</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">context</span><span class="special">::</span><span class="identifier">sslv23</span><span class="special">);</span>
+<span class="identifier">wsproto</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&lt;</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;&gt;</span> <span class="identifier">ws</span><span class="special">(</span><span class="identifier">ios</span><span class="special">,</span> <span class="identifier">ctx</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">ws</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">().</span><span class="identifier">shutdown</span><span class="special">();</span> <span class="comment">// ssl::stream shutdown</span>
+</pre>
+<div class="important"><table border="0" summary="Important">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="../../images/important.png"></td>
+<th align="left">Important</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          Initiating read and write operations on the next layer while websocket
+          operations are being performed can break invariants, and result in undefined
+          behavior.
+        </p></td></tr>
+</table></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="motivation.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../wsproto.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="connecting.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
