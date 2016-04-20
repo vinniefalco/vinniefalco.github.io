@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send binary message message with payload of length 125.",
    "droppedByMe": false,
-   "duration": 1,
+   "duration": 2,
    "expectation": "Receive echo'ed binary message (with payload as sent). Clean close with normal code.",
    "expected": {
       "OK": [
@@ -27,8 +27,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: h+/Xv9GCAbT9tZYXqcR9RQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: h+/Xv9GCAbT9tZYXqcR9RQ==\r\nSec-WebSocket-Accept: V8mpG9mJr445wv7BDDXYSzbA0vI=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 0wy0L/lfQbqvcd8EpRaDog==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 0wy0L/lfQbqvcd8EpRaDog==\r\nSec-WebSocket-Accept: nQCLHBBoTwxufly+TgFoMXajDig=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "1.2.2",
    "isServer": false,
    "localCloseCode": 1000,
@@ -55,7 +55,7 @@
       "127": 1,
       "220": 1
    },
-   "started": "2016-04-16T10:47:18.262Z",
+   "started": "2016-04-22T09:42:50.088Z",
    "trafficStats": null,
    "txFrameStats": {
       "2": 1,
@@ -96,7 +96,7 @@
          2,
          true,
          0,
-         "06dc3bc1",
+         "1e5233fd",
          null,
          null,
          false
@@ -105,7 +105,7 @@
          "TO",
          [
             131,
-            "82fd06dc3bc1f822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822c53ff822 ..."
+            "82fd1e5233fde0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0accd03e0ac ..."
          ],
          false
       ],
@@ -141,7 +141,7 @@
          8,
          true,
          0,
-         "52d95515",
+         "649da9b3",
          null,
          null,
          false
@@ -150,7 +150,7 @@
          "TO",
          [
             8,
-            "888252d955155131"
+            "8882649da9b36775"
          ],
          false
       ],

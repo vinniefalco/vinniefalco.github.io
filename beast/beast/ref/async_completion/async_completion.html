@@ -20,16 +20,26 @@
 <a name="beast.ref.async_completion.async_completion"></a><a class="link" href="async_completion.html" title="async_completion::async_completion">async_completion::async_completion</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id932812"></a>
-Construct the completion helper.
+          <a class="indexterm" name="id931491"></a>
+Construct the helper.
         </p>
 <pre class="programlisting"><span class="identifier">async_completion</span><span class="special">(</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove_reference_t</span><span class="special">&lt;</span> <span class="identifier">CompletionToken</span> <span class="special">&gt;&amp;</span> <span class="identifier">token</span><span class="special">);</span>
+    <span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove_reference</span><span class="special">&lt;</span> <span class="identifier">CompletionToken</span> <span class="special">&gt;::</span><span class="identifier">type</span><span class="special">&amp;</span> <span class="identifier">token</span><span class="special">);</span>
 </pre>
-<p>
-          tokenThe completion token. Copies will be made as required. If CompletionToken
-          is movable, it may also be moved.
-        </p>
+<h6>
+<a name="beast.ref.async_completion.async_completion.h0"></a>
+          <span class="phrase"><a name="beast.ref.async_completion.async_completion.parameters"></a></span><a class="link" href="async_completion.html#beast.ref.async_completion.async_completion.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">token</span></dt>
+<dd><p>
+                The completion token. Copies will be made as required. If <code class="computeroutput"><span class="identifier">CompletionToken</span></code> is movable, it
+                may also be moved.
+              </p></dd>
+</dl>
+</div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>

@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: KUIsPNzQB0PJxHFYzJ98yw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: KUIsPNzQB0PJxHFYzJ98yw==\r\nSec-WebSocket-Accept: 2QqvuFX8ZOl7zKjjxugsle/RlYs=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: Js0gWvEdhcNtba3NnzhcdA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: Js0gWvEdhcNtba3NnzhcdA==\r\nSec-WebSocket-Accept: RWHkjKVddDjugDp9eyAed/ooBmk=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.14.10",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-16T10:47:25.022Z",
+   "started": "2016-04-22T09:42:56.929Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "6ac0f9a4",
+         "8f2bc778",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             11,
-            "81856ac0f9a4977f461bd5"
+            "81858f2bc778729478c730"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "819f6581",
+         "136e2999",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "8882819f65818277"
+            "8882136e29991086"
          ],
          false
       ]

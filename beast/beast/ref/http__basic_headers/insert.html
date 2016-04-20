@@ -20,7 +20,7 @@
 <a name="beast.ref.http__basic_headers.insert"></a><a class="link" href="insert.html" title="http::basic_headers::insert">http::basic_headers::insert</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id987389"></a>
+          <a class="indexterm" name="id946291"></a>
 Insert a field value.
         </p>
 <pre class="programlisting"><span class="keyword">void</span> <a class="link" href="insert/overload1.html" title="http::basic_headers::insert (1 of 2 overloads)">insert</a><span class="special">(</span>
@@ -29,7 +29,7 @@ Insert a field value.
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_if_t</span><span class="special">&lt;</span>            <span class="special">!</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constructible</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span><span class="special">,</span> <span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">&gt;&gt;</span>
+    <span class="keyword">class</span> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_if</span><span class="special">&lt;</span>            <span class="special">!</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_constructible</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span><span class="special">,</span> <span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">&gt;</span>
 <span class="keyword">void</span> <a class="link" href="insert/overload2.html" title="http::basic_headers::insert (2 of 2 overloads)">insert</a><span class="special">(</span>
     <span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span> <span class="identifier">name</span><span class="special">,</span>
     <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">value</span><span class="special">);</span>

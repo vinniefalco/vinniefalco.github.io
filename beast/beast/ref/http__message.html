@@ -23,11 +23,11 @@
         A HTTP message.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">bool</span> <a class="link" href="../../">isRequest</a><span class="special">,</span>
-    <span class="keyword">class</span> <a class="link" href="../../">Body</a><span class="special">,</span>
-    <span class="keyword">class</span> <a class="link" href="../../">Headers</a><span class="special">&gt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
 <span class="keyword">struct</span> <span class="identifier">message</span> <span class="special">:</span>
-    <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">conditional_t</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">request_fields</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">response_fields</span> <span class="special">&gt;</span>
+    <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">conditional</span><span class="special">::</span><span class="identifier">type</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">request_fields</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">response_fields</span> <span class="special">&gt;</span>
 </pre>
 <h5>
 <a name="beast.ref.http__message.h0"></a>
@@ -146,38 +146,6 @@
 </table></div>
 <h5>
 <a name="beast.ref.http__message.h2"></a>
-        <span class="phrase"><a name="beast.ref.http__message.private_member_functions"></a></span><a class="link" href="http__message.html#beast.ref.http__message.private_member_functions">Private
-        Member Functions</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody><tr>
-<td>
-                <p>
-                  <a class="link" href="http__message/write_firstline.html" title="http::message::write_firstline"><span class="bold"><strong>write_firstline</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr></tbody>
-</table></div>
-<h5>
-<a name="beast.ref.http__message.h3"></a>
         <span class="phrase"><a name="beast.ref.http__message.data_members"></a></span><a class="link" href="http__message.html#beast.ref.http__message.data_members">Data
         Members</a>
       </h5>
@@ -229,7 +197,7 @@
 </tbody>
 </table></div>
 <h5>
-<a name="beast.ref.http__message.h4"></a>
+<a name="beast.ref.http__message.h3"></a>
         <span class="phrase"><a name="beast.ref.http__message.friends"></a></span><a class="link" href="http__message.html#beast.ref.http__message.friends">Friends</a>
       </h5>
 <div class="informaltable"><table class="table">
@@ -287,14 +255,14 @@
 </dl>
 </div>
 <h5>
-<a name="beast.ref.http__message.h5"></a>
+<a name="beast.ref.http__message.h4"></a>
         <span class="phrase"><a name="beast.ref.http__message.requirements"></a></span><a class="link" href="http__message.html#beast.ref.http__message.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/message.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/message.hpp</code>
       </p>
 <p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.h</code>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

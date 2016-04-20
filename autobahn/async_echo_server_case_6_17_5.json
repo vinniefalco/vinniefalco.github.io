@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: WLsKLhsWqHEiMcG7IG/q4Q==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: WLsKLhsWqHEiMcG7IG/q4Q==\r\nSec-WebSocket-Accept: lcQYQKVyTFxGpYs+xUwBpMWI5m0=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: eSYlLgfF6DOfHWALjyizDQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: eSYlLgfF6DOfHWALjyizDQ==\r\nSec-WebSocket-Accept: pUwggL1Xd/ymekcUbAoCH94VhPY=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.17.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-16T10:47:25.034Z",
+   "started": "2016-04-22T09:42:56.952Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "0615a124",
+         "c9fbd94c",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             12,
-            "81860615a124fa9521a486ba"
+            "8186c9fbd94c357b59cc4954"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "60b3bc74",
+         "7533630d",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "888260b3bc74635b"
+            "88827533630d76db"
          ],
          false
       ]

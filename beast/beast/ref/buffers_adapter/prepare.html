@@ -20,7 +20,7 @@
 <a name="beast.ref.buffers_adapter.prepare"></a><a class="link" href="prepare.html" title="buffers_adapter::prepare">buffers_adapter::prepare</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id941190"></a>
+          <a class="indexterm" name="id940131"></a>
 Get a list of buffers that represents the output
           sequence, with the given size.
         </p>
@@ -28,10 +28,20 @@ Get a list of buffers that represents the output
 <span class="identifier">prepare</span><span class="special">(</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">n</span><span class="special">);</span>
 </pre>
-<p>
-          std::length_errorif the size would exceed the limit imposed by the underlying
-          mutable buffer sequence.
-        </p>
+<h6>
+<a name="beast.ref.buffers_adapter.prepare.h0"></a>
+          <span class="phrase"><a name="beast.ref.buffers_adapter.prepare.exceptions"></a></span><a class="link" href="prepare.html#beast.ref.buffers_adapter.prepare.exceptions">Exceptions</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">std::length_error</span></dt>
+<dd><p>
+                if the size would exceed the limit imposed by the underlying mutable
+                buffer sequence.
+              </p></dd>
+</dl>
+</div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>

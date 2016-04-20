@@ -20,7 +20,7 @@
 <a name="beast.ref.streambuf"></a><a class="link" href="streambuf.html" title="streambuf">streambuf</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1052683"></a>
+        <a class="indexterm" name="id977269"></a>
 
       </p>
 <pre class="programlisting"><span class="keyword">using</span> <span class="identifier">streambuf</span> <span class="special">=</span> <span class="identifier">basic_streambuf</span><span class="special">&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span> <span class="keyword">char</span> <span class="special">&gt;&gt;;</span>
@@ -54,12 +54,15 @@
                 </p>
               </td>
 <td>
+                <p>
+                  The type of allocator used.
+                </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="basic_streambuf__const_buffers_type.html" title="basic_streambuf::const_buffers_type"><span class="bold"><strong>const_buffers_type</strong></span></a>
+                  <a class="link" href="basic_streambuf/const_buffers_type.html" title="basic_streambuf::const_buffers_type"><span class="bold"><strong>const_buffers_type</strong></span></a>
                 </p>
               </td>
 <td>
@@ -71,7 +74,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="basic_streambuf__mutable_buffers_type.html" title="basic_streambuf::mutable_buffers_type"><span class="bold"><strong>mutable_buffers_type</strong></span></a>
+                  <a class="link" href="basic_streambuf/mutable_buffers_type.html" title="basic_streambuf::mutable_buffers_type"><span class="bold"><strong>mutable_buffers_type</strong></span></a>
                 </p>
               </td>
 <td>
@@ -119,7 +122,7 @@
                   Copy constructor.
                 </p>
                 <p>
-                  Construct a stream buffer.
+                  Default constructor.
                 </p>
               </td>
 </tr>
@@ -249,164 +252,6 @@
 </tr>
 </tbody>
 </table></div>
-<h5>
-<a name="beast.ref.streambuf.h2"></a>
-        <span class="phrase"><a name="beast.ref.streambuf.private_member_functions"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.private_member_functions">Private
-        Member Functions</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>copy_assign</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>debug_check</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>delete_list</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>move_assign</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>prepare_size</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
-<h5>
-<a name="beast.ref.streambuf.h3"></a>
-        <span class="phrase"><a name="beast.ref.streambuf.private_data_members"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.private_data_members">Private
-        Data Members</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>alloc_size_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>in_pos_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>in_size_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>list_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>out_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>out_end_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>out_pos_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
 <p>
         The implementation uses a sequence of one or more character arrays of varying
         sizes. Additional character array objects are appended to the sequence to
@@ -422,14 +267,11 @@
 </dl>
 </div>
 <h5>
-<a name="beast.ref.streambuf.h4"></a>
+<a name="beast.ref.streambuf.h2"></a>
         <span class="phrase"><a name="beast.ref.streambuf.requirements"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/asio/streambuf.h</code>
-      </p>
-<p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/asio.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/streambuf.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

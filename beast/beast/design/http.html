@@ -42,12 +42,12 @@
 <dt><span class="term"> "Some more advanced examples, e.g. including TLS with client/server
           certificates would help."" </span></dt>
 <dd><p>
-              The <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">stream</span></code> and <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code>
-              interfaces don't try to reinvent the wheel, they just wrap a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span></code> or <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>.
-              Callers use the interfaces already existing on those objects to make
-              outgoing connections, accept incoming connections, or establish TLS
-              sessions with certificates. We find the available Asio examples for
-              performing these tasks sufficient.
+              The HTTP interface doesn't try to reinvent the wheel, it just uses
+              the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span></code> or <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>
+              that you set up beforehand. Callers use the interfaces already existing
+              on those objects to make outgoing connections, accept incoming connections,
+              or establish TLS sessions with certificates. We find the available
+              Asio examples for performing these tasks sufficient.
             </p></dd>
 <dt><span class="term"> "A built-in router?" </span></dt>
 <dd><p>
@@ -71,8 +71,8 @@
 <dd><p>
               Beast.HTTP does not provide direct facilities for implementing TLS
               connections; however, the interfaces already existing on the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code> are available and can be used
-              directly. The <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">stream</span></code>
-              can be wrapped around a TLS stream with no problem.
+              to establish secure connections. Then, functions like <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span></code> or <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">async_write</span></code>
+              can work with those encrypted connections with no problem.
             </p></dd>
 <dt><span class="term"> "There should also be more examples of how to integrate the
           http service with getting files from the file system, generating responses
@@ -115,20 +115,11 @@
               requirement to maintain per-session state. For example, to decode the
               compressed headers. Or to remember and respect the remote peer's window
               settings. The authors propose that a HTTP/2 implementation be written
-              as a separate class template, similar to the <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">stream</span></code>
-              but with additional interfaces to support 2 features. Here is a proposed
-              declaration for such a class template with a few essential member function
-              signatures included to show the contemplated interface:
+              as a separate class template, similar to the <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code>
+              but with additional interfaces to support version 2 features. We feel
+              that Beast.HTTP offers enough useful functionality to justify inclusion,
+              so that developers can take advantage of it right away instead of waiting.
             </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">session_id</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint32_t</span><span class="special">;</span>
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NextLayer</span><span class="special">&gt;</span>
-<span class="keyword">class</span> <span class="identifier">stream_v2</span>
-<span class="special">{</span>
-    <span class="identifier">NextLayer</span> <span class="identifier">next_layer_</span><span class="special">;</span>
-
-<span class="keyword">public</span><span class="special">:</span>
-<span class="special">};</span>
-</pre>
 </dd>
 </dl>
 </div>

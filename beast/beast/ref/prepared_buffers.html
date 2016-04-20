@@ -23,7 +23,7 @@
         Wrapper to produce a trimmed buffer sequence.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="identifier">classBufferSequence</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">BufferSequence</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">prepared_buffers</span>
 </pre>
 <h5>
@@ -51,7 +51,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="prepared_buffers__const_iterator.html" title="prepared_buffers::const_iterator"><span class="bold"><strong>const_iterator</strong></span></a>
+                  <a class="link" href="prepared_buffers/const_iterator.html" title="prepared_buffers::const_iterator"><span class="bold"><strong>const_iterator</strong></span></a>
                 </p>
               </td>
 <td>
@@ -156,110 +156,6 @@
 </tr>
 </tbody>
 </table></div>
-<h5>
-<a name="beast.ref.prepared_buffers.h2"></a>
-        <span class="phrase"><a name="beast.ref.prepared_buffers.private_member_functions"></a></span><a class="link" href="prepared_buffers.html#beast.ref.prepared_buffers.private_member_functions">Private
-        Member Functions</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="prepared_buffers/prepared_buffers.html" title="prepared_buffers::prepared_buffers"><span class="bold"><strong>prepared_buffers</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>setup</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
-<h5>
-<a name="beast.ref.prepared_buffers.h3"></a>
-        <span class="phrase"><a name="beast.ref.prepared_buffers.private_data_members"></a></span><a class="link" href="prepared_buffers.html#beast.ref.prepared_buffers.private_data_members">Private
-        Data Members</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>back_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>bs_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>end_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>size_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
 <p>
         This wraps a buffer sequence to efficiently present a shorter subset of the
         original list of buffers starting with the first byte of the original sequence.
@@ -274,14 +170,11 @@
 </dl>
 </div>
 <h5>
-<a name="beast.ref.prepared_buffers.h4"></a>
+<a name="beast.ref.prepared_buffers.h2"></a>
         <span class="phrase"><a name="beast.ref.prepared_buffers.requirements"></a></span><a class="link" href="prepared_buffers.html#beast.ref.prepared_buffers.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/asio/prepare_buffers.h</code>
-      </p>
-<p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/asio.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/prepare_buffers.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

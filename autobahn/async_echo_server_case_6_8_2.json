@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: /ZFhA+t8O5V5ydKuEslPhg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: /ZFhA+t8O5V5ydKuEslPhg==\r\nSec-WebSocket-Accept: b/lWPcMwEZhhs0tnDf1ZJIJrHp4=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 7g54CAQ31pZBU/HNuV2mQA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 7g54CAQ31pZBU/HNuV2mQA==\r\nSec-WebSocket-Accept: SCNS6DiWjL4KGYrZz0Mzwj4vfNk=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.8.2",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-16T10:47:24.979Z",
+   "started": "2016-04-22T09:42:56.854Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "cf102b5d",
+         "c2c63c60",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             12,
-            "8186cf102b5d3394abdd4f90"
+            "8186c2c63c603e42bce04246"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "21eca363",
+         "579e9227",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "888221eca3632204"
+            "8882579e92275476"
          ],
          false
       ]

@@ -39,24 +39,24 @@
 <dt><span class="section"><a href="beast/http.html">HTTP</a></span></dt>
 <dd><dl>
 <dt><span class="section"><a href="beast/http/motivation.html">Motivation</a></span></dt>
-<dt><span class="section"><a href="beast/http/example.html">Example</a></span></dt>
-<dt><span class="section"><a href="beast/http/message.html">Message model</a></span></dt>
-<dt><span class="section"><a href="beast/http/body.html">Body parameter</a></span></dt>
-<dt><span class="section"><a href="beast/http/headers.html">Headers container</a></span></dt>
+<dt><span class="section"><a href="beast/http/usage.html">Usage</a></span></dt>
+<dt><span class="section"><a href="beast/http/advanced.html">Advanced</a></span></dt>
+<dt><span class="section"><a href="beast/http/headers.html">Headers Type</a></span></dt>
+<dt><span class="section"><a href="beast/http/body.html">Body Type</a></span></dt>
 </dl></dd>
-<dt><span class="section"><a href="beast/wsproto.html">WSProto</a></span></dt>
+<dt><span class="section"><a href="beast/websocket.html">WebSocket</a></span></dt>
 <dd><dl>
-<dt><span class="section"><a href="beast/wsproto/motivation.html">Motivation</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/creating.html">Creating the socket</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/connecting.html">Making connections</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/handshaking.html">Handshaking</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/messages.html">Messages</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/frames.html">Frames</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/controlframes.html">Control frames</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/buffers.html">Buffers</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/async.html">Asynchronous interface</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/io_service.html">io_service</a></span></dt>
-<dt><span class="section"><a href="beast/wsproto/safety.html">Thread Safety</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/motivation.html">Motivation</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/creating.html">Creating the socket</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/connecting.html">Making connections</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/handshaking.html">Handshaking</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/messages.html">Messages</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/frames.html">Frames</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/controlframes.html">Control frames</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/buffers.html">Buffers</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/async.html">Asynchronous interface</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/io_service.html">io_service</a></span></dt>
+<dt><span class="section"><a href="beast/websocket/safety.html">Thread Safety</a></span></dt>
 </dl></dd>
 <dt><span class="section"><a href="beast/types.html">Type Requirements</a></span></dt>
 <dd><dl>
@@ -77,91 +77,39 @@
 <dt><span class="section"><a href="beast/quickref.html">Quick Reference</a></span></dt>
 <dt><span class="section"><a href="beast/ref.html">Reference</a></span></dt>
 <dd><dl>
-<dt><span class="section"><a href="beast/ref/append_buffers.html">append_buffers</a></span></dt>
 <dt><span class="section"><a href="beast/ref/async_completion.html">async_completion</a></span></dt>
 <dt><span class="section"><a href="beast/ref/basic_streambuf.html">basic_streambuf</a></span></dt>
-<dt><span class="section"><a href="beast/ref/basic_streambuf__const_buffers_type.html">basic_streambuf::const_buffers_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/basic_streambuf__mutable_buffers_type.html">basic_streambuf::mutable_buffers_type</a></span></dt>
 <dt><span class="section"><a href="beast/ref/bind_handler.html">bind_handler</a></span></dt>
+<dt><span class="section"><a href="beast/ref/buffer_cat.html">buffer_cat</a></span></dt>
 <dt><span class="section"><a href="beast/ref/buffers_adapter.html">buffers_adapter</a></span></dt>
-<dt><span class="section"><a href="beast/ref/buffers_adapter__const_buffers_type.html">buffers_adapter::const_buffers_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/buffers_adapter__const_buffers_type__const_iterator.html">buffers_adapter::const_buffers_type::const_iterator</a></span></dt>
-<dt><span class="section"><a href="beast/ref/buffers_adapter__mutable_buffers_type.html">buffers_adapter::mutable_buffers_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/buffers_adapter__mutable_buffers_type__const_iterator.html">buffers_adapter::mutable_buffers_type::const_iterator</a></span></dt>
 <dt><span class="section"><a href="beast/ref/consumed_buffers.html">consumed_buffers</a></span></dt>
 <dt><span class="section"><a href="beast/ref/consuming_buffers.html">consuming_buffers</a></span></dt>
-<dt><span class="section"><a href="beast/ref/consuming_buffers__const_iterator.html">consuming_buffers::const_iterator</a></span></dt>
-<dt><span class="section"><a href="beast/ref/decltype.html">decltype</a></span></dt>
-<dt><span class="section"><a href="beast/ref/deprecated_http__http_1_0.html">deprecated_http::http_1_0</a></span></dt>
-<dt><span class="section"><a href="beast/ref/deprecated_http__http_1_1.html">deprecated_http::http_1_1</a></span></dt>
-<dt><span class="section"><a href="beast/ref/deprecated_http__message.html">deprecated_http::message</a></span></dt>
-<dt><span class="section"><a href="beast/ref/deprecated_http__parser.html">deprecated_http::parser</a></span></dt>
-<dt><span class="section"><a href="beast/ref/deprecated_http__write.html">deprecated_http::write</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__BufferSequence.html">detail::BufferSequence</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__ConstBufferSequence.html">detail::ConstBufferSequence</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__MutableBufferSequence.html">detail::MutableBufferSequence</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__ReadHandler.html">detail::ReadHandler</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__StreamHandler.html">detail::StreamHandler</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__WriteHandler.html">detail::WriteHandler</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__append_buffers_helper.html">detail::append_buffers_helper</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__append_buffers_helper__const_iterator.html">detail::append_buffers_helper::const_iterator</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__bound_handler.html">detail::bound_handler</a></span></dt>
-<dt><span class="section"><a href="beast/ref/detail__max_sizeof.html">detail::max_sizeof</a></span></dt>
+<dt><span class="section"><a href="beast/ref/debug__buffers_to_string.html">debug::buffers_to_string</a></span></dt>
 <dt><span class="section"><a href="beast/ref/handler_alloc.html">handler_alloc</a></span></dt>
 <dt><span class="section"><a href="beast/ref/has_get_io_service.html">has_get_io_service</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__async_read.html">http::async_read</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__async_write.html">http::async_write</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__basic_headers.html">http::basic_headers</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__basic_parser.html">http::basic_parser</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_body_t.html">http::basic_parser::has_on_body_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_complete_t.html">http::basic_parser::has_on_complete_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_field_t.html">http::basic_parser::has_on_field_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_headers_complete_t.html">http::basic_parser::has_on_headers_complete_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_request_t.html">http::basic_parser::has_on_request_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_response_t.html">http::basic_parser::has_on_response_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__has_on_start_t.html">http::basic_parser::has_on_start_t</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_parser__hooks_t.html">http::basic_parser::hooks_t</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__basic_streambuf_body.html">http::basic_streambuf_body</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_streambuf_body__reader.html">http::basic_streambuf_body::reader</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__basic_streambuf_body__writer.html">http::basic_streambuf_body::writer</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__chunk_encode.html">http::chunk_encode</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__chunk_encode_final.html">http::chunk_encode_final</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__Reader.html">http::detail::Reader</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__basic_headers_base.html">http::detail::basic_headers_base</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__basic_headers_base__const_iterator.html">http::detail::basic_headers_base::const_iterator</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__basic_headers_base__element.html">http::detail::basic_headers_base::element</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__basic_headers_base__less.html">http::detail::basic_headers_base::less</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__basic_headers_base__value_type.html">http::detail::basic_headers_base::value_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__chunk_encoded_buffers.html">http::detail::chunk_encoded_buffers</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__chunk_encoded_buffers__const_iterator.html">http::detail::chunk_encoded_buffers::const_iterator</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__request_fields.html">http::detail::request_fields</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__detail__response_fields.html">http::detail::response_fields</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__empty_body.html">http::empty_body</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__empty_body__reader.html">http::empty_body::reader</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__empty_body__value_type.html">http::empty_body::value_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__empty_body__writer.html">http::empty_body::writer</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__error_code.html">http::error_code</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__is_Body.html">http::is_Body</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__is_HTTPMessage.html">http::is_HTTPMessage</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__is_HTTPRequest.html">http::is_HTTPRequest</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__is_ReadableBody.html">http::is_ReadableBody</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__is_WritableBody.html">http::is_WritableBody</a></span></dt>
+<dt><span class="section"><a href="beast/ref/http__headers.html">http::headers</a></span></dt>
+<dt><span class="section"><a href="beast/ref/http__http_headers.html">http::http_headers</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__is_keep_alive.html">http::is_keep_alive</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__is_upgrade.html">http::is_upgrade</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__message.html">http::message</a></span></dt>
+<dt><span class="section"><a href="beast/ref/http__method_t.html">http::method_t</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__operator_lt__lt_.html">http::operator&lt;&lt;</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__parser.html">http::parser</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__read.html">http::read</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__request_params.html">http::request_params</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__response_params.html">http::response_params</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__resume_context.html">http::resume_context</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__stream.html">http::stream</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__stream__read_op.html">http::stream::read_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__stream__write_op.html">http::stream::write_op</a></span></dt>
+<dt><span class="section"><a href="beast/ref/http__status_text.html">http::status_text</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__streambuf_body.html">http::streambuf_body</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__string_body.html">http::string_body</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__string_body__reader.html">http::string_body::reader</a></span></dt>
-<dt><span class="section"><a href="beast/ref/http__string_body__writer.html">http::string_body::writer</a></span></dt>
+<dt><span class="section"><a href="beast/ref/http__to_string.html">http::to_string</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__write.html">http::write</a></span></dt>
 <dt><span class="section"><a href="beast/ref/http__write_fields.html">http::write_fields</a></span></dt>
 <dt><span class="section"><a href="beast/ref/is_AsyncReadStream.html">is_AsyncReadStream</a></span></dt>
@@ -175,43 +123,29 @@
 <dt><span class="section"><a href="beast/ref/prepare_buffer.html">prepare_buffer</a></span></dt>
 <dt><span class="section"><a href="beast/ref/prepare_buffers.html">prepare_buffers</a></span></dt>
 <dt><span class="section"><a href="beast/ref/prepared_buffers.html">prepared_buffers</a></span></dt>
-<dt><span class="section"><a href="beast/ref/prepared_buffers__const_iterator.html">prepared_buffers::const_iterator</a></span></dt>
 <dt><span class="section"><a href="beast/ref/static_streambuf.html">static_streambuf</a></span></dt>
-<dt><span class="section"><a href="beast/ref/static_streambuf__const_buffers_type.html">static_streambuf::const_buffers_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/static_streambuf__const_buffers_type__const_iterator.html">static_streambuf::const_buffers_type::const_iterator</a></span></dt>
-<dt><span class="section"><a href="beast/ref/static_streambuf__mutable_buffers_type.html">static_streambuf::mutable_buffers_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/static_streambuf__mutable_buffers_type__const_iterator.html">static_streambuf::mutable_buffers_type::const_iterator</a></span></dt>
 <dt><span class="section"><a href="beast/ref/static_streambuf_n.html">static_streambuf_n</a></span></dt>
 <dt><span class="section"><a href="beast/ref/streambuf.html">streambuf</a></span></dt>
 <dt><span class="section"><a href="beast/ref/streambuf_readstream.html">streambuf_readstream</a></span></dt>
-<dt><span class="section"><a href="beast/ref/streambuf_readstream__read_some_op.html">streambuf_readstream::read_some_op</a></span></dt>
 <dt><span class="section"><a href="beast/ref/to_string.html">to_string</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__async_teardown.html">wsproto::async_teardown</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__auto_fragment_size.html">wsproto::auto_fragment_size</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__close_code.html">wsproto::close_code</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__close_reason.html">wsproto::close_reason</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__decorate.html">wsproto::decorate</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__error.html">wsproto::error</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__error_code.html">wsproto::error_code</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__frame_info.html">wsproto::frame_info</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__keep_alive.html">wsproto::keep_alive</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__make_error_code.html">wsproto::make_error_code</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__message_type.html">wsproto::message_type</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__opcode.html">wsproto::opcode</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__read_buffer_size.html">wsproto::read_buffer_size</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__read_message_max.html">wsproto::read_message_max</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket.html">wsproto::socket</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__accept_op.html">wsproto::socket::accept_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__close_op.html">wsproto::socket::close_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__handshake_op.html">wsproto::socket::handshake_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__read_frame_op.html">wsproto::socket::read_frame_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__read_op.html">wsproto::socket::read_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__response_op.html">wsproto::socket::response_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__write_frame_op.html">wsproto::socket::write_frame_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__socket__write_op.html">wsproto::socket::write_op</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__static_string.html">wsproto::static_string</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__teardown.html">wsproto::teardown</a></span></dt>
-<dt><span class="section"><a href="beast/ref/wsproto__write_buffer_size.html">wsproto::write_buffer_size</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__async_teardown.html">websocket::async_teardown</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__auto_fragment_size.html">websocket::auto_fragment_size</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__close_code.html">websocket::close_code</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__close_reason.html">websocket::close_reason</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__decorate.html">websocket::decorate</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__error.html">websocket::error</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__error_code.html">websocket::error_code</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__frame_info.html">websocket::frame_info</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__keep_alive.html">websocket::keep_alive</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__make_error_code.html">websocket::make_error_code</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__message_type.html">websocket::message_type</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__opcode.html">websocket::opcode</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__read_buffer_size.html">websocket::read_buffer_size</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__read_message_max.html">websocket::read_message_max</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__static_string.html">websocket::static_string</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__stream.html">websocket::stream</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__teardown.html">websocket::teardown</a></span></dt>
+<dt><span class="section"><a href="beast/ref/websocket__write_buffer_size.html">websocket::write_buffer_size</a></span></dt>
 <dt><span class="section"><a href="beast/ref/wsproto_helpers__call_async_teardown.html">wsproto_helpers::call_async_teardown</a></span></dt>
 <dt><span class="section"><a href="beast/ref/wsproto_helpers__call_teardown.html">wsproto_helpers::call_teardown</a></span></dt>
 <dt><span class="section"><a href="beast/ref/std__bind.html">std::bind</a></span></dt>
@@ -222,7 +156,7 @@
 </div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"><p><small>Last revised: April 19, 2016 at 20:15:42 GMT</small></p></td>
+<td align="left"><p><small>Last revised: April 22, 2016 at 23:29:14 GMT</small></p></td>
 <td align="right"><div class="copyright-footer"></div></td>
 </tr></table>
 <hr>

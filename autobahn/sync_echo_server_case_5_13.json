@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: QkY5aT+BqdRfWlehnqWz4A==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: QkY5aT+BqdRfWlehnqWz4A==\r\nSec-WebSocket-Accept: fN9tqQeUoqT2W6BZMKKT0adK8Uc=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: nAu/knu3ELR3hMLSWcQeig==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: nAu/knu3ELR3hMLSWcQeig==\r\nSec-WebSocket-Accept: rx04bg2nw1Qryz9v18N/Wos4p7M=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "5.13",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-16T10:47:26.223Z",
+   "started": "2016-04-22T09:44:15.533Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 1,
@@ -49,6 +49,8 @@
       "8": 1
    },
    "txOctetStats": {
+      "8": 1,
+      "19": 1,
       "30": 1,
       "240": 1
    },
@@ -82,7 +84,7 @@
          0,
          false,
          0,
-         "6ffec15b",
+         "9c8b7fc9",
          null,
          null,
          true
@@ -91,7 +93,7 @@
          "TO",
          [
             30,
-            "00986ffec15b0191af760c91af2f0690b43a1b97ae354f8ea0220391a03f"
+            "00989c8b7fc9f2e411e4ffe411bdf5e50aa8e8e210a7bcfb1eb0f0e41ead"
          ],
          true
       ],
@@ -104,7 +106,7 @@
          1,
          true,
          0,
-         "c482111f",
+         "cd66a5d7",
          null,
          null,
          true
@@ -112,6 +114,14 @@
       [
          "KL",
          1
+      ],
+      [
+         "TO",
+         [
+            19,
+            "818dcd66a5d78503c9bba24a85a0a214c9b3ec"
+         ],
+         true
       ],
       [
          "RO",
@@ -141,9 +151,17 @@
          8,
          true,
          0,
-         "a0ecaa12",
+         "1d60ff2a",
          null,
          null,
+         false
+      ],
+      [
+         "TO",
+         [
+            8,
+            "88821d60ff2a1e88"
+         ],
          false
       ]
    ]

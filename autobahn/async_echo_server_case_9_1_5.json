@@ -1,14 +1,14 @@
 {
    "agent": "async_echo_server",
-   "behavior": "FAILED",
-   "behaviorClose": "UNCLEAN",
+   "behavior": "OK",
+   "behaviorClose": "OK",
    "case": 253,
    "closedByMe": true,
    "createStats": true,
-   "createWirelog": false,
+   "createWirelog": true,
    "description": "Send text message message with payload of length 8 * 2**20 (8M).",
-   "droppedByMe": true,
-   "duration": 124,
+   "droppedByMe": false,
+   "duration": 163,
    "expectation": "Receive echo'ed text message (with payload as sent).",
    "expected": {},
    "expectedClose": {
@@ -18,40 +18,46 @@
       "closedByMe": true,
       "requireClean": true
    },
-   "failedByMe": true,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: KpwnBbB+znrBgSxjdSuU2Q==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Key: KpwnBbB+znrBgSxjdSuU2Q==\r\nSec-WebSocket-Accept: 5kWDLhfaYv4DalUUkmBAHNpEqlI=\r\nServer: async_echo_server\r\nConnection: Upgrade\r\nContent-Length: 0\r\n\r\n",
+   "failedByMe": false,
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: BJCfnlo5Vc+E3IKfaZ+2eA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: BJCfnlo5Vc+E3IKfaZ+2eA==\r\nSec-WebSocket-Accept: gH8A/5JIPq6ZamS8LudLhx4b8nA=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "9.1.5",
    "isServer": false,
-   "localCloseCode": 1002,
-   "localCloseReason": "received non-continuation data frame while inside fragmented message",
+   "localCloseCode": 1000,
+   "localCloseReason": null,
    "received": [],
-   "remoteCloseCode": null,
+   "remoteCloseCode": 1000,
    "remoteCloseReason": null,
    "reportCompressionRatio": false,
    "reportTime": true,
-   "result": "Did not receive message within 100 seconds.",
-   "resultClose": "The spec requires the connection to be failed cleanly here",
+   "result": "Received text message of length 8388608.",
+   "resultClose": "Connection was properly closed",
    "rxFrameStats": {
-      "1": 2
+      "0": 511,
+      "1": 1,
+      "8": 1
    },
    "rxOctetStats": {
+      "4": 1,
       "220": 1,
       "16388": 1,
-      "32776": 1
+      "32776": 1,
+      "34792": 1,
+      "49164": 1,
+      "65536": 126
    },
-   "started": "2016-04-13T16:41:29.997Z",
+   "started": "2016-04-22T09:42:57.298Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
       "8": 1
    },
    "txOctetStats": {
-      "76": 1,
+      "8": 1,
       "240": 1,
       "8388622": 1
    },
-   "wasClean": false,
+   "wasClean": true,
    "wasCloseHandshakeTimeout": false,
    "wasNotCleanReason": null,
    "wasOpenHandshakeTimeout": false,
@@ -69,12 +75,53 @@
          "RO",
          [
             220,
-            "485454502f312e312031303120537769746368696e672050726f746f636f6c730d0a557067726164653a20776562736f636b65740d0a5365632d576562536f63 ..."
+            "485454502f312e312031303120537769746368696e672050726f746f636f6c730d0a557067726164653a20776562736f636b65740d0a436f6e6e656374696f6e ..."
          ]
       ],
       [
          "TI",
          100
+      ],
+      [
+         "TF",
+         [
+            2,
+            "0x03e8"
+         ],
+         8,
+         true,
+         0,
+         "92848b39",
+         null,
+         null,
+         false
+      ],
+      [
+         "TO",
+         [
+            8,
+            "888292848b39916c"
+         ],
+         false
+      ],
+      [
+         "RO",
+         [
+            4,
+            "880203e8"
+         ]
+      ],
+      [
+         "RF",
+         [
+            2,
+            "0x03e8"
+         ],
+         8,
+         true,
+         0,
+         false,
+         null
       ]
    ]
 }

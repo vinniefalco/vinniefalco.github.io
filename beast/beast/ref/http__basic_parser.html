@@ -23,7 +23,7 @@
         Parser for producing HTTP requests and responses.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <a class="link" href="../../">Derived</a><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Derived</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">basic_parser</span>
 </pre>
 <h5>
@@ -151,200 +151,6 @@
 </tr>
 </tbody>
 </table></div>
-<h5>
-<a name="beast.ref.http__basic_parser.h2"></a>
-        <span class="phrase"><a name="beast.ref.http__basic_parser.private_member_functions"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.private_member_functions">Private Member
-        Functions</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_body</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_complete</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_field</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_headers_complete</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_request</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_response</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>call_on_start</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>check_header</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>impl</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
-<h5>
-<a name="beast.ref.http__basic_parser.h3"></a>
-        <span class="phrase"><a name="beast.ref.http__basic_parser.private_data_members"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.private_data_members">Private
-        Data Members</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>complete_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>ec_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>field_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>state_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>status_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>url_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>value_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
 <p>
         Callbacks: If a is an object of type Derived, and the call expression is
         valid then the stated effects will take place: a.on_start() Called once when
@@ -382,14 +188,14 @@
         type omits the callbacks, they are simply skipped with no compilation error.
       </p>
 <h5>
-<a name="beast.ref.http__basic_parser.h4"></a>
+<a name="beast.ref.http__basic_parser.h2"></a>
         <span class="phrase"><a name="beast.ref.http__basic_parser.requirements"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/basic_parser.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/basic_parser.hpp</code>
       </p>
 <p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.h</code>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

@@ -20,20 +20,20 @@
 <a name="beast.ref.http__async_write"></a><a class="link" href="http__async_write.html" title="http::async_write">http::async_write</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id982665"></a>
+        <a class="indexterm" name="id943833"></a>
 Start writing a HTTP message to a stream asynchronously.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">AsyncWriteStream</span><span class="special">,</span>
-    <span class="keyword">bool</span> <a class="link" href="../../">isRequest</a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="../types/Body.html" title="Body"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">CompletionToken</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">WriteHandler</span><span class="special">&gt;</span>
 <a class="link" href="../../"><span class="emphasis"><em>void-or-deduced</em></span></a>
 <span class="identifier">async_write</span><span class="special">(</span>
     <span class="identifier">AsyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
-    <span class="identifier">CompletionToken</span> <span class="special">&amp;&amp;</span> <span class="identifier">token</span><span class="special">);</span>
+    <span class="identifier">WriteHandler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">);</span>
 </pre>
 <h5>
 <a name="beast.ref.http__async_write.h0"></a>
@@ -83,10 +83,10 @@ Start writing a HTTP message to a stream asynchronously.
         <span class="phrase"><a name="beast.ref.http__async_write.requirements"></a></span><a class="link" href="http__async_write.html#beast.ref.http__async_write.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/write.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/write.hpp</code>
       </p>
 <p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.h</code>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

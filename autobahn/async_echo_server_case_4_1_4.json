@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send small text message, then send frame with reserved non-control <b>Opcode = 6</b> and non-empty payload, then send Ping.",
    "droppedByMe": false,
-   "duration": 0,
+   "duration": 1,
    "expectation": "Echo for first message is received, but then connection is failed immediately, since reserved opcode frame is used. A Pong is not received.",
    "expected": {
       "NON-STRICT": [],
@@ -28,8 +28,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 7zfCvLiysLM3dY6I1MqATQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 7zfCvLiysLM3dY6I1MqATQ==\r\nSec-WebSocket-Accept: Pu5vVFEkOQsxQn0egJtAeMfwWCs=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: xNnEFFLxaud+GGlkCQPIEw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: xNnEFFLxaud+GGlkCQPIEw==\r\nSec-WebSocket-Accept: HI1IXnRNQeEp2lbS+q5aRxeTC28=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "4.1.4",
    "isServer": false,
    "localCloseCode": 1000,
@@ -56,7 +56,7 @@
       "15": 1,
       "220": 1
    },
-   "started": "2016-04-16T10:47:18.762Z",
+   "started": "2016-04-22T09:42:50.605Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -100,7 +100,7 @@
          1,
          true,
          0,
-         "ab80ae66",
+         "26d90771",
          null,
          null,
          false
@@ -109,7 +109,7 @@
          "TO",
          [
             19,
-            "818dab80ae66e3e5c20ac4ac8e11c4f2c2028a"
+            "818d26d907716ebc6b1d49f5270649ab6b1507"
          ],
          false
       ],
@@ -122,7 +122,7 @@
          6,
          true,
          0,
-         "6646d898",
+         "17d6ad5e",
          null,
          null,
          false
@@ -131,7 +131,7 @@
          "TO",
          [
             19,
-            "868d6646d8982e23b4f4096af8ef0934b4fc47"
+            "868d17d6ad5e5fb3c13278fa8d2978a4c13a36"
          ],
          false
       ],
@@ -144,7 +144,7 @@
          9,
          true,
          0,
-         "0d571ac4",
+         "e60ac03e",
          null,
          null,
          false
@@ -153,7 +153,7 @@
          "TO",
          [
             6,
-            "89800d571ac4"
+            "8980e60ac03e"
          ],
          false
       ],
@@ -208,7 +208,7 @@
          8,
          true,
          0,
-         "5737e978",
+         "394ba4b5",
          null,
          null,
          false
@@ -217,7 +217,7 @@
          "TO",
          [
             8,
-            "88825737e97854df"
+            "8882394ba4b53aa3"
          ],
          false
       ]

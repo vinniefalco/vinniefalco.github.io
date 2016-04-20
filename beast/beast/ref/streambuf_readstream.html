@@ -23,8 +23,8 @@
         A <code class="computeroutput"><span class="identifier">Stream</span></code> with attached <code class="computeroutput"><span class="identifier">Streambuf</span></code> to buffer reads.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="identifier">classStream</span><span class="special">,</span>
-    <span class="keyword">class</span> <a class="link" href="../../">Streambuf</a> <span class="special">=</span> <span class="identifier">streambuf</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Stream</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Streambuf</span> <span class="special">=</span> <span class="identifier">streambuf</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">streambuf_readstream</span>
 </pre>
 <h5>
@@ -238,58 +238,6 @@
 </tr>
 </tbody>
 </table></div>
-<h5>
-<a name="beast.ref.streambuf_readstream.h2"></a>
-        <span class="phrase"><a name="beast.ref.streambuf_readstream.private_data_members"></a></span><a class="link" href="streambuf_readstream.html#beast.ref.streambuf_readstream.private_data_members">Private
-        Data Members</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>next_layer_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>sb_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>size_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
 <p>
         This wraps a <code class="computeroutput"><span class="identifier">Stream</span></code> implementation
         so that calls to write are passed through to the underlying stream, while
@@ -353,14 +301,11 @@
 </dl>
 </div>
 <h5>
-<a name="beast.ref.streambuf_readstream.h3"></a>
+<a name="beast.ref.streambuf_readstream.h2"></a>
         <span class="phrase"><a name="beast.ref.streambuf_readstream.requirements"></a></span><a class="link" href="streambuf_readstream.html#beast.ref.streambuf_readstream.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/asio/streambuf_readstream.h</code>
-      </p>
-<p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/asio.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/streambuf_readstream.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send text message message with payload of length 8 * 2**20 (8M).",
    "droppedByMe": false,
-   "duration": 124,
+   "duration": 159,
    "expectation": "Receive echo'ed text message (with payload as sent).",
    "expected": {},
    "expectedClose": {
@@ -19,8 +19,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: YFryd5HxoNQjrgvs0ctkwg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Key: YFryd5HxoNQjrgvs0ctkwg==\r\nSec-WebSocket-Accept: JmNEhuaPH5/LrEYhWiS2WH2BNc8=\r\nServer: sync_echo_server\r\nConnection: Upgrade\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 6xTjtvMAreRR22+a7iQ5JA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 6xTjtvMAreRR22+a7iQ5JA==\r\nSec-WebSocket-Accept: CUyTJcCawyg9edPkvQKYBL+uxGk=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "9.1.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -33,17 +33,18 @@
    "result": "Received text message of length 8388608.",
    "resultClose": "Connection was properly closed",
    "rxFrameStats": {
+      "0": 511,
       "1": 1,
       "8": 1
    },
    "rxOctetStats": {
       "4": 1,
       "219": 1,
-      "26126": 1,
-      "39420": 1,
+      "16388": 1,
+      "51196": 1,
       "65536": 127
    },
-   "started": "2016-04-13T14:50:59.950Z",
+   "started": "2016-04-22T09:44:22.034Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -72,7 +73,7 @@
          "RO",
          [
             219,
-            "485454502f312e312031303120537769746368696e672050726f746f636f6c730d0a557067726164653a20776562736f636b65740d0a5365632d576562536f63 ..."
+            "485454502f312e312031303120537769746368696e672050726f746f636f6c730d0a557067726164653a20776562736f636b65740d0a436f6e6e656374696f6e ..."
          ]
       ],
       [
@@ -88,7 +89,7 @@
          8,
          true,
          0,
-         "59fe6db3",
+         "fc60858e",
          null,
          null,
          false
@@ -97,7 +98,7 @@
          "TO",
          [
             8,
-            "888259fe6db35a16"
+            "8882fc60858eff88"
          ],
          false
       ],

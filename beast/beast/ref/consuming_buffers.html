@@ -23,8 +23,8 @@
         Adapter to trim the front of a <code class="computeroutput"><span class="identifier">BufferSequence</span></code>.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <a class="link" href="../../">Buffers</a><span class="special">,</span>
-    <span class="keyword">class</span> <a class="link" href="../../">ValueType</a> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">Buffers</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Buffers</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">ValueType</span> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">Buffers</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">consuming_buffers</span>
 </pre>
 <h5>
@@ -52,7 +52,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="consuming_buffers__const_iterator.html" title="consuming_buffers::const_iterator"><span class="bold"><strong>const_iterator</strong></span></a>
+                  <a class="link" href="consuming_buffers/const_iterator.html" title="consuming_buffers::const_iterator"><span class="bold"><strong>const_iterator</strong></span></a>
                 </p>
               </td>
 <td>
@@ -169,90 +169,6 @@
 </tr>
 </tbody>
 </table></div>
-<h5>
-<a name="beast.ref.consuming_buffers.h2"></a>
-        <span class="phrase"><a name="beast.ref.consuming_buffers.private_member_functions"></a></span><a class="link" href="consuming_buffers.html#beast.ref.consuming_buffers.private_member_functions">Private Member
-        Functions</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody><tr>
-<td>
-                <p>
-                  <a class="link" href="consuming_buffers/consuming_buffers.html" title="consuming_buffers::consuming_buffers"><span class="bold"><strong>consuming_buffers</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr></tbody>
-</table></div>
-<h5>
-<a name="beast.ref.consuming_buffers.h3"></a>
-        <span class="phrase"><a name="beast.ref.consuming_buffers.private_data_members"></a></span><a class="link" href="consuming_buffers.html#beast.ref.consuming_buffers.private_data_members">Private
-        Data Members</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>begin_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>bs_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>skip_</strong></span></a>
-                </p>
-              </td>
-<td>
-              </td>
-</tr>
-</tbody>
-</table></div>
 <p>
         This adapter wraps a buffer sequence to create a new sequence which may be
         incrementally consumed. Bytes consumed are removed from the front of the
@@ -278,14 +194,11 @@
         compile error.
       </p>
 <h5>
-<a name="beast.ref.consuming_buffers.h4"></a>
+<a name="beast.ref.consuming_buffers.h2"></a>
         <span class="phrase"><a name="beast.ref.consuming_buffers.requirements"></a></span><a class="link" href="consuming_buffers.html#beast.ref.consuming_buffers.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/asio/consuming_buffers.h</code>
-      </p>
-<p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/asio.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/consuming_buffers.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

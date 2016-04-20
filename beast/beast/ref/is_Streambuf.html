@@ -7,13 +7,13 @@
 <link rel="home" href="../../index.html" title="Beast">
 <link rel="up" href="../ref.html" title="Reference">
 <link rel="prev" href="is_Stream/value.html" title="is_Stream::value">
-<link rel="next" href="is_SyncReadStream.html" title="is_SyncReadStream">
+<link rel="next" href="is_Streambuf/value.html" title="is_Streambuf::value">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="is_Stream/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="is_SyncReadStream.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="is_Stream/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="is_Streambuf/value.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -24,20 +24,50 @@
         requirements of <code class="computeroutput"><span class="identifier">Streambuf</span></code>.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="special">=</span> <span class="keyword">void</span><span class="special">&gt;</span>
-<span class="keyword">struct</span> <span class="identifier">is_Streambuf</span> <span class="special">:</span>
-    <span class="keyword">public</span> <span class="identifier">false_type</span>
+    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">is_Streambuf</span>
 </pre>
 <h5>
 <a name="beast.ref.is_Streambuf.h0"></a>
+        <span class="phrase"><a name="beast.ref.is_Streambuf.data_members"></a></span><a class="link" href="is_Streambuf.html#beast.ref.is_Streambuf.data_members">Data
+        Members</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="is_Streambuf/value.html" title="is_Streambuf::value"><span class="bold"><strong>value</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  true if T meets the requirements.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.is_Streambuf.h1"></a>
         <span class="phrase"><a name="beast.ref.is_Streambuf.requirements"></a></span><a class="link" href="is_Streambuf.html#beast.ref.is_Streambuf.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/asio/type_check.h</code>
-      </p>
-<p>
-        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/asio.h</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/type_check.hpp</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
@@ -51,7 +81,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="is_Stream/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="is_SyncReadStream.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="is_Stream/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="is_Streambuf/value.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

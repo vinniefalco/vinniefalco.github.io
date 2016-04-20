@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send ping with small binary (non UTF-8) payload.",
    "droppedByMe": false,
-   "duration": 1,
+   "duration": 0,
    "expectation": "Pong with payload echo'ed is sent in reply to Ping. Clean close with normal code.",
    "expected": {
       "OK": [
@@ -26,8 +26,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 67RhPW5/Ujd4ETYy208K6g==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 67RhPW5/Ujd4ETYy208K6g==\r\nSec-WebSocket-Accept: YZJ2bILNZ+73fnxNvnr8CSeQ+DY=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 9+rV3ORI8GfYfCPI2r6PZA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 9+rV3ORI8GfYfCPI2r6PZA==\r\nSec-WebSocket-Accept: mxCtEQx4cmdPNKTi5iCiZ/vgvxo=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "2.3",
    "isServer": false,
    "localCloseCode": 1000,
@@ -53,7 +53,7 @@
       "10": 1,
       "220": 1
    },
-   "started": "2016-04-16T10:47:18.436Z",
+   "started": "2016-04-22T09:42:50.269Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1,
@@ -94,7 +94,7 @@
          9,
          true,
          0,
-         "586daadd",
+         "a53080e2",
          null,
          null,
          false
@@ -103,7 +103,7 @@
          "TO",
          [
             14,
-            "8988586daadd58925420a496aa22"
+            "8988a53080e2a5cf7e1f59cb801d"
          ],
          false
       ],
@@ -139,7 +139,7 @@
          8,
          true,
          0,
-         "07c320c7",
+         "31135bd8",
          null,
          null,
          false
@@ -148,7 +148,7 @@
          "TO",
          [
             8,
-            "888207c320c7042b"
+            "888231135bd832fb"
          ],
          false
       ],
