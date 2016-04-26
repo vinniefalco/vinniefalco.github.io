@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>websocket::stream::write_frame (2 of 2 overloads)</title>
+<link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../../index.html" title="Beast">
+<link rel="up" href="../write_frame.html" title="websocket::stream::write_frame">
+<link rel="prev" href="overload1.html" title="websocket::stream::write_frame (1 of 2 overloads)">
+<link rel="next" href="../_stream.html" title="websocket::stream::~stream">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overload1.html"><img src="../../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../write_frame.html"><img src="../../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../../index.html"><img src="../../../../images/home.png" alt="Home"></a><a accesskey="n" href="../_stream.html"><img src="../../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="beast.ref.websocket__stream.write_frame.overload2"></a><a class="link" href="overload2.html" title="websocket::stream::write_frame (2 of 2 overloads)">websocket::stream::write_frame
+          (2 of 2 overloads)</a>
+</h5></div></div></div>
+<p>
+            Send a frame.
+          </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">ConstBufferSequence</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">write_frame</span><span class="special">(</span>
+    <span class="keyword">bool</span> <span class="identifier">fin</span><span class="special">,</span>
+    <span class="identifier">ConstBufferSequence</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">buffers</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<p>
+            This function is used to write a frame to a stream. The call will block
+            until one of the following conditions is true: * All of the data in the
+            supplied buffers has been written. * An error occurs. This operation
+            is implemented in terms of one or more calls to the stream's write_some
+            function. The actual payload sent may be transformed as per the WebSocket
+            protocol settings. If this is the beginning of a new message, the message
+            opcode will be set to text or binary as per the current setting of the
+            <code class="computeroutput"><span class="identifier">message_type</span></code> option.
+          </p>
+<h6>
+<a name="beast.ref.websocket__stream.write_frame.overload2.h0"></a>
+            <span class="phrase"><a name="beast.ref.websocket__stream.write_frame.overload2.parameters"></a></span><a class="link" href="overload2.html#beast.ref.websocket__stream.write_frame.overload2.parameters">Parameters</a>
+          </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">fin</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if this is the
+                  last frame in the message.
+                </p></dd>
+<dt><span class="term">buffers</span></dt>
+<dd><p>
+                  One or more buffers containing the frame's payload data.
+                </p></dd>
+<dt><span class="term">ec</span></dt>
+<dd><p>
+                  Set to indicate what error occurred, if any.
+                </p></dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overload1.html"><img src="../../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../write_frame.html"><img src="../../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../../index.html"><img src="../../../../images/home.png" alt="Home"></a><a accesskey="n" href="../_stream.html"><img src="../../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

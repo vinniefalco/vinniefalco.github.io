@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Advanced</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="HTTP">
+<link rel="prev" href="usage.html" title="Usage">
+<link rel="next" href="headers.html" title="Headers Type">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="usage.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="headers.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.advanced"></a><a class="link" href="advanced.html" title="Advanced">Advanced</a>
+</h3></div></div></div>
+<p>
+        The spectrum of hardware and software platforms which perform these typical
+        HTTP operations is vast, ranging from powerful servers in large datacenters
+        to tiny resource-limited embedded devices. No single concrete implementation
+        of a class intended to model messages can efficiently serve all needs. For
+        example, an object that minimizes resources during parsing may not be able
+        to edit and change headers dynamically. A message that represents the message
+        body as a disk file may support sending but not parsing. Many efficient and
+        correct models of messages exist, supporting some or all of the operations
+        listed above.
+      </p>
+<h5>
+<a name="beast.http.advanced.h0"></a>
+        <span class="phrase"><a name="beast.http.advanced.message_model"></a></span><a class="link" href="advanced.html#beast.http.advanced.message_model">Message
+        model</a>
+      </h5>
+<p>
+        The message class template and provided Body types are suitable for casual
+        library users. This section explains the message model for advanced users
+        who wish to take control over aspects of the implementation. We introduce
+        customization points for the header and body via class template arguments.
+        This illustration shows more detail about the <a class="link" href="../ref/http__message.html" title="http::message"><span class="bold"><strong><code class="computeroutput"><span class="identifier">message</span></code></strong></span></a>
+        class template (boilerplate present in the actual declaration has been removed
+        for clarity):
+      </p>
+<p>
+        <span class="inlinemediaobject"><img src="../../images/message.png" width="580"></span>
+      </p>
+<p>
+        The default constructor, move special members, and copy special members are
+        all defaulted. A message is movable, copyable, or default constructible based
+        on the capabilities of its template arguments.
+      </p>
+<p>
+        Messages modeled in this fashion are <span class="emphasis"><em>complete</em></span>, containing
+        all of the information required to perform the supported set of operations.
+        They are <span class="emphasis"><em>first-class types</em></span>, returnable from functions
+        and composable. HTTP requests and responses are distinct types, allowing
+        functions to be overloaded on the type of message.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="usage.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="headers.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

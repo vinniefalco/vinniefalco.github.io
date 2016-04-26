@@ -1,0 +1,306 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Usage</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="HTTP">
+<link rel="prev" href="motivation.html" title="Motivation">
+<link rel="next" href="advanced.html" title="Advanced">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="motivation.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="advanced.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.usage"></a><a class="link" href="usage.html" title="Usage">Usage</a>
+</h3></div></div></div>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top">
+<p>
+          Sample code and identifiers mentioned in this section are written as if
+          the following declarations are in effect:
+        </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">http</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">beast</span><span class="special">;</span>
+</pre>
+</td></tr>
+</table></div>
+<p>
+        A HTTP message (referred to hereafter as "message") contains a
+        request or response line, a series of zero or more name/value pairs (collectively
+        termed "headers"), and a series of octets called the message body
+        which may be zero in length. The HTTP protocol defines the client and server
+        roles: clients send messages called requests and servers send back messages
+        called responses. <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">message</span></code> models both requests and responses.
+        The library provides interfaces to perform these operations on messages:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong>Parse</strong></span> a new message from a series of
+            octets.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Assemble</strong></span> a new message from scratch
+            or from an existing message.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Serialize</strong></span> a message into a series of
+            octets.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Read</strong></span> a message from a stream. This can
+            be thought of as a compound operation; a network read, followed by a
+            <span class="bold"><strong>parse</strong></span>.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong>Write</strong></span> a message to a stream. This can
+            be thought of as a compound operation: a <span class="bold"><strong>serialize</strong></span>
+            followed by a network write.
+          </li>
+</ul></div>
+<p>
+        In the paragraphs that follow we describe simple interfaces that will serve
+        the majority of users looking merely to interact with a HTTP server, or handle
+        simple HTTP requests from clients. Subsequent sections cover the message
+        model in more depth, for advanced applications.
+      </p>
+<h5>
+<a name="beast.http.usage.h0"></a>
+        <span class="phrase"><a name="beast.http.usage.declarations"></a></span><a class="link" href="usage.html#beast.http.usage.declarations">Declarations</a>
+      </h5>
+<p>
+        To do anything, a message must be declared. The message class template requires
+        at mininum, a bool indicating whether the message is a request (versus a
+        response), and a <code class="computeroutput"><span class="identifier">Body</span></code> type.
+        The choice of <code class="computeroutput"><span class="identifier">Body</span></code> determines
+        the kind of container used to represent the message body. Here we will declare
+        a request that has a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>
+        for the body container:
+      </p>
+<pre class="programlisting"><span class="identifier">http</span><span class="special">::</span><span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+</pre>
+<p>
+        Two type aliases are provided for notational convenience when declaring messages.
+        These two statements declare a request and a response respectively:
+      </p>
+<pre class="programlisting"><span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+</pre>
+<h5>
+<a name="beast.http.usage.h1"></a>
+        <span class="phrase"><a name="beast.http.usage.members"></a></span><a class="link" href="usage.html#beast.http.usage.members">Members</a>
+      </h5>
+<p>
+        Message objects are default constructible, with public access to data members.
+        Request and response objects have some common members, and some members unique
+        to the message type. These statements set all the members in each message:
+      </p>
+<pre class="programlisting"><span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">method</span> <span class="special">=</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">method_t</span><span class="special">::</span><span class="identifier">http_get</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">url</span> <span class="special">=</span> <span class="string">"/index.html"</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>           <span class="comment">// HTTP/1.1</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"hello_world"</span><span class="special">);</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">""</span><span class="special">;</span>
+
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">status</span> <span class="special">=</span> <span class="number">404</span><span class="special">;</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">reason</span> <span class="special">=</span> <span class="string">"Not Found"</span><span class="special">;</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">10</span><span class="special">;</span>          <span class="comment">// HTTP/1.0</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"Server"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">"The requested resource was not found."</span><span class="special">;</span>
+</pre>
+<p>
+        The following statements achieve the same effects as the statements above:
+      </p>
+<pre class="programlisting"><span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">({</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">method_t</span><span class="special">::</span><span class="identifier">http_get</span><span class="special">,</span> <span class="string">"/index.html"</span><span class="special">,</span> <span class="number">11</span><span class="special">});</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"hello_world"</span><span class="special">);</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">""</span><span class="special">;</span>
+
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">({</span><span class="number">404</span><span class="special">,</span> <span class="string">"Not Found"</span><span class="special">,</span> <span class="number">10</span><span class="special">});</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"Server"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">"The requested resource was not found."</span><span class="special">;</span>
+</pre>
+<h5>
+<a name="beast.http.usage.h2"></a>
+        <span class="phrase"><a name="beast.http.usage.headers"></a></span><a class="link" href="usage.html#beast.http.usage.headers">Headers</a>
+      </h5>
+<p>
+        The <code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">headers</span></code> member is a container for setting
+        the field/value pairs in the message. These statements change the values
+        of the headers in the message passed:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">set_fields</span><span class="special">(</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">Body</span><span class="special">&gt;&amp;</span> <span class="identifier">req</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="keyword">if</span><span class="special">(!</span> <span class="identifier">req</span><span class="special">.</span><span class="identifier">exists</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">))</span>
+        <span class="identifier">req</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"myWebClient"</span><span class="special">);</span>
+
+    <span class="keyword">if</span><span class="special">(</span><span class="identifier">req</span><span class="special">.</span><span class="identifier">exists</span><span class="special">(</span><span class="string">"Accept-Charset"</span><span class="special">))</span>
+        <span class="identifier">req</span><span class="special">.</span><span class="identifier">erase</span><span class="special">(</span><span class="string">"Accept-Charset"</span><span class="special">);</span>
+
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"Accept"</span><span class="special">,</span> <span class="string">"text/plain"</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<h5>
+<a name="beast.http.usage.h3"></a>
+        <span class="phrase"><a name="beast.http.usage.body"></a></span><a class="link" href="usage.html#beast.http.usage.body">Body</a>
+      </h5>
+<p>
+        The <code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">body</span></code> member represents the message body.
+        Depending on the <code class="computeroutput"><span class="identifier">Body</span></code> template
+        argument type, this could be a writable container. The following types, provided
+        by the library, are suitable choices for the <code class="computeroutput"><span class="identifier">Body</span></code>
+        type:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p class="simpara">
+            <a class="link" href="../ref/http__empty_body.html" title="http::empty_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">empty_body</span></code>:</strong></span></a> An empty
+            message body. Used in GET requests where there is no message body. Example:
+          </p>
+<pre class="programlisting"><span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">({</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">method_t</span><span class="special">::</span><span class="identifier">http_get</span><span class="special">,</span> <span class="string">"/index.html"</span><span class="special">,</span> <span class="number">11</span><span class="special">});</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+            <a class="link" href="../ref/http__string_body.html" title="http::string_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">string_body</span></code>:</strong></span></a> A body
+            with a <code class="computeroutput"><span class="identifier">value_type</span></code> as
+            <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>. Useful for quickly putting
+            together a request or response with simple text in the message body (such
+            as an error message). Has the same insertion complexity of <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>. This is the type of body used
+            in the examples:
+          </p>
+<pre class="programlisting"><span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_same</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">resp</span><span class="special">.</span><span class="identifier">body</span><span class="special">),</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">);</span>
+<span class="identifier">resp</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">"Here is the data you requested"</span><span class="special">;</span>
+</pre>
+</li>
+<li class="listitem">
+<p class="simpara">
+            <a class="link" href="../ref/http__basic_streambuf_body.html" title="http::basic_streambuf_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">basic_streambuf_body</span></code>:</strong></span></a>
+            A body with a <code class="computeroutput"><span class="identifier">value_type</span></code>
+            of <code class="computeroutput"><span class="identifier">streambuf</span></code>. A streambuf
+            is an efficient storage object which uses multiple octet arrays of varying
+            lengths to represent data. Here is a body that uses a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span></code>
+            as its container:
+          </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">ConstBufferSequence</span><span class="special">&gt;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_streambuf_body</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span><span class="special">&gt;&gt;</span>
+<span class="identifier">make_response</span><span class="special">(</span><span class="identifier">ConstBufferSequence</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">buffers</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">streambuf_body</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span><span class="special">&gt;&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+    <span class="identifier">resp</span><span class="special">.</span><span class="identifier">body</span><span class="special">.</span><span class="identifier">commit</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">buffer_copy</span><span class="special">(</span><span class="identifier">resp</span><span class="special">.</span><span class="identifier">body</span><span class="special">.</span><span class="identifier">prepare</span><span class="special">(</span>
+        <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffers</span><span class="special">)),</span> <span class="identifier">buffers</span><span class="special">));</span>
+    <span class="keyword">return</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</li>
+</ul></div>
+<h5>
+<a name="beast.http.usage.h4"></a>
+        <span class="phrase"><a name="beast.http.usage.sockets"></a></span><a class="link" href="usage.html#beast.http.usage.sockets">Sockets</a>
+      </h5>
+<p>
+        The library provides simple free functions modeled after Boost.Asio to send
+        and receive messages on TCP/IP sockets, SSL streams, or any object which
+        meets the Boost.Asio type requirements (SyncReadStream, SyncWriteStream,
+        AsyncReadStream, and AsyncWriteStream depending on the types of operations
+        performed). To send messages synchronously, use one of the <code class="computeroutput"><span class="identifier">http</span><span class="special">:</span><span class="identifier">write</span></code>
+        functions:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">send_request</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;</span> <span class="identifier">sock</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">({</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">method_t</span><span class="special">::</span><span class="identifier">http_get</span><span class="special">,</span> <span class="string">"/index.html"</span><span class="special">,</span> <span class="number">11</span><span class="special">});</span>
+    <span class="special">...</span>
+    <span class="identifier">http</span><span class="special">::</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">);</span> <span class="comment">// Throws exception on error</span>
+    <span class="special">...</span>
+    <span class="comment">// Alternatively</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error</span><span class="special">:</span><span class="identifier">code</span> <span class="identifier">ec</span><span class="special">;</span>
+    <span class="identifier">http</span><span class="special">::</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">,</span> <span class="identifier">ec</span><span class="special">);</span>
+    <span class="keyword">if</span><span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+        <span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"error writing http message: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span><span class="special">.</span><span class="identifier">message</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+        An asynchronous interface is available:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_write</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">async_write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">handle_write</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">placeholders</span><span class="special">::</span><span class="identifier">_1</span><span class="special">));</span>
+</pre>
+<p>
+        When the implementation reads messages from a socket, it can read bytes lying
+        after the end of the message if they are present (the alternative is to read
+        a single byte at a time which is unsuitable for performance reasons). To
+        store and re-use these extra bytes on subsequent messages, the read interface
+        requires an additional paramter: a <a class="link" href="../types/Streambuf.html" title="Streambuf"><span class="bold"><strong><code class="computeroutput"><span class="identifier">Streambuf</span></code></strong></span></a>
+        object. This example reads a message from the socket, with the extra bytes
+        stored in the streambuf parameter for use in a subsequent call to read:
+      </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">resp</span><span class="special">);</span> <span class="comment">// Throws exception on error</span>
+<span class="special">...</span>
+<span class="comment">// Alternatively</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error</span><span class="special">:</span><span class="identifier">code</span> <span class="identifier">ec</span><span class="special">;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">resp</span><span class="special">,</span> <span class="identifier">ec</span><span class="special">);</span>
+<span class="keyword">if</span><span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"error reading http message: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span><span class="special">.</span><span class="identifier">message</span><span class="special">();</span>
+</pre>
+<p>
+        As with the write function, an asynchronous interface is available. The stream
+        buffer parameter must remain valid until the completion handler is called:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_read</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">async_read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">resp</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">handle_read</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">placeholders</span><span class="special">::</span><span class="identifier">_1</span><span class="special">));</span>
+</pre>
+<p>
+        An alternative to using a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span></code>
+        is to use a <a class="link" href="../ref/streambuf.html" title="streambuf"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">streambuf</span></code></a>,
+        which meets the requirements of <span class="bold"><strong><code class="computeroutput"><span class="identifier">Streambuf</span></code></strong></span>
+        and is optimized for performance:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_read</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">beast</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">resp</span><span class="special">;</span>
+<span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">resp</span><span class="special">);</span>
+</pre>
+<p>
+        The <code class="computeroutput"><span class="identifier">read</span></code> implementation can
+        use any object meeting the requirements of <a class="link" href="../types/Streambuf.html" title="Streambuf"><span class="bold"><strong><code class="computeroutput"><span class="identifier">Streambuf</span></code></strong></span></a>,
+        allowing callers to define custom memory management strategies used by the
+        implementation.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="motivation.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="advanced.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

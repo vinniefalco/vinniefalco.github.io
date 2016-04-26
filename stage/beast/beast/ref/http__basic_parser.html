@@ -1,0 +1,258 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::basic_parser</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__basic_headers/_basic_headers.html" title="http::basic_headers::~basic_headers">
+<link rel="next" href="http__basic_parser/basic_parser.html" title="http::basic_parser::basic_parser">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__basic_headers/_basic_headers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__basic_parser/basic_parser.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__basic_parser"></a><a class="link" href="http__basic_parser.html" title="http::basic_parser">http::basic_parser</a>
+</h3></div></div></div>
+<p>
+        Parser for producing HTTP requests and responses.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Derived</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">basic_parser</span>
+</pre>
+<h5>
+<a name="beast.ref.http__basic_parser.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.member_functions"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/basic_parser.html" title="http::basic_parser::basic_parser"><span class="bold"><strong>basic_parser</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Copy constructor.
+                </p>
+                <p>
+                  Constructor.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/complete.html" title="http::basic_parser::complete"><span class="bold"><strong>complete</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the parse has completed succesfully.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/flags.html" title="http::basic_parser::flags"><span class="bold"><strong>flags</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns internal flags associated with the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/http_major.html" title="http::basic_parser::http_major"><span class="bold"><strong>http_major</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the major HTTP version number.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/http_minor.html" title="http::basic_parser::http_minor"><span class="bold"><strong>http_minor</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the minor HTTP version number.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/keep_alive.html" title="http::basic_parser::keep_alive"><span class="bold"><strong>keep_alive</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the connection should be kept open.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/needs_eof.html" title="http::basic_parser::needs_eof"><span class="bold"><strong>needs_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the message end is indicated by eof.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/operator_eq_.html" title="http::basic_parser::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Copy assignment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/status_code.html" title="http::basic_parser::status_code"><span class="bold"><strong>status_code</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the numeric HTTP Status-Code of a response.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/upgrade.html" title="http::basic_parser::upgrade"><span class="bold"><strong>upgrade</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns true if the message is an upgrade message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/write.html" title="http::basic_parser::write"><span class="bold"><strong>write</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Write data to the parser.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_parser/write_eof.html" title="http::basic_parser::write_eof"><span class="bold"><strong>write_eof</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called to indicate the end of file.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        During parsing, callbacks will be made to the derived class if those members
+        are present (detected through SFINAE). The signatures which can be present
+        in the derived class are: void on_method(boost::string_ref const&amp;, error_code&amp;
+        ec) Called for each piece of the Request-Method void on_uri(boost::string_ref
+        const&amp;, error_code&amp; ec) Called for each piece of the Request-URI
+        void on_reason(boost::string_ref const&amp;, error_code&amp; ec) Called for
+        each piece of the reason-phrase void on_request(error_code&amp; ec) Called
+        after the entire Request-Line has been parsed successfully. void on_response(error_code&amp;
+        ec) Called after the entire Response-Line has been parsed successfully. void
+        on_field(boost::string_ref const&amp;, error_code&amp; ec) Called for each
+        piece of the current header field. void on_value(boost::string_ref const&amp;,
+        error_code&amp; ec) Called for each piece of the current header value. int
+        on_headers(error_code&amp; ec) Called when all the headers have been parsed
+        successfully. The return value from this callback is special, these are the
+        meanings: 0 : The parser should expect a body 1 : The parser should skip
+        the body. For example, this is used when sending a response to a HEAD request.
+        2 : The parser should skip ths body, this is an upgrade to a different protocol.
+        void on_body(boost::string_ref const&amp;, error_code&amp; ec) Called for
+        each piece of the body. If the headers indicated chunked encoding, the chunk
+        encoding is removed from the buffer before being passed to the callback.
+        void on_complete(error_code&amp; ec) Called when the entire message has been
+        parsed successfully. At this point, <code class="computeroutput"><span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">complete</span><span class="special">()</span></code> returns <code class="computeroutput"><span class="keyword">true</span></code>,
+        and the parser is ready to parse another message if <code class="computeroutput"><span class="identifier">keep_alive</span><span class="special">()</span></code> would return <code class="computeroutput"><span class="keyword">true</span></code>.
+        The parser uses traits to determine if the callback is possible. If the Derived
+        type omits the callbacks, they are simply skipped with no compilation error.
+        The default behavior of on_body when the derived class does not provide the
+        member, is to specify that the body should not be skipped. If a callback
+        sets an error, parsing stops at the current octet and the error is returned
+        to the caller.
+      </p>
+<h5>
+<a name="beast.ref.http__basic_parser.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__basic_parser.requirements"></a></span><a class="link" href="http__basic_parser.html#beast.ref.http__basic_parser.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/basic_parser.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__basic_headers/_basic_headers.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__basic_parser/basic_parser.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

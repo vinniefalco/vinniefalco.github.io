@@ -1,0 +1,250 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>buffers_adapter</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="buffer_cat.html" title="buffer_cat">
+<link rel="next" href="buffers_adapter/buffers_adapter.html" title="buffers_adapter::buffers_adapter">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="buffer_cat.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="buffers_adapter/buffers_adapter.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.buffers_adapter"></a><a class="link" href="buffers_adapter.html" title="buffers_adapter">buffers_adapter</a>
+</h3></div></div></div>
+<p>
+        Adapts a <code class="computeroutput"><span class="identifier">MutableBufferSequence</span></code>
+        into a <code class="computeroutput"><span class="identifier">Streambuf</span></code>.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">Buffers</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">buffers_adapter</span>
+</pre>
+<h5>
+<a name="beast.ref.buffers_adapter.h0"></a>
+        <span class="phrase"><a name="beast.ref.buffers_adapter.types"></a></span><a class="link" href="buffers_adapter.html#beast.ref.buffers_adapter.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/const_buffers_type.html" title="buffers_adapter::const_buffers_type"><span class="bold"><strong>const_buffers_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type used to represent the input sequence as a list of buffers.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/mutable_buffers_type.html" title="buffers_adapter::mutable_buffers_type"><span class="bold"><strong>mutable_buffers_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type used to represent the output sequence as a list of buffers.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.buffers_adapter.h1"></a>
+        <span class="phrase"><a name="beast.ref.buffers_adapter.member_functions"></a></span><a class="link" href="buffers_adapter.html#beast.ref.buffers_adapter.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/buffers_adapter.html" title="buffers_adapter::buffers_adapter"><span class="bold"><strong>buffers_adapter</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move constructor.
+                </p>
+                <p>
+                  Copy constructor.
+                </p>
+                <p>
+                  Construct a buffers adapter.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/commit.html" title="buffers_adapter::commit"><span class="bold"><strong>commit</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move bytes from the output sequence to the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/consume.html" title="buffers_adapter::consume"><span class="bold"><strong>consume</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Remove bytes from the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/data.html" title="buffers_adapter::data"><span class="bold"><strong>data</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get a list of buffers that represents the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/max_size.html" title="buffers_adapter::max_size"><span class="bold"><strong>max_size</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the largest size output sequence possible.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/operator_eq_.html" title="buffers_adapter::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move assignment.
+                </p>
+                <p>
+                  Copy assignment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/prepare.html" title="buffers_adapter::prepare"><span class="bold"><strong>prepare</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get a list of buffers that represents the output sequence, with
+                  the given size.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="buffers_adapter/size.html" title="buffers_adapter::size"><span class="bold"><strong>size</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get the size of the input sequence.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        This class wraps a <code class="computeroutput"><span class="identifier">MutableBufferSequence</span></code>
+        to meet the requirements of <code class="computeroutput"><span class="identifier">Streambuf</span></code>.
+        Upon construction the input and output sequences are empty. A copy of the
+        mutable buffer sequence object is stored; however, ownership of the underlying
+        memory is not transferred. The caller is responsible for making sure that
+        referenced memory remains valid for the duration of any operations. The size
+        of the mutable buffer sequence determines the maximum number of bytes which
+        may be prepared and committed.
+      </p>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">Buffers</span></dt>
+<dd><p>
+              The type of mutable buffer sequence to wrap.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.buffers_adapter.h2"></a>
+        <span class="phrase"><a name="beast.ref.buffers_adapter.requirements"></a></span><a class="link" href="buffers_adapter.html#beast.ref.buffers_adapter.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/buffers_adapter.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="buffer_cat.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="buffers_adapter/buffers_adapter.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

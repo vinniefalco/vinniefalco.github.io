@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>streambuf_readstream::reserve</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="Beast">
+<link rel="up" href="../streambuf_readstream.html" title="streambuf_readstream">
+<link rel="prev" href="read_some/overload2.html" title="streambuf_readstream::read_some (2 of 2 overloads)">
+<link rel="next" href="streambuf_readstream.html" title="streambuf_readstream::streambuf_readstream">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="read_some/overload2.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../streambuf_readstream.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="streambuf_readstream.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="beast.ref.streambuf_readstream.reserve"></a><a class="link" href="reserve.html" title="streambuf_readstream::reserve">streambuf_readstream::reserve</a>
+</h4></div></div></div>
+<p>
+          <a class="indexterm" name="id993781"></a>
+Set the maximum buffer size.
+        </p>
+<pre class="programlisting"><span class="keyword">void</span>
+<span class="identifier">reserve</span><span class="special">(</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">);</span>
+</pre>
+<p>
+          This changes the maximum size of the internal buffer used to hold read
+          data. No bytes are discarded by this call. If the buffer size is set to
+          zero, no more data will be buffered. Thread safety: The caller is responsible
+          for making sure the call is made from the same implicit or explicit strand.
+        </p>
+<h6>
+<a name="beast.ref.streambuf_readstream.reserve.h0"></a>
+          <span class="phrase"><a name="beast.ref.streambuf_readstream.reserve.parameters"></a></span><a class="link" href="reserve.html#beast.ref.streambuf_readstream.reserve.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">size</span></dt>
+<dd><p>
+                The number of bytes in the read buffer.
+              </p></dd>
+</dl>
+</div>
+<h6>
+<a name="beast.ref.streambuf_readstream.reserve.h1"></a>
+          <span class="phrase"><a name="beast.ref.streambuf_readstream.reserve.remarks"></a></span><a class="link" href="reserve.html#beast.ref.streambuf_readstream.reserve.remarks">Remarks</a>
+        </h6>
+<p>
+          This is a soft limit. If the new maximum size is smaller than the amount
+          of data in the buffer, no bytes are discarded.
+        </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="read_some/overload2.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../streambuf_readstream.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="streambuf_readstream.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Reader</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../types.html" title="Type Requirements">
+<link rel="prev" href="FieldSequence.html" title="FieldSequence">
+<link rel="next" href="Writer.html" title="Writer">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="FieldSequence.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../types.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="Writer.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.types.Reader"></a><a class="link" href="Reader.html" title="Reader">Reader</a>
+</h3></div></div></div>
+<p>
+        Parser implementations will construct the corresponding <code class="computeroutput"><span class="identifier">reader</span></code>
+        object during the parse. This customization point allows the Body to determine
+        the strategy for storing incoming message body data.
+      </p>
+<p>
+        In this table:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">X</span></code> denotes a type meeting
+            the requirements of <span class="bold"><strong><code class="computeroutput"><span class="identifier">Reader</span></code></strong></span>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">a</span></code> denotes a value of
+            type <code class="computeroutput"><span class="identifier">X</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">p</span></code> is any pointer.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">n</span></code> is a value convertible
+            to <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">ec</span></code> is a value of type
+            <code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code>.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="identifier">m</span></code> denotes a value of
+            type <code class="computeroutput"><span class="identifier">message</span> <span class="keyword">const</span><span class="special">&amp;</span></code> where <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_same</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">m</span><span class="special">.</span><span class="identifier">body</span><span class="special">),</span> <span class="identifier">Body</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;:</span><span class="identifier">value</span>
+            <span class="special">==</span> <span class="keyword">true</span></code>
+          </li>
+</ul></div>
+<div class="table">
+<a name="beast.types.Reader.reader_requirements"></a><p class="title"><b>Table&#160;4.&#160;Reader requirements</b></p>
+<div class="table-contents"><table class="table" summary="Reader requirements">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  operation
+                </p>
+              </th>
+<th>
+                <p>
+                  type
+                </p>
+              </th>
+<th>
+                <p>
+                  semantics, pre/post-conditions
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">X</span> <span class="identifier">a</span><span class="special">(</span><span class="identifier">m</span><span class="special">);</span></code>
+                </p>
+              </td>
+<td>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span></code> is constructible
+                  from <code class="computeroutput"><span class="identifier">m</span></code>. The lifetime
+                  of <code class="computeroutput"><span class="identifier">m</span></code> is guaranteed
+                  to end no earlier than after <code class="computeroutput"><span class="identifier">a</span></code>
+                  is destroyed.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">p</span><span class="special">,</span>
+                  <span class="identifier">n</span><span class="special">,</span>
+                  <span class="identifier">ec</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="keyword">void</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Deserializes the input sequence into the body. If <code class="computeroutput"><span class="identifier">ec</span></code> is set, the deserialization
+                  is aborted and the error is returned to the caller.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          Definitions for required <code class="computeroutput"><span class="identifier">Reader</span></code>
+          member functions should be declared inline so the generated code becomes
+          part of the implementation.
+        </p></td></tr>
+</table></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="FieldSequence.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../types.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="Writer.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

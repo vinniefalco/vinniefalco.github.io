@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Headers Type</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="HTTP">
+<link rel="prev" href="advanced.html" title="Advanced">
+<link rel="next" href="body.html" title="Body Type">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1007" height="107" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="advanced.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="body.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.headers"></a><a class="link" href="headers.html" title="Headers Type">Headers Type</a>
+</h3></div></div></div>
+<p>
+        The <code class="computeroutput"><span class="identifier">Headers</span></code> type represents
+        the field/value pairs present in every HTTP message. These types implement
+        the <a class="link" href="../types/FieldSequence.html" title="FieldSequence"><span class="bold"><strong><code class="computeroutput"><span class="identifier">FieldSequence</span></code></strong></span></a> concept.
+        The value type of a field sequence is an object meeting the requirements
+        of <a class="link" href="../types/Field.html" title="Field"><span class="bold"><strong><code class="computeroutput"><span class="identifier">Field</span></code></strong></span></a>. The implementation
+        can serialize any instance of <code class="computeroutput"><span class="identifier">Headers</span></code>
+        that meets the field sequence requirements. This example shows a function
+        which returns <code class="computeroutput"><span class="keyword">true</span></code> if the specified
+        field sequence has a connect field:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">FieldSequence</span><span class="special">&gt;</span>
+<span class="keyword">bool</span>
+<span class="identifier">has_connect</span><span class="special">(</span><span class="identifier">FieldSequence</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">fs</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="keyword">return</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">find_if</span><span class="special">(</span><span class="identifier">fs</span><span class="special">.</span><span class="identifier">begin</span><span class="special">(),</span> <span class="identifier">fs</span><span class="special">.</span><span class="identifier">end</span><span class="special">(),</span>
+        <span class="special">[&amp;](</span><span class="keyword">auto</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">field</span><span class="special">)</span>
+        <span class="special">{</span>
+            <span class="keyword">return</span> <span class="identifier">ci_equal</span><span class="special">(</span><span class="identifier">field</span><span class="special">.</span><span class="identifier">name</span><span class="special">(),</span> <span class="string">"Connect"</span><span class="special">);</span>
+        <span class="special">});</span>
+<span class="special">}</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="advanced.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="body.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
