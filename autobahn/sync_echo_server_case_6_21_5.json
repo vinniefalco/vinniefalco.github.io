@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: V2wu5ZnM8px1m3yHOQVLrQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: V2wu5ZnM8px1m3yHOQVLrQ==\r\nSec-WebSocket-Accept: sZ4c5tzlVtOYsajDUBRlEyyFgpc=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: yhUiscJ/i4XLq9Ojs4t6fA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: yhUiscJ/i4XLq9Ojs4t6fA==\r\nSec-WebSocket-Accept: gTyNwEof3j/aLPOJc409w3cXS38=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.21.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:21.751Z",
+   "started": "2016-04-29T13:34:04.692Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "ecf2711c",
+         "cc12628c",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             12,
-            "8186ecf2711c015cf1f15c72"
+            "8186cc12628c21bce2617c92"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "9aab9d98",
+         "2e7f04a8",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "88829aab9d989943"
+            "88822e7f04a82d97"
          ],
          false
       ]

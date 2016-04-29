@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send a text message with payload which is not valid UTF-8 in one fragment.<br><br>Payload: 0xfc80808080af",
    "droppedByMe": false,
-   "duration": 0,
+   "duration": 1,
    "expectation": "The connection is failed immediately, since the payload is not valid UTF-8.",
    "expected": {
       "OK": []
@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: eSYlLgfF6DOfHWALjyizDQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: eSYlLgfF6DOfHWALjyizDQ==\r\nSec-WebSocket-Accept: pUwggL1Xd/ymekcUbAoCH94VhPY=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: c5M3jn5ed33SMIvVtC+8GA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: c5M3jn5ed33SMIvVtC+8GA==\r\nSec-WebSocket-Accept: Sj2I6tMIdBnIysoiPhwJX+bM4Go=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.17.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:56.952Z",
+   "started": "2016-04-29T13:33:44.539Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "c9fbd94c",
+         "425e9630",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             12,
-            "8186c9fbd94c357b59cc4954"
+            "8186425e9630bede16b0c2f1"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "7533630d",
+         "1d23f700",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "88827533630d76db"
+            "88821d23f7001ecb"
          ],
          false
       ]

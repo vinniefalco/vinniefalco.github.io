@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Repeated 2x: Continuation Frame with FIN = true (where there is nothing to continue), then text Message fragmented into 2 fragments.",
    "droppedByMe": false,
-   "duration": 0,
+   "duration": 1,
    "expectation": "The connection is failed immediately, since there is no message to continue.",
    "expected": {
       "OK": []
@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: TbcN6w1yIqFQ4XskQdgMpQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: TbcN6w1yIqFQ4XskQdgMpQ==\r\nSec-WebSocket-Accept: MO3l0Aoj455rhMAr/9s6TAz/VMU=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: eN8Vs7/7XutaU/59Mr63Og==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: eN8Vs7/7XutaU/59Mr63Og==\r\nSec-WebSocket-Accept: ySpDWee5FYdE6sr1UJF1NHu88rQ=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "5.17",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:50.775Z",
+   "started": "2016-04-29T13:33:38.319Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 4,
@@ -83,7 +83,7 @@
          0,
          true,
          0,
-         "ed4d12da",
+         "f3ab313a",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             15,
-            "8089ed4d12da8b3f73bd80287caedc"
+            "8089f3ab313a95d9505d9ece5f4ec2"
          ],
          false
       ],
@@ -105,7 +105,7 @@
          1,
          false,
          0,
-         "ea39d039",
+         "00017841",
          null,
          null,
          false
@@ -114,7 +114,7 @@
          "TO",
          [
             15,
-            "0189ea39d0398c4bb15e875cbe4dd8"
+            "018900017841667319266d64163532"
          ],
          false
       ],
@@ -127,7 +127,7 @@
          0,
          true,
          0,
-         "523f0efc",
+         "733cd55c",
          null,
          null,
          false
@@ -136,7 +136,7 @@
          "TO",
          [
             15,
-            "8089523f0efc344d6f9b3f5a608861"
+            "8089733cd55c154eb43b1e59bb2840"
          ],
          false
       ],
@@ -149,7 +149,7 @@
          0,
          true,
          0,
-         "56e43151",
+         "dba051e4",
          null,
          null,
          false
@@ -158,7 +158,7 @@
          "TO",
          [
             15,
-            "808956e43151309650363b815f2567"
+            "8089dba051e4bdd23083b6c53f90ea"
          ],
          false
       ],
@@ -171,7 +171,7 @@
          1,
          false,
          0,
-         "22bc5c32",
+         "4058c0ce",
          null,
          null,
          false
@@ -180,7 +180,7 @@
          "TO",
          [
             15,
-            "018922bc5c3244ce3d554fd9324610"
+            "01894058c0ce262aa1a92d3daeba72"
          ],
          false
       ],
@@ -193,7 +193,7 @@
          0,
          true,
          0,
-         "ed731d06",
+         "c9ef104e",
          null,
          null,
          false
@@ -202,7 +202,7 @@
          "TO",
          [
             15,
-            "8089ed731d068b017c6180167372de"
+            "8089c9ef104eaf9d7129a48a7e3afa"
          ],
          false
       ],
@@ -238,7 +238,7 @@
          8,
          true,
          0,
-         "2ae2cef2",
+         "dc76599e",
          null,
          null,
          false
@@ -247,7 +247,7 @@
          "TO",
          [
             8,
-            "88822ae2cef2290a"
+            "8882dc76599edf9e"
          ],
          false
       ]

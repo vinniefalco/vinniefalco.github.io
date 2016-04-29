@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: eps3zJvM+Z/slpMLz5tJkQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: eps3zJvM+Z/slpMLz5tJkQ==\r\nSec-WebSocket-Accept: IzFK4jsKEpY5LQj05GMHNHxuglM=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: ZbmepoFtlG5x1bTEBZ6pNQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: ZbmepoFtlG5x1bTEBZ6pNQ==\r\nSec-WebSocket-Accept: slmrX9yegtvLUir0mV40d6L/vY8=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "5.10",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:15.524Z",
+   "started": "2016-04-29T13:33:58.438Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 1,
@@ -49,6 +49,7 @@
       "8": 1
    },
    "txOctetStats": {
+      "8": 1,
       "19": 1,
       "30": 1,
       "240": 1
@@ -83,7 +84,7 @@
          0,
          true,
          0,
-         "8e1a3731",
+         "1ab5488b",
          null,
          null,
          true
@@ -92,7 +93,7 @@
          "TO",
          [
             30,
-            "80988e1a3731e075591ced755945e7744250fa73585fae6a5648e2755655"
+            "80981ab5488b74da26a679da26ff73db3dea6edc27e53ac529f276da29ef"
          ],
          true
       ],
@@ -105,7 +106,7 @@
          1,
          true,
          0,
-         "91b7b8f8",
+         "7b20b3ac",
          null,
          null,
          true
@@ -113,6 +114,14 @@
       [
          "KL",
          1
+      ],
+      [
+         "TO",
+         [
+            19,
+            "818d7b20b3ac3345dfc0140c93db1452dfc85a"
+         ],
+         true
       ],
       [
          "RO",
@@ -142,7 +151,7 @@
          8,
          true,
          0,
-         "1eb50391",
+         "3a74221a",
          null,
          null,
          false
@@ -150,10 +159,10 @@
       [
          "TO",
          [
-            19,
-            "818d91b7b8f8d9d2d494fe9b988ffec5d49cb0"
+            8,
+            "88823a74221a399c"
          ],
-         true
+         false
       ]
    ]
 }

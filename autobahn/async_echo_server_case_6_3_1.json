@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: EWECkBPDysNWYGsvHnyQPA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: EWECkBPDysNWYGsvHnyQPA==\r\nSec-WebSocket-Accept: fPnZJl+lAMS3y8jCyeTRllJyocs=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: tXzQfH+KDdfywGWPcpt28Q==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: tXzQfH+KDdfywGWPcpt28Q==\r\nSec-WebSocket-Accept: 8me2erG8WySfPecPYBLRWgGcG1Q=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.3.1",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:52.802Z",
+   "started": "2016-04-29T13:33:40.364Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "c8710de6",
+         "659df382",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             26,
-            "8194c8710de606cbec5b71be8e2874bfb80b68f16882a1056882"
+            "8194659df382ab27123fdc52704cd953466fc51d96e60ce996e6"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "fe94b041",
+         "76935508",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "8882fe94b041fd7c"
+            "888276935508757b"
          ],
          false
       ]

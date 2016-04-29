@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send frame with reserved non-control <b>Opcode = 4</b> and non-empty payload.",
    "droppedByMe": false,
-   "duration": 1,
+   "duration": 0,
    "expectation": "The connection is failed immediately.",
    "expected": {
       "OK": []
@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: OaPydW2VpdMmzvaeWYLscQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: OaPydW2VpdMmzvaeWYLscQ==\r\nSec-WebSocket-Accept: CxCTbZ6Aj8458qiZvCDXjmHZ+d0=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: C6opZ/iFqj8+VgMlLQDChQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: C6opZ/iFqj8+VgMlLQDChQ==\r\nSec-WebSocket-Accept: GPnMKLq4BduE5HYjqPyZfUDhUlk=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "4.1.2",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:15.373Z",
+   "started": "2016-04-29T13:33:58.363Z",
    "trafficStats": null,
    "txFrameStats": {
       "4": 1,
@@ -82,7 +82,7 @@
          4,
          true,
          0,
-         "e2341c1f",
+         "caa48d34",
          null,
          null,
          false
@@ -91,7 +91,7 @@
          "TO",
          [
             29,
-            "8497e2341c1f90516f7a9042797bc25b6c7c8d50793f925565738d5578"
+            "8497caa48d34b8c1fe51b8d2e850eacbfd57a5c0e814bac5f458a5c5e9"
          ],
          false
       ],
@@ -127,7 +127,7 @@
          8,
          true,
          0,
-         "2b0882a8",
+         "67f40382",
          null,
          null,
          false
@@ -136,7 +136,7 @@
          "TO",
          [
             8,
-            "88822b0882a828e0"
+            "888267f40382641c"
          ],
          false
       ]

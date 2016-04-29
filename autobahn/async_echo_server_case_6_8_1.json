@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: OW/JuscitP90b+ubhqOXPQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: OW/JuscitP90b+ubhqOXPQ==\r\nSec-WebSocket-Accept: vZvcdmgMFR2HdXeUIHYMCFpO6lA=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: JkTnIQ+G8QCtbuaKw+zy+g==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: JkTnIQ+G8QCtbuaKw+zy+g==\r\nSec-WebSocket-Accept: g/mVMSBCL6Y6fjq9JI1p9b22Hek=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.8.1",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:56.853Z",
+   "started": "2016-04-29T13:33:44.453Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "022fc0f9",
+         "1baf1e4a",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             11,
-            "8185022fc0f9faa7407982"
+            "81851baf1e4ae3279eca9b"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "751203fd",
+         "3f8c849d",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "8882751203fd76fa"
+            "88823f8c849d3c64"
          ],
          false
       ]

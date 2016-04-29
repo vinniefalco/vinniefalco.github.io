@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send text message message with payload of length 1 * 2**20 (1M). Sent out data in chops of 1024 octets.",
    "droppedByMe": false,
-   "duration": 1036,
+   "duration": 87,
    "expectation": "Receive echo'ed text message (with payload as sent).",
    "expected": {},
    "expectedClose": {
@@ -19,8 +19,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: EHcKmk/YvungPUhPAG99Yw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: EHcKmk/YvungPUhPAG99Yw==\r\nSec-WebSocket-Accept: FB02B6k4bzkee6wxD7hVq+Eeids=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: z26WGiH+7IILT6qIu/P62A==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: z26WGiH+7IILT6qIu/P62A==\r\nSec-WebSocket-Accept: W2VDmG1jI/nO0ZOIe65k79VnRr8=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "9.5.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -40,13 +40,11 @@
    "rxOctetStats": {
       "4": 1,
       "220": 1,
-      "16388": 2,
-      "16612": 1,
-      "32776": 1,
-      "49164": 1,
-      "65536": 14
+      "27004": 1,
+      "38788": 1,
+      "65536": 15
    },
-   "started": "2016-04-22T09:43:38.157Z",
+   "started": "2016-04-29T13:33:52.756Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -92,7 +90,7 @@
          8,
          true,
          0,
-         "d17fadf4",
+         "efe25b98",
          null,
          null,
          false
@@ -101,7 +99,7 @@
          "TO",
          [
             8,
-            "8882d17fadf4d297"
+            "8882efe25b98ec0a"
          ],
          false
       ],

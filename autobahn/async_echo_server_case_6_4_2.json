@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Same as Case 6.4.1, but in 2nd frame, we send only up to and including the octet making the complete payload invalid.\n<br><br>MESSAGE PARTS:<br>\nPART1 = cebae1bdb9cf83cebcceb5f4<br>\nPART2 = 90<br>\nPART3 = 8080656469746564<br>\n",
    "droppedByMe": false,
-   "duration": 1000,
+   "duration": 1002,
    "expectation": "The first frame is accepted, we expect to timeout on the first wait. The 2nd frame should be rejected immediately (fail fast on UTF-8). If we timeout, we expect the connection is failed at least then, since the complete message payload is not valid UTF-8.",
    "expected": {
       "NON-STRICT": [
@@ -37,8 +37,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: V60DAcWmlO/KvNjbpT09aw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: V60DAcWmlO/KvNjbpT09aw==\r\nSec-WebSocket-Accept: Y44RserMBsusZdWFp3J5MQfiJpc=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 9+5fD//6g2knHJzGH7dkLQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 9+5fD//6g2knHJzGH7dkLQ==\r\nSec-WebSocket-Accept: RQXZ8CMOQRNsKG1+rA3GbhPB+AQ=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.4.2",
    "isServer": false,
    "localCloseCode": 1000,
@@ -62,7 +62,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:53.809Z",
+   "started": "2016-04-29T13:33:41.374Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 1,
@@ -105,7 +105,7 @@
          1,
          false,
          0,
-         "673c0af4",
+         "4b276c50",
          null,
          null,
          false
@@ -114,7 +114,7 @@
          "TO",
          [
             18,
-            "018c673c0af4a986eb49def3893adbf2bf00"
+            "018c4b276c50859d8dedf2e8ef9ef7e9d9a4"
          ],
          false
       ],
@@ -136,7 +136,7 @@
          0,
          false,
          0,
-         "c6b07457",
+         "4d62d974",
          null,
          null,
          false
@@ -145,7 +145,7 @@
          "TO",
          [
             7,
-            "0081c6b0745756"
+            "00814d62d974dd"
          ],
          false
       ],
@@ -182,7 +182,7 @@
          8,
          true,
          0,
-         "12ebe153",
+         "70460c03",
          null,
          null,
          false
@@ -191,7 +191,7 @@
          "TO",
          [
             8,
-            "888212ebe1531103"
+            "888270460c0373ae"
          ],
          false
       ]

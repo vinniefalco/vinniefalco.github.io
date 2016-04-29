@@ -19,8 +19,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: XaQxW9R4lwD7oGTi3n1RNw==\r\nSec-WebSocket-Extensions: permessage-deflate; client_no_context_takeover; client_max_window_bits\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: XaQxW9R4lwD7oGTi3n1RNw==\r\nSec-WebSocket-Accept: /WYMjSWZWF6CAb4TIuueNCgvp4Y=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: pHzdT96PbPNWlXZvd6iR7Q==\r\nSec-WebSocket-Extensions: permessage-deflate; client_no_context_takeover; client_max_window_bits\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: pHzdT96PbPNWlXZvd6iR7Q==\r\nSec-WebSocket-Accept: rjHhNHVK7AMfdxDkHVymrKEEF4k=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "12.5.2",
    "isServer": false,
    "localCloseCode": 1000,
@@ -39,7 +39,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:44:14.531Z",
+   "started": "2016-04-29T13:33:57.724Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1

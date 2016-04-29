@@ -21,8 +21,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: S7HSEPxJYr0fkJdpbQiWmg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: S7HSEPxJYr0fkJdpbQiWmg==\r\nSec-WebSocket-Accept: Mj0UpquKOM/5n2HfGrN+tPDIPdk=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: pGr6BwSyHCl374GS708F2w==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: pGr6BwSyHCl374GS708F2w==\r\nSec-WebSocket-Accept: hVlEggimP2nccvRCo+D6EOro/fA=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "7.1.4",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:21.850Z",
+   "started": "2016-04-29T13:34:04.754Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -82,7 +82,7 @@
          8,
          true,
          0,
-         "d7adb534",
+         "e3e74382",
          null,
          null,
          false
@@ -91,7 +91,7 @@
          "TO",
          [
             8,
-            "8882d7adb534d445"
+            "8882e3e74382e00f"
          ],
          false
       ],
@@ -104,7 +104,7 @@
          1,
          true,
          0,
-         "1415dcb2",
+         "f86634db",
          null,
          null,
          false
@@ -113,7 +113,7 @@
          "TO",
          [
             18,
-            "818c1415dcb25c70b0de7b358bdd6679b893"
+            "818cf86634dbb00358b7974663b48a0a50fa"
          ],
          false
       ],

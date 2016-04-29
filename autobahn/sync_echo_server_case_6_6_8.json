@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: g9LXG51EWKRjcCOnqcKNcw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: g9LXG51EWKRjcCOnqcKNcw==\r\nSec-WebSocket-Accept: PWaMUzSKHpedNQfLUGWU7SYWsMI=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: TPFsL/PnwXTdmfLtrODajg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: TPFsL/PnwXTdmfLtrODajg==\r\nSec-WebSocket-Accept: rWMek5eg/oqH4itNCLJxTD3Dkts=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.6.8",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:21.616Z",
+   "started": "2016-04-29T13:34:04.560Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "f74184cd",
+         "898466af",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             14,
-            "8188f74184cd39fb65704e8e0703"
+            "8188898466af473e8712304be561"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "198cca1f",
+         "4ad421dc",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "8882198cca1f1a64"
+            "88824ad421dc493c"
          ],
          false
       ]

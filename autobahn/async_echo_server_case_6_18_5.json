@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: fzyon2FfcOdkEXK6TLMdpg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: fzyon2FfcOdkEXK6TLMdpg==\r\nSec-WebSocket-Accept: OaFEUfeLV2FNIWZ+a784PFbzLaM=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: ZzANFuPDNpVGy/3mtT+I6Q==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: ZzANFuPDNpVGy/3mtT+I6Q==\r\nSec-WebSocket-Accept: uJ0dz3Y1p4/EPuGuzJ9KVZRQSJQ=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.18.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:56.966Z",
+   "started": "2016-04-29T13:33:44.546Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "97933d93",
+         "3fc68d43",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             12,
-            "818697933d936b10822c282c"
+            "81863fc68d43c34532fc8079"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "64ba8ecf",
+         "e15f68f8",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "888264ba8ecf6752"
+            "8882e15f68f8e2b7"
          ],
          false
       ]

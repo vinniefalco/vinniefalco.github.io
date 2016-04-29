@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: Emg/KF7fRegoANn083ekkA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: Emg/KF7fRegoANn083ekkA==\r\nSec-WebSocket-Accept: RneJUnvdckp9z0RpfdzwtgOV6iQ=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 1Dn9Lp12MT+Y+ChBjsdglg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 1Dn9Lp12MT+Y+ChBjsdglg==\r\nSec-WebSocket-Accept: Y4yPx9S6boZkFHzBfw2ARdwBwFM=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.6.10",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:56.842Z",
+   "started": "2016-04-29T13:33:44.435Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "505635d5",
+         "9aca4e0b",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             16,
-            "818a505635d59eecd468e999b61bec98"
+            "818a9aca4e0b5470afb62305cdc52604"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "7ceb0e4a",
+         "638cd8c0",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "88827ceb0e4a7f03"
+            "8882638cd8c06064"
          ],
          false
       ]

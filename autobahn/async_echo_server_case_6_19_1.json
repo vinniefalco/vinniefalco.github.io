@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: PXmO17wsPAie4Hbv08FnyQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: PXmO17wsPAie4Hbv08FnyQ==\r\nSec-WebSocket-Accept: moBM7r1Cubj+9vc8FxfqyBSSD84=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 4ead/VBEIGl1ve88D2RQuw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 4ead/VBEIGl1ve88D2RQuw==\r\nSec-WebSocket-Accept: zj2eDdMEswWCFyWw84Kwg54aN/k=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.19.1",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:56.969Z",
+   "started": "2016-04-29T13:33:44.548Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -82,7 +82,7 @@
          1,
          true,
          0,
-         "742a3bda",
+         "f87c7154",
          null,
          null,
          false
@@ -91,7 +91,7 @@
          "TO",
          [
             8,
-            "8182742a3bdab4aa"
+            "8182f87c715438fc"
          ],
          false
       ],
@@ -127,7 +127,7 @@
          8,
          true,
          0,
-         "e40114ab",
+         "e55e551c",
          null,
          null,
          false
@@ -136,7 +136,7 @@
          "TO",
          [
             8,
-            "8882e40114abe7e9"
+            "8882e55e551ce6b6"
          ],
          false
       ]

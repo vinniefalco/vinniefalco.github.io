@@ -26,8 +26,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: +lyZeCwiyGbzr1kkYTn9rA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: +lyZeCwiyGbzr1kkYTn9rA==\r\nSec-WebSocket-Accept: HGXTkU5kfhg1Jde327B2EyX56H0=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: klzrZFIdyByoqfoqfGtxjQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: klzrZFIdyByoqfoqfGtxjQ==\r\nSec-WebSocket-Accept: zD6C7Jff8lwFGmPDhQrYXjJzM3c=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "2.9",
    "isServer": false,
    "localCloseCode": 1000,
@@ -53,7 +53,7 @@
       "14": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:50.409Z",
+   "started": "2016-04-29T13:33:38.147Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1,
@@ -96,7 +96,7 @@
          10,
          true,
          0,
-         "84b42bc8",
+         "1c17744e",
          null,
          null,
          false
@@ -105,7 +105,7 @@
          "TO",
          [
             30,
-            "8a9884b42bc8f1da58a7e8dd48a1f0d14fe8f4db45afa4c44ab1e8db4aac"
+            "8a981c17744e69790721707e17276872106e6c781a293c6715377078152a"
          ],
          false
       ],
@@ -118,7 +118,7 @@
          9,
          true,
          0,
-         "c124868c",
+         "fa2ddf2f",
          null,
          null,
          false
@@ -127,7 +127,7 @@
          "TO",
          [
             18,
-            "898cc124868cb14de8ebe154e7f5ad4be7e8"
+            "898cfa2ddf2f8a44b148da5dbe569642be4b"
          ],
          false
       ],
@@ -163,7 +163,7 @@
          8,
          true,
          0,
-         "620538d2",
+         "1c082aa6",
          null,
          null,
          false
@@ -172,7 +172,7 @@
          "TO",
          [
             8,
-            "8882620538d261ed"
+            "88821c082aa61fe0"
          ],
          false
       ],

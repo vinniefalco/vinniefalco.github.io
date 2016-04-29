@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send ping with binary payload of 126 octets.",
    "droppedByMe": false,
-   "duration": 1,
+   "duration": 0,
    "expectation": "Connection is failed immediately (1002/Protocol Error), since control frames are only allowed to have payload up to and including 125 octets..",
    "expected": {
       "OK": []
@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: dKEvrfgUdNZGkTwDC/oSgg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: dKEvrfgUdNZGkTwDC/oSgg==\r\nSec-WebSocket-Accept: ix4Ey/QCejM/c8qGMokZQK/hhO0=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 3Hpv/ogy2ncczjkqbd+CxA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 3Hpv/ogy2ncczjkqbd+CxA==\r\nSec-WebSocket-Accept: zGVIYKjGfyExdCQKmH/cfv5/KXc=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "2.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:15.046Z",
+   "started": "2016-04-29T13:33:58.276Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1,
@@ -82,7 +82,7 @@
          9,
          true,
          0,
-         "9532e71e",
+         "3c53bd9f",
          null,
          null,
          false
@@ -91,7 +91,7 @@
          "TO",
          [
             134,
-            "89fe007e9532e71e6bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e06bcc19e0 ..."
+            "89fe007e3c53bd9fc2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361c2ad4361 ..."
          ],
          false
       ],
@@ -127,7 +127,7 @@
          8,
          true,
          0,
-         "81618361",
+         "b5eb7f3d",
          null,
          null,
          false
@@ -136,7 +136,7 @@
          "TO",
          [
             8,
-            "8882816183618289"
+            "8882b5eb7f3db603"
          ],
          false
       ]

@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "A fragmented text message is sent in multiple frames. After\n   sending the first 2 frames of the text message, a Ping is sent. Then we wait 1s,\n   then we send 2 more text fragments, another Ping and then the final text fragment.\n   Everything is legal.",
    "droppedByMe": false,
-   "duration": 1003,
+   "duration": 1004,
    "expectation": "The peer immediately answers the first Ping before\n   it has received the last text message fragment. The peer pong's back the Ping's\n   payload exactly, and echo's the payload of the fragmented message back to us.",
    "expected": {
       "OK": [
@@ -35,8 +35,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 3BHUCBAQxe3SPussc38ynw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: 3BHUCBAQxe3SPussc38ynw==\r\nSec-WebSocket-Accept: Hs8pZSHcApaFBspNswOspHJ0+/s=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: l+qERCfDvwc8BGjWPlqqEw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: l+qERCfDvwc8BGjWPlqqEw==\r\nSec-WebSocket-Accept: 0lf8uwOcG066kujQZHKflCg4rd4=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "5.19",
    "isServer": false,
    "localCloseCode": 1000,
@@ -69,11 +69,11 @@
    },
    "rxOctetStats": {
       "4": 1,
-      "11": 2,
-      "47": 1,
+      "11": 1,
+      "58": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:50.779Z",
+   "started": "2016-04-29T13:33:38.322Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 4,
@@ -116,7 +116,7 @@
          1,
          false,
          0,
-         "f8fd23bf",
+         "43724444",
          null,
          null,
          false
@@ -125,7 +125,7 @@
          "TO",
          [
             15,
-            "0189f8fd23bf9e8f42d895984dcbc9"
+            "018943724444250025232e172a3072"
          ],
          false
       ],
@@ -138,7 +138,7 @@
          0,
          false,
          0,
-         "512c86e9",
+         "09aa26e3",
          null,
          null,
          false
@@ -147,7 +147,7 @@
          "TO",
          [
             15,
-            "0089512c86e9375ee78e3c49e89d63"
+            "008909aa26e36fd8478464cf48973b"
          ],
          false
       ],
@@ -160,7 +160,7 @@
          9,
          true,
          0,
-         "cb582148",
+         "89eef36e",
          null,
          null,
          false
@@ -169,7 +169,7 @@
          "TO",
          [
             15,
-            "8989cb582148bb374f2fa63d0179ea"
+            "898989eef36ef9819d09e48bd35fa8"
          ],
          false
       ],
@@ -210,7 +210,7 @@
          0,
          false,
          0,
-         "c27d4ac4",
+         "392885f8",
          null,
          null,
          false
@@ -219,7 +219,7 @@
          "TO",
          [
             15,
-            "0089c27d4ac4a40f2ba3af1824b0f1"
+            "0089392885f85f5ae49f544deb8c0a"
          ],
          false
       ],
@@ -232,7 +232,7 @@
          0,
          false,
          0,
-         "862745b9",
+         "a76c1e3b",
          null,
          null,
          false
@@ -241,7 +241,7 @@
          "TO",
          [
             15,
-            "0089862745b9e05524deeb422bcdb2"
+            "0089a76c1e3bc11e7f5cca09704f93"
          ],
          false
       ],
@@ -254,7 +254,7 @@
          9,
          true,
          0,
-         "e3d1bd7f",
+         "c89999d5",
          null,
          null,
          false
@@ -263,7 +263,7 @@
          "TO",
          [
             15,
-            "8989e3d1bd7f93bed3188eb49d4dc2"
+            "8989c89999d5b8f6f7b2a5fcb9e7e9"
          ],
          false
       ],
@@ -276,7 +276,7 @@
          0,
          true,
          0,
-         "d95e25bf",
+         "000c95bb",
          null,
          null,
          false
@@ -285,7 +285,7 @@
          "TO",
          [
             15,
-            "8089d95e25bfbf2c44d8b43b4bcbec"
+            "8089000c95bb667ef4dc6d69fbcf35"
          ],
          false
       ],
@@ -296,8 +296,8 @@
       [
          "RO",
          [
-            11,
-            "8a09706f6e676d65203221"
+            58,
+            "8a09706f6e676d65203221812d667261676d656e7431667261676d656e7432667261676d656e7433667261676d656e7434667261676d656e7435"
          ]
       ],
       [
@@ -311,13 +311,6 @@
          0,
          false,
          null
-      ],
-      [
-         "RO",
-         [
-            47,
-            "812d667261676d656e7431667261676d656e7432667261676d656e7433667261676d656e7434667261676d656e7435"
-         ]
       ],
       [
          "RF",
@@ -340,7 +333,7 @@
          8,
          true,
          0,
-         "e7009d83",
+         "1ea6774e",
          null,
          null,
          false
@@ -349,7 +342,7 @@
          "TO",
          [
             8,
-            "8882e7009d83e4e8"
+            "88821ea6774e1d4e"
          ],
          false
       ],

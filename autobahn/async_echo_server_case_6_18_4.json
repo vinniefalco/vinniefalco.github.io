@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: rsU8F6+9nQAIvS7RwbLcZQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: rsU8F6+9nQAIvS7RwbLcZQ==\r\nSec-WebSocket-Accept: FFOi2NYcVKcKR4z/EA6Ig+2aIxE=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: jN0otMjbQOulvxF+tlDidw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: jN0otMjbQOulvxF+tlDidw==\r\nSec-WebSocket-Accept: 03AXfmfrbtstsldXf+zIDpaxenU=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.18.4",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:56.963Z",
+   "started": "2016-04-29T13:33:44.545Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "c27eb862",
+         "48d94c6f",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             11,
-            "8185c27eb8623af907dd7d"
+            "818548d94c6fb05ef3d0f7"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "69b36799",
+         "dff683fe",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "888269b367996a5b"
+            "8882dff683fedc1e"
          ],
          false
       ]

@@ -22,8 +22,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: oToeqLYOYrxdnZJUbFS43w==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: oToeqLYOYrxdnZJUbFS43w==\r\nSec-WebSocket-Accept: xKsJUglrbTmOg8sVtIb4Ts4ntWk=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: lFa92czSdSecCpJxlDeRTg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: lFa92czSdSecCpJxlDeRTg==\r\nSec-WebSocket-Accept: amygOmWdqBB+ch6/DxanlgVD+gk=\r\nServer: sync_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "6.10.3",
    "isServer": false,
    "localCloseCode": 1000,
@@ -42,7 +42,7 @@
       "4": 1,
       "219": 1
    },
-   "started": "2016-04-22T09:44:21.645Z",
+   "started": "2016-04-29T13:34:04.602Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -83,7 +83,7 @@
          1,
          true,
          0,
-         "18bde5ec",
+         "8068cac2",
          null,
          null,
          false
@@ -92,7 +92,7 @@
          "TO",
          [
             12,
-            "818618bde5ece5025a53a702"
+            "81868068cac27dd7757d3fd7"
          ],
          false
       ],
@@ -128,7 +128,7 @@
          8,
          true,
          0,
-         "9d86d068",
+         "7616b76d",
          null,
          null,
          false
@@ -137,7 +137,7 @@
          "TO",
          [
             8,
-            "88829d86d0689e6e"
+            "88827616b76d75fe"
          ],
          false
       ]

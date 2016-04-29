@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send ping with binary payload of 126 octets.",
    "droppedByMe": false,
-   "duration": 0,
+   "duration": 1,
    "expectation": "Connection is failed immediately (1002/Protocol Error), since control frames are only allowed to have payload up to and including 125 octets..",
    "expected": {
       "OK": []
@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: +6MhhlVyhViJOgerbDbBgQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: +6MhhlVyhViJOgerbDbBgQ==\r\nSec-WebSocket-Accept: 2vodw9GxCi6VWco6HXnxHLPxxes=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: mW62JhuZE0Zb6xkw8A5+BQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: upgrade\r\nSec-WebSocket-Key: mW62JhuZE0Zb6xkw8A5+BQ==\r\nSec-WebSocket-Accept: BgOrOE8yO+lvXFMbTGFWA34EeTI=\r\nServer: async_echo_server\r\nContent-Length: 0\r\n\r\n",
    "id": "2.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "220": 1
    },
-   "started": "2016-04-22T09:42:50.273Z",
+   "started": "2016-04-29T13:33:38.128Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1,
@@ -82,7 +82,7 @@
          9,
          true,
          0,
-         "d638f59f",
+         "585a8465",
          null,
          null,
          false
@@ -91,7 +91,7 @@
          "TO",
          [
             134,
-            "89fe007ed638f59f28c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b6128c60b61 ..."
+            "89fe007e585a8465a6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9ba6a47a9b ..."
          ],
          false
       ],
@@ -127,7 +127,7 @@
          8,
          true,
          0,
-         "fa6e3929",
+         "409dc50a",
          null,
          null,
          false
@@ -136,7 +136,7 @@
          "TO",
          [
             8,
-            "8882fa6e3929f986"
+            "8882409dc50a4375"
          ],
          false
       ]
