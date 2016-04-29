@@ -202,31 +202,80 @@
 <p>
         During parsing, callbacks will be made to the derived class if those members
         are present (detected through SFINAE). The signatures which can be present
-        in the derived class are: void on_method(boost::string_ref const&amp;, error_code&amp;
-        ec) Called for each piece of the Request-Method void on_uri(boost::string_ref
-        const&amp;, error_code&amp; ec) Called for each piece of the Request-URI
-        void on_reason(boost::string_ref const&amp;, error_code&amp; ec) Called for
-        each piece of the reason-phrase void on_request(error_code&amp; ec) Called
-        after the entire Request-Line has been parsed successfully. void on_response(error_code&amp;
-        ec) Called after the entire Response-Line has been parsed successfully. void
-        on_field(boost::string_ref const&amp;, error_code&amp; ec) Called for each
-        piece of the current header field. void on_value(boost::string_ref const&amp;,
-        error_code&amp; ec) Called for each piece of the current header value. int
-        on_headers(error_code&amp; ec) Called when all the headers have been parsed
-        successfully. The return value from this callback is special, these are the
-        meanings: 0 : The parser should expect a body 1 : The parser should skip
-        the body. For example, this is used when sending a response to a HEAD request.
-        2 : The parser should skip ths body, this is an upgrade to a different protocol.
-        void on_body(boost::string_ref const&amp;, error_code&amp; ec) Called for
-        each piece of the body. If the headers indicated chunked encoding, the chunk
-        encoding is removed from the buffer before being passed to the callback.
-        void on_complete(error_code&amp; ec) Called when the entire message has been
-        parsed successfully. At this point, <code class="computeroutput"><span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">complete</span><span class="special">()</span></code> returns <code class="computeroutput"><span class="keyword">true</span></code>,
-        and the parser is ready to parse another message if <code class="computeroutput"><span class="identifier">keep_alive</span><span class="special">()</span></code> would return <code class="computeroutput"><span class="keyword">true</span></code>.
+        in the derived class are:
+      </p>
+<p>
+        Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra
+        stripes are neat $1 * <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_method</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span> <span class="keyword">const</span><span class="special">&amp;,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span></code> Called for each piece of the Request-Method
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_uri</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;</span>
+            <span class="identifier">ec</span><span class="special">)</span></code>
+            Called for each piece of the Request-URI
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_reason</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;</span>
+            <span class="identifier">ec</span><span class="special">)</span></code>
+            Called for each piece of the reason-phrase
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_request</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span></code> Called after the entire Request-Line
+            has been parsed successfully.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_response</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span></code> Called after the entire Response-Line
+            has been parsed successfully.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_field</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;</span>
+            <span class="identifier">ec</span><span class="special">)</span></code>
+            Called for each piece of the current header field.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_value</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;</span>
+            <span class="identifier">ec</span><span class="special">)</span></code>
+            Called for each piece of the current header value.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">int</span> <span class="identifier">on_headers</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span></code> Called when all the headers have been
+            parsed successfully.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_body</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span>
+            <span class="keyword">const</span><span class="special">&amp;,</span>
+            <span class="identifier">error_code</span><span class="special">&amp;</span>
+            <span class="identifier">ec</span><span class="special">)</span></code>
+            Called for each piece of the body. If the headers indicated chunked encoding,
+            the chunk encoding is removed from the buffer before being passed to
+            the callback.
+          </li>
+<li class="listitem">
+            <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">on_complete</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span></code> Called when the entire message has been
+            parsed successfully. At this point, basic_parser::complete() returns
+            <code class="computeroutput"><span class="keyword">true</span></code>, and the parser is
+            ready to parse another message if keep_alive() would return <code class="computeroutput"><span class="keyword">true</span></code>.
+          </li>
+</ul></div>
+<p>
+        The return value of <code class="computeroutput"><span class="identifier">on_headers</span></code>
+        is special, it controls whether or not the parser should expect a body. These
+        are the return values: * <span class="emphasis"><em>0</em></span> The parser should expect
+        a body * <span class="emphasis"><em>1</em></span> The parser should skip the body. For example,
+        this is used when sending a response to a HEAD request. * <span class="emphasis"><em>2</em></span>
+        The parser should skip ths body, this is an upgrade to a different protocol.
         The parser uses traits to determine if the callback is possible. If the Derived
-        type omits the callbacks, they are simply skipped with no compilation error.
-        The default behavior of on_body when the derived class does not provide the
-        member, is to specify that the body should not be skipped. If a callback
+        type omits one or more callbacks, they are simply skipped with no compilation
+        error. The default behavior of on_body when the derived class does not provide
+        the member, is to specify that the body should not be skipped. If a callback
         sets an error, parsing stops at the current octet and the error is returned
         to the caller.
       </p>
