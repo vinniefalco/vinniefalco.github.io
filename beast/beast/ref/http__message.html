@@ -6,28 +6,28 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../index.html" title="Beast">
 <link rel="up" href="../ref.html" title="Reference">
-<link rel="prev" href="http__make_error_code.html" title="http::make_error_code">
-<link rel="next" href="http__message/body.html" title="http::message::body">
+<link rel="prev" href="http__is_upgrade.html" title="http::is_upgrade">
+<link rel="next" href="http__message/base.html" title="http::message::base">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="http__make_error_code.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__message/body.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="http__is_upgrade.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__message/base.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="beast.ref.http__message"></a><a class="link" href="http__message.html" title="http::message">http::message</a>
 </h3></div></div></div>
 <p>
-        A HTTP message.
+        A container for a complete HTTP message.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
 <span class="keyword">struct</span> <span class="identifier">message</span> <span class="special">:</span>
-    <span class="keyword">public</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">conditional</span><span class="special">::</span><span class="identifier">type</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">request_fields</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">response_fields</span> <span class="special">&gt;</span>
+    <span class="keyword">public</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span>
 </pre>
 <h5>
 <a name="beast.ref.http__message.h0"></a>
@@ -54,12 +54,24 @@
 <tr>
 <td>
                 <p>
+                  <a class="link" href="http__message/base_type.html" title="http::message::base_type"><span class="bold"><strong>base_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The base class used to hold the request or response headers.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <a class="link" href="http__message/body_type.html" title="http::message::body_type"><span class="bold"><strong>body_type</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  The type controlling the body traits.
+                  The type providing the body traits.
                 </p>
               </td>
 </tr>
@@ -72,18 +84,6 @@
 <td>
                 <p>
                   The type representing the headers.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="http__message/is_request.html" title="http::message::is_request"><span class="bold"><strong>is_request</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Indicates if the message is a request.
                 </p>
               </td>
 </tr>
@@ -115,6 +115,18 @@
 <tr>
 <td>
                 <p>
+                  <a class="link" href="http__message/base.html" title="http::message::base"><span class="bold"><strong>base</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the message headers portion of the message.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <a class="link" href="http__message/message.html" title="http::message::message"><span class="bold"><strong>message</strong></span></a>
                 </p>
               </td>
@@ -123,19 +135,10 @@
                   Default constructor.
                 </p>
                 <p>
+                  Construct a message from message headers.
+                </p>
+                <p>
                   Construct a message.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="http__message/swap.html" title="http::message::swap"><span class="bold"><strong>swap</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Swap this message for another message.
                 </p>
               </td>
 </tr>
@@ -143,6 +146,41 @@
 </table></div>
 <h5>
 <a name="beast.ref.http__message.h2"></a>
+        <span class="phrase"><a name="beast.ref.http__message.static_data_members"></a></span><a class="link" href="http__message.html#beast.ref.http__message.static_data_members">Static
+        Data Members</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="http__message/is_request.html" title="http::message::is_request"><span class="bold"><strong>is_request</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Indicates if the message headers are a request or response.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.http__message.h3"></a>
         <span class="phrase"><a name="beast.ref.http__message.data_members"></a></span><a class="link" href="http__message.html#beast.ref.http__message.data_members">Data
         Members</a>
       </h5>
@@ -172,7 +210,7 @@
               </td>
 <td>
                 <p>
-                  A container representing the body.
+                  A value representing the body.
                 </p>
               </td>
 </tr>
@@ -184,7 +222,67 @@
               </td>
 <td>
                 <p>
-                  The container holding the headers.
+                  The HTTP field values.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__message/method.html" title="http::message::method"><span class="bold"><strong>method</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The Request Method.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__message/reason.html" title="http::message::reason"><span class="bold"><strong>reason</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The Response Reason-Phrase.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__message/status.html" title="http::message::status"><span class="bold"><strong>status</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The Response Status-Code.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__message/url.html" title="http::message::url"><span class="bold"><strong>url</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The Request URI.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__message/version.html" title="http::message::version"><span class="bold"><strong>version</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The HTTP version.
                 </p>
               </td>
 </tr>
@@ -204,7 +302,10 @@
 <dl class="variablelist">
 <dt><span class="term">isRequest</span></dt>
 <dd><p>
-              <code class="computeroutput"><span class="keyword">true</span></code> if this is a request.
+              <code class="computeroutput"><span class="keyword">true</span></code> if this represents
+              a request, or <code class="computeroutput"><span class="keyword">false</span></code> if
+              this represents a response. Some class data members are conditionally
+              present depending on this value.
             </p></dd>
 <dt><span class="term">Body</span></dt>
 <dd><p>
@@ -212,12 +313,12 @@
             </p></dd>
 <dt><span class="term">Headers</span></dt>
 <dd><p>
-              A type meeting the requirements of Headers.
+              The type of container used to hold the field value pairs.
             </p></dd>
 </dl>
 </div>
 <h5>
-<a name="beast.ref.http__message.h3"></a>
+<a name="beast.ref.http__message.h4"></a>
         <span class="phrase"><a name="beast.ref.http__message.requirements"></a></span><a class="link" href="http__message.html#beast.ref.http__message.requirements">Requirements</a>
       </h5>
 <p>
@@ -238,7 +339,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="http__make_error_code.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__message/body.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="http__is_upgrade.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__message/base.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

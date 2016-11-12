@@ -20,12 +20,12 @@
 <a name="beast.ref.websocket__stream.async_write_frame"></a><a class="link" href="async_write_frame.html" title="websocket::stream::async_write_frame">websocket::stream::async_write_frame</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1087973"></a>
+          <a class="indexterm" name="id1112743"></a>
 Start an asynchronous operation to send
           a message frame on the stream.
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong>ConstBufferSequence</strong></span></a><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">WriteHandler</span><span class="special">&gt;</span>
 <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.return_type_of_an_initiating_function" target="_top"><span class="emphasis"><em>void-or-deduced</em></span></a>
 <span class="identifier">async_write_frame</span><span class="special">(</span>
@@ -87,7 +87,7 @@ Start an asynchronous operation to send
                 of the handler must be:
               </p>
 <pre class="programlisting"> <span class="keyword">void</span> <span class="identifier">handler</span><span class="special">(</span>
-    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">error</span> <span class="comment">// result of operation</span>
+    <span class="identifier">error_code</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">error</span> <span class="comment">// result of operation</span>
 <span class="special">);</span>
 </pre>
 </dd>

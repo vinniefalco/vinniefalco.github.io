@@ -1,0 +1,273 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>async_completion</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="Writer.html" title="Writer requirements">
+<link rel="next" href="beast__async_completion/async_completion.html" title="async_completion::async_completion">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="Writer.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="beast__async_completion/async_completion.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.beast__async_completion"></a><a class="link" href="beast__async_completion.html" title="async_completion">async_completion</a>
+</h3></div></div></div>
+<p>
+        Helper for customizing the return type of asynchronous initiation functions.
+      </p>
+<h5>
+<a name="beast.ref.beast__async_completion.h0"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.synopsis"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.synopsis">Synopsis</a>
+      </h5>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/CompletionHandler.html" target="_top"><span class="bold"><strong>CompletionHandler</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Signature</span><span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">async_completion</span>
+</pre>
+<h5>
+<a name="beast.ref.beast__async_completion.h1"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.types"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="beast__async_completion/handler_type.html" title="async_completion::handler_type"><span class="bold"><strong>handler_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type of the final handler called by the asynchronous initiation
+                  function.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="beast__async_completion/result_type.html" title="async_completion::result_type"><span class="bold"><strong>result_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type of the value returned by the asynchronous initiation function.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.beast__async_completion.h2"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.member_functions"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="beast__async_completion/async_completion.html" title="async_completion::async_completion"><span class="bold"><strong>async_completion</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Construct the helper.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.beast__async_completion.h3"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.data_members"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.data_members">Data
+        Members</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="beast__async_completion/handler.html" title="async_completion::handler"><span class="bold"><strong>handler</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The final completion handler, callable with the specified signature.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="beast__async_completion/result.html" title="async_completion::result"><span class="bold"><strong>result</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The return value of the asynchronous initiation function.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.beast__async_completion.h4"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.description"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.description">Description</a>
+      </h5>
+<p>
+        This class template is used to transform caller-provided completion handlers
+        in calls to asynchronous initiation functions. The transformation allows
+        customization of the return type of the initiating function, and the function
+        signature of the final handler.
+      </p>
+<h5>
+<a name="beast.ref.beast__async_completion.h5"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.template_parameters"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.template_parameters">Template
+        Parameters</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Type
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">CompletionHandler</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A completion handler, or a user defined type with specializations
+                  for customizing the return type (for example, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">use_future</span></code>
+                  or <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">yield_context</span></code>).
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">Signature</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The callable signature of the final completion handler.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        Example:
+      </p>
+<pre class="programlisting"><span class="special">...</span>
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">CompletionHandler</span><span class="special">&gt;</span>
+<span class="keyword">typename</span> <span class="identifier">async_completion</span><span class="special">&lt;</span><span class="identifier">CompletionHandler</span><span class="special">,</span>
+    <span class="keyword">void</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">)&gt;::</span><span class="identifier">result_type</span>
+<span class="identifier">async_initfn</span><span class="special">(...,</span> <span class="identifier">CompletionHandler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">async_completion</span><span class="special">&lt;</span><span class="identifier">CompletionHandler</span><span class="special">,</span>
+        <span class="keyword">void</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">)&gt;</span> <span class="identifier">completion</span><span class="special">(</span><span class="identifier">handler</span><span class="special">);</span>
+    <span class="special">...</span>
+    <span class="keyword">return</span> <span class="identifier">completion</span><span class="special">.</span><span class="identifier">result</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<h5>
+<a name="beast.ref.beast__async_completion.h6"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.remarks"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.remarks">Remarks</a>
+      </h5>
+<p>
+        See <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3896.pdf" target="_top">Library
+        Foundations For Asynchronous Operations</a>
+      </p>
+<h5>
+<a name="beast.ref.beast__async_completion.h7"></a>
+        <span class="phrase"><a name="beast.ref.beast__async_completion.header"></a></span><a class="link" href="beast__async_completion.html#beast.ref.beast__async_completion.header">Header</a>
+      </h5>
+<p>
+        <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">core</span><span class="special">/</span><span class="identifier">async_completion</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="Writer.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="beast__async_completion/async_completion.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

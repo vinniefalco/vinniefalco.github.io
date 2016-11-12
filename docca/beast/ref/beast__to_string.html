@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>to_string</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="beast__system_error.html" title="system_error">
+<link rel="next" href="beast__websocket__async_teardown.html" title="websocket::async_teardown">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="beast__system_error.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="beast__websocket__async_teardown.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.beast__to_string"></a><a class="link" href="beast__to_string.html" title="to_string">to_string</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1143266"></a>
+Convert a <span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span>
+        to a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>.
+      </p>
+<h5>
+<a name="beast.ref.beast__to_string.h0"></a>
+        <span class="phrase"><a name="beast.ref.beast__to_string.synopsis"></a></span><a class="link" href="beast__to_string.html#beast.ref.beast__to_string.synopsis">Synopsis</a>
+      </h5>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong>ConstBufferSequence</strong></span></a><span class="special">&gt;</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span>
+<span class="identifier">to_string</span><span class="special">(</span>
+    <span class="identifier">ConstBufferSequence</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">buffers</span><span class="special">);</span>
+</pre>
+<h5>
+<a name="beast.ref.beast__to_string.h1"></a>
+        <span class="phrase"><a name="beast.ref.beast__to_string.description"></a></span><a class="link" href="beast__to_string.html#beast.ref.beast__to_string.description">Description</a>
+      </h5>
+<p>
+        This function will convert the octets in a buffer sequence to a string. All
+        octets will be inserted into the resulting string, including null or unprintable
+        characters.
+      </p>
+<h5>
+<a name="beast.ref.beast__to_string.h2"></a>
+        <span class="phrase"><a name="beast.ref.beast__to_string.parameters"></a></span><a class="link" href="beast__to_string.html#beast.ref.beast__to_string.parameters">Parameters</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">buffers</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  The buffer sequence to convert.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.beast__to_string.h3"></a>
+        <span class="phrase"><a name="beast.ref.beast__to_string.return_value"></a></span><a class="link" href="beast__to_string.html#beast.ref.beast__to_string.return_value">Return
+        Value</a>
+      </h5>
+<p>
+        A string representing the contents of the input area.
+      </p>
+<h5>
+<a name="beast.ref.beast__to_string.h4"></a>
+        <span class="phrase"><a name="beast.ref.beast__to_string.remarks"></a></span><a class="link" href="beast__to_string.html#beast.ref.beast__to_string.remarks">Remarks</a>
+      </h5>
+<p>
+        This function participates in overload resolution only if the buffers parameter
+        meets the requirements of <span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span>.
+      </p>
+<h5>
+<a name="beast.ref.beast__to_string.h5"></a>
+        <span class="phrase"><a name="beast.ref.beast__to_string.header"></a></span><a class="link" href="beast__to_string.html#beast.ref.beast__to_string.header">Header</a>
+      </h5>
+<p>
+        <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">core</span><span class="special">/</span><span class="identifier">to_string</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="beast__system_error.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="beast__websocket__async_teardown.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

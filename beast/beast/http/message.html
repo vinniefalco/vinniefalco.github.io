@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Message</title>
+<title>Messages</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../index.html" title="Beast">
@@ -17,29 +17,27 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="beast.http.message"></a><a class="link" href="message.html" title="Message">Message</a>
+<a name="beast.http.message"></a><a class="link" href="message.html" title="Messages">Messages</a>
 </h3></div></div></div>
 <p>
         The <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>
-        class template models HTTP/2 requests and responses, while the derived class
-        <a class="link" href="../ref/http__message_v1.html" title="http::message_v1"><code class="computeroutput"><span class="identifier">message_v1</span></code></a>
-        models HTTP/1 requests and responses, adding the required version field.
-        These objects are complete: they contain all the information required to
-        permit the algorithms to operate. These objects are first class: They may
-        be returned from functions, moved, copied, passed as arguments, and stored
-        in containers. Request and response messages are distinct types; functions
-        may be overloaded on just one or the other if desired. Because this class
-        template supports HTTP/1 and HTTP/2, it is sometimes referred to as the universal
-        message model.
+        class template models HTTP/1 and HTTP/2 requests and responses. These class
+        templates are complete: they contain all the information needed by the algorithms.
+        Objects of this type are first class: They may be returned from functions,
+        moved, copied, passed as arguments, and stored in containers. Request and
+        response messages are distinct types; functions may be overloaded on just
+        one or the other if desired. Because this class template supports HTTP/1
+        and HTTP/2, it is sometimes referred to as the universal message model.
       </p>
 <p>
-        These class templates have three template parameters:
+        There are three important template parameters in the message class:
       </p>
-<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span>
+<span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">message</span><span class="special">;</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
-<span class="keyword">class</span> <span class="identifier">message_v1</span><span class="special">;</span>
 </pre>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -61,27 +59,25 @@
 <p>
         For notational convenience, the following template type aliases are provided:
       </p>
-<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
 <span class="keyword">using</span> <span class="identifier">request</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;;</span>
 
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
 <span class="keyword">using</span> <span class="identifier">response</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">false</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;;</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
-<span class="keyword">using</span> <span class="identifier">request_v1</span> <span class="special">=</span> <span class="identifier">message_v1</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;;</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
-<span class="keyword">using</span> <span class="identifier">response_v1</span> <span class="special">=</span> <span class="identifier">message_v1</span><span class="special">&lt;</span><span class="keyword">false</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;;</span>
 </pre>
 <p>
-        Although these aliases have a common base class, they have different fields
-        depending on whether the message is a request or a response. These simplified
-        declarations notionally illustrate the members of HTTP/1 messages:
+        The message class template has different data members depending on whether
+        it represents a request or response. These simplified declarations notionally
+        illustrate the members of HTTP/1 messages:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
-<span class="keyword">struct</span> <span class="identifier">request_v1</span>
+<span class="keyword">struct</span> <span class="identifier">request</span>
 <span class="special">{</span>
-    <span class="keyword">int</span> <span class="identifier">version</span><span class="special">;</span>  <span class="number">10</span> <span class="keyword">or</span> <span class="number">11</span>
+    <span class="keyword">int</span> <span class="identifier">version</span><span class="special">;</span>            <span class="comment">// 10 for HTTP/1.0, 11 for HTTP/1.1</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">method</span><span class="special">;</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">url</span><span class="special">;</span>
     <span class="identifier">Headers</span> <span class="identifier">headers</span><span class="special">;</span>
@@ -89,9 +85,9 @@
 <span class="special">};</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
-<span class="keyword">struct</span> <span class="identifier">response_v1</span>
+<span class="keyword">struct</span> <span class="identifier">response</span>
 <span class="special">{</span>
-    <span class="keyword">int</span> <span class="identifier">version</span><span class="special">;</span>  <span class="number">10</span> <span class="keyword">or</span> <span class="number">11</span>
+    <span class="keyword">int</span> <span class="identifier">version</span><span class="special">;</span>            <span class="comment">// 10 for HTTP/1.0, 11 for HTTP/1.1</span>
     <span class="keyword">int</span> <span class="identifier">status</span><span class="special">;</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">reason</span><span class="special">;</span>
     <span class="identifier">Headers</span> <span class="identifier">headers</span><span class="special">;</span>
@@ -101,17 +97,17 @@
 <p>
         These statements set fields in request and response message objects:
       </p>
-<pre class="programlisting"><span class="identifier">request_v1</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<pre class="programlisting"><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>           <span class="comment">// HTTP/1.1</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">method</span> <span class="special">=</span> <span class="string">"GET"</span><span class="special">;</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">url</span> <span class="special">=</span> <span class="string">"/index.html"</span><span class="special">;</span>
-<span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>           <span class="comment">// HTTP/1.1</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">""</span><span class="special">;</span>
 
-<span class="identifier">response_v1</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<span class="identifier">res</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">10</span><span class="special">;</span>           <span class="comment">// HTTP/1.0</span>
 <span class="identifier">res</span><span class="special">.</span><span class="identifier">status</span> <span class="special">=</span> <span class="number">404</span><span class="special">;</span>
 <span class="identifier">res</span><span class="special">.</span><span class="identifier">reason</span> <span class="special">=</span> <span class="string">"Not Found"</span><span class="special">;</span>
-<span class="identifier">res</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">10</span><span class="special">;</span>          <span class="comment">// HTTP/1.0</span>
 <span class="identifier">res</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"Server"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
 <span class="identifier">res</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">"The requested resource was not found."</span><span class="special">;</span>
 </pre>

@@ -20,16 +20,18 @@
 <a name="beast.ref.http__basic_parser_v1.basic_parser_v1"></a><a class="link" href="basic_parser_v1.html" title="http::basic_parser_v1::basic_parser_v1">http::basic_parser_v1::basic_parser_v1</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id996798"></a>
-Copy constructor.
+          <a class="indexterm" name="id1005510"></a>
+Default constructor.
         </p>
-<pre class="programlisting"><a class="link" href="basic_parser_v1/overload1.html" title="http::basic_parser_v1::basic_parser_v1 (1 of 2 overloads)">basic_parser_v1</a><span class="special">(</span>
-    <span class="identifier">basic_parser_v1</span> <span class="keyword">const</span><span class="special">&amp;);</span>
+<pre class="programlisting"><a class="link" href="basic_parser_v1/overload1.html" title="http::basic_parser_v1::basic_parser_v1 (1 of 2 overloads)">basic_parser_v1</a><span class="special">();</span>
 </pre>
 <p>
-          Default constructor.
+          Copy constructor.
         </p>
-<pre class="programlisting"><a class="link" href="basic_parser_v1/overload2.html" title="http::basic_parser_v1::basic_parser_v1 (2 of 2 overloads)">basic_parser_v1</a><span class="special">();</span>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">OtherDerived</span><span class="special">&gt;</span>
+<a class="link" href="basic_parser_v1/overload2.html" title="http::basic_parser_v1::basic_parser_v1 (2 of 2 overloads)">basic_parser_v1</a><span class="special">(</span>
+    <span class="identifier">basic_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">OtherDerived</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
 </pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

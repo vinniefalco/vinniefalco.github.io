@@ -20,7 +20,7 @@
 <a name="beast.ref.websocket__read_message_max"></a><a class="link" href="websocket__read_message_max.html" title="websocket::read_message_max">websocket::read_message_max</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1080640"></a>
+        <a class="indexterm" name="id1104004"></a>
 Maximum incoming message size option.
       </p>
 <pre class="programlisting"><span class="keyword">using</span> <span class="identifier">read_message_max</span> <span class="special">=</span> <span class="emphasis"><em>implementation-defined</em></span><span class="special">;</span>
@@ -32,14 +32,14 @@ Maximum incoming message size option.
       </p>
 <p>
         The default setting is 16 megabytes. A value of zero indicates a limit of
-        <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span><span class="special">&gt;::</span><span class="identifier">max</span><span class="special">()</span></code>.
+        the maximum value of a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span></code>.
       </p>
 <h5>
 <a name="beast.ref.websocket__read_message_max.h0"></a>
         <span class="phrase"><a name="beast.ref.websocket__read_message_max.remarks"></a></span><a class="link" href="websocket__read_message_max.html#beast.ref.websocket__read_message_max.remarks">Remarks</a>
       </h5>
 <p>
-        Objects of this type are passed to <a class="link" href="websocket__stream/set_option.html" title="websocket::stream::set_option"><code class="computeroutput"><span class="identifier">stream</span><span class="special">::</span><span class="identifier">set_option</span></code></a>.
+        Objects of this type are used with <a class="link" href="websocket__stream/set_option.html" title="websocket::stream::set_option"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">set_option</span></code></a>.
       </p>
 <h5>
 <a name="beast.ref.websocket__read_message_max.h1"></a>

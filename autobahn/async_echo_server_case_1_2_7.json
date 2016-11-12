@@ -27,8 +27,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: V19VkbaXyO0Wvzy8WI9BzQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: GjytfQmHnEtOz9WTfV4elX4MX7g=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: XKq4WoU97s/UXdYFWBl/OQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: nJBM3p9XKZgCUt0rwjFf0ItIX8A=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "1.2.7",
    "isServer": false,
    "localCloseCode": 1000,
@@ -47,17 +47,17 @@
    "result": "Actual events match at least one expected.",
    "resultClose": "Connection was properly closed",
    "rxFrameStats": {
-      "0": 3,
       "2": 1,
       "8": 1
    },
    "rxOctetStats": {
       "4": 1,
+      "10": 1,
       "156": 1,
-      "16388": 2,
-      "32776": 1
+      "17520": 1,
+      "48016": 1
    },
-   "started": "2016-08-13T01:14:48.138Z",
+   "started": "2016-11-12T17:57:20.875Z",
    "trafficStats": null,
    "txFrameStats": {
       "2": 1,
@@ -98,7 +98,7 @@
          2,
          true,
          0,
-         "5123f93b",
+         "e46cc914",
          null,
          null,
          false
@@ -107,7 +107,7 @@
          "TO",
          [
             65550,
-            "82ff00000000000100005123f93bafdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd07c5afdd ..."
+            "82ff0000000000010000e46cc9141a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a9237ea1a92 ..."
          ],
          false
       ],
@@ -118,67 +118,31 @@
       [
          "RO",
          [
-            16388,
-            "027e4000fefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
+            17520,
+            "827f0000000000010000fefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
+         ]
+      ],
+      [
+         "RO",
+         [
+            48016,
+            "fefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
+         ]
+      ],
+      [
+         "RO",
+         [
+            10,
+            "fefefefefefefefefefe"
          ]
       ],
       [
          "RF",
          [
-            16384,
+            65536,
             "0xfefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
          ],
          2,
-         false,
-         0,
-         false,
-         null
-      ],
-      [
-         "RO",
-         [
-            16388,
-            "007e4000fefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
-         ]
-      ],
-      [
-         "RF",
-         [
-            16384,
-            "0xfefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
-         ],
-         0,
-         false,
-         0,
-         false,
-         null
-      ],
-      [
-         "RO",
-         [
-            32776,
-            "007e4000fefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
-         ]
-      ],
-      [
-         "RF",
-         [
-            16384,
-            "0xfefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
-         ],
-         0,
-         false,
-         0,
-         false,
-         null
-      ],
-      [
-         "RF",
-         [
-            16384,
-            "0xfefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefe ..."
-         ],
-         0,
          true,
          0,
          false,
@@ -193,7 +157,7 @@
          8,
          true,
          0,
-         "5f9e5fe3",
+         "8e9b7e98",
          null,
          null,
          false
@@ -202,7 +166,7 @@
          "TO",
          [
             8,
-            "88825f9e5fe35c76"
+            "88828e9b7e988d73"
          ],
          false
       ],

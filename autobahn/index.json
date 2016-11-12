@@ -3,14 +3,14 @@
       "1.1.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_1_1.json"
       },
       "1.1.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_1_2.json"
       },
@@ -24,7 +24,7 @@
       "1.1.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_1_4.json"
       },
@@ -38,28 +38,28 @@
       "1.1.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_1_6.json"
       },
       "1.1.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_1_7.json"
       },
       "1.1.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 68,
+         "duration": 67,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_1_8.json"
       },
       "1.2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_2_1.json"
       },
@@ -80,7 +80,7 @@
       "1.2.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_2_4.json"
       },
@@ -108,14 +108,14 @@
       "1.2.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 99,
+         "duration": 98,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_1_2_8.json"
       },
       "10.1.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 4,
+         "duration": 3,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_10_1_1.json"
       },
@@ -157,21 +157,21 @@
       "12.1.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_1_14.json"
       },
       "12.1.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_1_15.json"
       },
       "12.1.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_1_16.json"
       },
@@ -185,7 +185,7 @@
       "12.1.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_1_18.json"
       },
@@ -234,21 +234,21 @@
       "12.1.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_1_8.json"
       },
       "12.1.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_1_9.json"
       },
       "12.2.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_2_1.json"
       },
@@ -276,14 +276,14 @@
       "12.2.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_2_13.json"
       },
       "12.2.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_2_14.json"
       },
@@ -304,7 +304,7 @@
       "12.2.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_2_17.json"
       },
@@ -339,7 +339,7 @@
       "12.2.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_2_5.json"
       },
@@ -360,7 +360,7 @@
       "12.2.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_2_8.json"
       },
@@ -388,7 +388,7 @@
       "12.3.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_11.json"
       },
@@ -409,35 +409,35 @@
       "12.3.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_14.json"
       },
       "12.3.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_15.json"
       },
       "12.3.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_16.json"
       },
       "12.3.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_17.json"
       },
       "12.3.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_18.json"
       },
@@ -465,7 +465,7 @@
       "12.3.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_5.json"
       },
@@ -486,7 +486,7 @@
       "12.3.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_3_8.json"
       },
@@ -500,7 +500,7 @@
       "12.4.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_1.json"
       },
@@ -528,21 +528,21 @@
       "12.4.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_13.json"
       },
       "12.4.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_14.json"
       },
       "12.4.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_15.json"
       },
@@ -570,7 +570,7 @@
       "12.4.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_2.json"
       },
@@ -598,14 +598,14 @@
       "12.4.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_6.json"
       },
       "12.4.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_7.json"
       },
@@ -619,14 +619,14 @@
       "12.4.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_4_9.json"
       },
       "12.5.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_1.json"
       },
@@ -654,7 +654,7 @@
       "12.5.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_13.json"
       },
@@ -668,21 +668,21 @@
       "12.5.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_15.json"
       },
       "12.5.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_16.json"
       },
       "12.5.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_17.json"
       },
@@ -696,14 +696,14 @@
       "12.5.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_2.json"
       },
       "12.5.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_3.json"
       },
@@ -717,42 +717,42 @@
       "12.5.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_5.json"
       },
       "12.5.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_6.json"
       },
       "12.5.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_7.json"
       },
       "12.5.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_8.json"
       },
       "12.5.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_12_5_9.json"
       },
       "13.1.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_1.json"
       },
@@ -766,7 +766,7 @@
       "13.1.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_11.json"
       },
@@ -787,28 +787,28 @@
       "13.1.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_14.json"
       },
       "13.1.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_15.json"
       },
       "13.1.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_16.json"
       },
       "13.1.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_17.json"
       },
@@ -822,14 +822,14 @@
       "13.1.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_2.json"
       },
       "13.1.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_3.json"
       },
@@ -850,7 +850,7 @@
       "13.1.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_1_6.json"
       },
@@ -906,7 +906,7 @@
       "13.2.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_2_13.json"
       },
@@ -927,7 +927,7 @@
       "13.2.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_2_16.json"
       },
@@ -962,7 +962,7 @@
       "13.2.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_2_4.json"
       },
@@ -983,14 +983,14 @@
       "13.2.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_2_7.json"
       },
       "13.2.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_2_8.json"
       },
@@ -1004,7 +1004,7 @@
       "13.3.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_1.json"
       },
@@ -1018,7 +1018,7 @@
       "13.3.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_11.json"
       },
@@ -1032,7 +1032,7 @@
       "13.3.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_13.json"
       },
@@ -1053,14 +1053,14 @@
       "13.3.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_16.json"
       },
       "13.3.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_17.json"
       },
@@ -1074,14 +1074,14 @@
       "13.3.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_2.json"
       },
       "13.3.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_3.json"
       },
@@ -1109,7 +1109,7 @@
       "13.3.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_7.json"
       },
@@ -1123,14 +1123,14 @@
       "13.3.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_3_9.json"
       },
       "13.4.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_1.json"
       },
@@ -1144,21 +1144,21 @@
       "13.4.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_11.json"
       },
       "13.4.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_12.json"
       },
       "13.4.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_13.json"
       },
@@ -1186,7 +1186,7 @@
       "13.4.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_17.json"
       },
@@ -1207,7 +1207,7 @@
       "13.4.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_3.json"
       },
@@ -1221,28 +1221,28 @@
       "13.4.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_5.json"
       },
       "13.4.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_6.json"
       },
       "13.4.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_7.json"
       },
       "13.4.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_4_8.json"
       },
@@ -1270,7 +1270,7 @@
       "13.5.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_11.json"
       },
@@ -1291,63 +1291,63 @@
       "13.5.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_14.json"
       },
       "13.5.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_15.json"
       },
       "13.5.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_16.json"
       },
       "13.5.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_17.json"
       },
       "13.5.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_18.json"
       },
       "13.5.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_2.json"
       },
       "13.5.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_3.json"
       },
       "13.5.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_4.json"
       },
       "13.5.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_5.json"
       },
@@ -1368,14 +1368,14 @@
       "13.5.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_8.json"
       },
       "13.5.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_5_9.json"
       },
@@ -1396,21 +1396,21 @@
       "13.6.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_11.json"
       },
       "13.6.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_12.json"
       },
       "13.6.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_13.json"
       },
@@ -1424,7 +1424,7 @@
       "13.6.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_15.json"
       },
@@ -1438,14 +1438,14 @@
       "13.6.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_17.json"
       },
       "13.6.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_18.json"
       },
@@ -1466,35 +1466,35 @@
       "13.6.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_4.json"
       },
       "13.6.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_5.json"
       },
       "13.6.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_6.json"
       },
       "13.6.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_7.json"
       },
       "13.6.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_6_8.json"
       },
@@ -1515,14 +1515,14 @@
       "13.7.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_10.json"
       },
       "13.7.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_11.json"
       },
@@ -1543,14 +1543,14 @@
       "13.7.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_14.json"
       },
       "13.7.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_15.json"
       },
@@ -1564,7 +1564,7 @@
       "13.7.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_17.json"
       },
@@ -1592,7 +1592,7 @@
       "13.7.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_4.json"
       },
@@ -1613,7 +1613,7 @@
       "13.7.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_13_7_7.json"
       },
@@ -1634,7 +1634,7 @@
       "2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_2_1.json"
       },
@@ -1648,7 +1648,7 @@
       "2.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 151,
+         "duration": 149,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_2_11.json"
       },
@@ -1662,7 +1662,7 @@
       "2.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_2_3.json"
       },
@@ -1683,14 +1683,14 @@
       "2.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 131,
+         "duration": 130,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_2_6.json"
       },
       "2.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_2_7.json"
       },
@@ -1704,7 +1704,7 @@
       "2.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_2_9.json"
       },
@@ -1718,14 +1718,14 @@
       "3.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_3_2.json"
       },
       "3.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_3_3.json"
       },
@@ -1753,7 +1753,7 @@
       "3.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_3_7.json"
       },
@@ -1767,14 +1767,14 @@
       "4.1.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_4_1_2.json"
       },
       "4.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_4_1_3.json"
       },
@@ -1809,7 +1809,7 @@
       "4.2.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_4_2_3.json"
       },
@@ -1823,7 +1823,7 @@
       "4.2.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 21,
+         "duration": 20,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_4_2_5.json"
       },
@@ -1837,49 +1837,49 @@
       "5.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_10.json"
       },
       "5.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 5,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_11.json"
       },
       "5.12": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_12.json"
       },
       "5.13": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_13.json"
       },
       "5.14": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 5,
+         "duration": 2,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_14.json"
       },
       "5.15": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_15.json"
       },
       "5.16": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_16.json"
       },
@@ -1900,14 +1900,14 @@
       "5.19": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1001,
+         "duration": 1003,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_5_19.json"
       },
       "5.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_5_2.json"
       },
@@ -1921,7 +1921,7 @@
       "5.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_5_3.json"
       },
@@ -1956,7 +1956,7 @@
       "5.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 47,
+         "duration": 48,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_5_8.json"
       },
@@ -1977,7 +1977,7 @@
       "6.1.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_1_2.json"
       },
@@ -2005,14 +2005,14 @@
       "6.10.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_10_3.json"
       },
       "6.11.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_11_1.json"
       },
@@ -2033,21 +2033,21 @@
       "6.11.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_11_4.json"
       },
       "6.11.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_11_5.json"
       },
       "6.12.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_12_1.json"
       },
@@ -2075,7 +2075,7 @@
       "6.12.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_12_5.json"
       },
@@ -2096,28 +2096,28 @@
       "6.12.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_12_8.json"
       },
       "6.13.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_13_1.json"
       },
       "6.13.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_13_2.json"
       },
       "6.13.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_13_3.json"
       },
@@ -2152,14 +2152,14 @@
       "6.14.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_14_2.json"
       },
       "6.14.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_14_3.json"
       },
@@ -2180,7 +2180,7 @@
       "6.14.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_14_6.json"
       },
@@ -2201,7 +2201,7 @@
       "6.14.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_14_9.json"
       },
@@ -2222,14 +2222,14 @@
       "6.16.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_16_2.json"
       },
       "6.16.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_16_3.json"
       },
@@ -2243,21 +2243,21 @@
       "6.17.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_17_2.json"
       },
       "6.17.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_17_3.json"
       },
       "6.17.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_17_4.json"
       },
@@ -2271,7 +2271,7 @@
       "6.18.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_18_1.json"
       },
@@ -2299,14 +2299,14 @@
       "6.18.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_18_5.json"
       },
       "6.19.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_19_1.json"
       },
@@ -2327,21 +2327,21 @@
       "6.19.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_19_4.json"
       },
       "6.19.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_19_5.json"
       },
       "6.2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_2_1.json"
       },
@@ -2355,14 +2355,14 @@
       "6.2.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_2_3.json"
       },
       "6.2.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_2_4.json"
       },
@@ -2390,14 +2390,14 @@
       "6.20.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_20_4.json"
       },
       "6.20.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_20_5.json"
       },
@@ -2411,14 +2411,14 @@
       "6.20.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_20_7.json"
       },
       "6.21.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_21_1.json"
       },
@@ -2432,7 +2432,7 @@
       "6.21.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_21_3.json"
       },
@@ -2446,7 +2446,7 @@
       "6.21.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_21_5.json"
       },
@@ -2467,7 +2467,7 @@
       "6.21.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_21_8.json"
       },
@@ -2488,28 +2488,28 @@
       "6.22.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_11.json"
       },
       "6.22.12": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_12.json"
       },
       "6.22.13": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_13.json"
       },
       "6.22.14": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_14.json"
       },
@@ -2537,7 +2537,7 @@
       "6.22.18": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_18.json"
       },
@@ -2551,7 +2551,7 @@
       "6.22.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_2.json"
       },
@@ -2572,14 +2572,14 @@
       "6.22.22": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_22.json"
       },
       "6.22.23": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_23.json"
       },
@@ -2593,21 +2593,21 @@
       "6.22.25": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_25.json"
       },
       "6.22.26": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_26.json"
       },
       "6.22.27": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_27.json"
       },
@@ -2621,7 +2621,7 @@
       "6.22.29": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_29.json"
       },
@@ -2635,7 +2635,7 @@
       "6.22.30": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_30.json"
       },
@@ -2649,21 +2649,21 @@
       "6.22.32": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_32.json"
       },
       "6.22.33": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_33.json"
       },
       "6.22.34": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_34.json"
       },
@@ -2684,14 +2684,14 @@
       "6.22.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_6.json"
       },
       "6.22.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_22_7.json"
       },
@@ -2712,7 +2712,7 @@
       "6.23.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_23_1.json"
       },
@@ -2733,7 +2733,7 @@
       "6.23.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_23_4.json"
       },
@@ -2761,7 +2761,7 @@
       "6.3.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_3_1.json"
       },
@@ -2796,14 +2796,14 @@
       "6.4.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1001,
+         "duration": 1000,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_4_4.json"
       },
       "6.5.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_5_1.json"
       },
@@ -2824,7 +2824,7 @@
       "6.5.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_5_4.json"
       },
@@ -2838,14 +2838,14 @@
       "6.6.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_6_1.json"
       },
       "6.6.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_6_10.json"
       },
@@ -2894,7 +2894,7 @@
       "6.6.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_6_7.json"
       },
@@ -2915,7 +2915,7 @@
       "6.7.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_7_1.json"
       },
@@ -2929,14 +2929,14 @@
       "6.7.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_7_3.json"
       },
       "6.7.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_7_4.json"
       },
@@ -2950,14 +2950,14 @@
       "6.8.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "async_echo_server_case_6_8_2.json"
       },
       "6.9.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_9_1.json"
       },
@@ -2971,7 +2971,7 @@
       "6.9.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_6_9_3.json"
       },
@@ -2985,7 +2985,7 @@
       "7.1.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_7_1_1.json"
       },
@@ -2999,7 +2999,7 @@
       "7.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_7_1_3.json"
       },
@@ -3027,14 +3027,14 @@
       "7.13.1": {
          "behavior": "INFORMATIONAL",
          "behaviorClose": "INFORMATIONAL",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 5000,
          "reportfile": "async_echo_server_case_7_13_1.json"
       },
       "7.13.2": {
          "behavior": "INFORMATIONAL",
          "behaviorClose": "INFORMATIONAL",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 65535,
          "reportfile": "async_echo_server_case_7_13_2.json"
       },
@@ -3055,14 +3055,14 @@
       "7.3.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_7_3_3.json"
       },
       "7.3.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_7_3_4.json"
       },
@@ -3076,7 +3076,7 @@
       "7.3.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_3_6.json"
       },
@@ -3090,14 +3090,14 @@
       "7.7.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_7_7_1.json"
       },
       "7.7.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 3000,
          "reportfile": "async_echo_server_case_7_7_10.json"
       },
@@ -3118,21 +3118,21 @@
       "7.7.13": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 4999,
          "reportfile": "async_echo_server_case_7_7_13.json"
       },
       "7.7.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1001,
          "reportfile": "async_echo_server_case_7_7_2.json"
       },
       "7.7.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_7_3.json"
       },
@@ -3153,21 +3153,21 @@
       "7.7.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1008,
          "reportfile": "async_echo_server_case_7_7_6.json"
       },
       "7.7.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1009,
          "reportfile": "async_echo_server_case_7_7_7.json"
       },
       "7.7.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1010,
          "reportfile": "async_echo_server_case_7_7_8.json"
       },
@@ -3181,7 +3181,7 @@
       "7.9.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_9_1.json"
       },
@@ -3195,21 +3195,21 @@
       "7.9.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_9_11.json"
       },
       "7.9.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_9_2.json"
       },
       "7.9.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_9_3.json"
       },
@@ -3237,14 +3237,14 @@
       "7.9.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_9_7.json"
       },
       "7.9.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "async_echo_server_case_7_9_8.json"
       },
@@ -3258,7 +3258,7 @@
       "9.1.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_1_1.json"
       },
@@ -3272,84 +3272,84 @@
       "9.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 17,
+         "duration": 12,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_1_3.json"
       },
       "9.1.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 68,
+         "duration": 53,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_1_4.json"
       },
       "9.1.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 137,
+         "duration": 102,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_1_5.json"
       },
       "9.1.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 272,
+         "duration": 210,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_1_6.json"
       },
       "9.2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_2_1.json"
       },
       "9.2.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 5,
+         "duration": 4,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_2_2.json"
       },
       "9.2.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 18,
+         "duration": 16,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_2_3.json"
       },
       "9.2.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 70,
+         "duration": 63,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_2_4.json"
       },
       "9.2.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 140,
+         "duration": 123,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_2_5.json"
       },
       "9.2.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 279,
+         "duration": 257,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_2_6.json"
       },
       "9.3.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1582,
+         "duration": 1603,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_1.json"
       },
       "9.3.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 484,
+         "duration": 492,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_2.json"
       },
@@ -3363,189 +3363,189 @@
       "9.3.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 83,
+         "duration": 70,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_4.json"
       },
       "9.3.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 55,
+         "duration": 37,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_5.json"
       },
       "9.3.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 49,
+         "duration": 32,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_6.json"
       },
       "9.3.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 49,
+         "duration": 33,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_7.json"
       },
       "9.3.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 48,
+         "duration": 32,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_8.json"
       },
       "9.3.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 46,
+         "duration": 30,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_3_9.json"
       },
       "9.4.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1566,
+         "duration": 1607,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_1.json"
       },
       "9.4.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 469,
+         "duration": 490,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_2.json"
       },
       "9.4.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 196,
+         "duration": 203,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_3.json"
       },
       "9.4.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 70,
+         "duration": 68,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_4.json"
       },
       "9.4.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 38,
+         "duration": 33,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_5.json"
       },
       "9.4.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 32,
+         "duration": 25,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_6.json"
       },
       "9.4.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 31,
+         "duration": 24,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_7.json"
       },
       "9.4.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 32,
+         "duration": 26,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_8.json"
       },
       "9.4.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 32,
+         "duration": 24,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_4_9.json"
       },
       "9.5.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 16975,
+         "duration": 16437,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_5_1.json"
       },
       "9.5.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 8589,
+         "duration": 8222,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_5_2.json"
       },
       "9.5.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 4266,
+         "duration": 4114,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_5_3.json"
       },
       "9.5.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2116,
+         "duration": 2067,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_5_4.json"
       },
       "9.5.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1082,
+         "duration": 1034,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_5_5.json"
       },
       "9.5.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 544,
+         "duration": 523,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_5_6.json"
       },
       "9.6.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 17150,
+         "duration": 16442,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_6_1.json"
       },
       "9.6.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 8501,
+         "duration": 8240,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_6_2.json"
       },
       "9.6.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 4303,
+         "duration": 4111,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_6_3.json"
       },
       "9.6.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2124,
+         "duration": 2065,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_6_4.json"
       },
       "9.6.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1084,
+         "duration": 1038,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_6_5.json"
       },
       "9.6.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 549,
+         "duration": 524,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_6_6.json"
       },
@@ -3559,7 +3559,7 @@
       "9.7.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 120,
+         "duration": 118,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_7_2.json"
       },
@@ -3573,7 +3573,7 @@
       "9.7.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 134,
+         "duration": 132,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_7_4.json"
       },
@@ -3587,7 +3587,7 @@
       "9.7.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 303,
+         "duration": 292,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_7_6.json"
       },
@@ -3608,7 +3608,7 @@
       "9.8.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 119,
+         "duration": 120,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_8_3.json"
       },
@@ -3622,14 +3622,14 @@
       "9.8.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 159,
+         "duration": 163,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_8_5.json"
       },
       "9.8.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 282,
+         "duration": 283,
          "remoteCloseCode": 1000,
          "reportfile": "async_echo_server_case_9_8_6.json"
       }
@@ -3659,21 +3659,21 @@
       "1.1.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_1_4.json"
       },
       "1.1.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_1_5.json"
       },
       "1.1.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 4,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_1_6.json"
       },
@@ -3687,21 +3687,21 @@
       "1.1.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 69,
+         "duration": 67,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_1_8.json"
       },
       "1.2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_2_1.json"
       },
       "1.2.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_2_2.json"
       },
@@ -3736,7 +3736,7 @@
       "1.2.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 32,
+         "duration": 33,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_1_2_7.json"
       },
@@ -3757,7 +3757,7 @@
       "12.1.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_1.json"
       },
@@ -3771,14 +3771,14 @@
       "12.1.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_11.json"
       },
       "12.1.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_12.json"
       },
@@ -3806,28 +3806,28 @@
       "12.1.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_16.json"
       },
       "12.1.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_17.json"
       },
       "12.1.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_18.json"
       },
       "12.1.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_2.json"
       },
@@ -3862,7 +3862,7 @@
       "12.1.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_7.json"
       },
@@ -3876,7 +3876,7 @@
       "12.1.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_1_9.json"
       },
@@ -3904,14 +3904,14 @@
       "12.2.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_12.json"
       },
       "12.2.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_13.json"
       },
@@ -3925,21 +3925,21 @@
       "12.2.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_15.json"
       },
       "12.2.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_16.json"
       },
       "12.2.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_17.json"
       },
@@ -3953,14 +3953,14 @@
       "12.2.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_2.json"
       },
       "12.2.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_3.json"
       },
@@ -3981,7 +3981,7 @@
       "12.2.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_6.json"
       },
@@ -3995,7 +3995,7 @@
       "12.2.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_2_8.json"
       },
@@ -4009,14 +4009,14 @@
       "12.3.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_1.json"
       },
       "12.3.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_10.json"
       },
@@ -4044,21 +4044,21 @@
       "12.3.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_14.json"
       },
       "12.3.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_15.json"
       },
       "12.3.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_16.json"
       },
@@ -4072,7 +4072,7 @@
       "12.3.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_18.json"
       },
@@ -4093,21 +4093,21 @@
       "12.3.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_4.json"
       },
       "12.3.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_5.json"
       },
       "12.3.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_3_6.json"
       },
@@ -4142,7 +4142,7 @@
       "12.4.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_10.json"
       },
@@ -4156,35 +4156,35 @@
       "12.4.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_12.json"
       },
       "12.4.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_13.json"
       },
       "12.4.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_14.json"
       },
       "12.4.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_15.json"
       },
       "12.4.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_16.json"
       },
@@ -4198,35 +4198,35 @@
       "12.4.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_18.json"
       },
       "12.4.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_2.json"
       },
       "12.4.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_3.json"
       },
       "12.4.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_4.json"
       },
       "12.4.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_5.json"
       },
@@ -4247,14 +4247,14 @@
       "12.4.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_8.json"
       },
       "12.4.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_4_9.json"
       },
@@ -4268,14 +4268,14 @@
       "12.5.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_10.json"
       },
       "12.5.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_11.json"
       },
@@ -4289,7 +4289,7 @@
       "12.5.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_13.json"
       },
@@ -4303,7 +4303,7 @@
       "12.5.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_15.json"
       },
@@ -4324,14 +4324,14 @@
       "12.5.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_18.json"
       },
       "12.5.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_2.json"
       },
@@ -4352,7 +4352,7 @@
       "12.5.5": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_5.json"
       },
@@ -4366,21 +4366,21 @@
       "12.5.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_7.json"
       },
       "12.5.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_8.json"
       },
       "12.5.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_12_5_9.json"
       },
@@ -4394,14 +4394,14 @@
       "13.1.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_10.json"
       },
       "13.1.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_11.json"
       },
@@ -4415,7 +4415,7 @@
       "13.1.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_13.json"
       },
@@ -4436,7 +4436,7 @@
       "13.1.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_16.json"
       },
@@ -4450,28 +4450,28 @@
       "13.1.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_18.json"
       },
       "13.1.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_2.json"
       },
       "13.1.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_3.json"
       },
       "13.1.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_4.json"
       },
@@ -4506,21 +4506,21 @@
       "13.1.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_1_9.json"
       },
       "13.2.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_1.json"
       },
       "13.2.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_10.json"
       },
@@ -4541,28 +4541,28 @@
       "13.2.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_13.json"
       },
       "13.2.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_14.json"
       },
       "13.2.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_15.json"
       },
       "13.2.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_16.json"
       },
@@ -4597,7 +4597,7 @@
       "13.2.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_4.json"
       },
@@ -4611,7 +4611,7 @@
       "13.2.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_2_6.json"
       },
@@ -4639,7 +4639,7 @@
       "13.3.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_1.json"
       },
@@ -4660,14 +4660,14 @@
       "13.3.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_12.json"
       },
       "13.3.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_13.json"
       },
@@ -4681,7 +4681,7 @@
       "13.3.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_15.json"
       },
@@ -4702,7 +4702,7 @@
       "13.3.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_18.json"
       },
@@ -4716,14 +4716,14 @@
       "13.3.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_3.json"
       },
       "13.3.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_4.json"
       },
@@ -4737,7 +4737,7 @@
       "13.3.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_6.json"
       },
@@ -4751,7 +4751,7 @@
       "13.3.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_3_8.json"
       },
@@ -4765,7 +4765,7 @@
       "13.4.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_1.json"
       },
@@ -4779,14 +4779,14 @@
       "13.4.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_11.json"
       },
       "13.4.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_12.json"
       },
@@ -4800,7 +4800,7 @@
       "13.4.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_14.json"
       },
@@ -4821,35 +4821,35 @@
       "13.4.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_17.json"
       },
       "13.4.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_18.json"
       },
       "13.4.2": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_2.json"
       },
       "13.4.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_3.json"
       },
       "13.4.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_4.json"
       },
@@ -4870,7 +4870,7 @@
       "13.4.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_4_7.json"
       },
@@ -4891,21 +4891,21 @@
       "13.5.1": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_1.json"
       },
       "13.5.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_10.json"
       },
       "13.5.11": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_11.json"
       },
@@ -4933,21 +4933,21 @@
       "13.5.15": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_15.json"
       },
       "13.5.16": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_16.json"
       },
       "13.5.17": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_17.json"
       },
@@ -4968,14 +4968,14 @@
       "13.5.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_3.json"
       },
       "13.5.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_4.json"
       },
@@ -4989,14 +4989,14 @@
       "13.5.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_6.json"
       },
       "13.5.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_5_7.json"
       },
@@ -5024,7 +5024,7 @@
       "13.6.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_10.json"
       },
@@ -5038,7 +5038,7 @@
       "13.6.12": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_12.json"
       },
@@ -5052,7 +5052,7 @@
       "13.6.14": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_14.json"
       },
@@ -5094,7 +5094,7 @@
       "13.6.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_3.json"
       },
@@ -5115,21 +5115,21 @@
       "13.6.6": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_6.json"
       },
       "13.6.7": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_7.json"
       },
       "13.6.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_6_8.json"
       },
@@ -5150,7 +5150,7 @@
       "13.7.10": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_10.json"
       },
@@ -5171,7 +5171,7 @@
       "13.7.13": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_13.json"
       },
@@ -5206,7 +5206,7 @@
       "13.7.18": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_18.json"
       },
@@ -5220,14 +5220,14 @@
       "13.7.3": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_3.json"
       },
       "13.7.4": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_4.json"
       },
@@ -5255,42 +5255,42 @@
       "13.7.8": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_8.json"
       },
       "13.7.9": {
          "behavior": "UNIMPLEMENTED",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_13_7_9.json"
       },
       "2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_1.json"
       },
       "2.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 3,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_10.json"
       },
       "2.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 159,
+         "duration": 149,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_11.json"
       },
       "2.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_2.json"
       },
@@ -5318,14 +5318,14 @@
       "2.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 136,
+         "duration": 131,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_6.json"
       },
       "2.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_7.json"
       },
@@ -5339,7 +5339,7 @@
       "2.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_2_9.json"
       },
@@ -5360,14 +5360,14 @@
       "3.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_3_3.json"
       },
       "3.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 21,
+         "duration": 20,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_3_4.json"
       },
@@ -5381,14 +5381,14 @@
       "3.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_3_6.json"
       },
       "3.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_3_7.json"
       },
@@ -5409,7 +5409,7 @@
       "4.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_4_1_3.json"
       },
@@ -5437,7 +5437,7 @@
       "4.2.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_4_2_2.json"
       },
@@ -5458,7 +5458,7 @@
       "4.2.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 21,
+         "duration": 20,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_4_2_5.json"
       },
@@ -5472,14 +5472,14 @@
       "5.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_10.json"
       },
       "5.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 5,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_11.json"
       },
@@ -5500,7 +5500,7 @@
       "5.14": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 5,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_14.json"
       },
@@ -5514,7 +5514,7 @@
       "5.16": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_16.json"
       },
@@ -5528,7 +5528,7 @@
       "5.18": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_18.json"
       },
@@ -5542,7 +5542,7 @@
       "5.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_2.json"
       },
@@ -5556,7 +5556,7 @@
       "5.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_5_3.json"
       },
@@ -5570,7 +5570,7 @@
       "5.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 31,
+         "duration": 29,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_5_5.json"
       },
@@ -5591,35 +5591,35 @@
       "5.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 50,
+         "duration": 47,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_5_8.json"
       },
       "5.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_5_9.json"
       },
       "6.1.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_1_1.json"
       },
       "6.1.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_1_2.json"
       },
       "6.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_1_3.json"
       },
@@ -5640,21 +5640,21 @@
       "6.10.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_10_3.json"
       },
       "6.11.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_11_1.json"
       },
       "6.11.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_11_2.json"
       },
@@ -5675,14 +5675,14 @@
       "6.11.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_11_5.json"
       },
       "6.12.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_12_1.json"
       },
@@ -5738,7 +5738,7 @@
       "6.13.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_13_1.json"
       },
@@ -5759,7 +5759,7 @@
       "6.13.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_13_4.json"
       },
@@ -5780,14 +5780,14 @@
       "6.14.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_14_10.json"
       },
       "6.14.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_14_2.json"
       },
@@ -5808,7 +5808,7 @@
       "6.14.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_14_5.json"
       },
@@ -5822,14 +5822,14 @@
       "6.14.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_14_7.json"
       },
       "6.14.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_14_8.json"
       },
@@ -5857,7 +5857,7 @@
       "6.16.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_16_2.json"
       },
@@ -5871,14 +5871,14 @@
       "6.17.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_17_1.json"
       },
       "6.17.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_17_2.json"
       },
@@ -5906,7 +5906,7 @@
       "6.18.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_18_1.json"
       },
@@ -5941,21 +5941,21 @@
       "6.19.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_19_1.json"
       },
       "6.19.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_19_2.json"
       },
       "6.19.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_19_3.json"
       },
@@ -5976,7 +5976,7 @@
       "6.2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_2_1.json"
       },
@@ -5997,42 +5997,42 @@
       "6.2.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_2_4.json"
       },
       "6.20.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_20_1.json"
       },
       "6.20.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_20_2.json"
       },
       "6.20.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_20_3.json"
       },
       "6.20.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_20_4.json"
       },
       "6.20.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_20_5.json"
       },
@@ -6046,63 +6046,63 @@
       "6.20.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_20_7.json"
       },
       "6.21.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_1.json"
       },
       "6.21.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_2.json"
       },
       "6.21.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_3.json"
       },
       "6.21.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_4.json"
       },
       "6.21.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_5.json"
       },
       "6.21.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_6.json"
       },
       "6.21.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_7.json"
       },
       "6.21.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_21_8.json"
       },
@@ -6116,7 +6116,7 @@
       "6.22.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_10.json"
       },
@@ -6130,7 +6130,7 @@
       "6.22.12": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_12.json"
       },
@@ -6158,7 +6158,7 @@
       "6.22.16": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_16.json"
       },
@@ -6186,21 +6186,21 @@
       "6.22.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_2.json"
       },
       "6.22.20": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_20.json"
       },
       "6.22.21": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_21.json"
       },
@@ -6214,7 +6214,7 @@
       "6.22.23": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_23.json"
       },
@@ -6242,14 +6242,14 @@
       "6.22.27": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_27.json"
       },
       "6.22.28": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_28.json"
       },
@@ -6263,7 +6263,7 @@
       "6.22.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_3.json"
       },
@@ -6277,21 +6277,21 @@
       "6.22.31": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_31.json"
       },
       "6.22.32": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_32.json"
       },
       "6.22.33": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_33.json"
       },
@@ -6305,7 +6305,7 @@
       "6.22.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_4.json"
       },
@@ -6319,7 +6319,7 @@
       "6.22.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_6.json"
       },
@@ -6333,14 +6333,14 @@
       "6.22.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_8.json"
       },
       "6.22.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_22_9.json"
       },
@@ -6361,7 +6361,7 @@
       "6.23.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_23_3.json"
       },
@@ -6375,7 +6375,7 @@
       "6.23.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_23_5.json"
       },
@@ -6417,7 +6417,7 @@
       "6.4.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1001,
+         "duration": 1000,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_4_2.json"
       },
@@ -6431,7 +6431,7 @@
       "6.4.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1000,
+         "duration": 1001,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_4_4.json"
       },
@@ -6445,7 +6445,7 @@
       "6.5.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_5_2.json"
       },
@@ -6459,7 +6459,7 @@
       "6.5.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_5_4.json"
       },
@@ -6473,7 +6473,7 @@
       "6.6.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_6_1.json"
       },
@@ -6487,7 +6487,7 @@
       "6.6.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_6_11.json"
       },
@@ -6515,7 +6515,7 @@
       "6.6.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_6_5.json"
       },
@@ -6529,7 +6529,7 @@
       "6.6.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_6_7.json"
       },
@@ -6550,7 +6550,7 @@
       "6.7.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_7_1.json"
       },
@@ -6564,14 +6564,14 @@
       "6.7.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_7_3.json"
       },
       "6.7.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_7_4.json"
       },
@@ -6585,14 +6585,14 @@
       "6.8.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_6_8_2.json"
       },
       "6.9.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_9_1.json"
       },
@@ -6613,7 +6613,7 @@
       "6.9.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_6_9_4.json"
       },
@@ -6634,56 +6634,56 @@
       "7.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_1_3.json"
       },
       "7.1.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_1_4.json"
       },
       "7.1.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_1_5.json"
       },
       "7.1.6": {
          "behavior": "INFORMATIONAL",
          "behaviorClose": "INFORMATIONAL",
-         "duration": 8,
+         "duration": 9,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_1_6.json"
       },
       "7.13.1": {
          "behavior": "INFORMATIONAL",
          "behaviorClose": "INFORMATIONAL",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 5000,
          "reportfile": "sync_echo_server_case_7_13_1.json"
       },
       "7.13.2": {
          "behavior": "INFORMATIONAL",
          "behaviorClose": "INFORMATIONAL",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 65535,
          "reportfile": "sync_echo_server_case_7_13_2.json"
       },
       "7.3.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_3_1.json"
       },
       "7.3.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_3_2.json"
       },
@@ -6697,7 +6697,7 @@
       "7.3.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_3_4.json"
       },
@@ -6711,35 +6711,35 @@
       "7.3.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_3_6.json"
       },
       "7.5.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_5_1.json"
       },
       "7.7.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_7_7_1.json"
       },
       "7.7.10": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 3000,
          "reportfile": "sync_echo_server_case_7_7_10.json"
       },
       "7.7.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 3999,
          "reportfile": "sync_echo_server_case_7_7_11.json"
       },
@@ -6753,7 +6753,7 @@
       "7.7.13": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 4999,
          "reportfile": "sync_echo_server_case_7_7_13.json"
       },
@@ -6774,21 +6774,21 @@
       "7.7.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1003,
          "reportfile": "sync_echo_server_case_7_7_4.json"
       },
       "7.7.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1007,
          "reportfile": "sync_echo_server_case_7_7_5.json"
       },
       "7.7.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1008,
          "reportfile": "sync_echo_server_case_7_7_6.json"
       },
@@ -6809,14 +6809,14 @@
       "7.7.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1011,
          "reportfile": "sync_echo_server_case_7_7_9.json"
       },
       "7.9.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_9_1.json"
       },
@@ -6830,7 +6830,7 @@
       "7.9.11": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 0,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_9_11.json"
       },
@@ -6851,21 +6851,21 @@
       "7.9.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_9_4.json"
       },
       "7.9.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_9_5.json"
       },
       "7.9.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 1,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_9_6.json"
       },
@@ -6886,336 +6886,336 @@
       "7.9.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 0,
+         "duration": 2,
          "remoteCloseCode": 1002,
          "reportfile": "sync_echo_server_case_7_9_9.json"
       },
       "9.1.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2,
+         "duration": 1,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_1_1.json"
       },
       "9.1.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 3,
+         "duration": 5,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_1_2.json"
       },
       "9.1.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 17,
+         "duration": 19,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_1_3.json"
       },
       "9.1.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 65,
+         "duration": 74,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_1_4.json"
       },
       "9.1.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 134,
+         "duration": 148,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_1_5.json"
       },
       "9.1.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 270,
+         "duration": 300,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_1_6.json"
       },
       "9.2.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1,
+         "duration": 2,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_2_1.json"
       },
       "9.2.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 5,
+         "duration": 6,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_2_2.json"
       },
       "9.2.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 17,
+         "duration": 22,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_2_3.json"
       },
       "9.2.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 69,
+         "duration": 88,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_2_4.json"
       },
       "9.2.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 134,
+         "duration": 172,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_2_5.json"
       },
       "9.2.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 274,
+         "duration": 352,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_2_6.json"
       },
       "9.3.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 850,
+         "duration": 886,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_1.json"
       },
       "9.3.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 261,
+         "duration": 311,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_2.json"
       },
       "9.3.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 110,
+         "duration": 160,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_3.json"
       },
       "9.3.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 61,
+         "duration": 72,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_4.json"
       },
       "9.3.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 50,
+         "duration": 59,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_5.json"
       },
       "9.3.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 47,
+         "duration": 56,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_6.json"
       },
       "9.3.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 47,
+         "duration": 55,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_7.json"
       },
       "9.3.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 48,
+         "duration": 57,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_8.json"
       },
       "9.3.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 45,
+         "duration": 56,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_3_9.json"
       },
       "9.4.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 835,
+         "duration": 884,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_1.json"
       },
       "9.4.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 250,
+         "duration": 307,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_2.json"
       },
       "9.4.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 95,
+         "duration": 158,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_3.json"
       },
       "9.4.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 44,
+         "duration": 61,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_4.json"
       },
       "9.4.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 32,
+         "duration": 51,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_5.json"
       },
       "9.4.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 30,
+         "duration": 49,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_6.json"
       },
       "9.4.7": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 30,
+         "duration": 50,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_7.json"
       },
       "9.4.8": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 32,
+         "duration": 50,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_8.json"
       },
       "9.4.9": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 31,
+         "duration": 48,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_4_9.json"
       },
       "9.5.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 17063,
+         "duration": 16444,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_5_1.json"
       },
       "9.5.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 8553,
+         "duration": 8253,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_5_2.json"
       },
       "9.5.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 4262,
+         "duration": 4134,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_5_3.json"
       },
       "9.5.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2115,
+         "duration": 2071,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_5_4.json"
       },
       "9.5.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1065,
+         "duration": 1046,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_5_5.json"
       },
       "9.5.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 544,
+         "duration": 529,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_5_6.json"
       },
       "9.6.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 17026,
+         "duration": 16452,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_6_1.json"
       },
       "9.6.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 8489,
+         "duration": 8254,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_6_2.json"
       },
       "9.6.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 4253,
+         "duration": 4129,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_6_3.json"
       },
       "9.6.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 2097,
+         "duration": 2074,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_6_4.json"
       },
       "9.6.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 1075,
+         "duration": 1046,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_6_5.json"
       },
       "9.6.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 554,
+         "duration": 536,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_6_6.json"
       },
       "9.7.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 115,
+         "duration": 116,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_7_1.json"
       },
       "9.7.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 117,
+         "duration": 119,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_7_2.json"
       },
       "9.7.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 120,
+         "duration": 124,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_7_3.json"
       },
       "9.7.4": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 131,
+         "duration": 132,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_7_4.json"
       },
       "9.7.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 163,
+         "duration": 165,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_7_5.json"
       },
@@ -7229,21 +7229,21 @@
       "9.8.1": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 112,
+         "duration": 115,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_8_1.json"
       },
       "9.8.2": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 115,
+         "duration": 116,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_8_2.json"
       },
       "9.8.3": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 118,
+         "duration": 120,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_8_3.json"
       },
@@ -7257,14 +7257,14 @@
       "9.8.5": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 159,
+         "duration": 165,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_8_5.json"
       },
       "9.8.6": {
          "behavior": "OK",
          "behaviorClose": "OK",
-         "duration": 281,
+         "duration": 283,
          "remoteCloseCode": 1000,
          "reportfile": "sync_echo_server_case_9_8_6.json"
       }

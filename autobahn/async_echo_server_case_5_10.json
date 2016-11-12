@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send unfragmented Text Message after Continuation Frame with FIN = true, where there is nothing to continue, sent in per-frame chops.",
    "droppedByMe": false,
-   "duration": 0,
+   "duration": 1,
    "expectation": "The connection is failed immediately, since there is no message to continue.",
    "expected": {
       "OK": []
@@ -21,8 +21,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: U1fxcZSYSQnMg8saEJMffg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: A/hchQK9+1AcijzbWOpvvMoF5H0=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: f6X3+IvAZkU0O2/4kOVEbg==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: MC3dOOPnR7iZrDKeUDHqC4uqMoc=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "5.10",
    "isServer": false,
    "localCloseCode": 1000,
@@ -41,7 +41,7 @@
       "4": 1,
       "156": 1
    },
-   "started": "2016-08-13T01:14:48.745Z",
+   "started": "2016-11-12T17:57:21.468Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 1,
@@ -82,7 +82,7 @@
          0,
          true,
          0,
-         "50db0575",
+         "c81d8e31",
          null,
          null,
          true
@@ -91,7 +91,7 @@
          "TO",
          [
             30,
-            "809850db05753eb46b5833b46b0139b5701424b26a1b70ab640c3cb46411"
+            "8098c81d8e31a672e01cab72e045a173fb50bc74e15fe86def48a472ef55"
          ],
          true
       ],
@@ -104,7 +104,7 @@
          1,
          true,
          0,
-         "cf652ccc",
+         "792c0c89",
          null,
          null,
          true
@@ -141,7 +141,7 @@
          8,
          true,
          0,
-         "0bdc5455",
+         "467125fa",
          null,
          null,
          false

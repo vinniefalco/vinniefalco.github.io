@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send fragmented binary message message with message payload of length 4 * 2**20 (4M). Sent out in fragments of 4k.",
    "droppedByMe": false,
-   "duration": 44,
+   "duration": 61,
    "expectation": "Receive echo'ed binary message (with payload as sent).",
    "expected": {},
    "expectedClose": {
@@ -19,8 +19,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: kNNG+OPWQrkxf+fdJKNwTw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: XZkuMdD6W9SDwSkzlsEje6r9CrE=\r\nServer: sync_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 3/ukPkTEbJhwqJzk2o3+xA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: MIf6/syQbLXCCIVxg1QHHGHcvtc=\r\nServer: sync_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "9.4.4",
    "isServer": false,
    "localCloseCode": 1000,
@@ -33,18 +33,21 @@
    "result": "Received binary message of length 4194304.",
    "resultClose": "Connection was properly closed",
    "rxFrameStats": {
-      "0": 255,
+      "0": 1023,
       "2": 1,
       "8": 1
    },
    "rxOctetStats": {
       "4": 1,
       "155": 1,
-      "16388": 1,
-      "50172": 1,
-      "65536": 63
+      "4100": 94,
+      "12300": 2,
+      "19040": 1,
+      "37844": 1,
+      "61500": 1,
+      "65536": 56
    },
-   "started": "2016-08-13T01:16:21.433Z",
+   "started": "2016-11-12T17:58:51.849Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 1024,
@@ -91,7 +94,7 @@
          8,
          true,
          0,
-         "7a6ab21e",
+         "96771fb2",
          null,
          null,
          false
@@ -100,7 +103,7 @@
          "TO",
          [
             8,
-            "88827a6ab21e7982"
+            "888296771fb2959f"
          ],
          false
       ],

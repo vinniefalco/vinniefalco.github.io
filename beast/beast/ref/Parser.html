@@ -20,10 +20,12 @@
 <a name="beast.ref.Parser"></a><a class="link" href="Parser.html" title="Parser requirements">Parser requirements</a>
 </h3></div></div></div>
 <p>
-        A <span class="bold"><strong><code class="computeroutput"><span class="identifier">Parser</span></code></strong></span>
-        is used to deserialize HTTP/1 messages from <a class="link" href="streams.html" title="Streams requirements">streams</a>.
-        Objects of this type are used with <a class="link" href="http__parse.html" title="http::parse">http::parse</a>
-        and <a class="link" href="http__async_parse.html" title="http::async_parse">http::async_parse</a>.
+        A <span class="bold"><strong>Parser</strong></span> is used to deserialize objects
+        from <a class="link" href="streams.html" title="Streams requirements">streams</a>. Objects of this type
+        are used with <a class="link" href="http__parse.html" title="http::parse">http::parse</a> and
+        <a class="link" href="http__async_parse.html" title="http::async_parse">http::async_parse</a>. The
+        definition of an object, and the predicate defining when the parse is complete,
+        are determined by the implementation.
       </p>
 <p>
         In this table:
@@ -31,7 +33,7 @@
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">X</span></code> denotes a type meeting
-            the requirements of <span class="bold"><strong><code class="computeroutput"><span class="identifier">Parser</span></code></strong></span>.
+            the requirements of <span class="bold"><strong>Parser</strong></span>.
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">a</span></code> denotes a value of
@@ -39,7 +41,7 @@
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">b</span></code> is a value meeting
-            the requirements of <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span></a>.
+            the requirements of <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong>ConstBufferSequence</strong></span></a>.
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">ec</span></code> is a value of type
@@ -86,7 +88,7 @@
 <td>
                 <p>
                   Returns <code class="computeroutput"><span class="keyword">true</span></code> when
-                  a complete HTTP/1 message has been parsed.
+                  parsing is complete.
                 </p>
               </td>
 </tr>
@@ -104,12 +106,11 @@
               </td>
 <td>
                 <p>
-                  Sequentially parses the octets in the specified input buffer or
-                  input buffer sequence until an error occurs, the end of the buffer
-                  is reached, or a complete HTTP/1 message has been parsed. If an
-                  error occurs, <code class="computeroutput"><span class="identifier">ec</span></code>
-                  is set to the error code and parsing stops. Upon success, this
-                  function returns the number of bytes used from the input.
+                  Sequentially parses the octets in the specified input buffer sequence
+                  until an error occurs, the end of the buffer is reached, or parsing
+                  is complete. Upon success, this function returns the number of
+                  bytes used from the input. If an error occurs, <code class="computeroutput"><span class="identifier">ec</span></code>
+                  is set to the error code and parsing stops.
                 </p>
               </td>
 </tr>
@@ -130,8 +131,9 @@
                   Typically this function is called when the end of stream is reached.
                   For example, if a call to <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">::</span><span class="identifier">read_some</span></code>
                   generates a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span></code>
-                  error. Some HTTP/1 messages determine the end of the message body
-                  by an end of file marker or closing of the connection.
+                  error. Some objects, such as certain HTTP/1 messages, determine
+                  the end of the message body by an end of file marker or closing
+                  of the connection.
                 </p>
               </td>
 </tr>

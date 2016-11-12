@@ -20,8 +20,8 @@
 <a name="beast.ref.buffer_cat"></a><a class="link" href="buffer_cat.html" title="buffer_cat">buffer_cat</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id977298"></a>
-Concatenate 2 or more buffer sequences to form a <code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code>.
+        <a class="indexterm" name="id982051"></a>
+Concatenate 2 or more buffer sequences.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span><span class="special">...</span> <a class="link" href="BufferSequence.html" title="BufferSequence requirements"><span class="bold"><strong>BufferSequence</strong></span></a><span class="special">&gt;</span>
@@ -30,11 +30,11 @@ Concatenate 2 or more buffer sequences to form a <code class="computeroutput"><s
     <span class="identifier">BufferSequence</span> <span class="keyword">const</span><span class="special">&amp;...</span> <span class="identifier">buffers</span><span class="special">);</span>
 </pre>
 <p>
-        This function returns a <span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span>
-        that when iterated, efficiently concatenates the input buffer sequences.
-        Copies of the arguments passed will be made; however, the returned object
-        does not take ownership of the underlying memory. The application is still
-        responsible for managing the lifetime of the referenced memory.
+        This function returns a constant or mutable buffer sequence which, when iterated,
+        efficiently concatenates the input buffer sequences. Copies of the arguments
+        passed will be made; however, the returned object does not take ownership
+        of the underlying memory. The application is still responsible for managing
+        the lifetime of the referenced memory.
       </p>
 <h5>
 <a name="beast.ref.buffer_cat.h0"></a>
@@ -55,8 +55,10 @@ Concatenate 2 or more buffer sequences to form a <code class="computeroutput"><s
         Value</a>
       </h5>
 <p>
-        A new <span class="bold"><strong><code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code></strong></span>
-        that represents the concatenation of the input buffer sequences.
+        A new buffer sequence that represents the concatenation of the input buffer
+        sequences. This buffer sequence will be a <span class="bold"><strong>MutableBufferSequence</strong></span>
+        if each of the passed buffer sequences is also a <span class="bold"><strong>MutableBufferSequence</strong></span>,
+        else the returned buffer sequence will be a <span class="bold"><strong>ConstBufferSequence</strong></span>.
       </p>
 <h5>
 <a name="beast.ref.buffer_cat.h2"></a>

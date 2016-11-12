@@ -28,7 +28,7 @@
     <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">accept</span><span class="special">(</span>
-    <span class="identifier">http</span><span class="special">::</span><span class="identifier">request_v1</span><span class="special">&lt;</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">request</span><span class="special">);</span>
+    <span class="identifier">http</span><span class="special">::</span><span class="identifier">request</span><span class="special">&lt;</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">request</span><span class="special">);</span>
 </pre>
 <p>
             This function is used to synchronously send the HTTP response to a HTTP
@@ -80,7 +80,7 @@
 <div class="variablelist">
 <p class="title"><b></b></p>
 <dl class="variablelist">
-<dt><span class="term">boost::system::system_error</span></dt>
+<dt><span class="term">system_error</span></dt>
 <dd><p>
                   Thrown on failure.
                 </p></dd>

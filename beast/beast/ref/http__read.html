@@ -7,7 +7,7 @@
 <link rel="home" href="../../index.html" title="Beast">
 <link rel="up" href="../ref.html" title="Reference">
 <link rel="prev" href="http__prepare.html" title="http::prepare">
-<link rel="next" href="http__read/overload1.html" title="http::read (1 of 2 overloads)">
+<link rel="next" href="http__read/overload1.html" title="http::read (1 of 4 overloads)">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
@@ -20,8 +20,35 @@
 <a name="beast.ref.http__read"></a><a class="link" href="http__read.html" title="http::read">http::read</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1027992"></a>
-Read a HTTP/1 message from a stream.
+        <a class="indexterm" name="id1048279"></a>
+Read HTTP/1 message headers from a stream.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a><span class="special">,</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="http__read/overload1.html" title="http::read (1 of 4 overloads)">read</a><span class="special">(</span>
+    <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
+    <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
+    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a><span class="special">,</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="http__read/overload2.html" title="http::read (2 of 4 overloads)">read</a><span class="special">(</span>
+    <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
+    <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
+    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<p>
+        Read a HTTP/1 message from a stream.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
@@ -30,10 +57,11 @@ Read a HTTP/1 message from a stream.
     <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
-<a class="link" href="http__read/overload1.html" title="http::read (1 of 2 overloads)">read</a><span class="special">(</span>
+<a class="link" href="http__read/overload3.html" title="http::read (3 of 4 overloads)">read</a><span class="special">(</span>
     <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
-    <span class="identifier">message_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
@@ -42,10 +70,10 @@ Read a HTTP/1 message from a stream.
     <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
-<a class="link" href="http__read/overload2.html" title="http::read (2 of 2 overloads)">read</a><span class="special">(</span>
+<a class="link" href="http__read/overload4.html" title="http::read (4 of 4 overloads)">read</a><span class="special">(</span>
     <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
-    <span class="identifier">message_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
 </pre>
 <h5>

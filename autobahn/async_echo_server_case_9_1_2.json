@@ -19,8 +19,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: zoBGhw173h5e/wf2HV74Jw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: k34VRFSpfW4GqxdwXTdWY2VDEV8=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 7C2Y3tnmEGw5IXiJBsgwLQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: ICjWKK2XhQ07hV7Sjw0BVGbmXdE=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "9.1.2",
    "isServer": false,
    "localCloseCode": 1000,
@@ -33,20 +33,18 @@
    "result": "Received text message of length 262144.",
    "resultClose": "Connection was properly closed",
    "rxFrameStats": {
-      "0": 15,
       "1": 1,
       "8": 1
    },
    "rxOctetStats": {
       "4": 1,
+      "10": 1,
       "156": 1,
-      "16388": 1,
-      "32776": 1,
-      "32808": 1,
-      "49164": 1,
-      "65536": 2
+      "17520": 1,
+      "48016": 1,
+      "65536": 3
    },
-   "started": "2016-08-13T01:14:55.035Z",
+   "started": "2016-11-12T17:57:27.718Z",
    "trafficStats": null,
    "txFrameStats": {
       "1": 1,
@@ -91,7 +89,7 @@
          8,
          true,
          0,
-         "e8fbbd63",
+         "d6637ba9",
          null,
          null,
          false
@@ -100,7 +98,7 @@
          "TO",
          [
             8,
-            "8882e8fbbd63eb13"
+            "8882d6637ba9d58b"
          ],
          false
       ],

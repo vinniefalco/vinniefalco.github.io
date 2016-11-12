@@ -20,7 +20,7 @@
 <a name="beast.ref.websocket__async_teardown"></a><a class="link" href="websocket__async_teardown.html" title="websocket::async_teardown">websocket::async_teardown</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1069083"></a>
+        <a class="indexterm" name="id1095582"></a>
 Start tearing down a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
@@ -31,8 +31,11 @@ Start tearing down a <code class="computeroutput"><span class="identifier">boost
     <span class="identifier">teardown_tag</span><span class="special">,</span>
     <span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;</span> <span class="identifier">AsyncStream</span> <span class="special">&gt;&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">TeardownHandler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">);</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span>
+</pre>
+<p>
+        Start tearing down a connection.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">Socket</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">TeardownHandler</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
@@ -40,8 +43,11 @@ Start tearing down a <code class="computeroutput"><span class="identifier">boost
     <span class="identifier">teardown_tag</span><span class="special">,</span>
     <span class="identifier">Socket</span><span class="special">&amp;</span> <span class="identifier">socket</span><span class="special">,</span>
     <span class="identifier">TeardownHandler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">);</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span>
+</pre>
+<p>
+        Start tearing down a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span></code>.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">TeardownHandler</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <a class="link" href="websocket__async_teardown/overload3.html" title="websocket::async_teardown (3 of 3 overloads)">async_teardown</a><span class="special">(</span>

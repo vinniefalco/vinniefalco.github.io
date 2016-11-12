@@ -6,7 +6,7 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../index.html" title="Beast">
 <link rel="up" href="../http.html" title="Using HTTP">
-<link rel="prev" href="message.html" title="Message">
+<link rel="prev" href="message.html" title="Messages">
 <link rel="next" href="body.html" title="Body">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -30,7 +30,7 @@
         These statements change the values of the headers in the message passed:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">&gt;</span>
-<span class="keyword">void</span> <span class="identifier">set_fields</span><span class="special">(</span><span class="identifier">request_v1</span><span class="special">&lt;</span><span class="identifier">Body</span><span class="special">&gt;&amp;</span> <span class="identifier">req</span><span class="special">)</span>
+<span class="keyword">void</span> <span class="identifier">set_fields</span><span class="special">(</span><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">Body</span><span class="special">&gt;&amp;</span> <span class="identifier">req</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="keyword">if</span><span class="special">(!</span> <span class="identifier">req</span><span class="special">.</span><span class="identifier">exists</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">))</span>
         <span class="identifier">req</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"myWebClient"</span><span class="special">);</span>
@@ -56,8 +56,9 @@
 <p>
         User defined <span class="bold"><strong><code class="computeroutput"><span class="identifier">Headers</span></code></strong></span>
         types are possible. To support serialization, the type must meet the requirements
-        of <a class="link" href="../ref/FieldSequence.html" title="FieldSequence requirements"><span class="bold"><strong><code class="computeroutput"><span class="identifier">FieldSequence</span></code></strong></span></a>. To support
-        parsing using the provided parser, the type must provide the <code class="computeroutput"><span class="identifier">insert</span></code> member function.
+        of <a class="link" href="../ref/FieldSequence.html" title="FieldSequence requirements"><span class="bold"><strong>FieldSequence</strong></span></a>.
+        To support parsing using the provided parser, the type must provide the
+        <code class="computeroutput"><span class="identifier">insert</span></code> member function.
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

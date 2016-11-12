@@ -20,9 +20,10 @@
 <a name="beast.ref.Reader"></a><a class="link" href="Reader.html" title="Reader requirements">Reader requirements</a>
 </h3></div></div></div>
 <p>
-        Parser implementations will construct the corresponding <code class="computeroutput"><span class="identifier">reader</span></code>
-        object during the parse. This customization point allows the Body to determine
-        the strategy for storing incoming message body data.
+        Parsers provided by the implementation will construct the corresponding
+        <code class="computeroutput"><span class="identifier">reader</span></code> object during parsing.
+        This customization point allows the Body to determine the strategy for storing
+        incoming message body data.
       </p>
 <p>
         In this table:
@@ -37,20 +38,21 @@
             type <code class="computeroutput"><span class="identifier">X</span></code>.
           </li>
 <li class="listitem">
-            <code class="computeroutput"><span class="identifier">p</span></code> is any pointer.
-          </li>
-<li class="listitem">
             <code class="computeroutput"><span class="identifier">n</span></code> is a value convertible
             to <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span></code>.
           </li>
 <li class="listitem">
+            <code class="computeroutput"><span class="identifier">p</span></code> is a <code class="computeroutput"><span class="keyword">void</span> <span class="keyword">const</span><span class="special">*</span></code> to valid memory of at least <code class="computeroutput"><span class="identifier">n</span></code> bytes.
+          </li>
+<li class="listitem">
             <code class="computeroutput"><span class="identifier">ec</span></code> is a value of type
-            <code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code>.
+            <a class="link" href="error_code.html" title="error_code"><code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code></a>.
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">m</span></code> denotes a value of
-            type <code class="computeroutput"><span class="identifier">message</span> <span class="keyword">const</span><span class="special">&amp;</span></code> where <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_same</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">m</span><span class="special">.</span><span class="identifier">body</span><span class="special">),</span> <span class="identifier">Body</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;:</span><span class="identifier">value</span>
-            <span class="special">==</span> <span class="keyword">true</span></code>
+            type <code class="computeroutput"><span class="identifier">message</span><span class="special">&amp;</span></code>
+            where <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_same</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">m</span><span class="special">.</span><span class="identifier">body</span><span class="special">),</span> <span class="identifier">Body</span><span class="special">::</span><span class="identifier">value_type</span><span class="special">&gt;::</span><span class="identifier">value</span> <span class="special">==</span>
+            <span class="keyword">true</span></code>.
           </li>
 </ul></div>
 <div class="table">
@@ -93,7 +95,30 @@
                   from <code class="computeroutput"><span class="identifier">m</span></code>. The lifetime
                   of <code class="computeroutput"><span class="identifier">m</span></code> is guaranteed
                   to end no earlier than after <code class="computeroutput"><span class="identifier">a</span></code>
-                  is destroyed.
+                  is destroyed. The constructor will be called after all headers
+                  have been stored in <code class="computeroutput"><span class="identifier">m</span></code>,
+                  and before any body data is deserialized. This function must be
+                  <code class="computeroutput"><span class="keyword">noexcept</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">a</span><span class="special">.</span><span class="identifier">init</span><span class="special">(</span><span class="identifier">ec</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="keyword">void</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  Called immediately after construction. If the function sets an
+                  error code in <code class="computeroutput"><span class="identifier">ec</span></code>,
+                  the parse is aborted and the error is propagated to the caller.
+                  This function must be <code class="computeroutput"><span class="keyword">noexcept</span></code>.
                 </p>
               </td>
 </tr>
@@ -113,7 +138,9 @@
 <td>
                 <p>
                   Deserializes the input sequence into the body. If <code class="computeroutput"><span class="identifier">ec</span></code> is set, the deserialization
-                  is aborted and the error is returned to the caller.
+                  is aborted and the error is propagated to the caller. If the message
+                  headers specify a chunked transfer encoding, the reader will receive
+                  the decoded version of the body. This function must be <code class="computeroutput"><span class="keyword">noexcept</span></code>.
                 </p>
               </td>
 </tr>
@@ -127,7 +154,7 @@
 </tr>
 <tr><td align="left" valign="top"><p>
           Definitions for required <code class="computeroutput"><span class="identifier">Reader</span></code>
-          member functions should be declared inline so the generated code becomes
+          member functions should be declared inline so the generated code can become
           part of the implementation.
         </p></td></tr>
 </table></div>

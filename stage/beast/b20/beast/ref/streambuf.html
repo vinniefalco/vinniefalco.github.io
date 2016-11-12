@@ -1,0 +1,331 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>streambuf</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="static_string/value_type.html" title="static_string::value_type">
+<link rel="next" href="system_error.html" title="system_error">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="static_string/value_type.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="system_error.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.streambuf"></a><a class="link" href="streambuf.html" title="streambuf">streambuf</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1098620"></a>
+A <span class="bold"><strong><code class="computeroutput"><span class="identifier">DynamicBuffer</span></code></strong></span>
+        that uses multiple buffers internally.
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">streambuf</span> <span class="special">=</span> <span class="identifier">basic_streambuf</span><span class="special">&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span> <span class="keyword">char</span> <span class="special">&gt;&gt;;</span>
+</pre>
+<h5>
+<a name="beast.ref.streambuf.h0"></a>
+        <span class="phrase"><a name="beast.ref.streambuf.types"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/allocator_type.html" title="basic_streambuf::allocator_type"><span class="bold"><strong>allocator_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type of allocator used.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/const_buffers_type.html" title="basic_streambuf::const_buffers_type"><span class="bold"><strong>const_buffers_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type used to represent the input sequence as a list of buffers.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/mutable_buffers_type.html" title="basic_streambuf::mutable_buffers_type"><span class="bold"><strong>mutable_buffers_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type used to represent the output sequence as a list of buffers.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="beast.ref.streambuf.h1"></a>
+        <span class="phrase"><a name="beast.ref.streambuf.member_functions"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/alloc_size.html" title="basic_streambuf::alloc_size"><span class="bold"><strong>alloc_size</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the default allocation size.
+                </p>
+                <p>
+                  Set the default allocation size.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/basic_streambuf.html" title="basic_streambuf::basic_streambuf"><span class="bold"><strong>basic_streambuf</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move constructor.
+                </p>
+                <p>
+                  Copy constructor.
+                </p>
+                <p>
+                  Construct a stream buffer.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/capacity.html" title="basic_streambuf::capacity"><span class="bold"><strong>capacity</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the maximum sum of the sizes of the input sequence and
+                  output sequence the buffer can hold without requiring reallocation.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/commit.html" title="basic_streambuf::commit"><span class="bold"><strong>commit</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move bytes from the output sequence to the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/consume.html" title="basic_streambuf::consume"><span class="bold"><strong>consume</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Remove bytes from the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/data.html" title="basic_streambuf::data"><span class="bold"><strong>data</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get a list of buffers that represents the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/get_allocator.html" title="basic_streambuf::get_allocator"><span class="bold"><strong>get_allocator</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns a copy of the associated allocator.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/max_size.html" title="basic_streambuf::max_size"><span class="bold"><strong>max_size</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the permitted maximum sum of the sizes of the input and
+                  output sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/operator_eq_.html" title="basic_streambuf::operator="><span class="bold"><strong>operator=</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Move assignment.
+                </p>
+                <p>
+                  Copy assignment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/prepare.html" title="basic_streambuf::prepare"><span class="bold"><strong>prepare</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Get a list of buffers that represents the output sequence, with
+                  the given size.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/size.html" title="basic_streambuf::size"><span class="bold"><strong>size</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns the size of the input sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="basic_streambuf/basic_streambuf_dtor_.html" title="basic_streambuf::~basic_streambuf"><span class="bold"><strong>~basic_streambuf</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Destructor.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        The implementation uses a sequence of one or more character arrays of varying
+        sizes. Additional character array objects are appended to the sequence to
+        accommodate changes in the size of the character sequence.
+      </p>
+<h5>
+<a name="beast.ref.streambuf.h2"></a>
+        <span class="phrase"><a name="beast.ref.streambuf.remarks"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.remarks">Remarks</a>
+      </h5>
+<p>
+        Meets the requirements of <span class="bold"><strong>DynamicBuffer</strong></span>.
+      </p>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">Allocator</span></dt>
+<dd><p>
+              The allocator to use for managing memory.
+            </p></dd>
+</dl>
+</div>
+<p>
+        The implementation uses a sequence of one or more character arrays of varying
+        sizes. Additional character array objects are appended to the sequence to
+        accommodate changes in the size of the character sequence.
+      </p>
+<h5>
+<a name="beast.ref.streambuf.h3"></a>
+        <span class="phrase"><a name="beast.ref.streambuf.remarks0"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.remarks0">Remarks</a>
+      </h5>
+<p>
+        Meets the requirements of <span class="bold"><strong><code class="computeroutput"><span class="identifier">DynamicBuffer</span></code></strong></span>.
+      </p>
+<h5>
+<a name="beast.ref.streambuf.h4"></a>
+        <span class="phrase"><a name="beast.ref.streambuf.requirements"></a></span><a class="link" href="streambuf.html#beast.ref.streambuf.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/core/streambuf.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/core.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="static_string/value_type.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="system_error.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

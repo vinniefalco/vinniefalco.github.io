@@ -7,20 +7,20 @@
 <link rel="home" href="../../../index.html" title="Beast">
 <link rel="up" href="../http__ext_list.html" title="http::ext_list">
 <link rel="prev" href="find.html" title="http::ext_list::find">
-<link rel="next" href="../http__get_parse_error_category.html" title="http::get_parse_error_category">
+<link rel="next" href="../http__has_reader.html" title="http::has_reader">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../../images/beast.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="find.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http__ext_list.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../http__get_parse_error_category.html"><img src="../../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="find.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http__ext_list.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../http__has_reader.html"><img src="../../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
 <a name="beast.ref.http__ext_list.value_type"></a><a class="link" href="value_type.html" title="http::ext_list::value_type">http::ext_list::value_type</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1002529"></a>
+          <a class="indexterm" name="id1015211"></a>
 The type of each element in the list.
         </p>
 <pre class="programlisting"><span class="keyword">using</span> <span class="identifier">value_type</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">pair</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">string_ref</span><span class="special">,</span> <span class="identifier">param_list</span> <span class="special">&gt;;</span>
@@ -162,20 +162,31 @@ The type of each element in the list.
 </table></div>
 <p>
           This container allows iteration of the parameter list in a HTTP extension.
-          The parameter list is a series of "name = value" pairs with each
-          pair starting with a semicolon.
+          The parameter list is a series of name/value pairs with each pair starting
+          with a semicolon. The value is optional.
         </p>
-<p>
-          BNF:
-        </p>
-<pre class="programlisting"><span class="identifier">param</span><span class="special">-</span><span class="identifier">list</span>  <span class="special">=</span> <span class="special">*(</span> <span class="identifier">OWS</span> <span class="string">";"</span> <span class="identifier">OWS</span> <span class="identifier">param</span> <span class="special">)</span>
-<span class="identifier">param</span>       <span class="special">=</span> <span class="identifier">token</span> <span class="identifier">OWS</span> <span class="string">"="</span> <span class="identifier">OWS</span> <span class="special">(</span> <span class="identifier">token</span> <span class="special">/</span> <span class="identifier">quoted</span><span class="special">-</span><span class="identifier">string</span> <span class="special">)</span>
-</pre>
 <p>
           If a parsing error is encountered while iterating the string, the behavior
           of the container will be as if a string containing only characters up to
           but excluding the first invalid character was used to construct the list.
         </p>
+<h6>
+<a name="beast.ref.http__ext_list.value_type.h2"></a>
+          <span class="phrase"><a name="beast.ref.http__ext_list.value_type.bnf"></a></span><a class="link" href="value_type.html#beast.ref.http__ext_list.value_type.bnf">BNF</a>
+        </h6>
+<pre class="programlisting"><span class="identifier">param</span><span class="special">-</span><span class="identifier">list</span>  <span class="special">=</span> <span class="special">*(</span> <span class="identifier">OWS</span> <span class="string">";"</span> <span class="identifier">OWS</span> <span class="identifier">param</span> <span class="special">)</span>
+<span class="identifier">param</span>       <span class="special">=</span> <span class="identifier">token</span> <span class="identifier">OWS</span> <span class="special">[</span> <span class="string">"="</span> <span class="identifier">OWS</span> <span class="special">(</span> <span class="identifier">token</span> <span class="special">/</span> <span class="identifier">quoted</span><span class="special">-</span><span class="identifier">string</span> <span class="special">)</span> <span class="special">]</span>
+</pre>
+<p>
+          To use this class, construct with the string to be parsed and then use
+          <a class="link" href="../http__param_list/begin.html" title="http::param_list::begin"><code class="computeroutput"><span class="identifier">begin</span></code></a>
+          and <a class="link" href="../http__param_list/end.html" title="http::param_list::end"><code class="computeroutput"><span class="identifier">end</span></code></a>,
+          or range-for to iterate each item:
+        </p>
+<h6>
+<a name="beast.ref.http__ext_list.value_type.h3"></a>
+          <span class="phrase"><a name="beast.ref.http__ext_list.value_type.example"></a></span><a class="link" href="value_type.html#beast.ref.http__ext_list.value_type.example">Example</a>
+        </h6>
 <pre class="programlisting"><span class="keyword">for</span><span class="special">(</span><span class="keyword">auto</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">param</span> <span class="special">:</span> <span class="identifier">param_list</span><span class="special">{</span><span class="string">";level=9;no_context_takeover;bits=15"</span><span class="special">})</span>
 <span class="special">{</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">";"</span> <span class="special">&lt;&lt;</span> <span class="identifier">param</span><span class="special">.</span><span class="identifier">first</span><span class="special">;</span>
@@ -190,7 +201,7 @@ The type of each element in the list.
           parameters.
         </p>
 <h6>
-<a name="beast.ref.http__ext_list.value_type.h2"></a>
+<a name="beast.ref.http__ext_list.value_type.h4"></a>
           <span class="phrase"><a name="beast.ref.http__ext_list.value_type.requirements"></a></span><a class="link" href="value_type.html#beast.ref.http__ext_list.value_type.requirements">Requirements</a>
         </h6>
 <p>
@@ -211,7 +222,7 @@ The type of each element in the list.
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="find.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http__ext_list.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../http__get_parse_error_category.html"><img src="../../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="find.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http__ext_list.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../http__has_reader.html"><img src="../../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

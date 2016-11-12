@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>websocket::error</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="websocket__decorate.html" title="websocket::decorate">
+<link rel="next" href="websocket__frame_info.html" title="websocket::frame_info">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket__decorate.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket__frame_info.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.websocket__error"></a><a class="link" href="websocket__error.html" title="websocket::error">websocket::error</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1104333"></a>
+Error codes returned from <a class="link" href="websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> operations.
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">error</span>
+</pre>
+<p>
+        <a class="indexterm" name="id1104368"></a>
+ <a class="indexterm" name="id1104392"></a>
+ <a class="indexterm" name="id1104408"></a>
+ <a class="indexterm" name="id1104423"></a>
+ <a class="indexterm" name="id1104421"></a>
+ <a class="indexterm" name="id1104422"></a>
+ <a class="indexterm" name="id1104428"></a>
+ <a class="indexterm" name="id1104454"></a>
+ <a class="indexterm" name="id1104460"></a>
+ <a class="indexterm" name="id1104470"></a>
+ <a class="indexterm" name="id1104442"></a>
+
+      </p>
+<h5>
+<a name="beast.ref.websocket__error.h0"></a>
+        <span class="phrase"><a name="beast.ref.websocket__error.values"></a></span><a class="link" href="websocket__error.html#beast.ref.websocket__error.values">Values</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">closed</span></dt>
+<dd><p>
+              Both sides performed a WebSocket close.
+            </p></dd>
+<dt><span class="term">failed</span></dt>
+<dd><p>
+              WebSocket connection failed, protocol violation.
+            </p></dd>
+<dt><span class="term">handshake_failed</span></dt>
+<dd><p>
+              Upgrade request failed, connection is closed.
+            </p></dd>
+<dt><span class="term">keep_alive</span></dt>
+<dd><p>
+              Upgrade request failed, but connection is still open.
+            </p></dd>
+<dt><span class="term">response_malformed</span></dt>
+<dd><p>
+              HTTP response is malformed.
+            </p></dd>
+<dt><span class="term">response_failed</span></dt>
+<dd><p>
+              HTTP response failed the upgrade.
+            </p></dd>
+<dt><span class="term">response_denied</span></dt>
+<dd><p>
+              Upgrade request denied for invalid fields.
+            </p></dd>
+<dt><span class="term">request_malformed</span></dt>
+<dd><p>
+              Upgrade request is malformed.
+            </p></dd>
+<dt><span class="term">request_invalid</span></dt>
+<dd><p>
+              Upgrade request fields incorrect.
+            </p></dd>
+<dt><span class="term">request_denied</span></dt>
+<dd><p>
+              Upgrade request denied.
+            </p></dd>
+<dt><span class="term">general</span></dt>
+<dd><p>
+              General WebSocket error.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.websocket__error.h1"></a>
+        <span class="phrase"><a name="beast.ref.websocket__error.requirements"></a></span><a class="link" href="websocket__error.html#beast.ref.websocket__error.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/websocket/error.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/websocket.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket__decorate.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket__frame_info.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

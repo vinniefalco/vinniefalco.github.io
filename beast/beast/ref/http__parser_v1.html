@@ -24,11 +24,11 @@
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">parser_v1</span> <span class="special">:</span>
     <span class="keyword">public</span> <span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="special">&gt;,</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">conditional</span><span class="special">::</span><span class="identifier">type</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">parser_request</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">parser_response</span> <span class="special">&gt;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">conditional</span><span class="special">::</span><span class="identifier">type</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">request_parser_base</span><span class="special">,</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">response_parser_base</span> <span class="special">&gt;</span>
 </pre>
 <h5>
 <a name="beast.ref.http__parser_v1.h0"></a>
@@ -178,6 +178,12 @@
                 </p>
               </td>
 <td>
+                <p>
+                  Move assignment (disallowed)
+                </p>
+                <p>
+                  Copy assignment (disallowed)
+                </p>
               </td>
 </tr>
 <tr>
@@ -188,7 +194,19 @@
               </td>
 <td>
                 <p>
+                  Default constructor.
+                </p>
+                <p>
+                  Move constructor.
+                </p>
+                <p>
+                  Copy constructor (disallowed)
+                </p>
+                <p>
                   Construct the parser.
+                </p>
+                <p>
+                  Construct the parser from a headers parser.
                 </p>
               </td>
 </tr>
@@ -200,7 +218,7 @@
               </td>
 <td>
                 <p>
-                  Returns the parsed message.
+                  Returns ownership of the parsed message.
                 </p>
               </td>
 </tr>
@@ -212,7 +230,7 @@
               </td>
 <td>
                 <p>
-                  Set the expect body option.
+                  Set the skip body option.
                 </p>
                 <p>
                   Set options on the parser.
@@ -278,19 +296,54 @@
 </tr>
 </tbody>
 </table></div>
-<p>
-        This class uses the basic HTTP/1 wire format parser to convert a series of
-        octets into a <code class="computeroutput"><span class="identifier">message_v1</span></code>.
-      </p>
 <h5>
 <a name="beast.ref.http__parser_v1.h2"></a>
+        <span class="phrase"><a name="beast.ref.http__parser_v1.protected_member_functions"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.protected_member_functions">Protected
+        Member Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="http__parser_v1/reset.html" title="http::parser_v1::reset"><span class="bold"><strong>reset</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Reset the parsing state.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<p>
+        This class uses the basic HTTP/1 wire format parser to convert a series of
+        octets into a <code class="computeroutput"><span class="identifier">message</span></code>.
+      </p>
+<h5>
+<a name="beast.ref.http__parser_v1.h3"></a>
         <span class="phrase"><a name="beast.ref.http__parser_v1.remarks"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.remarks">Remarks</a>
       </h5>
 <p>
         A new instance of the parser is required for each message.
       </p>
 <h5>
-<a name="beast.ref.http__parser_v1.h3"></a>
+<a name="beast.ref.http__parser_v1.h4"></a>
         <span class="phrase"><a name="beast.ref.http__parser_v1.requirements"></a></span><a class="link" href="http__parser_v1.html#beast.ref.http__parser_v1.requirements">Requirements</a>
       </h5>
 <p>

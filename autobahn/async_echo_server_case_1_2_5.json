@@ -27,8 +27,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 6IpwxPUF311K01F1j8Qr/Q==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: SxRyO8D/OywvQEzrDAStvxrPehA=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: MdRcKrwx9KwTjcZmwQviQQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: AbsMy5wKc0AldgSePXjPXLIpdJQ=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "1.2.5",
    "isServer": false,
    "localCloseCode": 1000,
@@ -55,7 +55,7 @@
       "132": 1,
       "156": 1
    },
-   "started": "2016-08-13T01:14:48.103Z",
+   "started": "2016-11-12T17:57:20.840Z",
    "trafficStats": null,
    "txFrameStats": {
       "2": 1,
@@ -96,7 +96,7 @@
          2,
          true,
          0,
-         "c8b8a8ed",
+         "b24b8475",
          null,
          null,
          false
@@ -105,7 +105,7 @@
          "TO",
          [
             136,
-            "82fe0080c8b8a8ed3646561336465613364656133646561336465613364656133646561336465613364656133646561336465613364656133646561336465613 ..."
+            "82fe0080b24b84754cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b4cb57a8b ..."
          ],
          false
       ],
@@ -141,7 +141,7 @@
          8,
          true,
          0,
-         "e66cae36",
+         "ba5c4990",
          null,
          null,
          false
@@ -150,7 +150,7 @@
          "TO",
          [
             8,
-            "8882e66cae36e584"
+            "8882ba5c4990b9b4"
          ],
          false
       ],

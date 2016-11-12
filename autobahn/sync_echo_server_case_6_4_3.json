@@ -37,8 +37,8 @@
       "requireClean": false
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: zY16wzg791w3xYK1XyeBhA==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: qXe/7Bkb/4xtaCbGr8E7dQC85Ko=\r\nServer: sync_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6001\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: 6gH4xQxY/s1m6hmSI4NhLw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: 90H0mr5+TXtYW864AolQqKALe6Q=\r\nServer: sync_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "6.4.3",
    "isServer": false,
    "localCloseCode": 1000,
@@ -62,7 +62,7 @@
       "4": 1,
       "155": 1
    },
-   "started": "2016-08-13T01:16:15.471Z",
+   "started": "2016-11-12T17:58:45.367Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1
@@ -99,7 +99,7 @@
          "TO",
          [
             6,
-            "0195f071bcf2"
+            "0195768c8e84"
          ],
          false
       ],
@@ -107,7 +107,7 @@
          "TO",
          [
             11,
-            "3ecb5d4f49be3f3c4cbf09"
+            "b8366f39cf430d4aca423b"
          ],
          false
       ],
@@ -124,7 +124,7 @@
          "TO",
          [
             4,
-            "0660f13c"
+            "70e60c0e"
          ],
          false
       ],
@@ -161,7 +161,7 @@
          8,
          true,
          0,
-         "4958a84b",
+         "dcf3133c",
          null,
          null,
          false
@@ -170,7 +170,7 @@
          "TO",
          [
             8,
-            "88824958a84b4ab0"
+            "8882dcf3133cdf1b"
          ],
          false
       ]

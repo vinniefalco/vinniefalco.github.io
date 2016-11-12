@@ -8,7 +8,7 @@
    "createWirelog": true,
    "description": "Send unsolicited pong with payload. Send ping with payload. Verify pong for ping is received.",
    "droppedByMe": false,
-   "duration": 0,
+   "duration": 1,
    "expectation": "Nothing in reply to own Pong, but Pong with payload echo'ed in reply to Ping. Clean close with normal code.",
    "expected": {
       "OK": [
@@ -26,8 +26,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: oM9+mnhd8OIo+PYmzpk8RQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: neskmPmNPxYa1c5HFfd2Shr1xqU=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: mIvukfQ5Fp1/6TViLkfMKw==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: JDO15JFyufi/WSegb/FMrXjg/Dw=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "2.9",
    "isServer": false,
    "localCloseCode": 1000,
@@ -53,7 +53,7 @@
       "14": 1,
       "156": 1
    },
-   "started": "2016-08-13T01:14:48.413Z",
+   "started": "2016-11-12T17:57:21.146Z",
    "trafficStats": null,
    "txFrameStats": {
       "8": 1,
@@ -96,7 +96,7 @@
          10,
          true,
          0,
-         "3b5380dd",
+         "fd990a27",
          null,
          null,
          false
@@ -105,7 +105,7 @@
          "TO",
          [
             30,
-            "8a983b5380dd4e3df3b2573ae3b44f36e4fd4b3ceeba1b23e1a4573ce1b9"
+            "8a98fd990a2788f7794891f0694e89fc6e078df66440dde96b5e91f66b43"
          ],
          false
       ],
@@ -118,7 +118,7 @@
          9,
          true,
          0,
-         "c0ee8a27",
+         "0c529fae",
          null,
          null,
          false
@@ -127,7 +127,7 @@
          "TO",
          [
             18,
-            "898cc0ee8a27b087e440e09eeb5eac81eb43"
+            "898c0c529fae7c3bf1c92c22fed7603dfeca"
          ],
          false
       ],
@@ -163,7 +163,7 @@
          8,
          true,
          0,
-         "c95abdac",
+         "cab48f27",
          null,
          null,
          false
@@ -172,7 +172,7 @@
          "TO",
          [
             8,
-            "8882c95abdaccab2"
+            "8882cab48f27c95c"
          ],
          false
       ],

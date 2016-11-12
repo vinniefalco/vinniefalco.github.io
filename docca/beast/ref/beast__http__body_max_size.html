@@ -1,0 +1,136 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::body_max_size</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="beast__http__basic_parser_v1__has_on_value_t/value.html" title="http::basic_parser_v1::has_on_value_t::value">
+<link rel="next" href="beast__http__body_max_size/body_max_size.html" title="http::body_max_size::body_max_size">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="beast__http__basic_parser_v1__has_on_value_t/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="beast__http__body_max_size/body_max_size.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.beast__http__body_max_size"></a><a class="link" href="beast__http__body_max_size.html" title="http::body_max_size">http::body_max_size</a>
+</h3></div></div></div>
+<p>
+        Body maximum size option.
+      </p>
+<h5>
+<a name="beast.ref.beast__http__body_max_size.h0"></a>
+        <span class="phrase"><a name="beast.ref.beast__http__body_max_size.synopsis"></a></span><a class="link" href="beast__http__body_max_size.html#beast.ref.beast__http__body_max_size.synopsis">Synopsis</a>
+      </h5>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">body_max_size</span>
+</pre>
+<h5>
+<a name="beast.ref.beast__http__body_max_size.h1"></a>
+        <span class="phrase"><a name="beast.ref.beast__http__body_max_size.member_functions"></a></span><a class="link" href="beast__http__body_max_size.html#beast.ref.beast__http__body_max_size.member_functions">Member Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="beast__http__body_max_size/body_max_size.html" title="http::body_max_size::body_max_size"><span class="bold"><strong>body_max_size</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.beast__http__body_max_size.h2"></a>
+        <span class="phrase"><a name="beast.ref.beast__http__body_max_size.data_members"></a></span><a class="link" href="beast__http__body_max_size.html#beast.ref.beast__http__body_max_size.data_members">Data
+        Members</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="beast__http__body_max_size/value.html" title="http::body_max_size::value"><span class="bold"><strong>value</strong></span></a>
+                </p>
+              </td>
+<td>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.beast__http__body_max_size.h3"></a>
+        <span class="phrase"><a name="beast.ref.beast__http__body_max_size.description"></a></span><a class="link" href="beast__http__body_max_size.html#beast.ref.beast__http__body_max_size.description">Description</a>
+      </h5>
+<p>
+        Sets the maximum number of cumulative bytes allowed including all body octets.
+        Octets in chunk-encoded bodies are counted after decoding. A value of zero
+        indicates no limit on the number of body octets.
+      </p>
+<p>
+        The default body maximum size for requests is 4MB (four megabytes or 4,194,304
+        bytes) and unlimited for responses.
+      </p>
+<h5>
+<a name="beast.ref.beast__http__body_max_size.h4"></a>
+        <span class="phrase"><a name="beast.ref.beast__http__body_max_size.remarks"></a></span><a class="link" href="beast__http__body_max_size.html#beast.ref.beast__http__body_max_size.remarks">Remarks</a>
+      </h5>
+<p>
+        Objects of this type are passed to set_option.
+      </p>
+<h5>
+<a name="beast.ref.beast__http__body_max_size.h5"></a>
+        <span class="phrase"><a name="beast.ref.beast__http__body_max_size.header"></a></span><a class="link" href="beast__http__body_max_size.html#beast.ref.beast__http__body_max_size.header">Header</a>
+      </h5>
+<p>
+        <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">http</span><span class="special">/</span><span class="identifier">basic_parser_v1</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="beast__http__basic_parser_v1__has_on_value_t/value.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="beast__http__body_max_size/body_max_size.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

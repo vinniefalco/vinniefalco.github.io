@@ -66,18 +66,17 @@
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">rc</span></code> is an object of type
-            <a class="link" href="http__resume_context.html" title="http::resume_context">resume_context</a>.
+            <a class="link" href="http__resume_context.html" title="http::resume_context"><code class="computeroutput"><span class="identifier">resume_context</span></code></a>.
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">ec</span></code> is a value of type
-            <code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code>.
+            <a class="link" href="error_code.html" title="error_code"><code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code></a>
           </li>
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">wf</span></code> is a <span class="bold"><strong>write
             function</strong></span>: a function object of unspecified type provided by
             the implementation which accepts any value meeting the requirements of
-            <code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code> as
-            its single parameter.
+            <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong>ConstBufferSequence</strong></span></a> as its single parameter.
           </li>
 </ul></div>
 <div class="table">
@@ -120,7 +119,7 @@
                   from <code class="computeroutput"><span class="identifier">m</span></code>. The lifetime
                   of <code class="computeroutput"><span class="identifier">m</span></code> is guaranteed
                   to end no earlier than after <code class="computeroutput"><span class="identifier">a</span></code>
-                  is destroyed.
+                  is destroyed. This function must be <code class="computeroutput"><span class="keyword">noexcept</span></code>.
                 </p>
               </td>
 </tr>
@@ -137,9 +136,10 @@
               </td>
 <td>
                 <p>
-                  Called immediately after construction. If <code class="computeroutput"><span class="identifier">ec</span></code>
-                  is set, the serialization is aborted and the error is propagated
-                  to the caller.
+                  Called immediately after construction. If the function sets an
+                  error code in <code class="computeroutput"><span class="identifier">ec</span></code>,
+                  the serialization is aborted and the error is propagated to the
+                  caller. This function must be <code class="computeroutput"><span class="keyword">noexcept</span></code>.
                 </p>
               </td>
 </tr>
@@ -163,14 +163,14 @@
                   for HTTP versions 1.1 and later, else the serialized message body
                   will be sent unmodified, with the error <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span></code>
                   returned to the caller, to notify they should close the connection
-                  to indicate the end of the message.
+                  to indicate the end of the message. This function must be <code class="computeroutput"><span class="keyword">noexcept</span></code>.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">a</span><span class="special">(</span><span class="identifier">rc</span><span class="special">,</span>
+                  <code class="computeroutput"><span class="identifier">a</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">rc</span><span class="special">,</span>
                   <span class="identifier">ec</span><span class="special">,</span>
                   <span class="identifier">wf</span><span class="special">)</span></code>
                 </p>
@@ -184,20 +184,19 @@
                 <p>
                   Called repeatedly after <code class="computeroutput"><span class="identifier">init</span></code>
                   succeeds. <code class="computeroutput"><span class="identifier">wf</span></code> is
-                  a function object which takes as its single parameter, any value
-                  meeting the requirements of <code class="computeroutput"><span class="identifier">ConstBufferSequence</span></code>.
-                  Buffers provided by the <code class="computeroutput"><span class="identifier">writer</span></code>
-                  to this <span class="bold"><strong>write function</strong></span> must remain
-                  valid until the next member function of <code class="computeroutput"><span class="identifier">writer</span></code>
+                  a function object which takes as its single parameter any value
+                  meeting the requirements of <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/ConstBufferSequence.html" target="_top"><span class="bold"><strong>ConstBufferSequence</strong></span></a>. Buffers provided
+                  to this write function must remain valid until the next member
+                  function of <code class="computeroutput"><span class="identifier">writer</span></code>
                   is invoked (which may be the destructor). This function returns
                   <code class="computeroutput"><span class="keyword">true</span></code> to indicate all
                   message body data has been written, or <code class="computeroutput"><span class="keyword">false</span></code>
                   if there is more body data. If the return value is <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">indeterminate</span></code>, the implementation
                   will suspend the operation until the writer invokes <code class="computeroutput"><span class="identifier">rc</span></code>. It is the writers responsibility
                   when returning <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">indeterminate</span></code>,
-                  to acquire ownership of the <code class="computeroutput"><span class="identifier">resume_context</span></code>
+                  to acquire ownership of <code class="computeroutput"><span class="identifier">rc</span></code>
                   via move construction and eventually call it or else undefined
-                  behavior results.
+                  behavior results. This function must be <code class="computeroutput"><span class="keyword">noexcept</span></code>.
                 </p>
               </td>
 </tr>
@@ -211,7 +210,7 @@
 </tr>
 <tr><td align="left" valign="top"><p>
           Definitions for required <code class="computeroutput"><span class="identifier">Writer</span></code>
-          member functions should be declared inline so the generated code becomes
+          member functions should be declared inline so the generated code can become
           part of the implementation.
         </p></td></tr>
 </table></div>
@@ -232,7 +231,7 @@
     */</span>
     <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
     <span class="keyword">explicit</span>
-    <span class="identifier">writer</span><span class="special">(</span><span class="identifier">message</span><span class="special">&lt;</span><span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+    <span class="identifier">writer</span><span class="special">(</span><span class="identifier">message</span><span class="special">&lt;</span><span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 
     <span class="comment">/** Initialize the writer.
 
@@ -242,7 +241,7 @@
         @param ec Contains the error code if any errors occur.
     */</span>
     <span class="keyword">void</span>
-    <span class="identifier">init</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+    <span class="identifier">init</span><span class="special">(</span><span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 
     <span class="comment">/** Returns the content length.
 
@@ -251,8 +250,8 @@
         use chunk-encoding or terminate the connection to indicate the end
         of the message.
     */</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span>
-    <span class="identifier">content_length</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span>
+    <span class="identifier">content_length</span><span class="special">()</span> <span class="keyword">noexcept</span><span class="special">;</span>
 
     <span class="comment">/** Write zero or one buffer representing the message body.
 
@@ -295,7 +294,10 @@
     */</span>
     <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">WriteFunction</span><span class="special">&gt;</span>
     <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tribool</span>
-    <span class="keyword">operator</span><span class="special">()(</span><span class="identifier">resume_context</span><span class="special">&amp;&amp;,</span> <span class="identifier">error_code</span><span class="special">&amp;,</span> <span class="identifier">WriteFunction</span><span class="special">&amp;&amp;</span> <span class="identifier">write</span><span class="special">);</span>
+    <span class="identifier">write</span><span class="special">(</span>
+        <span class="identifier">resume_context</span><span class="special">&amp;&amp;,</span>
+        <span class="identifier">error_code</span><span class="special">&amp;,</span>
+        <span class="identifier">WriteFunction</span><span class="special">&amp;&amp;</span> <span class="identifier">wf</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 <span class="special">};</span>
 </pre>
 </div>

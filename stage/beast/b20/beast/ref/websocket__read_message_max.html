@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>websocket::read_message_max</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="websocket__read_buffer_size.html" title="websocket::read_buffer_size">
+<link rel="next" href="websocket__reason_string.html" title="websocket::reason_string">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket__read_buffer_size.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket__reason_string.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.websocket__read_message_max"></a><a class="link" href="websocket__read_message_max.html" title="websocket::read_message_max">websocket::read_message_max</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1110174"></a>
+Maximum incoming message size option.
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">read_message_max</span> <span class="special">=</span> <span class="emphasis"><em>implementation-defined</em></span><span class="special">;</span>
+</pre>
+<p>
+        Sets the largest permissible incoming message size. Message frame fields
+        indicating a size that would bring the total message size over this limit
+        will cause a protocol failure.
+      </p>
+<p>
+        The default setting is 16 megabytes. A value of zero indicates a limit of
+        the maximum value of a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span></code>.
+      </p>
+<h5>
+<a name="beast.ref.websocket__read_message_max.h0"></a>
+        <span class="phrase"><a name="beast.ref.websocket__read_message_max.remarks"></a></span><a class="link" href="websocket__read_message_max.html#beast.ref.websocket__read_message_max.remarks">Remarks</a>
+      </h5>
+<p>
+        Objects of this type are used with <a class="link" href="websocket__stream/set_option.html" title="websocket::stream::set_option"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">set_option</span></code></a>.
+      </p>
+<h5>
+<a name="beast.ref.websocket__read_message_max.h1"></a>
+        <span class="phrase"><a name="beast.ref.websocket__read_message_max.example"></a></span><a class="link" href="websocket__read_message_max.html#beast.ref.websocket__read_message_max.example">Example</a>
+      </h5>
+<p>
+        Setting the maximum read message size.
+      </p>
+<pre class="programlisting"><span class="special">...</span>
+<span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">&lt;</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&gt;</span> <span class="identifier">ws</span><span class="special">(</span><span class="identifier">ios</span><span class="special">);</span>
+<span class="identifier">ws</span><span class="special">.</span><span class="identifier">set_option</span><span class="special">(</span><span class="identifier">read_message_max</span><span class="special">{</span><span class="number">65536</span><span class="special">});</span>
+</pre>
+<h5>
+<a name="beast.ref.websocket__read_message_max.h2"></a>
+        <span class="phrase"><a name="beast.ref.websocket__read_message_max.requirements"></a></span><a class="link" href="websocket__read_message_max.html#beast.ref.websocket__read_message_max.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/websocket/option.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/websocket.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket__read_buffer_size.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket__reason_string.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

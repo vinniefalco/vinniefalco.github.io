@@ -19,8 +19,8 @@
       "requireClean": true
    },
    "failedByMe": false,
-   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: R50dcHjecNHMEhXOD94BTQ==\r\nSec-WebSocket-Version: 13\r\n\r\n",
-   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: QrPbgTLtAxm5MRON3EYrbOJ6FsQ=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
+   "httpRequest": "GET / HTTP/1.1\r\nUser-Agent: AutobahnTestSuite/0.7.5-0.10.9\r\nHost: 127.0.0.1:6000\r\nUpgrade: WebSocket\r\nConnection: Upgrade\r\nPragma: no-cache\r\nCache-Control: no-cache\r\nSec-WebSocket-Key: tclQwp6GjnuX+ErWdouB0Q==\r\nSec-WebSocket-Version: 13\r\n\r\n",
+   "httpResponse": "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nSec-WebSocket-Accept: OjeyOINvpFEEVRwBeC/uJDbc2JI=\r\nServer: async_echo_server\r\nConnection: upgrade\r\n\r\n",
    "id": "9.3.3",
    "isServer": false,
    "localCloseCode": 1000,
@@ -33,19 +33,40 @@
    "result": "Received text message of length 4194304.",
    "resultClose": "Connection was properly closed",
    "rxFrameStats": {
-      "0": 255,
       "1": 1,
       "8": 1
    },
    "rxOctetStats": {
       "4": 1,
       "156": 1,
-      "16388": 175,
-      "33080": 1,
-      "49164": 1,
-      "65536": 19
+      "1024": 1,
+      "1296": 2,
+      "2756": 2,
+      "4216": 1,
+      "7136": 2,
+      "8596": 1,
+      "10056": 5,
+      "14436": 5,
+      "15896": 1,
+      "17356": 1,
+      "18816": 12,
+      "23360": 1,
+      "30496": 1,
+      "35040": 1,
+      "41162": 1,
+      "46720": 12,
+      "48180": 1,
+      "49640": 1,
+      "51100": 5,
+      "55480": 5,
+      "56940": 1,
+      "58400": 2,
+      "61320": 1,
+      "62780": 2,
+      "64240": 2,
+      "65536": 30
    },
-   "started": "2016-08-13T01:14:58.126Z",
+   "started": "2016-11-12T17:57:30.669Z",
    "trafficStats": null,
    "txFrameStats": {
       "0": 4096,
@@ -92,7 +113,7 @@
          8,
          true,
          0,
-         "f107f104",
+         "69b0a742",
          null,
          null,
          false
@@ -101,7 +122,7 @@
          "TO",
          [
             8,
-            "8882f107f104f2ef"
+            "888269b0a7426a58"
          ],
          false
       ],

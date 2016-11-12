@@ -32,7 +32,7 @@
             <a class="link" href="../ref/http__empty_body.html" title="http::empty_body"><span class="bold"><strong><code class="computeroutput"><span class="identifier">empty_body</span></code>:</strong></span></a> An empty
             message body. Used in GET requests where there is no message body. Example:
           </p>
-<pre class="programlisting"><span class="identifier">request_v1</span><span class="special">&lt;</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<pre class="programlisting"><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">method</span> <span class="special">=</span> <span class="string">"GET"</span><span class="special">;</span>
 <span class="identifier">req</span><span class="special">.</span><span class="identifier">url</span> <span class="special">=</span> <span class="string">"/index.html"</span><span class="special">;</span>
@@ -47,7 +47,7 @@
             as an error message). Has the same insertion complexity of <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>. This is the type of body used
             in the examples:
           </p>
-<pre class="programlisting"><span class="identifier">response_v1</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<pre class="programlisting"><span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
 <span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">is_same</span><span class="special">&lt;</span><span class="keyword">decltype</span><span class="special">(</span><span class="identifier">res</span><span class="special">.</span><span class="identifier">body</span><span class="special">),</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;::</span><span class="identifier">value</span><span class="special">);</span>
 <span class="identifier">res</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">"Here is the data you requested"</span><span class="special">;</span>
 </pre>

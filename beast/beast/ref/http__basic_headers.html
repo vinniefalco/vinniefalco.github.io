@@ -24,7 +24,8 @@
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">Allocator</span><span class="special">&gt;</span>
-<span class="keyword">class</span> <span class="identifier">basic_headers</span>
+<span class="keyword">class</span> <span class="identifier">basic_headers</span> <span class="special">:</span>
+    <span class="keyword">public</span> <span class="identifier">basic_headers_base</span>
 </pre>
 <h5>
 <a name="beast.ref.http__basic_headers.h0"></a>
@@ -47,7 +48,8 @@
                 </p>
               </th>
 </tr></thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>
                 <p>
                   <a class="link" href="http__basic_headers/allocator_type.html" title="http::basic_headers::allocator_type"><span class="bold"><strong>allocator_type</strong></span></a>
@@ -58,7 +60,44 @@
                   The type of allocator used.
                 </p>
               </td>
-</tr></tbody>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_headers/const_iterator.html" title="http::basic_headers::const_iterator"><span class="bold"><strong>const_iterator</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  A const iterator to the field sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_headers/iterator.html" title="http::basic_headers::iterator"><span class="bold"><strong>iterator</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  A const iterator to the field sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_headers/value_type.html" title="http::basic_headers::value_type"><span class="bold"><strong>value_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The value type of the field sequence.
+                </p>
+              </td>
+</tr>
+</tbody>
 </table></div>
 <h5>
 <a name="beast.ref.http__basic_headers.h1"></a>
@@ -110,6 +149,42 @@
 <tr>
 <td>
                 <p>
+                  <a class="link" href="http__basic_headers/begin.html" title="http::basic_headers::begin"><span class="bold"><strong>begin</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns a const iterator to the beginning of the field sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_headers/cbegin.html" title="http::basic_headers::cbegin"><span class="bold"><strong>cbegin</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns a const iterator to the beginning of the field sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_headers/cend.html" title="http::basic_headers::cend"><span class="bold"><strong>cend</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns a const iterator to the end of the field sequence.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <a class="link" href="http__basic_headers/clear.html" title="http::basic_headers::clear"><span class="bold"><strong>clear</strong></span></a>
                 </p>
               </td>
@@ -140,6 +215,18 @@
 <td>
                 <p>
                   Returns true if the field sequence contains no elements.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="http__basic_headers/end.html" title="http::basic_headers::end"><span class="bold"><strong>end</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns a const iterator to the end of the field sequence.
                 </p>
               </td>
 </tr>
@@ -245,7 +332,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="http__basic_headers/_basic_headers.html" title="http::basic_headers::~basic_headers"><span class="bold"><strong>~basic_headers</strong></span></a>
+                  <a class="link" href="http__basic_headers/basic_headers_dtor_.html" title="http::basic_headers::~basic_headers"><span class="bold"><strong>~basic_headers</strong></span></a>
                 </p>
               </td>
 <td>

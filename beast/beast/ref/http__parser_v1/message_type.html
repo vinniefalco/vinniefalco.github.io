@@ -20,10 +20,10 @@
 <a name="beast.ref.http__parser_v1.message_type"></a><a class="link" href="message_type.html" title="http::parser_v1::message_type">http::parser_v1::message_type</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1021132"></a>
+          <a class="indexterm" name="id1044726"></a>
 The type of message this parser produces.
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">message_type</span> <span class="special">=</span> <span class="identifier">message_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">message_type</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;;</span>
 </pre>
 <h6>
 <a name="beast.ref.http__parser_v1.message_type.h0"></a>
@@ -50,36 +50,36 @@ The type of message this parser produces.
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_v1/body_type.html" title="http::message_v1::body_type"><span class="bold"><strong>body_type</strong></span></a>
+                    <a class="link" href="../http__message/base_type.html" title="http::message::base_type"><span class="bold"><strong>base_type</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
-                    The type controlling the body traits.
+                    The base class used to hold the request or response headers.
                   </p>
                 </td>
 </tr>
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_v1/headers_type.html" title="http::message_v1::headers_type"><span class="bold"><strong>headers_type</strong></span></a>
+                    <a class="link" href="../http__message/body_type.html" title="http::message::body_type"><span class="bold"><strong>body_type</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The type providing the body traits.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/headers_type.html" title="http::message::headers_type"><span class="bold"><strong>headers_type</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
                     The type representing the headers.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <a class="link" href="../http__message_v1/is_request.html" title="http::message_v1::is_request"><span class="bold"><strong>is_request</strong></span></a>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Indicates if the message is a request.
                   </p>
                 </td>
 </tr>
@@ -111,7 +111,19 @@ The type of message this parser produces.
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_v1/message_v1.html" title="http::message_v1::message_v1"><span class="bold"><strong>message_v1</strong></span></a>
+                    <a class="link" href="../http__message/base.html" title="http::message::base"><span class="bold"><strong>base</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the message headers portion of the message.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/message.html" title="http::message::message"><span class="bold"><strong>message</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -119,19 +131,10 @@ The type of message this parser produces.
                     Default constructor.
                   </p>
                   <p>
-                    Constructor.
+                    Construct a message from message headers.
                   </p>
-                </td>
-</tr>
-<tr>
-<td>
                   <p>
-                    <a class="link" href="../http__message_v1/swap.html" title="http::message_v1::swap"><span class="bold"><strong>swap</strong></span></a>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Swap this message for another message.
+                    Construct a message.
                   </p>
                 </td>
 </tr>
@@ -139,6 +142,41 @@ The type of message this parser produces.
 </table></div>
 <h6>
 <a name="beast.ref.http__parser_v1.message_type.h2"></a>
+          <span class="phrase"><a name="beast.ref.http__parser_v1.message_type.static_data_members"></a></span><a class="link" href="message_type.html#beast.ref.http__parser_v1.message_type.static_data_members">Static
+          Data Members</a>
+        </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Name
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Description
+                  </p>
+                </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/is_request.html" title="http::message::is_request"><span class="bold"><strong>is_request</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Indicates if the message headers are a request or response.
+                  </p>
+                </td>
+</tr></tbody>
+</table></div>
+<h6>
+<a name="beast.ref.http__parser_v1.message_type.h3"></a>
           <span class="phrase"><a name="beast.ref.http__parser_v1.message_type.data_members"></a></span><a class="link" href="message_type.html#beast.ref.http__parser_v1.message_type.data_members">Data Members</a>
         </h6>
 <div class="informaltable"><table class="table">
@@ -162,36 +200,84 @@ The type of message this parser produces.
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_v1/body.html" title="http::message_v1::body"><span class="bold"><strong>body</strong></span></a>
+                    <a class="link" href="../http__message/body.html" title="http::message::body"><span class="bold"><strong>body</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
-                    A container representing the body.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <a class="link" href="../http__message_v1/headers.html" title="http::message_v1::headers"><span class="bold"><strong>headers</strong></span></a>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    The container holding the headers.
+                    A value representing the body.
                   </p>
                 </td>
 </tr>
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_v1/version.html" title="http::message_v1::version"><span class="bold"><strong>version</strong></span></a>
+                    <a class="link" href="../http__message/headers.html" title="http::message::headers"><span class="bold"><strong>headers</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
-                    HTTP/1 version (10 or 11)
+                    The HTTP field values.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/method.html" title="http::message::method"><span class="bold"><strong>method</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The Request Method.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/reason.html" title="http::message::reason"><span class="bold"><strong>reason</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The Response Reason-Phrase.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/status.html" title="http::message::status"><span class="bold"><strong>status</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The Response Status-Code.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/url.html" title="http::message::url"><span class="bold"><strong>url</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The Request URI.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <a class="link" href="../http__message/version.html" title="http::message::version"><span class="bold"><strong>version</strong></span></a>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The HTTP version.
                   </p>
                 </td>
 </tr>
@@ -212,7 +298,10 @@ The type of message this parser produces.
 <dl class="variablelist">
 <dt><span class="term">isRequest</span></dt>
 <dd><p>
-                <code class="computeroutput"><span class="keyword">true</span></code> if this is a request.
+                <code class="computeroutput"><span class="keyword">true</span></code> if this represents
+                a request, or <code class="computeroutput"><span class="keyword">false</span></code>
+                if this represents a response. Some class data members are conditionally
+                present depending on this value.
               </p></dd>
 <dt><span class="term">Body</span></dt>
 <dd><p>
@@ -220,12 +309,12 @@ The type of message this parser produces.
               </p></dd>
 <dt><span class="term">Headers</span></dt>
 <dd><p>
-                A type meeting the requirements of Headers.
+                The type of container used to hold the field value pairs.
               </p></dd>
 </dl>
 </div>
 <h6>
-<a name="beast.ref.http__parser_v1.message_type.h3"></a>
+<a name="beast.ref.http__parser_v1.message_type.h4"></a>
           <span class="phrase"><a name="beast.ref.http__parser_v1.message_type.requirements"></a></span><a class="link" href="message_type.html#beast.ref.http__parser_v1.message_type.requirements">Requirements</a>
         </h6>
 <p>

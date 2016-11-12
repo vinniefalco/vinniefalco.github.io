@@ -20,8 +20,8 @@
 <a name="beast.ref.http__parse"></a><a class="link" href="http__parse.html" title="http::parse">http::parse</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1015334"></a>
-Parse a HTTP/1 message from a stream.
+        <a class="indexterm" name="id1042467"></a>
+Parse an object from a stream.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
@@ -32,6 +32,7 @@ Parse a HTTP/1 message from a stream.
     <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
     <span class="identifier">Parser</span><span class="special">&amp;</span> <span class="identifier">parser</span><span class="special">);</span>
+
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
@@ -49,7 +50,7 @@ Parse a HTTP/1 message from a stream.
         <span class="phrase"><a name="beast.ref.http__parse.requirements"></a></span><a class="link" href="http__parse.html#beast.ref.http__parse.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/read.hpp</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/parse.hpp</code>
       </p>
 <p>
         <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>

@@ -20,9 +20,9 @@
 <a name="beast.ref.http__async_parse"></a><a class="link" href="http__async_parse.html" title="http::async_parse">http::async_parse</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id985558"></a>
-Start an asynchronous operation to parse a HTTP/1 message
-        from a stream.
+        <a class="indexterm" name="id991165"></a>
+Start an asynchronous operation to parse an object from
+        a stream.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncReadStream.html" target="_top"><span class="bold"><strong>AsyncReadStream</strong></span></a><span class="special">,</span>
@@ -44,7 +44,7 @@ Start an asynchronous operation to parse a HTTP/1 message
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-            A complete message is read in.
+            The parser indicates that parsing is complete.
           </li>
 <li class="listitem">
             An error occurs in the stream or parser.
@@ -55,7 +55,9 @@ Start an asynchronous operation to parse a HTTP/1 message
         <code class="computeroutput"><span class="identifier">async_read_some</span></code> function,
         and is known as a <span class="emphasis"><em>composed operation</em></span>. The program must
         ensure that the stream performs no other operations until this operation
-        completes.
+        completes. The implementation may read additional octets that lie past the
+        end of the object being parsed. This additional data is stored in the stream
+        buffer, which may be used in subsequent calls.
       </p>
 <h5>
 <a name="beast.ref.http__async_parse.h0"></a>
@@ -67,21 +69,20 @@ Start an asynchronous operation to parse a HTTP/1 message
 <dt><span class="term">stream</span></dt>
 <dd><p>
               The stream from which the data is to be read. The type must support
-              the <code class="computeroutput"><span class="identifier">AsyncReadStream</span></code>
-              concept.
+              the AsyncReadStream concept.
             </p></dd>
 <dt><span class="term">dynabuf</span></dt>
 <dd><p>
-              A <code class="computeroutput"><span class="identifier">DynamicBuffer</span></code> holding
-              additional bytes read by the implementation from the stream. This is
-              both an input and an output parameter; on entry, any data in the stream
-              buffer's input sequence will be given to the parser first.
+              A DynamicBuffer holding additional bytes read by the implementation
+              from the stream. This is both an input and an output parameter; on
+              entry, any data in the stream buffer's input sequence will be given
+              to the parser first.
             </p></dd>
 <dt><span class="term">parser</span></dt>
 <dd><p>
-              An object meeting the requirements of <code class="computeroutput"><span class="identifier">Parser</span></code>
-              which will receive the data. This object must remain valid until the
-              completion handler is invoked.
+              An object meeting the requirements of Parser which will receive the
+              data. This object must remain valid until the completion handler is
+              invoked.
             </p></dd>
 <dt><span class="term">handler</span></dt>
 <dd>
@@ -108,7 +109,7 @@ Start an asynchronous operation to parse a HTTP/1 message
         <span class="phrase"><a name="beast.ref.http__async_parse.requirements"></a></span><a class="link" href="http__async_parse.html#beast.ref.http__async_parse.requirements">Requirements</a>
       </h5>
 <p>
-        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/read.hpp</code>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/parse.hpp</code>
       </p>
 <p>
         <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>

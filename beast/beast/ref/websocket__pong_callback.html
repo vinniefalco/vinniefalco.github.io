@@ -20,14 +20,17 @@
 <a name="beast.ref.websocket__pong_callback"></a><a class="link" href="websocket__pong_callback.html" title="websocket::pong_callback">websocket::pong_callback</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1080247"></a>
+        <a class="indexterm" name="id1100873"></a>
 Pong callback option.
       </p>
 <pre class="programlisting"><span class="keyword">using</span> <span class="identifier">pong_callback</span> <span class="special">=</span> <span class="emphasis"><em>implementation-defined</em></span><span class="special">;</span>
 </pre>
 <p>
         Sets the callback to be invoked whenever a pong is received during a call
-        to read, read_frame, async_read, or async_read_frame.
+        to <a class="link" href="websocket__stream/read.html" title="websocket::stream::read"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">read</span></code></a>,
+        <a class="link" href="websocket__stream/read_frame.html" title="websocket::stream::read_frame"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">read_frame</span></code></a>,
+        <a class="link" href="websocket__stream/async_read.html" title="websocket::stream::async_read"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">async_read</span></code></a>,
+        or <a class="link" href="websocket__stream/async_read_frame.html" title="websocket::stream::async_read_frame"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">async_read_frame</span></code></a>.
       </p>
 <p>
         Unlike completion handlers, the callback will be invoked for each received
@@ -51,7 +54,8 @@ Pong callback option.
         <span class="phrase"><a name="beast.ref.websocket__pong_callback.remarks"></a></span><a class="link" href="websocket__pong_callback.html#beast.ref.websocket__pong_callback.remarks">Remarks</a>
       </h5>
 <p>
-        To remove the pong callback, construct the option with no parameters: <code class="computeroutput"><span class="identifier">set_option</span><span class="special">(</span><span class="identifier">pong_callback</span><span class="special">{})</span></code>
+        Objects of this type are used with <a class="link" href="websocket__stream/set_option.html" title="websocket::stream::set_option"><code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">set_option</span></code></a>. To remove the pong callback,
+        construct the option with no parameters: <code class="computeroutput"><span class="identifier">set_option</span><span class="special">(</span><span class="identifier">pong_callback</span><span class="special">{})</span></code>
       </p>
 <h5>
 <a name="beast.ref.websocket__pong_callback.h1"></a>

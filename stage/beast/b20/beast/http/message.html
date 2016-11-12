@@ -1,0 +1,213 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Message</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../http.html" title="Using HTTP">
+<link rel="prev" href="../http.html" title="Using HTTP">
+<link rel="next" href="fields.html" title="Fields">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../http.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="fields.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.http.message"></a><a class="link" href="message.html" title="Message">Message</a>
+</h3></div></div></div>
+<p>
+        A HTTP message (referred to hereafter as "message") contains request
+        or response specific attributes (contained in the "Start Line"),
+        a series of zero or more name/value pairs (collectively termed "Fields"),
+        and an optional series of octets called the message body which may be zero
+        in length. The start line for a HTTP request includes a string called the
+        method, a string called the URL, and a version number indicating HTTP/1.0
+        or HTTP/1.1. For a response, the start line contains an integer status code
+        and a string called the reason phrase. Alternatively, a HTTP message can
+        be viewed as two parts: a header, followed by a body. The HTTP protocol defines
+        the client and server roles: clients send messages called requests and servers
+        send back messages called responses.
+      </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          The Reason-Phrase is obsolete as of rfc7230.
+        </p></td></tr>
+</table></div>
+<p>
+        In the serialized format of a HTTP message, the header is represented as
+        a series of text lines ending in CRLF (<code class="computeroutput"><span class="string">"\r\n"</span></code>).
+        The end of the header is indicated by a line containing only CRLF. Here are
+        examples of serialized HTTP request and response objects. In this example,
+        only the response has a body:
+      </p>
+<div class="table">
+<a name="beast.http.message.serialized_http_request_and_resp"></a><p class="title"><b>Table&#160;1.&#160;Serialized HTTP Request and Response</b></p>
+<div class="table-contents"><table class="table" summary="Serialized HTTP Request and Response">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  HTTP Request
+                </p>
+              </th>
+<th>
+                <p>
+                  HTTP Response
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+<pre class="programlisting"><span class="identifier">GET</span> <span class="special">/</span> <span class="identifier">HTTP</span><span class="special">/</span><span class="number">1.1</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="identifier">Accept</span><span class="special">:</span> <span class="identifier">text</span><span class="special">/</span><span class="identifier">html</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="identifier">Connection</span><span class="special">:</span> <span class="identifier">keep</span><span class="special">-</span><span class="identifier">alive</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="identifier">User</span><span class="special">-</span><span class="identifier">Agent</span><span class="special">:</span> <span class="identifier">Beast</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+</pre>
+              </td>
+<td>
+<pre class="programlisting"><span class="number">200</span> <span class="identifier">OK</span> <span class="identifier">HTTP</span><span class="special">/</span><span class="number">1.1</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="identifier">Server</span><span class="special">:</span> <span class="identifier">Beast</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="identifier">Content</span><span class="special">-</span><span class="identifier">Length</span><span class="special">:</span> <span class="number">4</span><span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="special">\</span><span class="identifier">r</span><span class="special">\</span><span class="identifier">n</span>
+<span class="special">****</span>
+</pre>
+              </td>
+</tr></tbody>
+</table></div>
+</div>
+<br class="table-break"><p>
+        The <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a>
+        class template models the header for HTTP/1 and HTTP/2 messages. This class
+        template is a family of specializations, one for requests and one for responses,
+        depending on the <span class="bold"><strong><code class="computeroutput"><span class="identifier">isRequest</span></code></strong></span>
+        template value. The <span class="bold"><strong><code class="computeroutput"><span class="identifier">Fields</span></code></strong></span>
+        template type determines the type of associative container used to store
+        the field values. The provided <a class="link" href="../ref/http__basic_fields.html" title="http::basic_fields"><code class="computeroutput"><span class="identifier">basic_fields</span></code></a> class template and
+        <a class="link" href="../ref/http__fields.html" title="http::fields"><code class="computeroutput"><span class="identifier">fields</span></code></a>
+        type alias are typical choices for the <span class="bold"><strong><code class="computeroutput"><span class="identifier">Fields</span></code></strong></span> type, but advanced applications
+        may supply user defined types which meet the requirements. The <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> class template models the
+        header and optional body for HTTP/1 and HTTP/2 requests and responses. It
+        is derived from the <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> class template with the same
+        shared template parameters, and adds the <code class="computeroutput"><span class="identifier">body</span></code>
+        data member. The message class template requires an additional template argument
+        type <span class="bold"><strong><code class="computeroutput"><span class="identifier">Body</span></code></strong></span>.
+        This type controls the container used to represent the body, if any, as well
+        as the algorithms needed to serialize and parse bodies of that type.
+      </p>
+<p>
+        This illustration shows the declarations and members of the <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> and <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> class templates, as well
+        as the inheritance relationship:
+      </p>
+<p>
+        <span class="inlinemediaobject"><img src="../../images/message.png" width="550"></span>
+      </p>
+<p>
+        There are three important template parameters in the message class:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span>
+<span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">message</span><span class="special">;</span>
+</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">isRequest</span></code></strong></span>:
+            Controls whether or not the message is a request or response. Depending
+            on the value, different data members will be present in the resulting
+            type.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">Body</span></code></strong></span>:
+            determines both the kind of container used to represent the message body
+            and the algorithms used to parse and serialize it.
+          </li>
+<li class="listitem">
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">Headers</span></code></strong></span>:
+            determines the container used to represent the HTTP headers.
+          </li>
+</ul></div>
+<p>
+        For notational convenience, the following template type aliases are provided:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
+<span class="keyword">using</span> <span class="identifier">request</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Headers</span> <span class="special">=</span> <span class="identifier">basic_headers</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">&gt;&gt;&gt;</span>
+<span class="keyword">using</span> <span class="identifier">response</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">false</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;;</span>
+</pre>
+<p>
+        The message class template has different data members depending on whether
+        it represents a request or response. These simplified declarations notionally
+        illustrate the members of HTTP/1 messages:
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">request</span>
+<span class="special">{</span>
+    <span class="keyword">int</span> <span class="identifier">version</span><span class="special">;</span>            <span class="comment">// 10 for HTTP/1.0, 11 for HTTP/1.1</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">method</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">url</span><span class="special">;</span>
+    <span class="identifier">Headers</span> <span class="identifier">headers</span><span class="special">;</span>
+    <span class="keyword">typename</span> <span class="identifier">Body</span><span class="special">::</span><span class="identifier">value_type</span> <span class="identifier">body</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">response</span>
+<span class="special">{</span>
+    <span class="keyword">int</span> <span class="identifier">version</span><span class="special">;</span>            <span class="comment">// 10 for HTTP/1.0, 11 for HTTP/1.1</span>
+    <span class="keyword">int</span> <span class="identifier">status</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">reason</span><span class="special">;</span>
+    <span class="identifier">Headers</span> <span class="identifier">headers</span><span class="special">;</span>
+    <span class="keyword">typename</span> <span class="identifier">Body</span><span class="special">::</span><span class="identifier">value_type</span> <span class="identifier">body</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+<p>
+        These statements set fields in request and response message objects:
+      </p>
+<pre class="programlisting"><span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>           <span class="comment">// HTTP/1.1</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">method</span> <span class="special">=</span> <span class="string">"GET"</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">url</span> <span class="special">=</span> <span class="string">"/index.html"</span><span class="special">;</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
+<span class="identifier">req</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">""</span><span class="special">;</span>
+
+<span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<span class="identifier">res</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">10</span><span class="special">;</span>           <span class="comment">// HTTP/1.0</span>
+<span class="identifier">res</span><span class="special">.</span><span class="identifier">status</span> <span class="special">=</span> <span class="number">404</span><span class="special">;</span>
+<span class="identifier">res</span><span class="special">.</span><span class="identifier">reason</span> <span class="special">=</span> <span class="string">"Not Found"</span><span class="special">;</span>
+<span class="identifier">res</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="string">"Server"</span><span class="special">,</span> <span class="string">"Beast.HTTP"</span><span class="special">);</span>
+<span class="identifier">res</span><span class="special">.</span><span class="identifier">body</span> <span class="special">=</span> <span class="string">"The requested resource was not found."</span><span class="special">;</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../http.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="fields.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

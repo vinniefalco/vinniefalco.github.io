@@ -7,7 +7,7 @@
 <link rel="home" href="../../../index.html" title="Beast">
 <link rel="up" href="../http__message.html" title="http::message">
 <link rel="prev" href="is_request.html" title="http::message::is_request">
-<link rel="next" href="message/overload1.html" title="http::message::message (1 of 5 overloads)">
+<link rel="next" href="message/overload1.html" title="http::message::message (1 of 7 overloads)">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../../images/beast.png"></td></tr></table>
@@ -20,10 +20,27 @@
 <a name="beast.ref.http__message.message"></a><a class="link" href="message.html" title="http::message::message">http::message::message</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1008482"></a>
+          <a class="indexterm" name="id1033968"></a>
 Default constructor.
         </p>
-<pre class="programlisting"><a class="link" href="message/overload1.html" title="http::message::message (1 of 5 overloads)">message</a><span class="special">();</span>
+<pre class="programlisting"><a class="link" href="message/overload1.html" title="http::message::message (1 of 7 overloads)">message</a><span class="special">();</span>
+</pre>
+<p>
+          Construct a message from message headers.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">explicit</span>
+<a class="link" href="message/overload2.html" title="http::message::message (2 of 7 overloads)">message</a><span class="special">(</span>
+    <span class="identifier">base_type</span><span class="special">&amp;&amp;</span> <span class="identifier">base</span><span class="special">,</span>
+    <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">explicit</span>
+<a class="link" href="message/overload3.html" title="http::message::message (3 of 7 overloads)">message</a><span class="special">(</span>
+    <span class="identifier">base_type</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">base</span><span class="special">,</span>
+    <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
 </pre>
 <p>
           Construct a message.
@@ -31,26 +48,26 @@ Default constructor.
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
 <span class="keyword">explicit</span>
-<a class="link" href="message/overload2.html" title="http::message::message (2 of 5 overloads)">message</a><span class="special">(</span>
+<a class="link" href="message/overload4.html" title="http::message::message (4 of 7 overloads)">message</a><span class="special">(</span>
     <span class="identifier">U</span><span class="special">&amp;&amp;</span> <span class="identifier">u</span><span class="special">);</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">U</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">V</span><span class="special">&gt;</span>
-<a class="link" href="message/overload3.html" title="http::message::message (3 of 5 overloads)">message</a><span class="special">(</span>
+<a class="link" href="message/overload5.html" title="http::message::message (5 of 7 overloads)">message</a><span class="special">(</span>
     <span class="identifier">U</span><span class="special">&amp;&amp;</span> <span class="identifier">u</span><span class="special">,</span>
     <span class="identifier">V</span><span class="special">&amp;&amp;</span> <span class="identifier">v</span><span class="special">);</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Un</span><span class="special">&gt;</span>
-<a class="link" href="message/overload4.html" title="http::message::message (4 of 5 overloads)">message</a><span class="special">(</span>
+<a class="link" href="message/overload6.html" title="http::message::message (6 of 7 overloads)">message</a><span class="special">(</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">piecewise_construct_t</span><span class="special">,</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span><span class="special">&lt;</span> <span class="identifier">Un</span><span class="special">...</span> <span class="special">&gt;</span> <span class="identifier">un</span><span class="special">);</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Un</span><span class="special">,</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Vn</span><span class="special">&gt;</span>
-<a class="link" href="message/overload5.html" title="http::message::message (5 of 5 overloads)">message</a><span class="special">(</span>
+<a class="link" href="message/overload7.html" title="http::message::message (7 of 7 overloads)">message</a><span class="special">(</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">piecewise_construct_t</span><span class="special">,</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span><span class="special">&lt;</span> <span class="identifier">Un</span><span class="special">...</span> <span class="special">&gt;&amp;&amp;</span> <span class="identifier">un</span><span class="special">,</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span><span class="special">&lt;</span> <span class="identifier">Vn</span><span class="special">...</span> <span class="special">&gt;&amp;&amp;</span> <span class="identifier">vn</span><span class="special">);</span>
