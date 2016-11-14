@@ -20,7 +20,7 @@
 <a name="beast.ref.http__parser_v1.parser_v1"></a><a class="link" href="parser_v1.html" title="http::parser_v1::parser_v1">http::parser_v1::parser_v1</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1045721"></a>
+          <a class="indexterm" name="id1050981"></a>
 Default constructor.
         </p>
 <pre class="programlisting"><a class="link" href="parser_v1/overload1.html" title="http::parser_v1::parser_v1 (1 of 5 overloads)">parser_v1</a><span class="special">();</span>
@@ -47,13 +47,13 @@ Default constructor.
     <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
 </pre>
 <p>
-          Construct the parser from a headers parser.
+          Construct the parser from a fields parser.
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
 <span class="keyword">explicit</span>
 <a class="link" href="parser_v1/overload5.html" title="http::parser_v1::parser_v1 (5 of 5 overloads)">parser_v1</a><span class="special">(</span>
-    <span class="identifier">headers_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">parser</span><span class="special">,</span>
+    <span class="identifier">header_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">parser</span><span class="special">,</span>
     <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
 </pre>
 </div>

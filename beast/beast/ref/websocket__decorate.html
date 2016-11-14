@@ -20,7 +20,7 @@
 <a name="beast.ref.websocket__decorate"></a><a class="link" href="websocket__decorate.html" title="websocket::decorate">websocket::decorate</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1098045"></a>
+        <a class="indexterm" name="id1105154"></a>
 HTTP decorator option.
       </p>
 <pre class="programlisting"><span class="keyword">using</span> <span class="identifier">decorate</span> <span class="special">=</span> <span class="emphasis"><em>implementation-defined</em></span><span class="special">;</span>
@@ -65,14 +65,14 @@ HTTP decorator option.
       </p>
 <pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">identity</span>
 <span class="special">{</span>
-    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
     <span class="keyword">void</span>
-    <span class="keyword">operator</span><span class="special">()(</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">message</span><span class="special">&lt;</span><span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span><span class="special">&gt;&amp;</span> <span class="identifier">m</span><span class="special">)</span>
+    <span class="keyword">operator</span><span class="special">()(</span><span class="identifier">http</span><span class="special">::</span><span class="identifier">message</span><span class="special">&lt;</span><span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span><span class="special">&gt;&amp;</span> <span class="identifier">m</span><span class="special">)</span>
     <span class="special">{</span>
         <span class="keyword">if</span><span class="special">(</span><span class="identifier">isRequest</span><span class="special">)</span>
-            <span class="identifier">m</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"MyClient"</span><span class="special">);</span>
+            <span class="identifier">m</span><span class="special">.</span><span class="identifier">fields</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"User-Agent"</span><span class="special">,</span> <span class="string">"MyClient"</span><span class="special">);</span>
         <span class="keyword">else</span>
-            <span class="identifier">m</span><span class="special">.</span><span class="identifier">headers</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"Server"</span><span class="special">,</span> <span class="string">"MyServer"</span><span class="special">);</span>
+            <span class="identifier">m</span><span class="special">.</span><span class="identifier">fields</span><span class="special">.</span><span class="identifier">replace</span><span class="special">(</span><span class="string">"Server"</span><span class="special">,</span> <span class="string">"MyServer"</span><span class="special">);</span>
     <span class="special">}</span>
 <span class="special">};</span>
 <span class="special">...</span>

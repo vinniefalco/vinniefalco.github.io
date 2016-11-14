@@ -20,27 +20,27 @@
 <a name="beast.ref.http__with_body"></a><a class="link" href="http__with_body.html" title="http::with_body">http::with_body</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1061538"></a>
-Create a new parser from a headers parser.
+        <a class="indexterm" name="id1068704"></a>
+Create a new parser from a fields parser.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">,</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
-<span class="identifier">parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span>
+<span class="identifier">parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span>
 <span class="identifier">with_body</span><span class="special">(</span>
-    <span class="identifier">headers_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">parser</span><span class="special">,</span>
+    <span class="identifier">header_parser_v1</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">parser</span><span class="special">,</span>
     <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
 </pre>
 <p>
-        Associates a Body type with a headers parser, and returns a new parser which
-        parses a complete message object containing the original message headers
-        and a new body of the specified body type.
+        Associates a Body type with a fields parser, and returns a new parser which
+        parses a complete message object containing the original message fields and
+        a new body of the specified body type.
       </p>
 <p>
         This function allows HTTP messages to be parsed in two stages. First, the
-        headers are parsed and control is returned. Then, the caller can choose at
+        fields are parsed and control is returned. Then, the caller can choose at
         run-time, the type of Body to associate with the message. And finally, complete
         the parse in a second call.
       </p>
@@ -53,8 +53,8 @@ Create a new parser from a headers parser.
 <dl class="variablelist">
 <dt><span class="term">parser</span></dt>
 <dd><p>
-              The headers parser to construct from. Ownership of the message headers
-              in the headers parser is transferred as if by call to <a class="link" href="http__headers_parser_v1/release.html" title="http::headers_parser_v1::release"><code class="computeroutput"><span class="identifier">headers_parser_v1</span><span class="special">::</span><span class="identifier">release</span></code></a>.
+              The fields parser to construct from. Ownership of the message fields
+              in the fields parser is transferred as if by call to <a class="link" href="http__header_parser_v1/release.html" title="http::header_parser_v1::release"><code class="computeroutput"><span class="identifier">header_parser_v1</span><span class="special">::</span><span class="identifier">release</span></code></a>.
             </p></dd>
 <dt><span class="term">args</span></dt>
 <dd><p>
@@ -75,11 +75,11 @@ Create a new parser from a headers parser.
 <a name="beast.ref.http__with_body.h2"></a>
         <span class="phrase"><a name="beast.ref.http__with_body.example"></a></span><a class="link" href="http__with_body.html#beast.ref.http__with_body.example">Example</a>
       </h5>
-<pre class="programlisting"><span class="identifier">headers_parser</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">headers</span><span class="special">&gt;</span> <span class="identifier">ph</span><span class="special">;</span>
+<pre class="programlisting"><span class="identifier">headers_parser</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">fields</span><span class="special">&gt;</span> <span class="identifier">ph</span><span class="special">;</span>
 <span class="special">...</span>
 <span class="keyword">auto</span> <span class="identifier">p</span> <span class="special">=</span> <span class="identifier">with_body</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;(</span><span class="identifier">ph</span><span class="special">);</span>
 <span class="special">...</span>
-<span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">string_body</span><span class="special">,</span> <span class="identifier">headers</span><span class="special">&gt;</span> <span class="identifier">m</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">();</span>
+<span class="identifier">message</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">string_body</span><span class="special">,</span> <span class="identifier">fields</span><span class="special">&gt;</span> <span class="identifier">m</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">();</span>
 </pre>
 <h5>
 <a name="beast.ref.http__with_body.h3"></a>

@@ -97,12 +97,12 @@
         a 200 response to a CONNECT request from a tunneling proxy. In these cases,
         callers use the <a class="link" href="http__skip_body.html" title="http::skip_body"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">skip_body</span></code></a>
         option to inform the parser that no body is expected. The parser will consider
-        the message complete after the all headers have been received.
+        the message complete after the header has been received.
       </p>
 <p>
         Example:
       </p>
-<pre class="programlisting"><span class="identifier">parser_v1</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">empty_body</span><span class="special">,</span> <span class="identifier">headers</span><span class="special">&gt;</span> <span class="identifier">p</span><span class="special">;</span>
+<pre class="programlisting"><span class="identifier">parser_v1</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">,</span> <span class="identifier">empty_body</span><span class="special">,</span> <span class="identifier">fields</span><span class="special">&gt;</span> <span class="identifier">p</span><span class="special">;</span>
 <span class="identifier">p</span><span class="special">.</span><span class="identifier">set_option</span><span class="special">(</span><span class="identifier">skip_body</span><span class="special">{</span><span class="keyword">true</span><span class="special">});</span>
 </pre>
 <h5>

@@ -21,26 +21,26 @@
         overloads)</a>
 </h4></div></div></div>
 <p>
-          Read HTTP/1 message headers from a stream.
+          Read a HTTP/1 header from a stream.
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a><span class="special">,</span>
     <span class="keyword">class</span> <a class="link" href="../DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">read</span><span class="special">(</span>
     <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
 </pre>
 <p>
-          This function is used to synchronously read message headers from the stream.
-          The call blocks until one of the following conditions is true:
+          This function is used to synchronously read a header from a stream. The
+          call blocks until one of the following conditions is true:
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-              The complete message headers are read in.
+              An entire header is read in.
             </li>
 <li class="listitem">
               An error occurs in the stream or parser.
@@ -50,8 +50,13 @@
           This function is implemented in terms of one or more calls to the stream's
           <code class="computeroutput"><span class="identifier">read_some</span></code> function. The
           implementation may read additional octets that lie past the end of the
-          message headers being parsed. This additional data is stored in the stream
+          message fields being parsed. This additional data is stored in the stream
           buffer, which may be used in subsequent calls.
+        </p>
+<p>
+          If the message corresponding to the header being received contains a message
+          body, it is the callers responsibility to cause the body to be read in
+          before attempting to read the next message.
         </p>
 <h6>
 <a name="beast.ref.http__read.overload1.h0"></a>
@@ -75,8 +80,8 @@
               </p></dd>
 <dt><span class="term">msg</span></dt>
 <dd><p>
-                An object used to store the message headers. Any contents will be
-                overwritten. The type must support copy assignment or move assignment.
+                An object used to store the header. Any contents will be overwritten.
+                The type must support copy assignment or move assignment.
               </p></dd>
 </dl>
 </div>

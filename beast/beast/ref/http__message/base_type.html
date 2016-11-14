@@ -20,11 +20,11 @@
 <a name="beast.ref.http__message.base_type"></a><a class="link" href="base_type.html" title="http::message::base_type">http::message::base_type</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1035313"></a>
-The base class used to hold the request or response
-          headers.
+          <a class="indexterm" name="id1039383"></a>
+The base class used to hold the header portion of
+          the message.
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">base_type</span> <span class="special">=</span> <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">base_type</span> <span class="special">=</span> <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;;</span>
 </pre>
 <h6>
 <a name="beast.ref.http__message.base_type.h0"></a>
@@ -50,12 +50,12 @@ The base class used to hold the request or response
 <tbody><tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/headers_type.html" title="http::message_headers::headers_type"><span class="bold"><strong>headers_type</strong></span></a>
+                    <a class="link" href="../http__header/fields_type.html" title="http::header::fields_type"><span class="bold"><strong>fields_type</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
-                    The type representing the headers.
+                    The type representing the fields.
                   </p>
                 </td>
 </tr></tbody>
@@ -85,7 +85,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/message_headers.html" title="http::message_headers::message_headers"><span class="bold"><strong>message_headers</strong></span></a>
+                    <a class="link" href="../http__header/header.html" title="http::header::header"><span class="bold"><strong>header</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -99,14 +99,14 @@ The base class used to hold the request or response
                     Copy constructor.
                   </p>
                   <p>
-                    Construct message headers.
+                    Construct the header.
                   </p>
                 </td>
 </tr>
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/operator_eq_.html" title="http::message_headers::operator="><span class="bold"><strong>operator=</strong></span></a>
+                    <a class="link" href="../http__header/operator_eq_.html" title="http::header::operator="><span class="bold"><strong>operator=</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -145,12 +145,12 @@ The base class used to hold the request or response
 <tbody><tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/is_request.html" title="http::message_headers::is_request"><span class="bold"><strong>is_request</strong></span></a>
+                    <a class="link" href="../http__header/is_request.html" title="http::header::is_request"><span class="bold"><strong>is_request</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
-                    Indicates if the message headers are a request or response.
+                    Indicates if the header is a request or response.
                   </p>
                 </td>
 </tr></tbody>
@@ -181,7 +181,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/headers.html" title="http::message_headers::headers"><span class="bold"><strong>headers</strong></span></a>
+                    <a class="link" href="../http__header/fields.html" title="http::header::fields"><span class="bold"><strong>fields</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -193,7 +193,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/method.html" title="http::message_headers::method"><span class="bold"><strong>method</strong></span></a>
+                    <a class="link" href="../http__header/method.html" title="http::header::method"><span class="bold"><strong>method</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -205,7 +205,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/reason.html" title="http::message_headers::reason"><span class="bold"><strong>reason</strong></span></a>
+                    <a class="link" href="../http__header/reason.html" title="http::header::reason"><span class="bold"><strong>reason</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -217,7 +217,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/status.html" title="http::message_headers::status"><span class="bold"><strong>status</strong></span></a>
+                    <a class="link" href="../http__header/status.html" title="http::header::status"><span class="bold"><strong>status</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -229,7 +229,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/url.html" title="http::message_headers::url"><span class="bold"><strong>url</strong></span></a>
+                    <a class="link" href="../http__header/url.html" title="http::header::url"><span class="bold"><strong>url</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -241,7 +241,7 @@ The base class used to hold the request or response
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message_headers/version.html" title="http::message_headers::version"><span class="bold"><strong>version</strong></span></a>
+                    <a class="link" href="../http__header/version.html" title="http::header::version"><span class="bold"><strong>version</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -253,11 +253,22 @@ The base class used to hold the request or response
 </tbody>
 </table></div>
 <p>
-          The container includes the headers, as well as the request method and URL.
-          Objects of this type may be used to represent incoming or outgoing requests
-          for which the body is not yet known or generated. For example, when receiving
-          a request with the header value "Expect: 100-continue".
+          A header includes the Start Line and Fields.
         </p>
+<p>
+          Some use-cases:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              When the message has no body, such as a response to a HEAD request.
+            </li>
+<li class="listitem">
+              When the caller wishes to defer instantiation of the body.
+            </li>
+<li class="listitem">
+              Invoke algorithms which operate on the header only.
+            </li>
+</ul></div>
 <h6>
 <a name="beast.ref.http__message.base_type.h4"></a>
           <span class="phrase"><a name="beast.ref.http__message.base_type.requirements"></a></span><a class="link" href="base_type.html#beast.ref.http__message.base_type.requirements">Requirements</a>

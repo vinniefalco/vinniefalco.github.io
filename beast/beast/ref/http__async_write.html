@@ -20,34 +20,33 @@
 <a name="beast.ref.http__async_write"></a><a class="link" href="http__async_write.html" title="http::async_write">http::async_write</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id994643"></a>
-Start an asynchronous operation to write HTTP/1 message
-        headers to a stream.
+        <a class="indexterm" name="id1001919"></a>
+Write a HTTP/1 header asynchronously to a stream.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncWriteStream.html" target="_top"><span class="bold"><strong>AsyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">WriteHandler</span><span class="special">&gt;</span>
 <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.return_type_of_an_initiating_function" target="_top"><span class="emphasis"><em>void-or-deduced</em></span></a>
 <a class="link" href="http__async_write/overload1.html" title="http::async_write (1 of 2 overloads)">async_write</a><span class="special">(</span>
     <span class="identifier">AsyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">WriteHandler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">);</span>
 </pre>
 <p>
-        Start an asynchronous operation to write a HTTP/1 message to a stream.
+        Write a HTTP/1 message asynchronously to a stream.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncWriteStream.html" target="_top"><span class="bold"><strong>AsyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
     <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">,</span>
     <span class="keyword">class</span> <span class="identifier">WriteHandler</span><span class="special">&gt;</span>
 <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.return_type_of_an_initiating_function" target="_top"><span class="emphasis"><em>void-or-deduced</em></span></a>
 <a class="link" href="http__async_write/overload2.html" title="http::async_write (2 of 2 overloads)">async_write</a><span class="special">(</span>
     <span class="identifier">AsyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">WriteHandler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">);</span>
 </pre>
 <h5>

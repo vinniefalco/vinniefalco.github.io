@@ -7,30 +7,29 @@
 <link rel="home" href="../../index.html" title="Beast">
 <link rel="up" href="../http.html" title="Using HTTP">
 <link rel="prev" href="body.html" title="Body">
-<link rel="next" href="sockets.html" title="Using Sockets">
+<link rel="next" href="../websocket.html" title="WebSocket">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="body.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="sockets.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="body.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../websocket.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="beast.http.algorithms"></a><a class="link" href="algorithms.html" title="Algorithms">Algorithms</a>
 </h3></div></div></div>
 <p>
-        In addition to the universal message model, Beast provides synchronous algorithms
-        which operate on HTTP/1 messages:
+        Algorithms are provided to serialize and deserialize HTTP/1 messages on streams.
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <a class="link" href="../ref/http__read.html" title="http::read"><span class="bold"><strong>read</strong></span></a>:
-            Parse a message from a stream
+            Deserialize a HTTP/1 <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> or <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> from a stream.
           </li>
 <li class="listitem">
             <a class="link" href="../ref/http__write.html" title="http::write"><span class="bold"><strong>write</strong></span></a>:
-            Serialize a message into its wire format on a stream
+            Serialize a HTTP/1 <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> or <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> to a stream.
           </li>
 </ul></div>
 <p>
@@ -39,13 +38,99 @@
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <a class="link" href="../ref/http__async_read.html" title="http::async_read"><span class="bold"><strong>async_read</strong></span></a>:
-            Parse a message from a stream
+            Deserialize a HTTP/1 <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> or <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> asynchronously from
+            a stream.
           </li>
 <li class="listitem">
             <a class="link" href="../ref/http__async_write.html" title="http::async_write"><span class="bold"><strong>async_write</strong></span></a>:
-            Serialize a message into its wire format on a stream
+            Serialize a HTTP/1 <a class="link" href="../ref/http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> or <a class="link" href="../ref/http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> asynchronously to a
+            stream.
           </li>
 </ul></div>
+<h5>
+<a name="beast.http.algorithms.h0"></a>
+        <span class="phrase"><a name="beast.http.algorithms.using_sockets"></a></span><a class="link" href="algorithms.html#beast.http.algorithms.using_sockets">Using
+        Sockets</a>
+      </h5>
+<p>
+        The free function algorithms are modeled after Boost.Asio to send and receive
+        messages on TCP/IP sockets, SSL streams, or any object which meets the Boost.Asio
+        type requirements (<a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="bold"><strong>SyncReadStream</strong></span></a>, <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a>, <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncReadStream.html" target="_top"><span class="bold"><strong>AsyncReadStream</strong></span></a>, and <a href="http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/reference/AsyncWriteStream.html" target="_top"><span class="bold"><strong>AsyncWriteStream</strong></span></a> depending on the types of
+        operations performed). To send messages synchronously, use one of the <a class="link" href="../ref/http__write.html" title="http::write"><code class="computeroutput"><span class="identifier">write</span></code></a>
+        functions:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">send_request</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">&amp;</span> <span class="identifier">sock</span><span class="special">)</span>
+<span class="special">{</span>
+    <span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">version</span> <span class="special">=</span> <span class="number">11</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">method</span> <span class="special">=</span> <span class="string">"GET"</span><span class="special">;</span>
+    <span class="identifier">req</span><span class="special">.</span><span class="identifier">url</span> <span class="special">=</span> <span class="string">"/index.html"</span><span class="special">;</span>
+    <span class="special">...</span>
+    <span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">);</span> <span class="comment">// Throws exception on error</span>
+    <span class="special">...</span>
+    <span class="comment">// Alternatively</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error</span><span class="special">:</span><span class="identifier">code</span> <span class="identifier">ec</span><span class="special">;</span>
+    <span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">,</span> <span class="identifier">ec</span><span class="special">);</span>
+    <span class="keyword">if</span><span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+        <span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"error writing http message: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span><span class="special">.</span><span class="identifier">message</span><span class="special">();</span>
+<span class="special">}</span>
+</pre>
+<p>
+        An asynchronous interface is available:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_write</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">request</span><span class="special">&lt;</span><span class="identifier">empty_body</span><span class="special">&gt;</span> <span class="identifier">req</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">async_write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">req</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">handle_write</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">placeholders</span><span class="special">::</span><span class="identifier">_1</span><span class="special">));</span>
+</pre>
+<p>
+        When the implementation reads messages from a socket, it can read bytes lying
+        after the end of the message if they are present (the alternative is to read
+        a single byte at a time which is unsuitable for performance reasons). To
+        store and re-use these extra bytes on subsequent messages, the read interface
+        requires an additional parameter: a <a class="link" href="../ref/DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong><code class="computeroutput"><span class="identifier">DynamicBuffer</span></code></strong></span></a>
+        object. This example reads a message from the socket, with the extra bytes
+        stored in the streambuf parameter for use in a subsequent call to read:
+      </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">res</span><span class="special">);</span> <span class="comment">// Throws exception on error</span>
+<span class="special">...</span>
+<span class="comment">// Alternatively</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error</span><span class="special">:</span><span class="identifier">code</span> <span class="identifier">ec</span><span class="special">;</span>
+<span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">res</span><span class="special">,</span> <span class="identifier">ec</span><span class="special">);</span>
+<span class="keyword">if</span><span class="special">(</span><span class="identifier">ec</span><span class="special">)</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cerr</span> <span class="special">&lt;&lt;</span> <span class="string">"error reading http message: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span><span class="special">.</span><span class="identifier">message</span><span class="special">();</span>
+</pre>
+<p>
+        As with the write function, an asynchronous interface is available. The stream
+        buffer parameter must remain valid until the completion handler is called:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_read</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+<span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<span class="special">...</span>
+<span class="identifier">async_read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">res</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(&amp;</span><span class="identifier">handle_read</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">placeholders</span><span class="special">::</span><span class="identifier">_1</span><span class="special">));</span>
+</pre>
+<p>
+        An alternative to using a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span></code>
+        is to use a <a class="link" href="../ref/streambuf.html" title="streambuf"><code class="computeroutput"><span class="identifier">streambuf</span></code></a>,
+        which meets the requirements of <a class="link" href="../ref/DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a> and is optimized for performance:
+      </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">handle_read</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="identifier">beast</span><span class="special">::</span><span class="identifier">streambuf</span> <span class="identifier">sb</span><span class="special">;</span>
+<span class="identifier">response</span><span class="special">&lt;</span><span class="identifier">string_body</span><span class="special">&gt;</span> <span class="identifier">res</span><span class="special">;</span>
+<span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">sb</span><span class="special">,</span> <span class="identifier">res</span><span class="special">);</span>
+</pre>
+<p>
+        The <code class="computeroutput"><span class="identifier">read</span></code> implementation can
+        use any object meeting the requirements of <a class="link" href="../ref/DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a>, allowing callers to define custom
+        memory management strategies used by the implementation.
+      </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
@@ -58,7 +143,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="body.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="sockets.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="body.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../http.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../websocket.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

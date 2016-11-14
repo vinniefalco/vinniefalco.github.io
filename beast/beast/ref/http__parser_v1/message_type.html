@@ -20,10 +20,10 @@
 <a name="beast.ref.http__parser_v1.message_type"></a><a class="link" href="message_type.html" title="http::parser_v1::message_type">http::parser_v1::message_type</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1044726"></a>
+          <a class="indexterm" name="id1052235"></a>
 The type of message this parser produces.
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">message_type</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">message_type</span> <span class="special">=</span> <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;;</span>
 </pre>
 <h6>
 <a name="beast.ref.http__parser_v1.message_type.h0"></a>
@@ -55,7 +55,7 @@ The type of message this parser produces.
                 </td>
 <td>
                   <p>
-                    The base class used to hold the request or response headers.
+                    The base class used to hold the header portion of the message.
                   </p>
                 </td>
 </tr>
@@ -74,12 +74,12 @@ The type of message this parser produces.
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message/headers_type.html" title="http::message::headers_type"><span class="bold"><strong>headers_type</strong></span></a>
+                    <a class="link" href="../http__message/fields_type.html" title="http::message::fields_type"><span class="bold"><strong>fields_type</strong></span></a>
                   </p>
                 </td>
 <td>
                   <p>
-                    The type representing the headers.
+                    The type representing the fields.
                   </p>
                 </td>
 </tr>
@@ -116,7 +116,7 @@ The type of message this parser produces.
                 </td>
 <td>
                   <p>
-                    Returns the message headers portion of the message.
+                    Returns the header portion of the message.
                   </p>
                 </td>
 </tr>
@@ -131,7 +131,7 @@ The type of message this parser produces.
                     Default constructor.
                   </p>
                   <p>
-                    Construct a message from message headers.
+                    Construct a message from a header.
                   </p>
                   <p>
                     Construct a message.
@@ -170,7 +170,7 @@ The type of message this parser produces.
                 </td>
 <td>
                   <p>
-                    Indicates if the message headers are a request or response.
+                    Indicates if the header is a request or response.
                   </p>
                 </td>
 </tr></tbody>
@@ -212,7 +212,7 @@ The type of message this parser produces.
 <tr>
 <td>
                   <p>
-                    <a class="link" href="../http__message/headers.html" title="http::message::headers"><span class="bold"><strong>headers</strong></span></a>
+                    <a class="link" href="../http__message/fields.html" title="http::message::fields"><span class="bold"><strong>fields</strong></span></a>
                   </p>
                 </td>
 <td>
@@ -285,8 +285,8 @@ The type of message this parser produces.
 </table></div>
 <p>
           A message can be a request or response, depending on the <code class="computeroutput"><span class="identifier">isRequest</span></code> template argument value. Requests
-          and responses have different types, so functions may be overloaded on them
-          if desired.
+          and responses have different types; functions may be overloaded based on
+          the type if desired.
         </p>
 <p>
           The <code class="computeroutput"><span class="identifier">Body</span></code> template argument
@@ -307,7 +307,7 @@ The type of message this parser produces.
 <dd><p>
                 A type meeting the requirements of Body.
               </p></dd>
-<dt><span class="term">Headers</span></dt>
+<dt><span class="term">Fields</span></dt>
 <dd><p>
                 The type of container used to hold the field value pairs.
               </p></dd>

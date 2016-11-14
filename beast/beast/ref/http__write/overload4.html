@@ -27,11 +27,11 @@
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
     <span class="keyword">class</span> <a class="link" href="../Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">write</span><span class="special">(</span>
     <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
 </pre>
 <p>
@@ -40,7 +40,7 @@
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-              The entire message is sent.
+              The entire message is written.
             </li>
 <li class="listitem">
               An error occurs.

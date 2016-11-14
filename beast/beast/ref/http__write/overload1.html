@@ -21,24 +21,24 @@
         4 overloads)</a>
 </h4></div></div></div>
 <p>
-          Write HTTP/1 message headers on a stream.
+          Write a HTTP/1 header to a stream.
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">write</span><span class="special">(</span>
     <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
 </pre>
 <p>
-          This function is used to write message headers to a stream. The call will
-          block until one of the following conditions is true:
+          This function is used to synchronously write a header to a stream. The
+          call will block until one of the following conditions is true:
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-              All the message headers are sent.
+              The entire header is written.
             </li>
 <li class="listitem">
               An error occurs.
@@ -49,9 +49,9 @@
           <code class="computeroutput"><span class="identifier">write_some</span></code> function.
         </p>
 <p>
-          Regardless of the semantic meaning of the headers (for example, specifying
-          a zero-length message body and Connection: Close), this function will not
-          return <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span></code>.
+          Regardless of the semantic meaning of the header (for example, specifying
+          "Content-Length: 0" and "Connection: close"), this
+          function will not return <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">eof</span></code>.
         </p>
 <h6>
 <a name="beast.ref.http__write.overload1.h0"></a>
@@ -68,7 +68,7 @@
               </p></dd>
 <dt><span class="term">msg</span></dt>
 <dd><p>
-                The message headers to write.
+                The header to write.
               </p></dd>
 </dl>
 </div>

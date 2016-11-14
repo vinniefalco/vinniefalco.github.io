@@ -20,22 +20,22 @@
 <a name="beast.ref.http__prepare"></a><a class="link" href="http__prepare.html" title="http::prepare">http::prepare</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1048061"></a>
+        <a class="indexterm" name="id1053878"></a>
 Prepare a HTTP message.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
     <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">,</span>
     <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Options</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">prepare</span><span class="special">(</span>
-    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">Options</span><span class="special">&amp;&amp;...</span> <span class="identifier">options</span><span class="special">);</span>
 </pre>
 <p>
         This function will adjust the Content-Length, Transfer-Encoding, and Connection
-        headers of the message based on the properties of the body and the options
+        fields of the message based on the properties of the body and the options
         passed in.
       </p>
 <h5>
@@ -47,7 +47,7 @@ Prepare a HTTP message.
 <dl class="variablelist">
 <dt><span class="term">msg</span></dt>
 <dd><p>
-              The message to prepare. The headers may be modified.
+              The message to prepare. The fields may be modified.
             </p></dd>
 <dt><span class="term">options</span></dt>
 <dd><p>

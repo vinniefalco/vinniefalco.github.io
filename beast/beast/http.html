@@ -7,7 +7,7 @@
 <link rel="home" href="../index.html" title="Beast">
 <link rel="up" href="../index.html" title="Beast">
 <link rel="prev" href="overview.html" title="Introduction">
-<link rel="next" href="http/message.html" title="Messages">
+<link rel="next" href="http/message.html" title="Message">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../images/beast.png"></td></tr></table>
@@ -22,25 +22,16 @@
 <div class="informaltable"><table class="table">
 <colgroup><col class="a"></colgroup>
 <tbody><tr><td valign="top"><table border="0" summary="Simple list" class="simplelist">
-<tr><td><a class="link" href="http/message.html" title="Messages">Messages</a></td></tr>
-<tr><td><a class="link" href="http/headers.html" title="Headers">Headers</a></td></tr>
+<tr><td><a class="link" href="http/message.html" title="Message">Message</a></td></tr>
+<tr><td><a class="link" href="http/fields.html" title="Fields">Fields</a></td></tr>
 <tr><td><a class="link" href="http/body.html" title="Body">Body</a></td></tr>
 <tr><td><a class="link" href="http/algorithms.html" title="Algorithms">Algorithms</a></td></tr>
-<tr><td><a class="link" href="http/sockets.html" title="Using Sockets">Sockets</a></td></tr>
 </table></td></tr></tbody>
 </table></div>
 <p>
-      Beast.HTTP offers programmers simple and performant models of HTTP messages
-      and their associated operations including synchronous and asynchronous reading
-      and writing of messages in the HTTP/1 wire format using Boost.Asio.
-    </p>
-<p>
-      A HTTP message (referred to hereafter as "message") contains request
-      or response specific attributes, a series of zero or more name/value pairs
-      (collectively termed "headers"), and a series of octets called the
-      message body which may be zero in length. The HTTP protocol defines the client
-      and server roles: clients send messages called requests and servers send back
-      messages called responses.
+      Beast offers programmers simple and performant models of HTTP messages and
+      their associated operations including synchronous and asynchronous reading
+      and writing of messages and headers in the HTTP/1 wire format using Boost.Asio.
     </p>
 <div class="note"><table border="0" summary="Note">
 <tr>
@@ -54,7 +45,8 @@
         Sample code and identifiers mentioned in this section are written as if the
         following declarations are in effect:
       </p>
-<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">http</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">beast</span><span class="special">/</span><span class="identifier">http</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">beast</span><span class="special">;</span>
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">beast</span><span class="special">::</span><span class="identifier">http</span><span class="special">;</span>
 </pre>

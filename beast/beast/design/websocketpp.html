@@ -357,18 +357,17 @@
                     (modeled after <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span></code>).
                   </p>
 <p>
-                    Beast comes with the class <code class="computeroutput"><span class="identifier">beast</span><span class="special">::</span><span class="identifier">basic_streambuf</span></code>,
-                    an efficient implementation of the <span class="bold"><strong>DynamicBuffer</strong></span>
-                    concept which makes use of multiple allocated octet arrays. If
-                    an incoming message is broken up into multiple pieces, no reallocation
-                    occurs. Instead, new allocations are appended to the sequence
-                    when existing allocations are filled. Beast does not impose any
-                    particular memory management model on callers. The <code class="computeroutput"><span class="identifier">basic_streambuf</span></code> provided by
-                    beast supports standard allocators through a template argument.
-                    Use the <span class="bold"><strong>DynamicBuffer</strong></span> that comes
-                    with beast, customize the allocator if you desire, or provide
-                    your own type that meets the <a href="https://github.com/vinniefalco/Beast/blob/6c8b4b2f8dde72b01507e4ac7fde4ffea57ebc99/include/beast/basic_streambuf.hpp#L21" target="_top">concept
-                    requirements</a>.
+                    Beast comes with the class <a class="link" href="../ref/basic_streambuf.html" title="basic_streambuf"><code class="computeroutput"><span class="identifier">basic_streambuf</span></code></a>, an
+                    efficient implementation of the <a class="link" href="../ref/DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a> concept which makes
+                    use of multiple allocated octet arrays. If an incoming message
+                    is broken up into multiple pieces, no reallocation occurs. Instead,
+                    new allocations are appended to the sequence when existing allocations
+                    are filled. Beast does not impose any particular memory management
+                    model on callers. The <a class="link" href="../ref/basic_streambuf.html" title="basic_streambuf"><code class="computeroutput"><span class="identifier">basic_streambuf</span></code></a> provided
+                    by beast supports standard allocators through a template argument.
+                    Use the <a class="link" href="../ref/DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a>
+                    that comes with beast, customize the allocator if you desire,
+                    or provide your own type that meets the requirements.
                   </p>
 <div class="informaltable"><table class="table">
 <colgroup>

@@ -28,17 +28,17 @@
     <span class="keyword">class</span> <a class="link" href="../DynamicBuffer.html" title="DynamicBuffer requirements"><span class="bold"><strong>DynamicBuffer</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
     <span class="keyword">class</span> <a class="link" href="../Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">read</span><span class="special">(</span>
     <span class="identifier">SyncReadStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
     <span class="identifier">DynamicBuffer</span><span class="special">&amp;</span> <span class="identifier">dynabuf</span><span class="special">,</span>
-    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
 </pre>
 <p>
-          This function is used to synchronously read a message from the stream.
-          The call blocks until one of the following conditions is true:
+          This function is used to synchronously read a message from a stream. The
+          call blocks until one of the following conditions is true:
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">

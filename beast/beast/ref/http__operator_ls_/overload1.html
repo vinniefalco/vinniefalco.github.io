@@ -21,18 +21,18 @@
         (1 of 2 overloads)</a>
 </h4></div></div></div>
 <p>
-          Serialize HTTP/1 message headers to a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span></code>.
+          Serialize a HTTP/1 header to a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span></code>.
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span><span class="special">&amp;</span>
 <span class="keyword">operator</span><span class="special">&lt;&lt;(</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span><span class="special">&amp;</span> <span class="identifier">os</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
 </pre>
 <p>
-          The function converts the message headers to its HTTP/1 serialized representation
+          The function converts the header to its HTTP/1 serialized representation
           and stores the result in the output stream.
         </p>
 <h6>
@@ -48,7 +48,7 @@
               </p></dd>
 <dt><span class="term">msg</span></dt>
 <dd><p>
-                The message headers to write.
+                The message fields to write.
               </p></dd>
 </dl>
 </div>

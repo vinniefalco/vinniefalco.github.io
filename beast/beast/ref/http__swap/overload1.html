@@ -21,22 +21,22 @@
         overloads)</a>
 </h4></div></div></div>
 <p>
-          Swap two HTTP message headers.
+          Swap two header objects.
         </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <span class="identifier">swap</span><span class="special">(</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">m1</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;&amp;</span> <span class="identifier">m2</span><span class="special">);</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">m1</span><span class="special">,</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">m2</span><span class="special">);</span>
 </pre>
 <h6>
 <a name="beast.ref.http__swap.overload1.h0"></a>
           <span class="phrase"><a name="beast.ref.http__swap.overload1.requirements"></a></span><a class="link" href="overload1.html#beast.ref.http__swap.overload1.requirements">Requirements</a>
         </h6>
 <p>
-          <code class="computeroutput"><span class="identifier">Headers</span></code> is <span class="bold"><strong>Swappable</strong></span>.
+          <code class="computeroutput"><span class="identifier">Fields</span></code> is <span class="bold"><strong>Swappable</strong></span>.
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

@@ -282,7 +282,7 @@
 <p>
         Example:
       </p>
-<pre class="programlisting"><span class="comment">// Process the next HTTP headers on the stream,</span>
+<pre class="programlisting"><span class="comment">// Process the next HTTP header on the stream,</span>
 <span class="comment">// leaving excess bytes behind for the next call.</span>
 <span class="comment">//</span>
 <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">DynamicBuffer</span><span class="special">&gt;</span>
@@ -290,7 +290,7 @@
     <span class="identifier">dynabuf_readstream</span><span class="special">&lt;</span><span class="identifier">DynamicBuffer</span><span class="special">&gt;&amp;</span> <span class="identifier">stream</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="comment">// Read up to and including the end of the HTTP</span>
-    <span class="comment">// headers, leaving the sequence in the stream's</span>
+    <span class="comment">// header, leaving the sequence in the stream's</span>
     <span class="comment">// buffer. read_until may read past the end of the</span>
     <span class="comment">// headers; the return value will include only the</span>
     <span class="comment">// part up to the end of the delimiter.</span>

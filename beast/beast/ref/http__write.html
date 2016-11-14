@@ -20,28 +20,41 @@
 <a name="beast.ref.http__write"></a><a class="link" href="http__write.html" title="http::write">http::write</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1061991"></a>
-Write HTTP/1 message headers on a stream.
+        <a class="indexterm" name="id1069217"></a>
+Write a HTTP/1 header to a stream.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <a class="link" href="http__write/overload1.html" title="http::write (1 of 4 overloads)">write</a><span class="special">(</span>
     <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
 
 
 <span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <a class="link" href="http__write/overload2.html" title="http::write (2 of 4 overloads)">write</a><span class="special">(</span>
     <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message_headers</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
+</pre>
+<p>
+        Write a HTTP/1 message to a stream.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="http__write/overload3.html" title="http::write (3 of 4 overloads)">write</a><span class="special">(</span>
+    <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
 </pre>
 <p>
         Write a HTTP/1 message on a stream.
@@ -50,22 +63,11 @@ Write HTTP/1 message headers on a stream.
     <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
     <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
     <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
-<span class="keyword">void</span>
-<a class="link" href="http__write/overload3.html" title="http::write (3 of 4 overloads)">write</a><span class="special">(</span>
-    <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">);</span>
-
-
-<span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <a href="http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="bold"><strong>SyncWriteStream</strong></span></a><span class="special">,</span>
-    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
-    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
-    <span class="keyword">class</span> <span class="identifier">Headers</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
 <span class="keyword">void</span>
 <a class="link" href="http__write/overload4.html" title="http::write (4 of 4 overloads)">write</a><span class="special">(</span>
     <span class="identifier">SyncWriteStream</span><span class="special">&amp;</span> <span class="identifier">stream</span><span class="special">,</span>
-    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Headers</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
     <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">);</span>
 </pre>
 <h5>

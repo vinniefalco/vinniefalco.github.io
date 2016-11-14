@@ -5,7 +5,6 @@ beast/http/message.html
 beast/http/fields.html
 beast/http/body.html
 beast/http/algorithms.html
-beast/http/sockets.html
 beast/websocket.html
 beast/websocket/creation.html
 beast/websocket/connections.html
