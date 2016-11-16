@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>zlib::error</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="zlib__deflate_upper_bound.html" title="zlib::deflate_upper_bound">
+<link rel="next" href="zlib__inflate_stream.html" title="zlib::inflate_stream">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="zlib__deflate_upper_bound.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="zlib__inflate_stream.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.zlib__error"></a><a class="link" href="zlib__error.html" title="zlib::error">zlib::error</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1141694"></a>
+Error codes returned by the codec.
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">error</span>
+</pre>
+<p>
+        <a class="indexterm" name="id1141723"></a>
+ <a class="indexterm" name="id1141725"></a>
+ <a class="indexterm" name="id1141747"></a>
+ <a class="indexterm" name="id1141753"></a>
+ <a class="indexterm" name="id1141768"></a>
+ <a class="indexterm" name="id1141795"></a>
+ <a class="indexterm" name="id1141770"></a>
+ <a class="indexterm" name="id1141765"></a>
+ <a class="indexterm" name="id1141813"></a>
+ <a class="indexterm" name="id1141836"></a>
+ <a class="indexterm" name="id1141800"></a>
+ <a class="indexterm" name="id1141824"></a>
+ <a class="indexterm" name="id1141814"></a>
+ <a class="indexterm" name="id1141849"></a>
+ <a class="indexterm" name="id1141850"></a>
+
+      </p>
+<h5>
+<a name="beast.ref.zlib__error.h0"></a>
+        <span class="phrase"><a name="beast.ref.zlib__error.values"></a></span><a class="link" href="zlib__error.html#beast.ref.zlib__error.values">Values</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">need_buffers</span></dt>
+<dd><p>
+              Additional buffers are required.
+            </p></dd>
+<dt><span class="term">end_of_stream</span></dt>
+<dd><p>
+              End of stream reached.
+            </p></dd>
+<dt><span class="term">stream_error</span></dt>
+<dd><p>
+              Invalid stream or parameters.
+            </p></dd>
+<dt><span class="term">invalid_block_type</span></dt>
+<dd><p>
+              Invalid block type.
+            </p></dd>
+<dt><span class="term">invalid_stored_length</span></dt>
+<dd><p>
+              Invalid stored block length.
+            </p></dd>
+<dt><span class="term">too_many_symbols</span></dt>
+<dd><p>
+              Too many length or distance symbols.
+            </p></dd>
+<dt><span class="term">invalid_code_lenths</span></dt>
+<dd><p>
+              Invalid code lengths.
+            </p></dd>
+<dt><span class="term">invalid_bit_length_repeat</span></dt>
+<dd><p>
+              Invalid bit length repeat.
+            </p></dd>
+<dt><span class="term">missing_eob</span></dt>
+<dd><p>
+              Missing end of block code.
+            </p></dd>
+<dt><span class="term">invalid_literal_length</span></dt>
+<dd><p>
+              Invalid literal/length code.
+            </p></dd>
+<dt><span class="term">invalid_distance_code</span></dt>
+<dd><p>
+              Invalid distance code.
+            </p></dd>
+<dt><span class="term">invalid_distance</span></dt>
+<dd><p>
+              Invalid distance too far back.
+            </p></dd>
+<dt><span class="term">over_subscribed_length</span></dt>
+<dd><p>
+              Over-subscribed length code.
+            </p></dd>
+<dt><span class="term">incomplete_length_set</span></dt>
+<dd><p>
+              Incomplete length set.
+            </p></dd>
+<dt><span class="term">general</span></dt>
+<dd><p>
+              general error
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.zlib__error.h1"></a>
+        <span class="phrase"><a name="beast.ref.zlib__error.requirements"></a></span><a class="link" href="zlib__error.html#beast.ref.zlib__error.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/zlib/error.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="zlib__deflate_upper_bound.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="zlib__inflate_stream.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

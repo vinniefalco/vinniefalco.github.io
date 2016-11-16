@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>WebSocket FAQ</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../design.html" title="Design Choices">
+<link rel="prev" href="http.html" title="HTTP FAQ">
+<link rel="next" href="websocketpp.html" title="Comparison to Zaphoyd Studios WebSocket++">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../design.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocketpp.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.design.websocket"></a><a class="link" href="websocket.html" title="WebSocket FAQ">WebSocket FAQ</a>
+</h3></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term"> What about message compression? </span></dt>
+<dd><p>
+              Beast WebSocket supports the permessage-deflate extension described
+              in <a href="https://tools.ietf.org/html/draft-ietf-hybi-permessage-compression-00" target="_top">draft-ietf-hybi-permessage-compression-00</a>.
+              The library comes with a header-only, C++11 port of ZLib's "deflate"
+              codec used in the implementation of the permessage-deflate extension.
+            </p></dd>
+<dt><span class="term"> Where is the TLS/SSL interface? </span></dt>
+<dd>
+<p>
+              The <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code> wraps the socket or stream
+              that you provide (for example, a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span></code>
+              or a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>). You establish your TLS connection
+              using the interface on <code class="computeroutput"><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>
+              like shown in all of the Asio examples, they construct your <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code> around it. It works perfectly
+              fine; Beast.WebSocket doesn't try to reinvent the wheel or put a fresh
+              coat of interface paint on the <code class="computeroutput"><span class="identifier">ssl</span><span class="special">::</span><span class="identifier">stream</span></code>.
+            </p>
+<p>
+              The WebSocket implementation <span class="bold"><strong>does</strong></span>
+              provides support for shutting down the TLS connection through the use
+              of the ADL compile-time virtual functions <a class="link" href="../ref/websocket__teardown.html" title="websocket::teardown"><code class="computeroutput"><span class="identifier">teardown</span></code></a> and <a class="link" href="../ref/websocket__async_teardown.html" title="websocket::async_teardown"><code class="computeroutput"><span class="identifier">async_teardown</span></code></a>. These will
+              properly close the connection as per rfc6455 and overloads are available
+              for TLS streams. Callers may provide their own overloads of these functions
+              for user-defined next layer types.
+            </p>
+</dd>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../design.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocketpp.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

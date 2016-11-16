@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::prepare</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__parser_v1/write_eof.html" title="http::parser_v1::write_eof">
+<link rel="next" href="http__read.html" title="http::read">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__parser_v1/write_eof.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__read.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__prepare"></a><a class="link" href="http__prepare.html" title="http::prepare">http::prepare</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1054446"></a>
+Prepare a HTTP message.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">,</span>
+    <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Options</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<span class="identifier">prepare</span><span class="special">(</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">msg</span><span class="special">,</span>
+    <span class="identifier">Options</span><span class="special">&amp;&amp;...</span> <span class="identifier">options</span><span class="special">);</span>
+</pre>
+<p>
+        This function will adjust the Content-Length, Transfer-Encoding, and Connection
+        fields of the message based on the properties of the body and the options
+        passed in.
+      </p>
+<h5>
+<a name="beast.ref.http__prepare.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__prepare.parameters"></a></span><a class="link" href="http__prepare.html#beast.ref.http__prepare.parameters">Parameters</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">msg</span></dt>
+<dd><p>
+              The message to prepare. The fields may be modified.
+            </p></dd>
+<dt><span class="term">options</span></dt>
+<dd><p>
+              A list of prepare options.
+            </p></dd>
+</dl>
+</div>
+<h5>
+<a name="beast.ref.http__prepare.h1"></a>
+        <span class="phrase"><a name="beast.ref.http__prepare.requirements"></a></span><a class="link" href="http__prepare.html#beast.ref.http__prepare.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/message.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__parser_v1/write_eof.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__read.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
