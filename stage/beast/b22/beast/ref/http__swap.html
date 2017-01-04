@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>http::swap</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="http__string_body/value_type.html" title="http::string_body::value_type">
+<link rel="next" href="http__swap/overload1.html" title="http::swap (1 of 2 overloads)">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__string_body/value_type.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__swap/overload1.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.http__swap"></a><a class="link" href="http__swap.html" title="http::swap">http::swap</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1057817"></a>
+Swap two header objects.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="http__swap/overload1.html" title="http::swap (1 of 2 overloads)">swap</a><span class="special">(</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">m1</span><span class="special">,</span>
+    <span class="identifier">header</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">m2</span><span class="special">);</span>
+</pre>
+<p>
+        Swap two message objects.
+      </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span>
+    <span class="keyword">class</span> <a class="link" href="Body.html" title="Body requirements"><span class="bold"><strong>Body</strong></span></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="http__swap/overload2.html" title="http::swap (2 of 2 overloads)">swap</a><span class="special">(</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">m1</span><span class="special">,</span>
+    <span class="identifier">message</span><span class="special">&lt;</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="identifier">Body</span><span class="special">,</span> <span class="identifier">Fields</span> <span class="special">&gt;&amp;</span> <span class="identifier">m2</span><span class="special">);</span>
+</pre>
+<h5>
+<a name="beast.ref.http__swap.h0"></a>
+        <span class="phrase"><a name="beast.ref.http__swap.requirements"></a></span><a class="link" href="http__swap.html#beast.ref.http__swap.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/http/message.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/http.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="http__string_body/value_type.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="http__swap/overload1.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

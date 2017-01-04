@@ -1,0 +1,135 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>websocket::close_code</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Beast">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="websocket__auto_fragment.html" title="websocket::auto_fragment">
+<link rel="next" href="websocket__close_reason.html" title="websocket::close_reason">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket__auto_fragment.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket__close_reason.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="beast.ref.websocket__close_code"></a><a class="link" href="websocket__close_code.html" title="websocket::close_code">websocket::close_code</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1097864"></a>
+Close status codes.
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">close_code</span>
+</pre>
+<p>
+        <a class="indexterm" name="id1097921"></a>
+ <a class="indexterm" name="id1097903"></a>
+ <a class="indexterm" name="id1097918"></a>
+ <a class="indexterm" name="id1097896"></a>
+ <a class="indexterm" name="id1097965"></a>
+ <a class="indexterm" name="id1097947"></a>
+ <a class="indexterm" name="id1097964"></a>
+ <a class="indexterm" name="id1097957"></a>
+ <a class="indexterm" name="id1098001"></a>
+ <a class="indexterm" name="id1097971"></a>
+ <a class="indexterm" name="id1097982"></a>
+ <a class="indexterm" name="id1098004"></a>
+ <a class="indexterm" name="id1097990"></a>
+ <a class="indexterm" name="id1098047"></a>
+ <a class="indexterm" name="id1098043"></a>
+ <a class="indexterm" name="id1098041"></a>
+ <a class="indexterm" name="id1098011"></a>
+ <a class="indexterm" name="id1098082"></a>
+
+      </p>
+<h5>
+<a name="beast.ref.websocket__close_code.h0"></a>
+        <span class="phrase"><a name="beast.ref.websocket__close_code.values"></a></span><a class="link" href="websocket__close_code.html#beast.ref.websocket__close_code.values">Values</a>
+      </h5>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">none</span></dt>
+<dd><p>
+              used internally to mean "no error"
+            </p></dd>
+<dt><span class="term">normal</span></dt>
+<dd></dd>
+<dt><span class="term">going_away</span></dt>
+<dd></dd>
+<dt><span class="term">protocol_error</span></dt>
+<dd></dd>
+<dt><span class="term">unknown_data</span></dt>
+<dd></dd>
+<dt><span class="term">no_close</span></dt>
+<dd><p>
+              Indicates a received close frame has no close code.
+            </p></dd>
+<dt><span class="term">bad_payload</span></dt>
+<dd></dd>
+<dt><span class="term">policy_error</span></dt>
+<dd></dd>
+<dt><span class="term">too_big</span></dt>
+<dd></dd>
+<dt><span class="term">needs_extension</span></dt>
+<dd></dd>
+<dt><span class="term">internal_error</span></dt>
+<dd></dd>
+<dt><span class="term">service_restart</span></dt>
+<dd></dd>
+<dt><span class="term">try_again_later</span></dt>
+<dd></dd>
+<dt><span class="term">reserved1</span></dt>
+<dd></dd>
+<dt><span class="term">no_status</span></dt>
+<dd></dd>
+<dt><span class="term">abnormal</span></dt>
+<dd></dd>
+<dt><span class="term">reserved2</span></dt>
+<dd></dd>
+<dt><span class="term">last</span></dt>
+<dd></dd>
+</dl>
+</div>
+<p>
+        These codes accompany close frames.
+      </p>
+<h5>
+<a name="beast.ref.websocket__close_code.h1"></a>
+        <span class="phrase"><a name="beast.ref.websocket__close_code.see_also"></a></span><a class="link" href="websocket__close_code.html#beast.ref.websocket__close_code.see_also">See
+        Also</a>
+      </h5>
+<p>
+        <a href="https://tools.ietf.org/html/rfc6455#section-7.4.1" target="_top">RFC 6455 7.4.1
+        Defined Status Codes</a>
+      </p>
+<h5>
+<a name="beast.ref.websocket__close_code.h2"></a>
+        <span class="phrase"><a name="beast.ref.websocket__close_code.requirements"></a></span><a class="link" href="websocket__close_code.html#beast.ref.websocket__close_code.requirements">Requirements</a>
+      </h5>
+<p>
+        <span class="emphasis"><em>Header: </em></span><code class="literal">beast/websocket/rfc6455.hpp</code>
+      </p>
+<p>
+        <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/websocket.hpp</code>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="websocket__auto_fragment.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="websocket__close_reason.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

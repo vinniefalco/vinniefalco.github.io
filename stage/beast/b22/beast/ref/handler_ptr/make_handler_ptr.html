@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>handler_ptr::make_handler_ptr</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="Beast">
+<link rel="up" href="../handler_ptr.html" title="handler_ptr">
+<link rel="prev" href="invoke.html" title="handler_ptr::invoke">
+<link rel="next" href="operator_star_.html" title="handler_ptr::operator*">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Beast Logo" width="1330" height="80" src="../../../images/beast.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="invoke.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../handler_ptr.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="operator_star_.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="beast.ref.handler_ptr.make_handler_ptr"></a><a class="link" href="make_handler_ptr.html" title="handler_ptr::make_handler_ptr">handler_ptr::make_handler_ptr</a>
+</h4></div></div></div>
+<p>
+          <a class="indexterm" name="id994754"></a>
+Construct a new <code class="computeroutput"><span class="identifier">handler_ptr</span></code>.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">U</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Handler</span><span class="special">,</span>
+    <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">friend</span> <span class="identifier">handler_ptr</span><span class="special">&lt;</span> <span class="identifier">U</span> <span class="special">&gt;</span>
+<span class="identifier">make_handler_ptr</span><span class="special">(</span>
+    <span class="identifier">Handler</span><span class="special">&amp;&amp;</span> <span class="identifier">handler</span><span class="special">,</span>
+    <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
+</pre>
+<h6>
+<a name="beast.ref.handler_ptr.make_handler_ptr.h0"></a>
+          <span class="phrase"><a name="beast.ref.handler_ptr.make_handler_ptr.parameters"></a></span><a class="link" href="make_handler_ptr.html#beast.ref.handler_ptr.make_handler_ptr.parameters">Parameters</a>
+        </h6>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl class="variablelist">
+<dt><span class="term">handler</span></dt>
+<dd><p>
+                The handler. The allocator associated with the handler will be used
+                to allocate memory for the owned object. This argument will be forwarded
+                to the owned object's constructor.
+              </p></dd>
+<dt><span class="term">args</span></dt>
+<dd><p>
+                Optional arguments forwarded to the owned object's constructor.
+              </p></dd>
+</dl>
+</div>
+<h6>
+<a name="beast.ref.handler_ptr.make_handler_ptr.h1"></a>
+          <span class="phrase"><a name="beast.ref.handler_ptr.make_handler_ptr.requirements"></a></span><a class="link" href="make_handler_ptr.html#beast.ref.handler_ptr.make_handler_ptr.requirements">Requirements</a>
+        </h6>
+<p>
+          <span class="emphasis"><em>Header: </em></span><code class="literal">beast/core/handler_ptr.hpp</code>
+        </p>
+<p>
+          <span class="emphasis"><em>Convenience header: </em></span><code class="literal">beast/core.hpp</code>
+        </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2013-2016 Vinnie
+      Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="invoke.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../handler_ptr.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="operator_star_.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
