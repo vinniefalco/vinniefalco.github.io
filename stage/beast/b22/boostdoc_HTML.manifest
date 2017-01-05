@@ -135,6 +135,7 @@ beast/ref/error_condition.html
 beast/ref/handler_alloc.html
 beast/ref/handler_ptr.html
 beast/ref/handler_ptr/get.html
+beast/ref/handler_ptr/handler.html
 beast/ref/handler_ptr/handler_ptr.html
 beast/ref/handler_ptr/handler_ptr/overload1.html
 beast/ref/handler_ptr/handler_ptr/overload2.html
@@ -143,6 +144,7 @@ beast/ref/handler_ptr/make_handler_ptr.html
 beast/ref/handler_ptr/operator_star_.html
 beast/ref/handler_ptr/operator_arrow_.html
 beast/ref/handler_ptr/operator_eq_.html
+beast/ref/handler_ptr/release_handler.html
 beast/ref/handler_ptr/handler_ptr_dtor_.html
 beast/ref/has_get_io_service.html
 beast/ref/http__async_parse.html
@@ -680,4 +682,10 @@ beast/ref/zlib__z_params/next_in.html
 beast/ref/zlib__z_params/next_out.html
 beast/ref/zlib__z_params/total_in.html
 beast/ref/zlib__z_params/total_out.html
+beast/ref/beast_asio_helpers__allocate.html
+beast/ref/beast_asio_helpers__deallocate.html
+beast/ref/beast_asio_helpers__invoke.html
+beast/ref/beast_asio_helpers__invoke/overload1.html
+beast/ref/beast_asio_helpers__invoke/overload2.html
+beast/ref/beast_asio_helpers__is_continuation.html
 beast/index.html

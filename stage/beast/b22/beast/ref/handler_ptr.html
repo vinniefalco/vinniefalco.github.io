@@ -64,6 +64,18 @@
 <tr>
 <td>
                 <p>
+                  <a class="link" href="handler_ptr/handler.html" title="handler_ptr::handler"><span class="bold"><strong>handler</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Returns a reference to the handler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <a class="link" href="handler_ptr/handler_ptr.html" title="handler_ptr::handler_ptr"><span class="bold"><strong>handler_ptr</strong></span></a>
                 </p>
               </td>
@@ -127,6 +139,18 @@
 <tr>
 <td>
                 <p>
+                  <a class="link" href="handler_ptr/release_handler.html" title="handler_ptr::release_handler"><span class="bold"><strong>release_handler</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Release ownership of the handler.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <a class="link" href="handler_ptr/handler_ptr_dtor_.html" title="handler_ptr::~handler_ptr"><span class="bold"><strong>~handler_ptr</strong></span></a>
                 </p>
               </td>
@@ -180,9 +204,9 @@
         happens:
       </p>
 <p>
-        The last remaining container owning the object is destroyed The last remaining
-        container owning the object is assigned another object via <a class="link" href="../../"><code class="computeroutput"><span class="keyword">operator</span><span class="special">=</span></code></a>
-        or reset. The function <a class="link" href="handler_ptr/invoke.html" title="handler_ptr::invoke"><code class="computeroutput"><span class="identifier">invoke</span></code></a> is called.
+        The function <a class="link" href="handler_ptr/invoke.html" title="handler_ptr::invoke"><code class="computeroutput"><span class="identifier">invoke</span></code></a>
+        is called. The function is called The last remaining container owning the
+        object is destroyed
       </p>
 <p>
         Objects of this type are used in the implementation of composed operations.

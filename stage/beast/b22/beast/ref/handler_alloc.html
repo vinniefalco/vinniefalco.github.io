@@ -43,7 +43,7 @@
             </p></dd>
 <dt><span class="term">CompletionHandler</span></dt>
 <dd><p>
-              The type of handler. Copies will be made of the handler as needed.
+              The type of handler.
             </p></dd>
 </dl>
 </div>
@@ -52,8 +52,8 @@
         <span class="phrase"><a name="beast.ref.handler_alloc.remarks"></a></span><a class="link" href="handler_alloc.html#beast.ref.handler_alloc.remarks">Remarks</a>
       </h5>
 <p>
-        Allocated memory is only valid until the handler is called. The caller is
-        still responsible for freeing memory.
+        Memory allocated by this allocator must be freed before the handler is invoked
+        or undefined behavior results.
       </p>
 <h5>
 <a name="beast.ref.handler_alloc.h1"></a>
