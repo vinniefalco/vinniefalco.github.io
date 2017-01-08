@@ -139,8 +139,8 @@ beast/ref/handler_ptr/handler.html
 beast/ref/handler_ptr/handler_ptr.html
 beast/ref/handler_ptr/handler_ptr/overload1.html
 beast/ref/handler_ptr/handler_ptr/overload2.html
+beast/ref/handler_ptr/handler_type.html
 beast/ref/handler_ptr/invoke.html
-beast/ref/handler_ptr/make_handler_ptr.html
 beast/ref/handler_ptr/operator_star_.html
 beast/ref/handler_ptr/operator_arrow_.html
 beast/ref/handler_ptr/operator_eq_.html

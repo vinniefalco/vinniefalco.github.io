@@ -92,8 +92,6 @@ private:
     {
         struct data
         {
-            using handler_type = Handler;
-
             bool cont;
             Stream& s;
             message<isRequest, Body, Fields> m;
@@ -108,7 +106,7 @@ private:
             }
         };
 
-        handler_ptr<data> d_;
+        handler_ptr<data, Handler> d_;
 
     public:
         write_op(write_op&&) = default;
@@ -116,7 +114,7 @@ private:
 
         template<class DeducedHandler, class... Args>
         write_op(DeducedHandler&& h, Stream& s, Args&&... args)
-            : d_(make_handler_ptr<data>(
+            : d_(make_handler_ptr<data, Handler>(
                 std::forward<DeducedHandler>(h), s,
                     std::forward<Args>(args)...))
         {

@@ -23,11 +23,46 @@
         A smart pointer container.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">Handler</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">handler_ptr</span>
 </pre>
 <h5>
 <a name="beast.ref.handler_ptr.h0"></a>
+        <span class="phrase"><a name="beast.ref.handler_ptr.types"></a></span><a class="link" href="handler_ptr.html#beast.ref.handler_ptr.types">Types</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                <p>
+                  <a class="link" href="handler_ptr/handler_type.html" title="handler_ptr::handler_type"><span class="bold"><strong>handler_type</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type of handler this object stores.
+                </p>
+              </td>
+</tr></tbody>
+</table></div>
+<h5>
+<a name="beast.ref.handler_ptr.h1"></a>
         <span class="phrase"><a name="beast.ref.handler_ptr.member_functions"></a></span><a class="link" href="handler_ptr.html#beast.ref.handler_ptr.member_functions">Member
         Functions</a>
       </h5>
@@ -161,40 +196,6 @@
               </td>
 </tr>
 </tbody>
-</table></div>
-<h5>
-<a name="beast.ref.handler_ptr.h1"></a>
-        <span class="phrase"><a name="beast.ref.handler_ptr.friends"></a></span><a class="link" href="handler_ptr.html#beast.ref.handler_ptr.friends">Friends</a>
-      </h5>
-<div class="informaltable"><table class="table">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead><tr>
-<th>
-                <p>
-                  Name
-                </p>
-              </th>
-<th>
-                <p>
-                  Description
-                </p>
-              </th>
-</tr></thead>
-<tbody><tr>
-<td>
-                <p>
-                  <a class="link" href="handler_ptr/make_handler_ptr.html" title="handler_ptr::make_handler_ptr"><span class="bold"><strong>make_handler_ptr</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Construct a new handler_ptr.
-                </p>
-              </td>
-</tr></tbody>
 </table></div>
 <p>
         This is a smart pointer that retains shared ownership of an object through
