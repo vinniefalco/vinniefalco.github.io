@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Introducing std::http</title>
+    <style type="text/css">
+    body
+    {
+        font-size: 10pt;
+        font-family: sans-serif;
+    }
+    code
+    {
+        display: block;
+        white-space: pre;
+        margin-top: -1.00em;
+        margin-left: 2.0em;
+    }
+    p
+    {
+        text-align: justify
+    }
+    p > code
+    {
+        margin-top: initial;
+        margin-left: initial;
+    }
+    li {
+        text-align: justify
+    }
+    ol.p
+    {
+        margin-left: -2.0em;
+    }
+    blockquote.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    p.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    ins { background-color: #CCFFCC; }
+    del { background-color: #FFCCCC; }
+    .insert { background-color: #CCFFCC; }
+    address {text-align:right;}
+    h1 {text-align:center;}
+    span.comment {color:#C80000;}
+    table {
+        border-collapse: collapse;
+    }
+    td, th {
+        border: 1px solid silver;
+    }
+    </style>
+</head>
+<body>
+<pre>
+Doc. no:  D1146R0
+Audience: LEWG
+Date:     2018-07-09
+Reply-To: Vinnie Falco (<a href="mailto:vinnie.falco@gmail.com">vinnie.falco@gmail.com</a>)
+</pre>
+<hr>
+<h1>Introducing <tt>std::http</tt></h1>
+
+
+
+<h2>Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#motivation">Motivation and Scope</a></li>
+<li><a href="#impact">Impact On the Standard</a></li>
+<li><a href="#design">Design Decisions</a></li>
+<li><a href="#wording">Proposed Wording</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+<li><a href="#table">Tables</a></li>
+</ol>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="overview">1. Overview</h2>
+<p>
+This document proposes an HTTP protocol library for C++. The library is
+aimed at providing low-level abstractions only. The benefit is that HTTP
+programs built with this library will be easier and faster to implement,
+understand, and maintain, because the library takes care of the protocol
+details.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="motivation">2. Motivation and Scope</h2>
+
+<h3 id="motivation.scope">2.1 Scope</h3>
+<p>
+Problem areas addressed by this proposal include:
+<ul>
+<li>Buffer-oriented HTTP/1 parsing and serialization.</li>
+<li>Modeling of HTTP/1 and HTTP/2 messages as first-class objects.</li>
+<li>Synchronous and asynchronous stream algorithms for HTTP/1 parsing and serialization.</li>
+<li>Automatic management of the Connection, Content-Length,
+    Transfer-Encoding, and Upgrade HTTP field values.</li>
+</ul>
+</p>
+<p>
+Features that are considered outside the scope of this proposal include:
+<ul>
+<li>HTTP/0.9 serialization and parsing.</li>
+<li>HTTP/2 serialization and parsing.</li>
+<li>Tolerant parsing of HTTP/1.</li>
+<li>General processing of HTTP field values.</li>
+<li>Parsing of HTTP variations (e.g. "ICY 200 OK").</li>
+<li>SSL/TLS certificate verification and management.</li>
+<li>Connection establishment, closure, and domain name resolution.</li>
+<li>Interpreting the semantics of HTTP message bodies.</li>
+<li>request-target URI parsing.</li>
+</ul>
+</p>
+
+<h3 id="motivation.target">2.2 Target Audience</h3>
+<p>
+The bulk of the library interface is intended for use by developers with
+an understanding of Networking TS concepts, as well as a good grasp of
+HTTP protocol semantics. Most end users will likely not interact with
+the library directly; instead, this library will be used to build higher
+level abstractions such as full-featured HTTP clients or HTTP servers.
+This document refers to abstractions built on top of this library as
+<em>HTTP middleware</em> (or just <em>middleware</em>).
+</p>
+
+<h3 id="motivation.reference">2.3 Reference Implementation</h3>
+<p>
+The Boost.Beast library, from which this proposal is derived, has been
+deployed in a number of production systems, such as internet-facing HTTP
+servers, decentralized cryptocurrency networks, and finance applications.
+The Boost.Beast  library has been used on the following platforms:
+</p>
+<ul>
+<li>Win32 using Visual Studio 14 and 15</li>
+<li>Linux (newer kernels) using g++ 4.8 or later</li>
+<li>Mac OS X 10.4 using clang 3.6 or later</li>
+</ul>
+
+<h3 id="motivation.related">2.4 Related Work</h3>
+<p>
+The interfaces used for transacting with streams are based on idioms
+established by the Networking TS. In particular this library adopts the
+Universal Asynchronous Model defined by the TS.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="impact">3. Impact On the Standard</h2>
+<p>
+This is a pure library proposal. It does not add any new language features,
+nor does it alter any existing standard library headers. This library can be
+implemented using compilers that conform to the C++17 standard (or later).
+However, this library also requires the library features offered in
+Networking TS.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="design">4 Design Decisions</h2>
+<p>
+The overarching design principle of this library is <em>"Don't make odd
+choices on behalf of the user."</em> Important decisions such as when and
+how to allocate memory are left to the caller. Customization points allow
+all the "interesting" behaviors to be user-defined. It is important to
+recognize that this library is <em>low-level</em>. It is not a complete
+HTTP client nor does it provide a complete HTTP server. However, those
+things can be built with the library. Specifically, this library provides
+the following:
+</p>
+<ul>
+<li>A flexible container for holding HTTP/1 and HTTP/2 messages</li>
+<li>Read algorithms: deserialize HTTP/1 messages from a readable stream</li>
+<li>Write algorithms: serialize HTTP/1 messages to a writable stream</li>
+<li>Parsing: parse HTTP/1 messages from caller-provided buffers</li>
+<li>Serialization: Serialize HTTP/1 messages to caller-provided buffers</li>
+</ul>
+<p>
+Most importantly, this library defines a universal, first class container for
+holding any type of HTTP message, including both HTTP/1 and HTTP/2. This allows
+authors to write functional algorithms which operate only on messages, independent
+of streams or networking, with the guarantee that these algorithms will
+interoperate seamlessly.
+</p>
+
+<h3 id="design.netts">4.1 Networking TS</h3>
+<p>
+All stream algorithms use interfaces similar or identical to those found in
+the Networking TS. The advantage is that skill acquired at operating the TS
+will translate directly into skill with using HTTP stream algorithms.
+To prevent duplication of functionality, the library only provides
+algorithms which are strictly part of the low-level HTTP protocol.
+Other operations, such as perfoming DNS lookups or making outgoing
+TCP/IP connections, are left to the Networking TS.
+</p>
+
+<h3 id="design.transport">4.2 Transport Independence</h3>
+<p>
+Stream algorithms are expressed as function templates which operate on
+stream concepts. This allows any form of transport to be used, including
+TCP/IP sockets but also including properly configured SSL or TLS streams.
+Unconventional transports such as interprocess communication may also be
+used, if an implementation exists or can be written to meet the concept
+requirements.
+</p>
+
+<h3 id="design.faq">4.3 FAQ</h3>
+
+<ul>
+
+<li><p><b>Why no HTTP/2?</b></p>
+<p>
+The message container described herein does support the modeling of
+HTTP/2 messages. Missing, however, are the stream algorithms. The simple,
+functional approach taken by the HTTP/1 stream algorithms in this library
+are insufficient, as the HTTP/2 specification mandates a stateful connection.
+Furthermore, due to the required flow control features, a synchronous
+implementation is not practical. Implementing a full featured low-level
+HTTP/2 library that is up to the quality needed for standardisation is a
+non-trivial endeavor.
+</p><p>
+We note that HTTP/2 is still controversial. Widespread
+adoption has not happened yet. As of this writing, no browser supports HTTP/2
+unencrypted. Even if the C++ standard had networking and HTTP/2  today, it
+would not be capable of serving content to any browsers, as C++ networking
+does not yet have SSL/TLS support.
+</p></li>
+
+<li><p><b>Why HTTP/1?</b></p>
+<p>
+HTTP/1 is unlikely to ever go away, as the relatively small amount of
+code required to implement it makes it favored for many use-cases such
+as the Internet of Things or embedded devices. HTTP/1 is also needed
+when implementing the HTTP/1 Upgrade handshake mechanic used for switching
+protocols, WebSocket in particular. The HTTP/1 Upgrade mechanism is even
+needed to initiate an HTTP/2 connection.
+</p></li>
+
+</ul>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="wording">5. Proposed Wording (informative)</h2>
+
+<p>Exact wording is to be determined after [networking.ts] is merged</p>
+
+<h3>5.1 Definitions</h3>
+<ol>
+
+<li><p>The following definitions are adopted from [networking.ts] as-is:</p>
+    <ul>
+    <li>Types <tt>const_buffer</tt> and <tt>mutable_buffer</tt>.</li>
+    <li>Concepts <em>ConstBufferSequence</em>, <em>MutableBufferSequence</em>, and <em>DynamicBuffer</em>.</li>
+    <li>Functions <tt>buffer_size</tt>, <tt>buffer_sequence_begin</tt>, and <tt>buffer_sequence_end</tt>.</li>
+    <li>Class templates <tt>is_const_buffer_sequence_v</tt>, <tt>is_mutable_buffer_sequence_v</tt>, and <tt>is_dynamic_buffer_v</tt>.</li>
+    </ul></li>
+
+</ol>
+
+<h3>5.2 Header <tt>&lt;http&gt;</tt> synopsis</h3>
+<code>
+namespace std {
+namespace http {
+
+// <em><a href="#synop.enums">5.3</a> enumerations and strings</em>
+
+enum class field : unsigned short;
+enum class status : unsigned short;
+enum class status_class : unsigned char;
+
+auto field_to_string (field f) -&gt; string_view;
+auto string_to_field (string_view s) -&gt; field;
+auto operator&lt;&lt; (ostream&amp; os, field f) -&gt; ostream&amp;
+
+auto int_to_status (unsigned short v) -&gt; status;
+auto to_status_class (unsigned char v) -&gt; status_class;
+auto to_status_class (status v) -&gt; status_class;
+auto obsolete_reason (status v) -&gt; string_view;
+auto operator&lt;&lt; (ostream&amp; os, status s) -&gt; ostream&amp;;
+
+auto string_to_verb (string_view s) -&gt; verb;
+auto verb_to_string (verb v) -&gt; string_view;
+auto operator&lt;&lt; (ostream&amp; os, verb v) -&gt; ostream&amp;
+
+// <em><a href="#synop.message">5.4</a> message container</em>
+
+template &lt;class Allocator&gt;
+class basic_fields;
+
+using fields = basic_fields &lt;std::allocator&lt;char&gt;&gt;;
+
+template &lt;bool isRequest, class Fields = fields&gt;
+class header;
+
+template &lt;class Fields = fields&gt;
+using request_header = header&lt;true, Fields&gt;
+
+template &lt;class Fields = fields&gt;
+using response_header = header&lt;false, Fields&gt;
+
+template &lt;bool isRequest, class Body, class Fields = fields&gt;
+class message;
+
+template &lt;class Body, class Fields = fields&gt;
+using request = message&lt;true, Body, Fields&gt;;
+
+template &lt;class Body, class Fields = fields&gt;
+using response = message&lt;false, Body, Fields&gt;;
+
+template &lt;bool isRequest, class Fields&gt;
+void swap (header&lt;isRequest, Fields&gt;&amp; m1, header&lt;isRequest, Fields&gt;&amp; m2);
+
+template &lt;bool isRequest, class Body, class Fields&gt;
+void swap (message&lt;isRequest, Body, Fields&gt;&amp; m1, message&lt;isRequest, Body, Fields&gt;&amp; m2);
+
+// <em>body types</em>
+
+template &lt;class CharT, class Traits = std::char_traits&lt;CharT&gt;, class Allocator = std::allocator&lt;CharT&gt;&gt;
+class basic_string_body;
+
+using string_body = basic_string_body&lt;char&gt;;
+
+template &lt;class T, class Allocator = std::allocator&lt;T&gt;&gt;
+struct vector_body;
+
+// <em>parsing and serialization</em>
+
+template &lt;bool isRequest, class Derived&gt;
+class basic_parser;
+
+template &lt;bool isRequest, class Body, class Allocator = std::allocator&lt;char&gt;&gt;
+class parser;
+
+template &lt;class Body, class Allocator = std::allocator&lt;char&gt;&gt;
+using request_parser = parser&lt;true, Body, Allocator&lt;;
+
+template &lt;class Body, class Allocator = std::allocator&lt;char&gt;&gt;
+using response_parser = parser&lt;false, Body, Allocator&gt;;
+
+template &lt;bool isRequest, class Body, class Fields = fields&gt;
+class serializer;
+
+template &lt;class Body, class Fields = fields&gt;
+using request_serializer = serializer&lt;true, Body, Fields&gt;;
+
+template &lt;class Body, class Fields = fields&gt;
+using response_serializer = serializer&lt;false, Body, Fields&gt;;
+
+// <em>synchronous read operations</em>
+
+template &lt;class SyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived&gt;
+auto read_some (SyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser&lt;isRequest, Derived&gt;&amp; parser) -&gt; size_t;
+
+template &lt;class SyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived&gt;
+auto read_some (SyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser&lt;isRequest, Derived&gt;&amp; parser, error_code&amp; ec) -&gt; size_t;
+
+template &lt;class SyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived&gt;
+auto read_header (SyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser&lt;isRequest, Derived&gt;&amp; parser) -&gt; size_t;
+
+template &lt;class SyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived&gt;
+auto read_header (SyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser&lt;isRequest, Derived&gt;&amp; parser, error_code&amp; ec) -&gt; size_t;
+
+template &lt;class SyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived&gt;
+auto read (SyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser&lt;isRequest, Derived&gt;&amp; parser) -&gt; size_t;
+
+template &lt;class SyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived&gt;
+auto read (SyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser&lt;isRequest, Derived&gt;&amp; parser, error_code&amp; ec) -&gt; size_t;
+
+// <em>asynchronous read operations</em>
+
+template &lt;class AsyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived, class CompletionToken&gt;
+<em>DEDUCED</em> async_read_some (AsyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser &lt;isRequest, Derived&gt;&amp; parser, CompletionToken&amp;&amp; token);
+
+template &lt;class AsyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived, class CompletionToken&gt;
+<em>DEDUCED</em> async_read_header (AsyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser &lt;isRequest, Derived&gt;&amp; parser, CompletionToken&amp;&amp; token);
+
+template &lt;class AsyncReadStream, class DynamicBuffer,
+    bool isRequest, class Derived, class CompletionToken&gt;
+<em>DEDUCED</em> async_read (AsyncReadStream&amp; stream, DynamicBuffer&amp; buffer,
+    basic_parser &lt;isRequest, Derived&gt;&amp; parser, CompletionToken&amp;&amp; token);
+
+// <em>synchronous write operations</em>
+
+template &lt;class SyncWriteStream, bool isRequest, class Body, class Fields&gt;
+auto write_some (SyncWriteStream& stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr) -> size_t;
+
+template &lt;class SyncWriteStream, bool isRequest, class Body, class Fields&gt;
+auto write_some (SyncWriteStream& stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr, error_code&amp; ec) -> size_t;
+
+template &lt;class SyncWriteStream, bool isRequest, class Body, class Fields&gt;
+auto write_header (SyncWriteStream& stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr) -> size_t;
+
+template &lt;class SyncWriteStream, bool isRequest, class Body, class Fields&gt;
+auto write_header (SyncWriteStream& stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr, error_code&amp; ec) -> size_t;
+
+template &lt;class SyncWriteStream, bool isRequest, class Body, class Fields&gt;
+auto write (SyncWriteStream& stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr) -> size_t;
+
+template &lt;class SyncWriteStream, bool isRequest, class Body, class Fields&gt;
+auto write (SyncWriteStream& stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr, error_code&amp; ec) -> size_t;
+
+// <em>asynchronous write operations</em>
+
+template &lt;class AsyncWriteStream,
+    bool isRequest, class Body, class Fields, class CompletionToken&gt;
+<em>DEDUCED</em> async_write_some (AsyncWriteStream&amp; stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr, CompletionToken&amp;&amp; token);
+
+template &lt;class AsyncWriteStream,
+    bool isRequest, class Body, class Fields, class CompletionToken&gt;
+<em>DEDUCED</em> async_write_header (AsyncWriteStream&amp; stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr, CompletionToken&amp;&amp; token);
+
+template &lt;class AsyncWriteStream,
+    bool isRequest, class Body, class Fields, class CompletionToken&gt;
+<em>DEDUCED</em> async_write (AsyncWriteStream&amp; stream,
+    serializer&lt;isRequest, Body, Fields&gt;&amp; sr, CompletionToken&amp;&amp; token);
+
+template &lt;bool isRequest, class Fields&gt;
+auto operator&lt;&lt; (ostream&amp; os, header&lt;isRequest, Fields&gt; const&amp; msg) -> ostream&amp;;
+
+template &lt;bool isRequest, class Body, class Fields&gt;
+auto operator&lt;&lt; (ostream&amp; os,
+    message&lt;isRequest, Body, Fields&gt; const&amp; msg) -> ostream&amp;;
+
+} // std
+</code>
+<p>
+</p>
+
+<h3 id="synop.enums">5.3 Enumerations and strings</h3>
+<p>
+These constants and functions are used to describe and identify
+metadata in HTTP messages.
+</p>
+<code>
+enum class field : unsigned short
+{
+    <em>see-below</em>
+};
+
+enum class status : unsigned short
+{
+    <em>see-below</em>
+};
+
+enum class status_class : unsigned char
+{
+    unknown = 0,
+    informational = 1,
+    successful = 2,
+    redirection = 3,
+    client_error = 4,
+    server_error = 5
+};
+
+auto field_to_string (field f) -&gt; string_view;
+auto string_to_field (string_view s) -&gt; field;
+auto operator&lt;&lt; (ostream&amp; os, field f) -&gt; ostream&amp;
+
+auto int_to_status (unsigned short v) -&gt; status;
+auto to_status_class (unsigned char v) -&gt; status_class;
+auto to_status_class (status v) -&gt; status_class;
+auto obsolete_reason (status v) -&gt; string_view;
+auto operator&lt;&lt; (ostream&amp; os, status s) -&gt; ostream&amp;;
+
+auto string_to_verb (string_view s) -&gt; verb;
+auto verb_to_string (verb v) -&gt; string_view;
+auto operator&lt;&lt; (ostream&amp; os, verb v) -&gt; ostream&amp;
+</code>
+<ol>
+
+<li><p><code>enum class field : unsigned short
+{
+    <em>see-below</em>
+};</code></p>
+    <p></p></li>
+
+<li><p><code>auto field_to_string (field f) -&gt; string_view</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto string_to_field (string_view s) -&gt; field;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto operator&lt;&lt; (ostream&amp; os, field f) -&gt; ostream&amp;</code></p>
+    <p><em>Effects:</em> <tt>os &lt;&lt; field_to_string(f)</tt>.</p>
+    <p><em>Returns:</em> <tt>os</tt>.</p>
+    </li>
+
+<li><p><code>auto int_to_status (unsigned short v) -&gt; status;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto to_status_class (unsigned char v) -&gt; status_class;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto to_status_class (status v) -&gt; status_class;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto obsolete_reason (status v) -&gt; string_view;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto operator&lt;&lt; (ostream&amp; os, status s) -&gt; ostream&amp;;</code></p>
+    <p><em>Effects:</em> <tt>os &lt;&lt; obsolete_reason(s)</tt>.</p>
+    <p><em>Returns:</em> <tt>os</tt>.</p>
+
+
+<li><p><code>auto string_to_verb (string_view s) -&gt; verb;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto verb_to_string (verb v) -&gt; string_view;</code></p>
+    <p><em>Returns:</em></p></li>
+
+<li><p><code>auto operator&lt;&lt; (ostream&amp; os, verb v) -&gt; ostream&amp;</code></p>
+    <p><em>Effects:</em> <tt>os &lt;&lt; verb_to_string(v)</tt>.</p>
+    <p><em>Returns:</em> <tt>os</tt>.</p>
+
+
+</ol>
+
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.message">5.4 Message container</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.body">5.5 Body types</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.format">5.6 Parsing and Serialization</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.syncread">5.7 Synchronous read operations</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.asyncread">5.8 Asynchronous read operations</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.syncwrite">5.9 Synchronous write operations</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h3 id="synop.asyncwrite">5.10 Asynchronous write operations</h3>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="acknowledgements">6. Acknowledgements</h2>
+<p>
+[TBD]
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="table">7. Tables</h2>
+
+<h3>7.1 Table 1</h3>
+<blockquote><table>
+<tr><th>id</th><th>string</th><th>value</th></tr>
+<tr><td><tt>unknown</tt><td>""</td><td>0</td></tr>
+<tr><td><tt>a_im</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_additions</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_charset</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_datetime</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_encoding</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_features</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_language</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_patch</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_post</tt><td>""</td><td></td></tr>
+<tr><td><tt>accept_ranges</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_allow_credentials</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_allow_headers</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_allow_methods</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_allow_origin</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_expose_headers</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_max_age</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_request_headers</tt><td>""</td><td></td></tr>
+<tr><td><tt>access_control_request_method</tt><td>""</td><td></td></tr>
+<tr><td><tt>age</tt><td>""</td><td></td></tr>
+<tr><td><tt>allow</tt><td>""</td><td></td></tr>
+<tr><td><tt>alpn</tt><td>""</td><td></td></tr>
+<tr><td><tt>also_control</tt><td>""</td><td></td></tr>
+<tr><td><tt>alt_svc</tt><td>""</td><td></td></tr>
+<tr><td><tt>alt_used</tt><td>""</td><td></td></tr>
+<tr><td><tt>alternate_recipient</tt><td>""</td><td></td></tr>
+<tr><td><tt>alternates</tt><td>""</td><td></td></tr>
+<tr><td><tt>apparently_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>apply_to_redirect_ref</tt><td>""</td><td></td></tr>
+<tr><td><tt>approved</tt><td>""</td><td></td></tr>
+<tr><td><tt>archive</tt><td>""</td><td></td></tr>
+<tr><td><tt>archived_at</tt><td>""</td><td></td></tr>
+<tr><td><tt>article_names</tt><td>""</td><td></td></tr>
+<tr><td><tt>article_updates</tt><td>""</td><td></td></tr>
+<tr><td><tt>authentication_control</tt><td>""</td><td></td></tr>
+<tr><td><tt>authentication_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>authentication_results</tt><td>""</td><td></td></tr>
+<tr><td><tt>authorization</tt><td>""</td><td></td></tr>
+<tr><td><tt>auto_submitted</tt><td>""</td><td></td></tr>
+<tr><td><tt>autoforwarded</tt><td>""</td><td></td></tr>
+<tr><td><tt>autosubmitted</tt><td>""</td><td></td></tr>
+<tr><td><tt>base</tt><td>""</td><td></td></tr>
+<tr><td><tt>bcc</tt><td>""</td><td></td></tr>
+<tr><td><tt>body</tt><td>""</td><td></td></tr>
+<tr><td><tt>c_ext</tt><td>""</td><td></td></tr>
+<tr><td><tt>c_man</tt><td>""</td><td></td></tr>
+<tr><td><tt>c_opt</tt><td>""</td><td></td></tr>
+<tr><td><tt>c_pep</tt><td>""</td><td></td></tr>
+<tr><td><tt>c_pep_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>cache_control</tt><td>""</td><td></td></tr>
+<tr><td><tt>caldav_timezones</tt><td>""</td><td></td></tr>
+<tr><td><tt>cancel_key</tt><td>""</td><td></td></tr>
+<tr><td><tt>cancel_lock</tt><td>""</td><td></td></tr>
+<tr><td><tt>cc</tt><td>""</td><td></td></tr>
+<tr><td><tt>close</tt><td>""</td><td></td></tr>
+<tr><td><tt>comments</tt><td>""</td><td></td></tr>
+<tr><td><tt>compliance</tt><td>""</td><td></td></tr>
+<tr><td><tt>connection</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_alternative</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_base</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_description</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_disposition</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_duration</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_encoding</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_features</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_identifier</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_language</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_length</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_location</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_md5</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_range</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_return</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_script_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_style_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_transfer_encoding</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>content_version</tt><td>""</td><td></td></tr>
+<tr><td><tt>control</tt><td>""</td><td></td></tr>
+<tr><td><tt>conversion</tt><td>""</td><td></td></tr>
+<tr><td><tt>conversion_with_loss</tt><td>""</td><td></td></tr>
+<tr><td><tt>cookie</tt><td>""</td><td></td></tr>
+<tr><td><tt>cookie2</tt><td>""</td><td></td></tr>
+<tr><td><tt>cost</tt><td>""</td><td></td></tr>
+<tr><td><tt>dasl</tt><td>""</td><td></td></tr>
+<tr><td><tt>date</tt><td>""</td><td></td></tr>
+<tr><td><tt>date_received</tt><td>""</td><td></td></tr>
+<tr><td><tt>dav</tt><td>""</td><td></td></tr>
+<tr><td><tt>default_style</tt><td>""</td><td></td></tr>
+<tr><td><tt>deferred_delivery</tt><td>""</td><td></td></tr>
+<tr><td><tt>delivery_date</tt><td>""</td><td></td></tr>
+<tr><td><tt>delta_base</tt><td>""</td><td></td></tr>
+<tr><td><tt>depth</tt><td>""</td><td></td></tr>
+<tr><td><tt>derived_from</tt><td>""</td><td></td></tr>
+<tr><td><tt>destination</tt><td>""</td><td></td></tr>
+<tr><td><tt>differential_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>digest</tt><td>""</td><td></td></tr>
+<tr><td><tt>discarded_x400_ipms_extensions</tt><td>""</td><td></td></tr>
+<tr><td><tt>discarded_x400_mts_extensions</tt><td>""</td><td></td></tr>
+<tr><td><tt>disclose_recipients</tt><td>""</td><td></td></tr>
+<tr><td><tt>disposition_notification_options</tt><td>""</td><td></td></tr>
+<tr><td><tt>disposition_notification_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>distribution</tt><td>""</td><td></td></tr>
+<tr><td><tt>dkim_signature</tt><td>""</td><td></td></tr>
+<tr><td><tt>dl_expansion_history</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_bcc</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_cc</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_disposition_notification_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_final_recipient</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_from</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_in_reply_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_mail_from</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_message_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_original_recipient</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_rcpt_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_references</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_reply_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_resent_bcc</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_resent_cc</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_resent_from</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_resent_reply_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_resent_sender</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_resent_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_return_path</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_sender</tt><td>""</td><td></td></tr>
+<tr><td><tt>downgraded_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>ediint_features</tt><td>""</td><td></td></tr>
+<tr><td><tt>eesst_version</tt><td>""</td><td></td></tr>
+<tr><td><tt>encoding</tt><td>""</td><td></td></tr>
+<tr><td><tt>encrypted</tt><td>""</td><td></td></tr>
+<tr><td><tt>errors_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>etag</tt><td>""</td><td></td></tr>
+<tr><td><tt>expect</tt><td>""</td><td></td></tr>
+<tr><td><tt>expires</tt><td>""</td><td></td></tr>
+<tr><td><tt>expiry_date</tt><td>""</td><td></td></tr>
+<tr><td><tt>ext</tt><td>""</td><td></td></tr>
+<tr><td><tt>followup_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>forwarded</tt><td>""</td><td></td></tr>
+<tr><td><tt>from</tt><td>""</td><td></td></tr>
+<tr><td><tt>generate_delivery_report</tt><td>""</td><td></td></tr>
+<tr><td><tt>getprofile</tt><td>""</td><td></td></tr>
+<tr><td><tt>hobareg</tt><td>""</td><td></td></tr>
+<tr><td><tt>host</tt><td>""</td><td></td></tr>
+<tr><td><tt>http2_settings</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_match</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_modified_since</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_none_match</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_range</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_schedule_tag_match</tt><td>""</td><td></td></tr>
+<tr><td><tt>if_unmodified_since</tt><td>""</td><td></td></tr>
+<tr><td><tt>im</tt><td>""</td><td></td></tr>
+<tr><td><tt>importance</tt><td>""</td><td></td></tr>
+<tr><td><tt>in_reply_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>incomplete_copy</tt><td>""</td><td></td></tr>
+<tr><td><tt>injection_date</tt><td>""</td><td></td></tr>
+<tr><td><tt>injection_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>jabber_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>keep_alive</tt><td>""</td><td></td></tr>
+<tr><td><tt>keywords</tt><td>""</td><td></td></tr>
+<tr><td><tt>label</tt><td>""</td><td></td></tr>
+<tr><td><tt>language</tt><td>""</td><td></td></tr>
+<tr><td><tt>last_modified</tt><td>""</td><td></td></tr>
+<tr><td><tt>latest_delivery_time</tt><td>""</td><td></td></tr>
+<tr><td><tt>lines</tt><td>""</td><td></td></tr>
+<tr><td><tt>link</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_archive</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_help</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_owner</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_post</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_subscribe</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_unsubscribe</tt><td>""</td><td></td></tr>
+<tr><td><tt>list_unsubscribe_post</tt><td>""</td><td></td></tr>
+<tr><td><tt>location</tt><td>""</td><td></td></tr>
+<tr><td><tt>lock_token</tt><td>""</td><td></td></tr>
+<tr><td><tt>man</tt><td>""</td><td></td></tr>
+<tr><td><tt>max_forwards</tt><td>""</td><td></td></tr>
+<tr><td><tt>memento_datetime</tt><td>""</td><td></td></tr>
+<tr><td><tt>message_context</tt><td>""</td><td></td></tr>
+<tr><td><tt>message_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>message_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>meter</tt><td>""</td><td></td></tr>
+<tr><td><tt>method_check</tt><td>""</td><td></td></tr>
+<tr><td><tt>method_check_expires</tt><td>""</td><td></td></tr>
+<tr><td><tt>mime_version</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_acp127_message_identifier</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_authorizing_users</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_codress_message_indicator</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_copy_precedence</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_exempted_address</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_extended_authorisation_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_handling_instructions</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_message_instructions</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_message_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_originator_plad</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_originator_reference</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_other_recipients_indicator_cc</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_other_recipients_indicator_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_primary_precedence</tt><td>""</td><td></td></tr>
+<tr><td><tt>mmhs_subject_indicator_codes</tt><td>""</td><td></td></tr>
+<tr><td><tt>mt_priority</tt><td>""</td><td></td></tr>
+<tr><td><tt>negotiate</tt><td>""</td><td></td></tr>
+<tr><td><tt>newsgroups</tt><td>""</td><td></td></tr>
+<tr><td><tt>nntp_posting_date</tt><td>""</td><td></td></tr>
+<tr><td><tt>nntp_posting_host</tt><td>""</td><td></td></tr>
+<tr><td><tt>non_compliance</tt><td>""</td><td></td></tr>
+<tr><td><tt>obsoletes</tt><td>""</td><td></td></tr>
+<tr><td><tt>opt</tt><td>""</td><td></td></tr>
+<tr><td><tt>optional</tt><td>""</td><td></td></tr>
+<tr><td><tt>optional_www_authenticate</tt><td>""</td><td></td></tr>
+<tr><td><tt>ordering_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>organization</tt><td>""</td><td></td></tr>
+<tr><td><tt>origin</tt><td>""</td><td></td></tr>
+<tr><td><tt>original_encoded_information_types</tt><td>""</td><td></td></tr>
+<tr><td><tt>original_from</tt><td>""</td><td></td></tr>
+<tr><td><tt>original_message_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>original_recipient</tt><td>""</td><td></td></tr>
+<tr><td><tt>original_sender</tt><td>""</td><td></td></tr>
+<tr><td><tt>original_subject</tt><td>""</td><td></td></tr>
+<tr><td><tt>originator_return_address</tt><td>""</td><td></td></tr>
+<tr><td><tt>overwrite</tt><td>""</td><td></td></tr>
+<tr><td><tt>p3p</tt><td>""</td><td></td></tr>
+<tr><td><tt>path</tt><td>""</td><td></td></tr>
+<tr><td><tt>pep</tt><td>""</td><td></td></tr>
+<tr><td><tt>pep_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>pics_label</tt><td>""</td><td></td></tr>
+<tr><td><tt>position</tt><td>""</td><td></td></tr>
+<tr><td><tt>posting_version</tt><td>""</td><td></td></tr>
+<tr><td><tt>pragma</tt><td>""</td><td></td></tr>
+<tr><td><tt>prefer</tt><td>""</td><td></td></tr>
+<tr><td><tt>preference_applied</tt><td>""</td><td></td></tr>
+<tr><td><tt>prevent_nondelivery_report</tt><td>""</td><td></td></tr>
+<tr><td><tt>priority</tt><td>""</td><td></td></tr>
+<tr><td><tt>privicon</tt><td>""</td><td></td></tr>
+<tr><td><tt>profileobject</tt><td>""</td><td></td></tr>
+<tr><td><tt>protocol</tt><td>""</td><td></td></tr>
+<tr><td><tt>protocol_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>protocol_query</tt><td>""</td><td></td></tr>
+<tr><td><tt>protocol_request</tt><td>""</td><td></td></tr>
+<tr><td><tt>proxy_authenticate</tt><td>""</td><td></td></tr>
+<tr><td><tt>proxy_authentication_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>proxy_authorization</tt><td>""</td><td></td></tr>
+<tr><td><tt>proxy_connection</tt><td>""</td><td></td></tr>
+<tr><td><tt>proxy_features</tt><td>""</td><td></td></tr>
+<tr><td><tt>proxy_instruction</tt><td>""</td><td></td></tr>
+<tr><td><tt>public_</tt><td>""</td><td></td></tr>
+<tr><td><tt>public_key_pins</tt><td>""</td><td></td></tr>
+<tr><td><tt>public_key_pins_report_only</tt><td>""</td><td></td></tr>
+<tr><td><tt>range</tt><td>""</td><td></td></tr>
+<tr><td><tt>received</tt><td>""</td><td></td></tr>
+<tr><td><tt>received_spf</tt><td>""</td><td></td></tr>
+<tr><td><tt>redirect_ref</tt><td>""</td><td></td></tr>
+<tr><td><tt>references</tt><td>""</td><td></td></tr>
+<tr><td><tt>referer</tt><td>""</td><td></td></tr>
+<tr><td><tt>referer_root</tt><td>""</td><td></td></tr>
+<tr><td><tt>relay_version</tt><td>""</td><td></td></tr>
+<tr><td><tt>reply_by</tt><td>""</td><td></td></tr>
+<tr><td><tt>reply_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>require_recipient_valid_since</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_bcc</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_cc</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_date</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_from</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_message_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_reply_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_sender</tt><td>""</td><td></td></tr>
+<tr><td><tt>resent_to</tt><td>""</td><td></td></tr>
+<tr><td><tt>resolution_hint</tt><td>""</td><td></td></tr>
+<tr><td><tt>resolver_location</tt><td>""</td><td></td></tr>
+<tr><td><tt>retry_after</tt><td>""</td><td></td></tr>
+<tr><td><tt>return_path</tt><td>""</td><td></td></tr>
+<tr><td><tt>safe</tt><td>""</td><td></td></tr>
+<tr><td><tt>schedule_reply</tt><td>""</td><td></td></tr>
+<tr><td><tt>schedule_tag</tt><td>""</td><td></td></tr>
+<tr><td><tt>sec_websocket_accept</tt><td>""</td><td></td></tr>
+<tr><td><tt>sec_websocket_extensions</tt><td>""</td><td></td></tr>
+<tr><td><tt>sec_websocket_key</tt><td>""</td><td></td></tr>
+<tr><td><tt>sec_websocket_protocol</tt><td>""</td><td></td></tr>
+<tr><td><tt>sec_websocket_version</tt><td>""</td><td></td></tr>
+<tr><td><tt>security_scheme</tt><td>""</td><td></td></tr>
+<tr><td><tt>see_also</tt><td>""</td><td></td></tr>
+<tr><td><tt>sender</tt><td>""</td><td></td></tr>
+<tr><td><tt>sensitivity</tt><td>""</td><td></td></tr>
+<tr><td><tt>server</tt><td>""</td><td></td></tr>
+<tr><td><tt>set_cookie</tt><td>""</td><td></td></tr>
+<tr><td><tt>set_cookie2</tt><td>""</td><td></td></tr>
+<tr><td><tt>setprofile</tt><td>""</td><td></td></tr>
+<tr><td><tt>sio_label</tt><td>""</td><td></td></tr>
+<tr><td><tt>sio_label_history</tt><td>""</td><td></td></tr>
+<tr><td><tt>slug</tt><td>""</td><td></td></tr>
+<tr><td><tt>soapaction</tt><td>""</td><td></td></tr>
+<tr><td><tt>solicitation</tt><td>""</td><td></td></tr>
+<tr><td><tt>status_uri</tt><td>""</td><td></td></tr>
+<tr><td><tt>strict_transport_security</tt><td>""</td><td></td></tr>
+<tr><td><tt>subject</tt><td>""</td><td></td></tr>
+<tr><td><tt>subok</tt><td>""</td><td></td></tr>
+<tr><td><tt>subst</tt><td>""</td><td></td></tr>
+<tr><td><tt>summary</tt><td>""</td><td></td></tr>
+<tr><td><tt>supersedes</tt><td>""</td><td></td></tr>
+<tr><td><tt>surrogate_capability</tt><td>""</td><td></td></tr>
+<tr><td><tt>surrogate_control</tt><td>""</td><td></td></tr>
+<tr><td><tt>tcn</tt><td>""</td><td></td></tr>
+<tr><td><tt>te</tt><td>""</td><td></td></tr>
+<tr><td><tt>timeout</tt><td>""</td><td></td></tr>
+<tr><td><tt>title</tt><td>""</td><td></td></tr>
+<tr><td><tt>to</tt><td>""</td><td></td></tr>
+<tr><td><tt>topic</tt><td>""</td><td></td></tr>
+<tr><td><tt>trailer</tt><td>""</td><td></td></tr>
+<tr><td><tt>transfer_encoding</tt><td>""</td><td></td></tr>
+<tr><td><tt>ttl</tt><td>""</td><td></td></tr>
+<tr><td><tt>ua_color</tt><td>""</td><td></td></tr>
+<tr><td><tt>ua_media</tt><td>""</td><td></td></tr>
+<tr><td><tt>ua_pixels</tt><td>""</td><td></td></tr>
+<tr><td><tt>ua_resolution</tt><td>""</td><td></td></tr>
+<tr><td><tt>ua_windowpixels</tt><td>""</td><td></td></tr>
+<tr><td><tt>upgrade</tt><td>""</td><td></td></tr>
+<tr><td><tt>urgency</tt><td>""</td><td></td></tr>
+<tr><td><tt>uri</tt><td>""</td><td></td></tr>
+<tr><td><tt>user_agent</tt><td>""</td><td></td></tr>
+<tr><td><tt>variant_vary</tt><td>""</td><td></td></tr>
+<tr><td><tt>vary</tt><td>""</td><td></td></tr>
+<tr><td><tt>vbr_info</tt><td>""</td><td></td></tr>
+<tr><td><tt>version</tt><td>""</td><td></td></tr>
+<tr><td><tt>via</tt><td>""</td><td></td></tr>
+<tr><td><tt>want_digest</tt><td>""</td><td></td></tr>
+<tr><td><tt>warning</tt><td>""</td><td></td></tr>
+<tr><td><tt>www_authenticate</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_archived_at</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_device_accept</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_device_accept_charset</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_device_accept_encoding</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_device_accept_language</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_device_user_agent</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_frame_options</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_mittente</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_pgp_sig</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_ricevuta</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_riferimento_message_id</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_tiporicevuta</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_trasporto</tt><td>""</td><td></td></tr>
+<tr><td><tt>x_verificasicurezza</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_content_identifier</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_content_return</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_content_type</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_mts_identifier</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_originator</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_received</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_recipients</tt><td>""</td><td></td></tr>
+<tr><td><tt>x400_trace</tt><td>""</td><td></td></tr>
+<tr><td><tt>xref</tt><td>""</td><td></td></tr>
+</table></blockquote>
+</body>
+</html>
