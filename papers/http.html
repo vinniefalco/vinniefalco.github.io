@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Introducing std::net::http</title>
+    <style type="text/css">
+    p {text-align:justify}
+    li {text-align:justify}
+    blockquote.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    p.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    ins { background-color: #CCFFCC; }
+    del { background-color: #FFCCCC; }
+    .insert { background-color: #CCFFCC; }
+    address {text-align:right;}
+    h1 {text-align:center;}
+    span.comment {color:#C80000;}
+    code {white-space:pre;}
+    </style>
+</head>
+<body>
+<pre>
+Doc. no:  D0000R0
+Audience: LEWG
+Date:     2018-07-07
+Reply-To: Vinnie Falco (<a href="mailto:vinnie.falco@gmail.com">vinnie.falco@gmail.com</a>)
+</pre>
+<hr>
+<h1>Introducing <tt>std::net::http</tt></h1>
+
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<p>
+This document proposes an HTTP protocol library for C++. The library is
+aimed at providing low-level abstractions only. The benefit is that HTTP
+programs built with this library will be easier and faster to implement,
+understand, and maintain, because the library takes care of the protocol
+details.
+</p>
+
+
+
+<h2 id="motivation">Motivation and Scope</h2>
+
+
+
+<h3 id="motivation.scope">Scope</h3>
+<p>
+Problem areas addressed by this proposal include:
+<ul>
+<li>Buffer-oriented HTTP/1 parsing and serialization.</li>
+<li>Modeling of HTTP/1 and HTTP/2 messages as first-class objects.</li>
+<li>Synchronous and asynchronous stream algorithms for HTTP/1 parsing and serialization.</li>
+<li>Automatic management of the Connection, Content-Length,
+    Transfer-Encoding, and Upgrade HTTP field values.</li>
+</ul>
+</p>
+<p>
+Features that are considered outside the scope of this proposal include:
+<ul>
+<li>HTTP/0.9 serialization and parsing.</li>
+<li>HTTP/2 serialization and parsing.</li>
+<li>Tolerant parsing of HTTP/1.</li>
+<li>General processing of HTTP field values.</li>
+<li>Parsing of HTTP variations (e.g. "ICY 200 OK").</li>
+<li>SSL/TLS certificate verification and management.</li>
+<li>Connection establishment, closure, and domain name resolution.</li>
+<li>Interpreting the semantics of HTTP message bodies.</li>
+<li>request-target URI parsing.</li>
+</ul>
+</p>
+
+
+<h3 id="motivation.target">Target Audience</h3>
+<p>
+The bulk of the library interface is intended for use by developers with
+an understanding of Networking TS concepts, as well as a good grasp of
+HTTP protocol semantics. Most end users will likely not interact with
+the library directly; instead, this library will be used to build higher
+level abstractions such as full-featured HTTP clients or HTTP servers.
+This document refers to abstractions built on top of this library as
+<em>HTTP middleware</em> (or just <em>middleware</em>).
+</p>
+
+
+<h3 id="motivation.reference">Reference Implementation</h3>
+<p>
+The Boost.Beast library, from which this proposal is derived, has been
+deployed in a number of production systems, such as internet-facing HTTP
+servers, decentralized cryptocurrency networks, and finance applications.
+The Boost.Beast  library has been used on the following platforms:
+</p>
+<ul>
+<li>Win32 using Visual Studio 14 and 15</li>
+<li>Linux (newer kernels) using g++ 4.8 or later</li>
+<li>Mac OS X 10.4 using clang 3.6 or later</li>
+</ul>
+
+
+
+<h3 id="motivation.related">Related Work</h3>
+<p>
+The interfaces used for transacting with streams are based on idioms
+established by the Networking TS. In particular this library adopts the
+Universal Asynchronous Model defined by the TS.
+</p>
+
+
+
+
+<h2 id="impact">Impact On the Standard</h2>
+<p>
+This is a pure library proposal. It does not add any new language features,
+nor does it alter any existing standard library headers. This library can be
+implemented using compilers that conform to the C++11 standard (or later).
+However, this library also requires the library features offered in
+Networking TS.
+</p>
+
+
+
+<h2 id="design">Design Decisions</h2>
+<p>
+The overarching design principle of this library is <em>"Don't make odd
+choices on behalf of the user."</em> Important decisions such as when and
+how to allocate memory are left to the caller. Customization points allow
+all the "interesting" behaviors to be user-defined. It is important to
+recognize that this library is <em>low-level</em>. It is not a complete
+HTTP client nor does it provide a complete HTTP server. However, those
+things can be built with the library. Specifically, this library provides
+the following:
+</p>
+<ul>
+<li>A flexible container for holding HTTP/1 and HTTP/2 messages</li>
+<li>Read algorithms: deserialize HTTP/1 messages from a readable stream</li>
+<li>Write algorithms: serialize HTTP/1 messages to a writable stream</li>
+<li>Parsing: parse HTTP/1 messages from caller-provided buffers</li>
+<li>Serialization: Serialize HTTP/1 messages to caller-provided buffers</li>
+</ul>
+<p>
+Most importantly, this library defines a universal class template for holding
+any type of HTTP message, including HTTP/1 and HTTP/2. This allows authors
+to write functional algorithms which operate only on messages, independent
+of streams or networking, with the guarantee that these algorithms will
+interoperate seamlessly.
+</p>
+
+<h3 id="design.netts">Networking TS</h3>
+<p>
+All stream algorithms use interfaces similar or identical to those found in
+the Networking TS. The advantage is that skill acquired at operating the TS
+will translate directly into skill with using HTTP stream algorithms.
+To prevent duplication of functionality, the library only provides
+algorithms which are strictly part of the low-level HTTP protocol.
+Other operations, such as perfoming DNS lookups or making outgoing
+TCP/IP connections, are left to the Networking TS.
+</p>
+
+<h3 id="design.transport">Transport Independence</h3>
+<p>
+Stream algorithms are expressed as function templates which operate on
+stream concepts. This allows any form of transport to be used, including
+TCP/IP sockets but also including properly configured SSL or TLS streams.
+Unconventional transports such as interprocess communication may also be
+used, if an implementation exists or can be written to meet the concept
+requirements.
+</p>
+
+
+</body>
