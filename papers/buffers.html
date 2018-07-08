@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Buffer Sequence Adaptors</title>
+    <style type="text/css">
+    body
+    {
+        font-size: 10pt;
+        font-family: sans-serif;
+    }
+    p {text-align:justify}
+    li {text-align:justify}
+    blockquote.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    p.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    ins { background-color: #CCFFCC; }
+    del { background-color: #FFCCCC; }
+    .insert { background-color: #CCFFCC; }
+    address {text-align:right;}
+    h1 {text-align:center;}
+    span.comment {color:#C80000;}
+    code {white-space:pre;}
+    </style>
+</head>
+<body>
+<pre>
+Doc. no:  D0000R0
+Audience: LEWG
+Date:     2018-07-08
+Reply-To: Vinnie Falco (<a href="mailto:vinnie.falco@gmail.com">vinnie.falco@gmail.com</a>)
+</pre>
+<hr>
+<h1>Buffer Sequence Adaptors</h1>
+
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<p>
+This document proposes additional algorithms and types for working with
+the buffer sequence concepts defined in [networking.ts].
+</p>
+
+
+
+<h2 id="motivation">Motivation and Scope</h2>
+<p>
+[networking.ts] defines a buffer sequence as a bidirectional range of
+non-owning references to individual contiguous memory regions. The adaptors
+and types proposed in this paper allow for simply lazy transformations
+of buffer sequences to achieve effects commonly used in implementations
+which operate on buffers.
+</p>
+
+<h3 id="motivation.target">Target Audience</h3>
+<p>
+The algorithms and types provided here are aimed squarely at developers
+working with [networking.ts].
+</p>
+
+<h3 id="motivation.reference">Reference Implementation</h3>
+<p>
+The Boost.Beast library, from portions of which this proposal is derived,
+has been deployed in a number of production systems, such as internet-facing
+HTTP servers, decentralized cryptocurrency networks, and finance applications.
+The Boost.Beast library has been used on the following platforms:
+</p>
+<ul>
+<li>Win32 using Visual Studio 14 and 15</li>
+<li>Linux (newer kernels) using g++ 4.8 or later</li>
+<li>Mac OS X 10.4 using clang 3.6 or later</li>
+</ul>
+
+<h3 id="motivation.related">Related Work</h3>
+<p>
+The interfaces used for transacting with buffer sequences are based on
+idioms established in [networking.ts].
+library.
+</p>
+
+
+
+<h2 id="impact">Impact On the Standard</h2>
+<p>
+This is a pure library proposal. It does not add any new language features,
+nor does it alter any existing standard library headers. This library can be
+implemented using compilers that conform to the C++17 standard (or later).
+However, the library also requires [networking.ts].
+</p>
+
+
+
+<h2 id="design">Design Decisions</h2>
+<p>
+The prefix <tt>buffers_</tt> was chosen because buffer sequences can contain
+multiple memory regions. This distinguishes the algorithms from those functions
+which operate on types meeting the requirements of <em>DynamicBuffer</em>, which
+use the prefix <tt>buffer_</tt> (these algorithms are present in Boost.Beast but
+not proposed here).
+</p>
+<p>
+The types <tt>buffers_cat_view</tt> and <tt>buffers_prefix_view</tt> are made
+public so that callers can build abstractions which refer to the type.
+</p>
+
+
+
+<h2 id="wording">Proposed Text</h2>
+
+<h3>Additions to header <tt>&lt;experimental/buffer&gt;</tt></h3>
+<code>
+namespace std {
+namespace experimental {
+namespace net {
+
+template &lt;class... BufferSequence&gt;
+class buffers_cat_view
+{
+    tuple &lt;BufferSequence...&gt; bn_; // <em>exposition only</em>
+
+public:
+    using value_type = <em>BUFFER_TYPE(</em>BufferSequence...);
+
+    using const_iterator = <em>implementation-defined</em>;
+
+    buffers_cat_view (buffers_cat_view const&);
+    buffers_cat_view& operator= (buffers_cat_view const&);
+
+    explicit buffers_cat_view (BufferSequence const&... buffers);
+
+    const_iterator begin() const;
+    const_iterator end() const;
+};
+
+template &lt;class... BufferSequence&gt;
+buffers_cat_view &lt;BufferSequence...&gt;
+buffers_cat(BufferSequence const&... buffers);
+
+} // net
+} // experimental
+} // std
+</code>
+<dl>
+
+<dt>Define <tt><em>BUFFER_TYPE</em>(T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>N</sub>)</tt> as follows:</dt>
+<dd><p>
+The type <tt>experimental::net::mutable_buffer</tt> if every <tt>T</tt> meets
+the requirements of <em>MutableBufferSequence</em>, otherwise the type
+<tt>experimental::net::const_buffer</tt>.
+</p></dd>
+
+<dt><code>template &lt;class... BufferSequence&gt; class buffers_cat_view</code></dt>
+<dd><p>
+    <em>Requires:</em> <tt>sizeof...(BufferSequence) &gt; 0</tt> and
+    <tt>is_const_buffer_sequence&lt;BufferSequence&gt;::value</tt> is
+    true for all <tt>BufferSequence</tt>.
+</p></dd>
+
+</dl>
+</body>
