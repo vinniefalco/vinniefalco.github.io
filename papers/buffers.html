@@ -10,8 +10,24 @@
         font-size: 10pt;
         font-family: sans-serif;
     }
-    p {text-align:justify}
-    li {text-align:justify}
+    code
+    {
+        display: block;
+        white-space: pre;
+        margin-top: -1.00em;
+        margin-left: 2.0em;
+    }
+    p
+    {
+        text-align: justify
+    }
+    li {
+        text-align: justify
+    }
+    ol.p
+    {
+        margin-left: -2.0em;
+    }
     blockquote.note
     {
         background-color:#E0E0E0;
@@ -34,7 +50,6 @@
     address {text-align:right;}
     h1 {text-align:center;}
     span.comment {color:#C80000;}
-    code {white-space:pre;}
     </style>
 </head>
 <body>
@@ -54,15 +69,17 @@ Reply-To: Vinnie Falco (<a href="mailto:vinnie.falco@gmail.com">vinnie.falco@gma
 <li><a href="#overview">Overview</a></li>
 </ul>
 
-<h2 id="overview">Overview</h2>
+<!----------------------------------------------------------------------------->
+
+<h2 id="overview">1. Overview</h2>
 <p>
 This document proposes additional algorithms and types for working with
 the buffer sequence concepts defined in [networking.ts].
 </p>
 
+<!----------------------------------------------------------------------------->
 
-
-<h2 id="motivation">Motivation and Scope</h2>
+<h2 id="motivation">2. Motivation and Scope</h2>
 <p>
 [networking.ts] defines a buffer sequence as a bidirectional range of
 non-owning references to individual contiguous memory regions. The adaptors
@@ -71,13 +88,13 @@ of buffer sequences to achieve effects commonly used in implementations
 which operate on buffers.
 </p>
 
-<h3 id="motivation.target">Target Audience</h3>
+<h3 id="motivation.target">2.1 Target Audience</h3>
 <p>
 The algorithms and types provided here are aimed squarely at developers
 working with [networking.ts].
 </p>
 
-<h3 id="motivation.reference">Reference Implementation</h3>
+<h3 id="motivation.reference">2.2 Reference Implementation</h3>
 <p>
 The Boost.Beast library, from portions of which this proposal is derived,
 has been deployed in a number of production systems, such as internet-facing
@@ -90,26 +107,26 @@ The Boost.Beast library has been used on the following platforms:
 <li>Mac OS X 10.4 using clang 3.6 or later</li>
 </ul>
 
-<h3 id="motivation.related">Related Work</h3>
+<h3 id="motivation.related">2.3 Related Work</h3>
 <p>
 The interfaces used for transacting with buffer sequences are based on
 idioms established in [networking.ts].
 library.
 </p>
 
+<!----------------------------------------------------------------------------->
 
-
-<h2 id="impact">Impact On the Standard</h2>
+<h2 id="impact">3. Impact On the Standard</h2>
 <p>
 This is a pure library proposal. It does not add any new language features,
 nor does it alter any existing standard library headers. This library can be
-implemented using compilers that conform to the C++17 standard (or later).
-However, the library also requires [networking.ts].
+implemented using compilers that conform to the C++17 standard. However, the
+library also requires [networking.ts].
 </p>
 
+<!----------------------------------------------------------------------------->
 
-
-<h2 id="design">Design Decisions</h2>
+<h2 id="design">4. Design Decisions</h2>
 <p>
 The prefix <tt>buffers_</tt> was chosen because buffer sequences can contain
 multiple memory regions. This distinguishes the algorithms from those functions
@@ -122,58 +139,213 @@ The types <tt>buffers_cat_view</tt> and <tt>buffers_prefix_view</tt> are made
 public so that callers can build abstractions which refer to the type.
 </p>
 
+<!----------------------------------------------------------------------------->
 
+<h2 id="wording">5. Proposed Wording (informative)</h2>
 
-<h2 id="wording">Proposed Text</h2>
+<p>Exact wording to be determined after [networking.ts] is merged</p>
 
-<h3>Additions to header <tt>&lt;experimental/buffer&gt;</tt></h3>
+<h3>5.1 Definitions</h3>
+<ol>
+<li><p>The concepts <em>ConstBufferSequence</em> and <em>MutableBufferSequence</em>
+    are adopted from [networking.ts] as-is.</p></li>
+<li><p>A type satisfies <em>BufferSequence</em> if it satisfies
+    <em>MutableBufferSequence</em> or <em>ConstBufferSequence</em></p></li>
+<li><p>The types <tt>const_buffer</tt> and <tt>mutable_buffer</tt> are
+    adopted from [networking.ts] as-is.</p></li>
+<li><p>Define <tt><em>BUFFER_TYPE</em>(TN...)</tt> as follows:</p>
+    <ul>
+    <li>The type <tt>mutable_buffer</tt> if every type in <tt>TN</tt>
+    meets the requirements of <em>MutableBufferSequence</em>, otherwise:</li>
+    <li>The type <tt>const_buffer</tt>.</li>
+    </ul>
+    <p class=note>[Note] possible implementation
+        <code>
+template &lt;class... TN&gt;
+using BUFFER_TYPE = conditional_t&lt;
+    (... &amp;&amp; is_mutable_buffer_sequence&lt;TN&gt;::value),
+        mutable_buffer, const_buffer&gt;;
+</code>
+    </p>
+    </li>
+
+</ol>
+
+<h3>5.2 Header <tt>&lt;experimental/buffer&gt;</tt> additions</h3>
 <code>
 namespace std {
 namespace experimental {
 namespace net {
 
-template &lt;class... BufferSequence&gt;
-class buffers_cat_view
-{
-    tuple &lt;BufferSequence...&gt; bn_; // <em>exposition only</em>
+template &lt;class... BN&gt;
+class buffers_cat_view;
 
-public:
-    using value_type = <em>BUFFER_TYPE(</em>BufferSequence...);
+template &lt;class BS&gt;
+class buffers_prefix_view;
 
-    using const_iterator = <em>implementation-defined</em>;
+template &lt;class BS&gt;
+class buffers_suffix;
 
-    buffers_cat_view (buffers_cat_view const&);
-    buffers_cat_view& operator= (buffers_cat_view const&);
+template &lt;class... BN&gt;
+buffers_cat_view &lt;BN...&gt;
+buffers_cat(BN const&amp;... buffers);
 
-    explicit buffers_cat_view (BufferSequence const&... buffers);
+template &lt;class BS&gt;
+buffers_front (BS const&amp; buffers);
 
-    const_iterator begin() const;
-    const_iterator end() const;
-};
+const_buffer buffers_prefix (size_t size, const_buffer buffer);
+mutable_buffer buffers_prefix (size_t size, mutable_buffer buffer);
 
-template &lt;class... BufferSequence&gt;
-buffers_cat_view &lt;BufferSequence...&gt;
-buffers_cat(BufferSequence const&... buffers);
+template &lt;class BS&gt;
+buffers_prefix_view &lt;BS&gt;
+buffers_prefix (size_t size, BS const&amp; buffers);
 
 } // net
 } // experimental
 } // std
 </code>
+
+<!----------------------------------------------------------------------------->
+
+<h4>5.3 Class template <tt>buffers_cat_view</tt></h4>
+<p>This class represents the concatenation of a variable number of
+    buffer sequences of possibly dissimilar types.</p>
+<code>
+namespace std {
+namespace experimental {
+namespace net {
+
+template &lt;class... BN&gt;
+class buffers_cat_view
+{
+    tuple &lt;BN...&gt; bn_; // <em>exposition only</em>
+
+public:
+    using value_type = <em>BUFFER_TYPE(</em>BN...);
+
+    using const_iterator = <em>implementation-defined</em>;
+
+    explicit buffers_cat_view (BN const&amp;... buffers);
+
+    buffers_cat_view (buffers_cat_view const&amp; other);
+
+    const_iterator begin() const;
+    const_iterator end() const;
+};
+
+} // net
+} // experimental
+} // std
+</code>
+<ol>
+<li><p>Class template <tt>buffers_cat_view</tt> satisfies <em>ConstBufferSequence</em>.
+    If <tt>value type</tt> is <tt>mutable_buffer</tt>, then <tt>buffers_cat_view</tt>
+    also satisfies <em>MutableBufferSequence</em>.</p></li>
+</ol>
+
 <dl>
+<dt><code>template &lt;class... BN&gt; class buffers_cat_view</code></dt>
+<dd><p><em>Requires:</em> <tt>sizeof...(BN) &gt; 0</tt> and
+    <tt>is_const_buffer_sequence&lt;BN&gt;::value</tt> is true
+    for all <tt>BN</tt>.</p></dd>
 
-<dt>Define <tt><em>BUFFER_TYPE</em>(T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>N</sub>)</tt> as follows:</dt>
-<dd><p>
-The type <tt>experimental::net::mutable_buffer</tt> if every <tt>T</tt> meets
-the requirements of <em>MutableBufferSequence</em>, otherwise the type
-<tt>experimental::net::const_buffer</tt>.
-</p></dd>
+<dt><code>const_iterator</code></dt>
+<dd><p><em>Requires:</em> Meets the requirements of <em>MutableBufferSequence</em>
+    if <tt>value_type</tt> is <tt>mutable_buffer</tt>, otherwise meets the
+    requirements of <em>ConstBufferSequence</em>.</p></dd>
 
-<dt><code>template &lt;class... BufferSequence&gt; class buffers_cat_view</code></dt>
-<dd><p>
-    <em>Requires:</em> <tt>sizeof...(BufferSequence) &gt; 0</tt> and
-    <tt>is_const_buffer_sequence&lt;BufferSequence&gt;::value</tt> is
-    true for all <tt>BufferSequence</tt>.
-</p></dd>
+<dt><code>explicit buffers_cat_view (BN const&amp;... buffers)</code></dt>
+<dd><p><em>Requires:</em>
+    </p></dd>
 
+<dt><code>buffers_cat_view (buffers_cat_view const&amp; other)</code></dt>
+<dd><p><em>Effects:</em> Constructs a copy of <tt>other</tt>. The newly
+    constructed object will contain a copy of each buffer sequence contained
+    in <tt>other</tt>.</p></dd>
+
+<dt><code>const_iterator begin() const</code></dt>
+<dd><p><em>Returns:</em> An iterator to first element of the buffer sequence.</p></dd>
+
+<dt><code>const_iterator end() const</code></dt>
+<dd><p><em>Returns:</em> An iterator to one past-the-end of the buffer sequence.</p></dd>
+
+<dt><code>template &lt;class... BN&gt;
+buffers_cat_view &lt;BN...&gt;
+buffers_cat(BN const&amp;... buffers)</code></dt>
+<dd><p><em>Requires:</em> <tt>sizeof...(BN) &gt; 0</tt> and
+    <tt>is_const_buffer_sequence&lt;BN&gt;::value</tt> is true
+    for all <tt>BN</tt>.</p>
+    <p><em>Returns:</em> <tt>buffers_cat_view&lt;BN&gt;(buffers)</tt>.</p></dd>
 </dl>
+
+<!----------------------------------------------------------------------------->
+
+<h4>5.4 Class template <tt>buffers_prefix_view</tt></h4>
+<code>
+template &lt;class BS&gt;
+class buffers_prefix_view
+{
+    BS bs_; // <em>exposition only</em>
+
+public:
+    using value_type = <em>implementation-defined</em>;
+    using const_iterator = <em>implementation-defined</em>;
+
+    buffers_prefix_view (size_t size, BS const& buffers);
+
+    template &lt;class... Args&gt;
+    buffers_prefix_view (size_t size, in_place_t, Args&amp;&amp;... args);
+
+    buffers_prefix_view (buffers_prefix_view const&amp;);
+
+    const_iterator begin() const;
+    const_iterator end() const;
+};
+</code>
+<ol>
+<li>Class template <tt>buffers_prefix_view</tt> satisfies either the
+    <em>ConstBufferSequence</em> or the <em>MutableBufferSequence</em> requirements.</li>
+</ol>
+
+<!----------------------------------------------------------------------------->
+
+<h4>5.5 Class <tt>buffers_suffix</tt></h4>
+<code>
+template &lt;class BS&gt;
+class buffers_suffix;
+</code>
+
+<!----------------------------------------------------------------------------->
+
+<h4>5.6 Function <tt>buffers_cat</tt></h4>
+<code>
+template &lt;class... BN&gt;
+buffers_cat_view &lt;BN...&gt;
+buffers_cat(BN const&amp;... buffers);
+</code>
+<ol>
+<li><p><em>Requires:</em> <tt>sizeof...(BN) &gt; 0</tt> and
+    <tt>is_const_buffer_sequence&lt;BN&gt;::value</tt> is true
+    for all <tt>BN</tt>.</p></li>
+<li><p><em>Returns:</em> <tt>buffers_cat_view&lt;BN&gt;(buffers)</tt>.</p></li>
+</ol>
+
+<h4>5.7 Function <tt>buffers_prefix</tt></h4>
+<code>
+const_buffer buffers_prefix (size_t size, const_buffer buffer);
+mutable_buffer buffers_prefix (size_t size, mutable_buffer buffer);
+
+template &lt;class BS&gt;
+buffers_prefix_view &lt;BS&gt;
+buffers_prefix (size_t size, BS const&amp; buffers);
+</code>
+
+<!----------------------------------------------------------------------------->
+
+<h4>5.8 Function <tt>buffers_front</tt></h4>
+<code>template &lt;class BS&gt;
+buffers_front (BS const&amp; buffers);
+</code>
+<ol>
+<li><tt>BS</tt> satisfies the requirement of 
 </body>
