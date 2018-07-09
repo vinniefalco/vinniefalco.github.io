@@ -148,7 +148,7 @@ public so that callers can build abstractions which refer to the type.
 
 <h2 id="wording">5. Proposed Wording (informative)</h2>
 
-<p>Exact wording to be determined after [networking.ts] is merged</p>
+<p>Exact wording is to be determined after [networking.ts] is merged</p>
 
 <h3>5.1 Definitions</h3>
 <ol>
@@ -211,9 +211,9 @@ buffers_prefix (size_t size, BS const&amp; buffers);
 <!----------------------------------------------------------------------------->
 
 <h3>5.3 Class template <tt>buffers_cat_view</tt></h3>
-<p>This class represents the buffer sequence produced when a variable number of
-    buffer sequences of possibly dissimilar types are concatenated in order,
-    with empty buffers in the underlying sequences removed when at least
+<p>This class represents the buffer sequence created when a variable number of
+    existing buffer sequences of possibly dissimilar types are concatenated in
+    order, with empty buffers in the underlying sequences removed when at least
     one sequence is present.</p>
 <code>
 namespace std {
@@ -226,9 +226,9 @@ class buffers_cat_view
     tuple &lt;BN...&gt; bn_; // <em>exposition only</em>
 
 public:
-    using value_type = <em>BUFFER_TYPE</em>(BN...);
+    using value_type = <em>see-below</em>;
 
-    using const_iterator = <em>implementation-defined</em>;
+    using const_iterator = <em>see-below</em>;
 
     explicit buffers_cat_view (BN const&amp;... buffers);
 
@@ -243,24 +243,29 @@ public:
 } // std
 </code>
 <ol>
+
 <li><p>Class template <tt>buffers_cat_view</tt> satisfies <em>ConstBufferSequence</em>.
     If <tt>value type</tt> is <tt>mutable_buffer</tt>, then <tt>buffers_cat_view</tt>
     also satisfies <em>MutableBufferSequence</em>.
     Template argument <tt>BN</tt> requires that `sizeof...(BN) > 0` and that
     <tt>(... && is_const_buffer&lt;BN&gt;::value)</tt> is true.</p></li>
 
-<li><p><code>const_iterator</code></p>
-    <p>An iterator whose <tt>reference</tt> type is <em>BUFFER_TYPE</em>(BN...),
-        and which otherwise satisfies all the requirements for bidirectional
-        iterators (C++ 2014 [bidirectional.iterators]) except that there is
-        no requirement to provide <tt>operator-></tt>.</p></li>
+<li><p><code>using value_type = <em>see-below</em></code></p>
+    <p><em>Type:</em> <tt><em>BUFFER_TYPE</em>(BN...)</tt></p></li>
+
+<li><p><code>using const_iterator = <em>see-below</em></code></p>
+    <p>An iterator which satisfies all the requirements for bidirectional
+    iterators (C++ 2014 [bidirectional.iterators]) except that:</p>
+    <ul>
+    <li>The <tt>reference</tt> type is the same as <tt>buffers_cat_view::value_type</tt>, and
+    <li>There is no requirement to provide <tt>operator-&gt;</tt>.</li>
+    </ul>
 
 <li><p><code>explicit buffers_cat_view (BN const&amp;... buffers)</code></p>
-    <p><em>Effects:</em> Constructs a view which, when iterator as a buffer
-    sequence, represents the concatenation of the sequences in <tt>buffers</tt>
-    except that memory regions of size zero are not visited. The implementation
-    shall maintain a copy of each value in <tt>buffers</tt> until the view is
-    destroyed</p></li>
+    <p><em>Effects:</em> Constructs a view which when iterated represents the
+    concatenation of the sequences in <tt>buffers</tt>, except that memory
+    regions of size zero are not visited. The implementation shall maintain
+    a copy of each value in <tt>buffers</tt> until the view is destroyed</p></li>
 
 <li><p><code>buffers_cat_view (buffers_cat_view const&amp; other)</code></p>
     <p><em>Effects:</em> Constructs a copy of <tt>other</tt>.</p></li>
@@ -271,13 +276,15 @@ public:
 
 <li><p><code>const_iterator end() const noexcept</code></p>
     <p><em>Returns:</em> An iterator pointing to one past the last buffer in
-    the view which does not have a zero size</p></li>
+    the view which does not have a zero size.</p></li>
 
 </ol>
 
 <!----------------------------------------------------------------------------->
 
 <h3>5.4 Class template <tt>buffers_prefix_view</tt></h3>
+<p>This class represents the buffer sequence created by taking the prefix of
+    an existing buffer sequence.
 <code>
 template &lt;class BS&gt;
 class buffers_prefix_view
@@ -285,8 +292,9 @@ class buffers_prefix_view
     BS bs_; // <em>exposition only</em>
 
 public:
-    using value_type = <em>implementation-defined</em>;
-    using const_iterator = <em>implementation-defined</em>;
+    using value_type = <em>BUFFER_TYPE</em>(BS);
+
+    class const_iterator;
 
     buffers_prefix_view (size_t size, BS const& buffers);
 
@@ -295,13 +303,26 @@ public:
 
     buffers_prefix_view (buffers_prefix_view const&amp;);
 
-    const_iterator begin() const;
-    const_iterator end() const;
+    const_iterator begin() const noexcept;
+    const_iterator end() const noexcept;
 };
 </code>
 <ol>
-<li>Class template <tt>buffers_prefix_view</tt> satisfies either the
-    <em>ConstBufferSequence</em> or the <em>MutableBufferSequence</em> requirements.</li>
+
+<li><p>Class template <tt>buffers_prefix_view</tt> satisfies <em>ConstBufferSequence</em>.
+    If <tt>value type</tt> is <tt>mutable_buffer</tt>, then <tt>buffers_cat_view</tt>
+    also satisfies <em>MutableBufferSequence</em>.
+    Template argument <tt>BN</tt> requires that `sizeof...(BN) > 0` and that
+    <tt>(... && is_const_buffer&lt;BN&gt;::value)</tt> is true.</p></li>
+
+<li><p><code>class const_iterator</code></p>
+    <p>An iterator which satisfies all the requirements for bidirectional
+    iterators (C++ 2014 [bidirectional.iterators]) except that:</p>
+    <ul>
+    <li>The <tt>reference</tt> type is <em>BUFFER_TYPE</em>(BS), and</li>
+    <li>There is no requirement to provide <tt>operator-&gt;</tt>.</li>
+    </ul>
+
 </ol>
 
 <!----------------------------------------------------------------------------->
