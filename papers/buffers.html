@@ -21,6 +21,11 @@
     {
         text-align: justify
     }
+    p > code
+    {
+        margin-top: initial;
+        margin-left: initial;
+    }
     li {
         text-align: justify
     }
@@ -149,8 +154,6 @@ public so that callers can build abstractions which refer to the type.
 <ol>
 <li><p>The concepts <em>ConstBufferSequence</em> and <em>MutableBufferSequence</em>
     are adopted from [networking.ts] as-is.</p></li>
-<li><p>A type satisfies <em>BufferSequence</em> if it satisfies
-    <em>MutableBufferSequence</em> or <em>ConstBufferSequence</em></p></li>
 <li><p>The types <tt>const_buffer</tt> and <tt>mutable_buffer</tt> are
     adopted from [networking.ts] as-is.</p></li>
 <li><p>Define <tt><em>BUFFER_TYPE</em>(TN...)</tt> as follows:</p>
@@ -207,9 +210,11 @@ buffers_prefix (size_t size, BS const&amp; buffers);
 
 <!----------------------------------------------------------------------------->
 
-<h4>5.3 Class template <tt>buffers_cat_view</tt></h4>
-<p>This class represents the concatenation of a variable number of
-    buffer sequences of possibly dissimilar types.</p>
+<h3>5.3 Class template <tt>buffers_cat_view</tt></h3>
+<p>This class represents the buffer sequence produced when a variable number of
+    buffer sequences of possibly dissimilar types are concatenated in order,
+    with empty buffers in the underlying sequences removed when at least
+    one sequence is present.</p>
 <code>
 namespace std {
 namespace experimental {
@@ -221,7 +226,7 @@ class buffers_cat_view
     tuple &lt;BN...&gt; bn_; // <em>exposition only</em>
 
 public:
-    using value_type = <em>BUFFER_TYPE(</em>BN...);
+    using value_type = <em>BUFFER_TYPE</em>(BN...);
 
     using const_iterator = <em>implementation-defined</em>;
 
@@ -229,8 +234,8 @@ public:
 
     buffers_cat_view (buffers_cat_view const&amp; other);
 
-    const_iterator begin() const;
-    const_iterator end() const;
+    const_iterator begin() const noexcept;
+    const_iterator end() const noexcept;
 };
 
 } // net
@@ -240,47 +245,39 @@ public:
 <ol>
 <li><p>Class template <tt>buffers_cat_view</tt> satisfies <em>ConstBufferSequence</em>.
     If <tt>value type</tt> is <tt>mutable_buffer</tt>, then <tt>buffers_cat_view</tt>
-    also satisfies <em>MutableBufferSequence</em>.</p></li>
+    also satisfies <em>MutableBufferSequence</em>.
+    Template argument <tt>BN</tt> requires that `sizeof...(BN) > 0` and that
+    <tt>(... && is_const_buffer&lt;BN&gt;::value)</tt> is true.</p></li>
+
+<li><p><code>const_iterator</code></p>
+    <p>An iterator whose <tt>reference</tt> type is <em>BUFFER_TYPE</em>(BN...),
+        and which otherwise satisfies all the requirements for bidirectional
+        iterators (C++ 2014 [bidirectional.iterators]) except that there is
+        no requirement to provide <tt>operator-></tt>.</p></li>
+
+<li><p><code>explicit buffers_cat_view (BN const&amp;... buffers)</code></p>
+    <p><em>Effects:</em> Constructs a view which, when iterator as a buffer
+    sequence, represents the concatenation of the sequences in <tt>buffers</tt>
+    except that memory regions of size zero are not visited. The implementation
+    shall maintain a copy of each value in <tt>buffers</tt> until the view is
+    destroyed</p></li>
+
+<li><p><code>buffers_cat_view (buffers_cat_view const&amp; other)</code></p>
+    <p><em>Effects:</em> Constructs a copy of <tt>other</tt>.</p></li>
+
+<li><p><code>const_iterator begin() const noexcept</code></p>
+    <p><em>Returns:</em> An iterator pointing to first buffer in the view which
+    does not have a zero size, otherwise returns <tt>this->end()</tt>.</p></li>
+
+<li><p><code>const_iterator end() const noexcept</code></p>
+    <p><em>Returns:</em> An iterator pointing to one past the last buffer in
+    the view which does not have a zero size</p></li>
+
 </ol>
-
-<dl>
-<dt><code>template &lt;class... BN&gt; class buffers_cat_view</code></dt>
-<dd><p><em>Requires:</em> <tt>sizeof...(BN) &gt; 0</tt> and
-    <tt>is_const_buffer_sequence&lt;BN&gt;::value</tt> is true
-    for all <tt>BN</tt>.</p></dd>
-
-<dt><code>const_iterator</code></dt>
-<dd><p><em>Requires:</em> Meets the requirements of <em>MutableBufferSequence</em>
-    if <tt>value_type</tt> is <tt>mutable_buffer</tt>, otherwise meets the
-    requirements of <em>ConstBufferSequence</em>.</p></dd>
-
-<dt><code>explicit buffers_cat_view (BN const&amp;... buffers)</code></dt>
-<dd><p><em>Requires:</em>
-    </p></dd>
-
-<dt><code>buffers_cat_view (buffers_cat_view const&amp; other)</code></dt>
-<dd><p><em>Effects:</em> Constructs a copy of <tt>other</tt>. The newly
-    constructed object will contain a copy of each buffer sequence contained
-    in <tt>other</tt>.</p></dd>
-
-<dt><code>const_iterator begin() const</code></dt>
-<dd><p><em>Returns:</em> An iterator to first element of the buffer sequence.</p></dd>
-
-<dt><code>const_iterator end() const</code></dt>
-<dd><p><em>Returns:</em> An iterator to one past-the-end of the buffer sequence.</p></dd>
-
-<dt><code>template &lt;class... BN&gt;
-buffers_cat_view &lt;BN...&gt;
-buffers_cat(BN const&amp;... buffers)</code></dt>
-<dd><p><em>Requires:</em> <tt>sizeof...(BN) &gt; 0</tt> and
-    <tt>is_const_buffer_sequence&lt;BN&gt;::value</tt> is true
-    for all <tt>BN</tt>.</p>
-    <p><em>Returns:</em> <tt>buffers_cat_view&lt;BN&gt;(buffers)</tt>.</p></dd>
-</dl>
 
 <!----------------------------------------------------------------------------->
 
-<h4>5.4 Class template <tt>buffers_prefix_view</tt></h4>
+<h3>5.4 Class template <tt>buffers_prefix_view</tt></h3>
 <code>
 template &lt;class BS&gt;
 class buffers_prefix_view
@@ -309,7 +306,7 @@ public:
 
 <!----------------------------------------------------------------------------->
 
-<h4>5.5 Class <tt>buffers_suffix</tt></h4>
+<h3>5.5 Class <tt>buffers_suffix</tt></h3>
 <code>
 template &lt;class BS&gt;
 class buffers_suffix;
@@ -317,7 +314,7 @@ class buffers_suffix;
 
 <!----------------------------------------------------------------------------->
 
-<h4>5.6 Function <tt>buffers_cat</tt></h4>
+<h3>5.6 Function <tt>buffers_cat</tt></h3>
 <code>
 template &lt;class... BN&gt;
 buffers_cat_view &lt;BN...&gt;
@@ -330,7 +327,9 @@ buffers_cat(BN const&amp;... buffers);
 <li><p><em>Returns:</em> <tt>buffers_cat_view&lt;BN&gt;(buffers)</tt>.</p></li>
 </ol>
 
-<h4>5.7 Function <tt>buffers_prefix</tt></h4>
+<!----------------------------------------------------------------------------->
+
+<h3>5.7 Function <tt>buffers_prefix</tt></h3>
 <code>
 const_buffer buffers_prefix (size_t size, const_buffer buffer);
 mutable_buffer buffers_prefix (size_t size, mutable_buffer buffer);
@@ -342,10 +341,13 @@ buffers_prefix (size_t size, BS const&amp; buffers);
 
 <!----------------------------------------------------------------------------->
 
-<h4>5.8 Function <tt>buffers_front</tt></h4>
+<h3>5.8 Function <tt>buffers_front</tt></h3>
 <code>template &lt;class BS&gt;
 buffers_front (BS const&amp; buffers);
 </code>
 <ol>
 <li><tt>BS</tt> satisfies the requirement of 
+
+<!----------------------------------------------------------------------------->
+
 </body>
