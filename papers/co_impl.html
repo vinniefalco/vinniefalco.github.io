@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A Clang/LVVM Implementor&apos;s Perspective on Coroutines</title>
+    <style type="text/css">
+    p {text-align:justify}
+    li {text-align:justify}
+    blockquote.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    p.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    ins { background-color: #CCFFCC; }
+    del { background-color: #FFCCCC; }
+    .insert { background-color: #CCFFCC; }
+    address {text-align:right;}
+    h1 {text-align:center;}
+    span.comment {color:#C80000;}
+    code {white-space:pre;}
+    </style>
+</head>
+<body>
+<pre>
+Doc. no:  [TBD]
+Audience: LEWG
+Date:     2018-07-12
+Reply-To: Eric Fiselier (<a href="mailto:eric@efcs.ca">eric@efcs.ca</a>)
+          Vinnie Falco (<a href="mailto:vinnie.falco@gmail.com">vinnie.falco@gmail.com</a>)
+</pre>
+<hr>
+<h1>A Clang/LVVM Implementor&apos;s Perspective on Coroutines</h1>
+
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#intro">Introduction</a>
+<li><a href="#co_await">Coroutines TS</a>
+<li><a href="#resuamble">Resumable Expressions</a>
+<li><a href="#analysis">Analysis</a>
+<li><a href="#references">References</a>
+<li><a href="#acknowledgements">Acknowledgements</a>
+<li><a href="#listing1">Listing 1</a>
+
+</ul>
+
+
+
+<a name="abstract"></a><h2>Abstract</h2>
+<p>
+Stackless coroutines provide the ability to pause and resume a function's
+execution at well defined suspend points, where the storage requirements
+are known at compile time. Years of experience has proven that assistance
+from the compiler is necessary to transform concisely annotated C++ code
+into a stackless coroutine with a desirable run-time performance profile.
+This paper describes the experience of an implementor adding support for
+the Coroutines TS to Clang/LLVM, then compares and constrasts that with
+the experience of adding support for Resumable Expressions to the same
+version of Clang/LLVM.
+</p>
+
+
+
+<a name="intro"></a><h2>Introduction</h2>
+<p>
+A <em>coroutine</em> is a thread of execution containing well-defined
+suspend points from which the flow of control may be paused and resumed.
+A <em>stackful</em> coroutine preserves the stack of the thread of execution
+starting from the entry point to the suspend point. 
+A <em>stackless</em> coroutine preserves a constant amount of state known
+at compile time. Stackful coroutines are uncontroversial and relatively
+straightforward; many performant implementations have existed as library-only
+solutions for decades. This paper discusses stackless coroutine implementations
+exclusively; henceforth they are referred to simply as "coroutines".
+</p>
+<p>
+All coroutine implementations share a common algorithm, called the
+<em>coroutine transformation</em>. This algorithm takes ordinary code
+annotated with suspend points and inserts additional code allowing the
+thread of execution to be paused at each suspend point and later resumed.
+At a minimum, the transformation must store sufficient state to identify
+the last suspend point from which the coroutine should be resumed. An
+implementation may also choose to preserve the values of some or all
+local variables and function arguments.
+</p>
+<p>
+A typical implementation must contain at least the following features,
+otherwise the traditional functionality of a coroutine cannot be realized:
+</p>
+<ul>
+<li>Mark a suspend point within a function</li>
+<li>Represent the coroutine as an object</li>
+<li>Resume the coroutine</li>
+<li>Determine if the coroutine has exited</li>
+<li>A method to obtain the final return value, when complete</li>
+</ul>
+<p>
+We use the term coroutine to also refer to the object produced by the coroutine
+transformation in a program, and the term <em>coroutine abstraction</em> (or
+just "abstraction") to refer to the interface offered by a particular
+implementation for creating and interacting with the coroutine. While an
+abstraction may include additional features such as the ability to yield
+values, these features are not required. An abstraction containing only
+the features above is termed a <em>minimal abstraction</em>.
+</p>
+
+
+
+<a name="co_await"></a><h2>Coroutines TS</h2>
+<p>
+As of this writing, the leading proposal for introducing coroutines into
+the C++ language is the Coroutines TS described in n4723[3].  The proposal
+introduces several new keywords including <tt>co_await</tt>, <tt>co_yield</tt>,
+and <tt>co_resume</tt>. We abbreviate the name of Coroutines TS by referring it
+to just "TS" or "co-await." This section highlights some of the notable parts
+of the TS, by starting with an example program written against it:
+<blockquote><tt><pre>
+#include "generator.hpp"
+#include &lt;experimental/coroutine&gt;
+#include &lt;cstdio&gt;
+
+generator&lt;const char&gt;
+hello(const char* p)
+{
+    while (*p) {
+        co_yield *p++;
+    }
+}
+
+int main()
+{
+    for (const auto c : hello("Hello, world")) {
+        std::putchar(c);
+    }
+}
+</pre></tt></blockquote>
+<p>
+After compilation using the latest Visual C++ compiler and the command line
+switch "/await" to enable co-await features, the executable produces the
+following output when launched:
+</p>
+<blockquote><tt><pre>
+Hello, world
+</pre></tt></blockquote>
+<p>
+The appearance of the <tt>co_yield</tt> keyword identifies the function
+<tt>hello</tt> as a coroutine. Use of the <tt>co_yield</tt> keyword allows
+the coroutine to suspend and deliver an intermediate result to the caller.
+Since the type of the expression <tt>*p++</tt> is <tt>char const&</tt>,
+it might not be immediately clear how this value interacts with the return
+type of the function to give the loop in <tt>main</tt> a value. The TS
+prescribes a rich set of rules for converting the yielded value into
+executable code. In this case, the compiler looks to the return type of
+the function and checks for the nested type <tt>promise_type</tt>. If
+found, a local variable <tt>p</tt> of the promise type is added to the
+generated coroutine code. The emitted code for the expression
+<tt>co_yield e</tt> then becomes <tt>p.yield_value(e)</tt>. The
+<tt>generator</tt> class template is an example of coroutine middleware.
+The full header file is provided in <a href="#listing1">Listing 1</a>.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<a name="resumable"></a><h2>Resumable Expressions</h2>
+<p>
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<a name="analysis"></a><h2>Analysis</h2>
+<p>
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<a name="references"></a><h2>References</h2>
+
+<b>[1]</b>
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4723.pdf">[N4723] Coroutines TS</a><br>
+<br>
+
+<b>[2]</b>
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0114r0.pdf">[P0114R0] Resumable Expressions (revision 1)</a>
+<br>
+
+<!----------------------------------------------------------------------------->
+
+<a name="Acknowledgements"></a><h2>Acknowledgements 1</h2>
+
+<!----------------------------------------------------------------------------->
+
+<a name="listing1"></a><h2>Listing 1</h2>
+<tt><pre>
+///////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Lewis Baker
+// Licenced under MIT license. See LICENSE.txt for details.
+///////////////////////////////////////////////////////////////////////////////
+
+/*
+Original file located at
+https://github.com/lewissbaker/cppcoro/blob/2492c0782911cdf7fe803642040efff3faa3c28a/include/cppcoro/generator.hpp
+
+This is a derivative work
+*/
+
+#ifndef CPPCORO_GENERATOR_HPP_INCLUDED
+#define CPPCORO_GENERATOR_HPP_INCLUDED
+
+#include &lt;experimental/coroutine&gt;
+#include &lt;type_traits&gt;
+#include &lt;utility&gt;
+
+template&lt;typename T&gt;
+class generator;
+
+namespace detail {
+
+template&lt;typename T&gt;
+class generator_promise
+{
+    pointer_type m_value;
+
+public:
+    using value_type = std::remove_reference_t&lt;T&gt;;
+    using reference_type = std::conditional_t&lt;std::is_reference_v&lt;T&gt;, T, T&amp;&gt;;
+    using pointer_type = value_type*;
+
+    generator_promise() = default;
+
+    generator&lt;T&gt; get_return_object() noexcept;
+
+    constexpr std::experimental::suspend_always initial_suspend() const { return {}; }
+    constexpr std::experimental::suspend_always final_suspend() const { return {}; }
+
+    template&lt;
+        typename U,
+        typename = std::enable_if_t&lt;std::is_same&lt;U, T&gt;::value&gt;&gt;
+    std::experimental::suspend_always yield_value(U&amp; value) noexcept
+    {
+        m_value = std::addressof(value);
+        return {};
+    }
+
+    std::experimental::suspend_always yield_value(T&amp;&amp; value) noexcept
+    {
+        m_value = std::addressof(value);
+        return {};
+    }
+
+    void unhandled_exception()
+    {
+        std::rethrow_exception(std::current_exception());
+    }
+
+    void return_void()
+    {
+    }
+
+    reference_type value() const noexcept
+    {
+        return *m_value;
+    }
+
+    // Don't allow any use of 'co_await' inside the generator coroutine.
+    template&lt;typename U&gt;
+    std::experimental::suspend_never await_transform(U&amp;&amp; value) = delete;
+};
+
+template&lt;typename T&gt;
+class generator_iterator
+{
+    using coroutine_handle = std::experimental::coroutine_handle&lt;generator_promise&lt;T&gt;&gt;;
+    coroutine_handle m_coroutine;
+
+public:
+    using iterator_category = std::input_iterator_tag;
+    using difference_type = std::size_t;
+    using value_type = std::remove_reference_t&lt;T&gt;;
+    using reference = value_type&amp;;
+    using pointer = value_type*;
+
+    explicit generator_iterator(std::nullptr_t) noexcept
+        : m_coroutine(nullptr)
+    {}
+
+    explicit generator_iterator(coroutine_handle coroutine) noexcept
+        : m_coroutine(coroutine)
+    {}
+
+    bool operator==(const generator_iterator&amp; other) const noexcept
+    {
+        return m_coroutine == other.m_coroutine;
+    }
+
+    bool operator!=(const generator_iterator&amp; other) const noexcept
+    {
+        return !(*this == other);
+    }
+
+    generator_iterator&amp; operator++()
+    {
+        m_coroutine.resume();
+        if (m_coroutine.done())
+        {
+            m_coroutine = nullptr;
+        }
+
+        return *this;
+    }
+
+    // Don't support post-increment as that would require taking a
+    // copy of the old value into the returned iterator as there
+    // are no guarantees it's still going to be valid after the
+    // increment is executed.
+    generator_iterator operator++(int) = delete;
+
+    reference operator*() const noexcept
+    {
+        return m_coroutine.promise().value();
+    }
+
+    pointer operator-&gt;() const noexcept
+    {
+        return std::addressof(operator*());
+    }
+};
+
+} // detail
+
+template&lt;typename T&gt;
+class generator
+{
+public:
+
+    using promise_type = detail::generator_promise&lt;T&gt;;
+    using iterator = detail::generator_iterator&lt;T&gt;;
+
+    generator() noexcept
+        : m_coroutine(nullptr)
+    {}
+
+    generator(generator&amp;&amp; other) noexcept
+        : m_coroutine(other.m_coroutine)
+    {
+        other.m_coroutine = nullptr;
+    }
+
+    generator(const generator&amp; other) = delete;
+
+    ~generator()
+    {
+        if (m_coroutine)
+        {
+            m_coroutine.destroy();
+        }
+    }
+
+    generator&amp; operator=(generator other) noexcept
+    {
+        swap(other);
+        return *this;
+    }
+
+    iterator begin()
+    {
+        if (m_coroutine)
+        {
+            m_coroutine.resume();
+            if (!m_coroutine.done())
+            {
+                return iterator{ m_coroutine };
+            }
+        }
+
+        return iterator{ nullptr };
+    }
+
+    iterator end() noexcept
+    {
+        return iterator{ nullptr };
+    }
+
+    void swap(generator&amp; other) noexcept
+    {
+        std::swap(m_coroutine, other.m_coroutine);
+    }
+
+private:
+
+    friend class detail::generator_promise&lt;T&gt;;
+
+    explicit generator(std::experimental::coroutine_handle&lt;promise_type&gt; coroutine) noexcept
+        : m_coroutine(coroutine)
+    {}
+
+    std::experimental::coroutine_handle&lt;promise_type&gt; m_coroutine;
+
+};
+
+template&lt;typename T&gt;
+void swap(generator&lt;T&gt;&amp; a, generator&lt;T&gt;&amp; b)
+{
+    a.swap(b);
+}
+
+namespace detail {
+
+template&lt;typename T&gt;
+generator&lt;T&gt; generator_promise&lt;T&gt;::get_return_object() noexcept
+{
+    using coroutine_handle = std::experimental::coroutine_handle&lt;generator_promise&lt;T&gt;&gt;;
+    return generator&lt;T&gt;{ coroutine_handle::from_promise(*this) };
+}
+
+} // detail
+
+#endif
+</pre></tt>
+
+</body>
+</html>
