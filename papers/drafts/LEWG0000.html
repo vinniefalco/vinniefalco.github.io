@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0045)https://timsong-cpp.github.io/lwg-issues/2779 -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+[networking.ts] Buffer sequence iterator equivalency
+</title>
+<style type="text/css">
+  p {text-align:justify}
+  li {text-align:justify}
+  blockquote.note
+  {
+    background-color:#E0E0E0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  ins {background-color:#A0FFA0}
+  del {background-color:#FFA0A0}
+  table {border-collapse: collapse;}
+</style>
+</head>
+<body>
+<hr>
+
+<h3>[networking.ts] Buffer sequence iterator equivalency</h3>
+<p><b>Submitter:</b> Vinnie Falco</p>
+<p><b>Discussion:</b></p>
+<p>
+    Buffer sequence iterators in [networking.ts] differ from the current
+    standard iterator requirements in that the value returned upon
+    dereferencing is not required to be a reference type. This change is
+    vital for allowing authors to create useful, lazily-evaluated views
+    which meet the requirements of buffer sequences. Unfortunately the
+    updated language is incompatible with the standard iterator requirements
+    for equality testing, because the addresses of value types returned by
+    buffer sequence iterators may not be stable. The change proposed in
+    this defect report defines a new metric for buffer sequence iterator
+    equality.
+</p>
+
+<p><b>Proposed resolution:</b></p>
+<p>
+This wording is relative to
+<a href="http://cplusplus.github.io/networking-ts/draft.pdf">N4734</a>.
+</p>
+
+<p>Modify 16.2.1 [buffer.reqmts.mutablebuffersequence] as indicated:</p>
+<blockquote>
+<p>
+An iterator type whose <tt>reference</tt> type is convertible to
+<tt>mutable_buffer</tt> and which satisfies all the requirements for
+bidirectional iterators (C++ 2014 [bidirectional.iterators]) except that:
+</p>
+<ol style="list-style-type:lower-alpha">
+<li>there is no requirement that <tt>operator-&gt;</tt> is provided, and</li>
+<li>there is no requirement that <tt>reference</tt> be a reference
+  type<del>.</del><ins>, and</ins></li>
+<li><ins>for iterators <tt>a</tt> and <tt>b</tt> there is no requirement that
+  <tt>a == b</tt> if and only if <tt>*a</tt> and <tt>*b</tt> are bound to the
+  same object, and</ins></li>
+<li><ins>
+  <tt>a == b</tt> if and only if
+  <tt>distance(buffer_sequence_begin(x), a) == distance(buffer_sequence_begin(x), b)</tt>
+</ins></li>
+</ol>
+</blockquote>
+
+<p>Modify 16.2.2 [buffer.reqmts.constbuffersequence] as indicated:</p>
+<blockquote>
+<p>
+An iterator type whose <tt>reference</tt> type is convertible to
+<tt>const_buffer</tt> and which satisfies all the requirements for
+bidirectional iterators (C++ 2014 [bidirectional.iterators]) except that:
+</p>
+<ol style="list-style-type:lower-alpha">
+<li>there is no requirement that <tt>operator-&gt;</tt> is provided, and</li>
+<li>there is no requirement that <tt>reference</tt> be a reference
+  type<del>.</del><ins>, and</ins></li>
+<li><ins>for iterators <tt>a</tt> and <tt>b</tt> there is no requirement that
+  <tt>a == b</tt> if and only if <tt>*a</tt> and <tt>*b</tt> are bound to the
+  same object, and</ins></li>
+<li><ins>
+  <tt>a == b</tt> if and only if
+  <tt>distance(buffer_sequence_begin(x), a) == distance(buffer_sequence_begin(x), b)</tt>
+</ins></li>
+</ol>
+</blockquote>
+
+</body>
+</html>
