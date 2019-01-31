@@ -81,7 +81,7 @@
               </td>
 <td>
                 <p>
-                  Determines the type of the <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">body</span></code></a> member.
+                  Determines the type of the <a class="link" href="../ref/boost__beast__http__message/body.html" title="http::message::body"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">body</span></code></a> member.
                 </p>
               </td>
 </tr>
@@ -96,7 +96,7 @@
                   An optional nested type meeting the requirements of <a class="link" href="../concepts/BodyReader.html" title="BodyReader"><span class="emphasis"><em>BodyReader</em></span></a>,
                   which provides the algorithm for storing a forward range of buffer
                   sequences in the body representation. If present, this body type
-                  may be used with a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">parser</span></code></a>.
+                  may be used with a <a class="link" href="../ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -111,7 +111,7 @@
                   An optional nested type meeting the requirements of <a class="link" href="../concepts/BodyWriter.html" title="BodyWriter"><span class="emphasis"><em>BodyWriter</em></span></a>,
                   which provides the algorithm for converting the body representation
                   to a forward range of buffer sequences. If present this body type
-                  may be used with a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span></code></a>.
+                  may be used with a <a class="link" href="../ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -157,10 +157,10 @@
 <p>
           Use of the flexible <a class="link" href="../concepts/Body.html" title="Body"><span class="emphasis"><em>Body</em></span></a>
           concept customization point enables authors to preserve the self-contained
-          nature of the <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a> object while allowing
+          nature of the <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> object while allowing
           domain specific behaviors. Common operations for HTTP servers include sending
           responses which deliver file contents, and allowing for file uploads. In
-          this example we build the <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_file_body</span></code></a> type which supports
+          this example we build the <a class="link" href="../ref/boost__beast__http__basic_file_body.html" title="http::basic_file_body"><code class="computeroutput"><span class="identifier">basic_file_body</span></code></a> type which supports
           both reading and writing to a file on the file system. The interface is
           a class templated on the type of file used to access the file system, which
           must meet the requirements of <a class="link" href="../concepts/File.html" title="File"><span class="emphasis"><em>File</em></span></a>.

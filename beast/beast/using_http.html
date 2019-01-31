@@ -49,29 +49,29 @@
 <dl class="variablelist">
 <dt><span class="term">Message Containers</span></dt>
 <dd><p>
-            Complete HTTP messages are modeled using the <a class="link" href="../"><code class="computeroutput"><span class="identifier">message</span></code></a> class, with possible
+            Complete HTTP messages are modeled using the <a class="link" href="ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> class, with possible
             user customizations.
           </p></dd>
 <dt><span class="term">Stream Reading</span></dt>
 <dd><p>
-            The functions <a class="link" href="../"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">read_header</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read_header</span></code></a>, and <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a> read HTTP/1
+            The functions <a class="link" href="ref/boost__beast__http__read.html" title="http::read"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="ref/boost__beast__http__read_header.html" title="http::read_header"><code class="computeroutput"><span class="identifier">read_header</span></code></a>, <a class="link" href="ref/boost__beast__http__read_some.html" title="http::read_some"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, <a class="link" href="ref/boost__beast__http__async_read.html" title="http::async_read"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, <a class="link" href="ref/boost__beast__http__async_read_header.html" title="http::async_read_header"><code class="computeroutput"><span class="identifier">async_read_header</span></code></a>, and <a class="link" href="ref/boost__beast__http__async_read_some.html" title="http::async_read_some"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a> read HTTP/1
             message data from a <a class="link" href="concepts/streams.html" title="Streams">stream</a>.
           </p></dd>
 <dt><span class="term">Stream Writing</span></dt>
 <dd><p>
-            The functions <a class="link" href="../"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">write_header</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write_header</span></code></a>, and <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write_some</span></code></a> write HTTP/1
+            The functions <a class="link" href="ref/boost__beast__http__write.html" title="http::write"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="ref/boost__beast__http__write_header.html" title="http::write_header"><code class="computeroutput"><span class="identifier">write_header</span></code></a>, <a class="link" href="ref/boost__beast__http__write_some.html" title="http::write_some"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="ref/boost__beast__http__async_write.html" title="http::async_write"><code class="computeroutput"><span class="identifier">async_write</span></code></a>, <a class="link" href="ref/boost__beast__http__async_write_header.html" title="http::async_write_header"><code class="computeroutput"><span class="identifier">async_write_header</span></code></a>, and <a class="link" href="ref/boost__beast__http__async_write_some.html" title="http::async_write_some"><code class="computeroutput"><span class="identifier">async_write_some</span></code></a> write HTTP/1
             message data to a <a class="link" href="concepts/streams.html" title="Streams">stream</a>.
           </p></dd>
 <dt><span class="term">Serialization</span></dt>
 <dd><p>
-            The <a class="link" href="../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> produces a series
+            The <a class="link" href="ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> produces a series
             of octet buffers conforming to the <a href="https://tools.ietf.org/html/rfc7230" target="_top">rfc7230</a>
-            wire representation of a <a class="link" href="../"><code class="computeroutput"><span class="identifier">message</span></code></a>.
+            wire representation of a <a class="link" href="ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>.
           </p></dd>
 <dt><span class="term">Parsing</span></dt>
 <dd><p>
-            The <a class="link" href="../"><code class="computeroutput"><span class="identifier">parser</span></code></a> attempts to convert a
-            series of octet buffers into a <a class="link" href="../"><code class="computeroutput"><span class="identifier">message</span></code></a>.
+            The <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> attempts to convert a
+            series of octet buffers into a <a class="link" href="ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>.
           </p></dd>
 </dl>
 </div>
@@ -114,13 +114,13 @@
             </td>
 <td>
               <p>
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">message</span></code></a>
+                <a class="link" href="ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>
               </p>
             </td>
 <td>
               <p>
                 At the highest level, these free functions send or receive a complete
-                HTTP message in one call. They are designed for ease of use: <a class="link" href="../"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, and <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write</span></code></a>.
+                HTTP message in one call. They are designed for ease of use: <a class="link" href="ref/boost__beast__http__read/overload4.html" title="http::read (4 of 4 overloads)"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="ref/boost__beast__http__write/overload4.html" title="http::write (4 of 6 overloads)"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="ref/boost__beast__http__async_read/overload2.html" title="http::async_read (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, and <a class="link" href="ref/boost__beast__http__async_write/overload2.html" title="http::async_write (2 of 3 overloads)"><code class="computeroutput"><span class="identifier">async_write</span></code></a>.
               </p>
             </td>
 </tr>
@@ -132,17 +132,17 @@
             </td>
 <td>
               <p>
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">parser</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">serializer</span></code></a>
+                <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a>, <a class="link" href="ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a>
               </p>
             </td>
 <td>
               <p>
                 For more control, callers may take responsibility for managing the
-                required <a class="link" href="../"><code class="computeroutput"><span class="identifier">parser</span></code></a> or <a class="link" href="../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> transient state
+                required <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> or <a class="link" href="ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> transient state
                 objects. This allows additional configuration such as limiting the
                 number of bytes for message components during parsing, or regulating
                 the size of buffers emitted during output. These functions send or
-                receive complete messages using a serializer or parser: <a class="link" href="../"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, and <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write</span></code></a>.
+                receive complete messages using a serializer or parser: <a class="link" href="ref/boost__beast__http__read/overload2.html" title="http::read (2 of 4 overloads)"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="ref/boost__beast__http__write/overload2.html" title="http::write (2 of 6 overloads)"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="ref/boost__beast__http__async_read/overload1.html" title="http::async_read (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, and <a class="link" href="ref/boost__beast__http__async_write/overload1.html" title="http::async_write (1 of 3 overloads)"><code class="computeroutput"><span class="identifier">async_write</span></code></a>.
               </p>
             </td>
 </tr>
@@ -154,16 +154,16 @@
             </td>
 <td>
               <p>
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">header</span></code></a>
+                <a class="link" href="ref/boost__beast__http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a>
               </p>
             </td>
 <td>
               <p>
                 Sometimes it is necessary to first send or receive the HTTP header.
                 For example, to read the header and take action before continuing
-                to read the body. These functions use a <a class="link" href="../"><code class="computeroutput"><span class="identifier">parser</span></code></a> or <a class="link" href="../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> to read or write
-                the header: <a class="link" href="../"><code class="computeroutput"><span class="identifier">read_header</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">write_header</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read_header</span></code></a>, and
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write_header</span></code></a>.
+                to read the body. These functions use a <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> or <a class="link" href="ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> to read or write
+                the header: <a class="link" href="ref/boost__beast__http__read_header/overload2.html" title="http::read_header (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">read_header</span></code></a>, <a class="link" href="ref/boost__beast__http__write_header/overload2.html" title="http::write_header (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">write_header</span></code></a>, <a class="link" href="ref/boost__beast__http__async_read_header.html" title="http::async_read_header"><code class="computeroutput"><span class="identifier">async_read_header</span></code></a>, and
+                <a class="link" href="ref/boost__beast__http__async_write_header.html" title="http::async_write_header"><code class="computeroutput"><span class="identifier">async_write_header</span></code></a>.
               </p>
             </td>
 </tr>
@@ -175,7 +175,7 @@
             </td>
 <td>
               <p>
-                partial <a class="link" href="../"><code class="computeroutput"><span class="identifier">message</span></code></a>
+                partial <a class="link" href="ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>
               </p>
             </td>
 <td>
@@ -186,7 +186,7 @@
                 implementations to perform work bounded on storage, or allows better
                 control when setting timeouts for example. These functions read or
                 write bounded amounts of data and return the number of bytes transacted:
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a>, and <a class="link" href="../"><code class="computeroutput"><span class="identifier">async_write_some</span></code></a>.
+                <a class="link" href="ref/boost__beast__http__read_some/overload2.html" title="http::read_some (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, <a class="link" href="ref/boost__beast__http__write_some/overload2.html" title="http::write_some (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="ref/boost__beast__http__async_read_some.html" title="http::async_read_some"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a>, and <a class="link" href="ref/boost__beast__http__async_write_some.html" title="http::async_write_some"><code class="computeroutput"><span class="identifier">async_write_some</span></code></a>.
               </p>
             </td>
 </tr>
@@ -208,12 +208,12 @@
                 known ahead of time. For some domain specific niches, it is necessary
                 to assume direct control over incoming or outgoing chunks in a chunk
                 encoded message payload. For parsing this is achieved by setting
-                hooks using the functions <a class="link" href="../"><code class="computeroutput"><span class="identifier">on_chunk_header</span></code></a> and/or
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">on_chunk_body</span></code></a>. For serializing
+                hooks using the functions <a class="link" href="ref/boost__beast__http__parser/on_chunk_header.html" title="http::parser::on_chunk_header"><code class="computeroutput"><span class="identifier">on_chunk_header</span></code></a> and/or
+                <a class="link" href="ref/boost__beast__http__parser/on_chunk_body.html" title="http::parser::on_chunk_body"><code class="computeroutput"><span class="identifier">on_chunk_body</span></code></a>. For serializing
                 callers may first emit the header, and then use these buffer sequence
                 adapters to control the contents of each chunk including <a href="https://tools.ietf.org/html/rfc7230#section-4.1.1" target="_top"><span class="emphasis"><em>chunk
                 extensions</em></span></a> and the <a href="https://tools.ietf.org/html/rfc7230#section-4.1.2" target="_top"><span class="emphasis"><em>trailer-part</em></span></a>:
-                <a class="link" href="../"><code class="computeroutput"><span class="identifier">chunk_body</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">chunk_crlf</span></code></a>, <a class="link" href="../"><code class="computeroutput"><span class="identifier">chunk_header</span></code></a>, and <a class="link" href="../"><code class="computeroutput"><span class="identifier">chunk_last</span></code></a>.
+                <a class="link" href="ref/boost__beast__http__chunk_body.html" title="http::chunk_body"><code class="computeroutput"><span class="identifier">chunk_body</span></code></a>, <a class="link" href="ref/boost__beast__http__chunk_crlf.html" title="http::chunk_crlf"><code class="computeroutput"><span class="identifier">chunk_crlf</span></code></a>, <a class="link" href="ref/boost__beast__http__chunk_header.html" title="http::chunk_header"><code class="computeroutput"><span class="identifier">chunk_header</span></code></a>, and <a class="link" href="ref/boost__beast__http__chunk_last.html" title="http::chunk_last"><code class="computeroutput"><span class="identifier">chunk_last</span></code></a>.
               </p>
             </td>
 </tr>
@@ -232,7 +232,7 @@
               <p>
                 For ultimate control, the use of library stream algorithms may be
                 bypassed entirely and instead work directly with buffers by calling
-                members of <a class="link" href="../"><code class="computeroutput"><span class="identifier">parser</span></code></a> or <a class="link" href="../"><code class="computeroutput"><span class="identifier">serializer</span></code></a>.
+                members of <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> or <a class="link" href="ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a>.
               </p>
             </td>
 </tr>
@@ -255,7 +255,7 @@
                 at the lowest level. The customization points include <a class="link" href="concepts/Fields.html" title="Fields"><span class="emphasis"><em>Fields</em></span></a>
                 for creating a container to store HTTP fields, <a class="link" href="concepts/Body.html" title="Body"><span class="emphasis"><em>Body</em></span></a>
                 for defining containers and algorithms used for HTTP message payloads,
-                and user-defined subclasses of <a class="link" href="../"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> for implementing
+                and user-defined subclasses of <a class="link" href="ref/boost__beast__http__basic_parser.html" title="http::basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> for implementing
                 custom message representation strategies.
               </p>
             </td>

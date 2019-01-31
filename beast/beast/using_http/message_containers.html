@@ -27,7 +27,7 @@
 <a name="beast.using_http.message_containers"></a><a class="link" href="message_containers.html" title="Message Containers">Message Containers</a>
 </h3></div></div></div>
 <p>
-        Beast provides a single class template <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a> and some aliases which model
+        Beast provides a single class template <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> and some aliases which model
         HTTP/1 and <a href="https://tools.ietf.org/html/rfc7540" target="_top">HTTP/2</a>
         messages:
       </p>
@@ -54,7 +54,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>
                 </p>
               </td>
 <td>
@@ -70,7 +70,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">request</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__request.html" title="http::request"><code class="computeroutput"><span class="identifier">request</span></code></a>
                 </p>
               </td>
 <td>
@@ -83,7 +83,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">response</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__response.html" title="http::response"><code class="computeroutput"><span class="identifier">response</span></code></a>
                 </p>
               </td>
 <td>
@@ -102,7 +102,7 @@
         <a class="link" href="../concepts/Fields.html" title="Fields"><span class="emphasis"><em>Fields</em></span></a>.
         User defined template function parameters can accept any message, or can
         use partial specialization to accept just requests or responses. The default
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">fields</span></code></a>
+        <a class="link" href="../ref/boost__beast__http__fields.html" title="http::fields"><code class="computeroutput"><span class="identifier">fields</span></code></a>
         is a provided associative container using the standard allocator and supporting
         modification and inspection of fields. As per <a href="https://tools.ietf.org/html/rfc7230" target="_top">rfc7230</a>,
         a non-case-sensitive comparison is used for field names. User defined types
@@ -114,7 +114,7 @@
       </p>
 <p>
         Sometimes it is desired to only work with a header. Beast provides a single
-        class template <a class="link" href="../../"><code class="computeroutput"><span class="identifier">header</span></code></a> and some aliases to model
+        class template <a class="link" href="../ref/boost__beast__http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a> and some aliases to model
         HTTP/1 and HTTP/2 headers:
       </p>
 <div class="table">
@@ -140,7 +140,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">header</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a>
                 </p>
               </td>
 <td>
@@ -155,7 +155,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">request_header</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__request_header.html" title="http::request_header"><code class="computeroutput"><span class="identifier">request_header</span></code></a>
                 </p>
               </td>
 <td>
@@ -168,7 +168,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">response_header</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__response_header.html" title="http::response_header"><code class="computeroutput"><span class="identifier">response_header</span></code></a>
                 </p>
               </td>
 <td>
@@ -185,8 +185,8 @@
         Requests and responses share the version, fields, and body but have a few
         members unique to the type. This is implemented by declaring the header classes
         as partial specializations of <code class="computeroutput"><span class="identifier">isRequest</span></code>.
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a>
-        is derived from <a class="link" href="../../"><code class="computeroutput"><span class="identifier">header</span></code></a>; a message may be passed
+        <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a>
+        is derived from <a class="link" href="../ref/boost__beast__http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">header</span></code></a>; a message may be passed
         as an argument to a function taking a suitably typed header as a parameter.
         Additionally, <code class="computeroutput"><span class="identifier">header</span></code> is publicly
         derived from <code class="computeroutput"><span class="identifier">Fields</span></code>; a message
@@ -204,7 +204,7 @@
       </h5>
 <p>
         Beast defines the <a class="link" href="../concepts/Body.html" title="Body"><span class="emphasis"><em>Body</em></span></a>
-        concept, which determines both the type of the <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">body</span></code></a> member (as seen in the diagram
+        concept, which determines both the type of the <a class="link" href="../ref/boost__beast__http__message/body.html" title="http::message::body"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">body</span></code></a> member (as seen in the diagram
         above) and may also include algorithms for transferring buffers in and out.
         These algorithms are used during parsing and serialization. Users may define
         their own body types which meet the requirements, or use the ones that come
@@ -231,12 +231,12 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffer_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__buffer_body.html" title="http::buffer_body"><code class="computeroutput"><span class="identifier">buffer_body</span></code></a>
                 </p>
               </td>
 <td>
                 <p>
-                  A body whose <a class="link" href="../../"><code class="computeroutput"><span class="identifier">value_type</span></code></a> holds a raw
+                  A body whose <a class="link" href="../ref/boost__beast__http__buffer_body__value_type.html" title="http::buffer_body::value_type"><code class="computeroutput"><span class="identifier">value_type</span></code></a> holds a raw
                   pointer and size to a caller-provided buffer. This allows for serialization
                   of body data coming from external sources, and incremental parsing
                   of message body content using a fixed size buffer.
@@ -246,10 +246,10 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">dynamic_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__dynamic_body.html" title="http::dynamic_body"><code class="computeroutput"><span class="identifier">dynamic_body</span></code></a>
                 </p>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_dynamic_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_dynamic_body.html" title="http::basic_dynamic_body"><code class="computeroutput"><span class="identifier">basic_dynamic_body</span></code></a>
                 </p>
               </td>
 <td>
@@ -265,7 +265,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">empty_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__empty_body.html" title="http::empty_body"><code class="computeroutput"><span class="identifier">empty_body</span></code></a>
                 </p>
               </td>
 <td>
@@ -280,10 +280,10 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">file_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__file_body.html" title="http::file_body"><code class="computeroutput"><span class="identifier">file_body</span></code></a>
                 </p>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_file_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_file_body.html" title="http::basic_file_body"><code class="computeroutput"><span class="identifier">basic_file_body</span></code></a>
                 </p>
               </td>
 <td>
@@ -298,13 +298,13 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">span_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__span_body.html" title="http::span_body"><code class="computeroutput"><span class="identifier">span_body</span></code></a>
                 </p>
               </td>
 <td>
                 <p>
                   A body whose <code class="computeroutput"><span class="identifier">value_type</span></code>
-                  is a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">span</span></code></a>, a non-owning reference
+                  is a <a class="link" href="../ref/boost__beast__span.html" title="span"><code class="computeroutput"><span class="identifier">span</span></code></a>, a non-owning reference
                   to a single linear buffer of bytes. Messages with this body type
                   may be serialized and parsed.
                 </p>
@@ -313,10 +313,10 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">string_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__string_body.html" title="http::string_body"><code class="computeroutput"><span class="identifier">string_body</span></code></a>
                 </p>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_string_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_string_body.html" title="http::basic_string_body"><code class="computeroutput"><span class="identifier">basic_string_body</span></code></a>
                 </p>
               </td>
 <td>
@@ -332,7 +332,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">vector_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__vector_body.html" title="http::vector_body"><code class="computeroutput"><span class="identifier">vector_body</span></code></a>
                 </p>
               </td>
 <td>
@@ -396,7 +396,7 @@
 </div>
 <br class="table-break"><p>
         In this code we create an HTTP response with a status code indicating success.
-        This message has a body with a non-zero length. The function <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">prepare_payload</span></code></a> automatically sets
+        This message has a body with a non-zero length. The function <a class="link" href="../ref/boost__beast__http__message/prepare_payload.html" title="http::message::prepare_payload"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">prepare_payload</span></code></a> automatically sets
         the Content-Length or Transfer-Encoding field depending on the content and
         type of the <code class="computeroutput"><span class="identifier">body</span></code> member.
         Use of this function is optional; these fields may also be set explicitly.
@@ -444,7 +444,7 @@
 <br class="table-break"><p>
         The implementation will automatically fill in the obsolete <a href="https://tools.ietf.org/html/rfc7230#section-3.1.2" target="_top">reason-phrase</a>
         from the status code when serializing a message. Or it may be set directly
-        using <a class="link" href="../../"><code class="computeroutput"><span class="identifier">header</span><span class="special">::</span><span class="identifier">reason</span></code></a>.
+        using <a class="link" href="../ref/boost__beast__http__header/reason/overload2.html" title="http::header::reason (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">header</span><span class="special">::</span><span class="identifier">reason</span></code></a>.
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

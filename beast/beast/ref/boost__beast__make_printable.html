@@ -27,7 +27,7 @@
 <a name="beast.ref.boost__beast__make_printable"></a><a class="link" href="boost__beast__make_printable.html" title="make_printable">make_printable</a>
 </h4></div></div></div>
 <p>
-        <a class="indexterm" name="id1397228"></a>
+        <a class="indexterm" name="id1299098"></a>
 Helper to permit a buffer sequence to be printed to a std::ostream.
       </p>
 <h5>
@@ -65,7 +65,6 @@ Helper to permit a buffer sequence to be printed to a std::ostream.
 <span class="keyword">void</span>
 <span class="identifier">print</span> <span class="special">(</span><span class="identifier">ConstBufferSequence</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">buffers</span><span class="special">)</span>
 <span class="special">{</span>
-    <span class="keyword">using</span> <span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">;</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span>
         <span class="string">"Buffer size: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffers</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="string">" bytes\n"</span>
         <span class="string">"Buffer data: '"</span> <span class="special">&lt;&lt;</span> <span class="identifier">make_printable</span><span class="special">(</span><span class="identifier">buffers</span><span class="special">)</span> <span class="special">&lt;&lt;</span> <span class="string">"'\n"</span><span class="special">;</span>

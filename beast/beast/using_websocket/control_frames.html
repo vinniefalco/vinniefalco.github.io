@@ -47,7 +47,7 @@
         If a control callback is registered, the callback is notified of the incoming
         control frame. The implementation will respond to pings automatically. The
         receipt of a close frame initiates the WebSocket close procedure, eventually
-        resulting in the error code <a class="link" href="../../"><code class="computeroutput"><span class="identifier">error</span><span class="special">::</span><span class="identifier">closed</span></code></a> being delivered to the caller
+        resulting in the error code <a class="link" href="../ref/boost__beast__websocket__error.html" title="websocket::error"><code class="computeroutput"><span class="identifier">error</span><span class="special">::</span><span class="identifier">closed</span></code></a> being delivered to the caller
         in a subsequent read operation, assuming no other error takes place.
       </p>
 <p>
@@ -66,9 +66,9 @@
 <p>
         Ping, pong, and close messages are control frames which may be sent at any
         time by either peer on an established WebSocket connection. They are sent
-        using the functions <a class="link" href="../../"><code class="computeroutput"><span class="identifier">ping</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">pong</span></code></a>. and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">close</span></code></a>. To be notified of control
+        using the functions <a class="link" href="../ref/boost__beast__websocket__stream/ping.html" title="websocket::stream::ping"><code class="computeroutput"><span class="identifier">ping</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/pong.html" title="websocket::stream::pong"><code class="computeroutput"><span class="identifier">pong</span></code></a>. and <a class="link" href="../ref/boost__beast__websocket__stream/close.html" title="websocket::stream::close"><code class="computeroutput"><span class="identifier">close</span></code></a>. To be notified of control
         frames, callers may register a <span class="emphasis"><em>control callback</em></span> using
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">control_callback</span></code></a>. The object provided
+        <a class="link" href="../ref/boost__beast__websocket__stream/control_callback.html" title="websocket::stream::control_callback"><code class="computeroutput"><span class="identifier">control_callback</span></code></a>. The object provided
         with this option should be callable with the following signature:
       </p>
 <pre class="programlisting"><span class="identifier">ws</span><span class="special">.</span><span class="identifier">control_callback</span><span class="special">(</span>
@@ -83,7 +83,7 @@
         pongs, and close frames received through either synchronous read functions
         or asynchronous read functions. The type of frame and payload text are passed
         as parameters to the control callback. If the frame is a close frame, the
-        close reason may be obtained by calling <a class="link" href="../../"><code class="computeroutput"><span class="identifier">reason</span></code></a>.
+        close reason may be obtained by calling <a class="link" href="../ref/boost__beast__websocket__stream/reason.html" title="websocket::stream::reason"><code class="computeroutput"><span class="identifier">reason</span></code></a>.
       </p>
 <p>
         Unlike regular completion handlers used in calls to asynchronous initiation
@@ -113,7 +113,7 @@
         a close of the session. In this procedure, a host requests the close by sending
         a <a href="https://tools.ietf.org/html/rfc6455#section-5.5.1" target="_top"><span class="emphasis"><em>close
         frame</em></span></a>. To request a close use a close function such as
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">close</span></code></a> or <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_close</span></code></a>:
+        <a class="link" href="../ref/boost__beast__websocket__stream/close/overload2.html" title="websocket::stream::close (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">close</span></code></a> or <a class="link" href="../ref/boost__beast__websocket__stream/async_close.html" title="websocket::stream::async_close"><code class="computeroutput"><span class="identifier">async_close</span></code></a>:
       </p>
 <pre class="programlisting"><span class="identifier">ws</span><span class="special">.</span><span class="identifier">close</span><span class="special">(</span><span class="identifier">close_code</span><span class="special">::</span><span class="identifier">normal</span><span class="special">);</span>
 </pre>
@@ -126,7 +126,7 @@
         When a close frame is received by during a read operation, the implementation
         will automatically respond with a close frame and then shut down the underlying
         connection before returning. In this case, the read operation will complete
-        with the code <a class="link" href="../../"><code class="computeroutput"><span class="identifier">error</span><span class="special">::</span><span class="identifier">closed</span></code></a>. This indicates to the caller
+        with the code <a class="link" href="../ref/boost__beast__websocket__error.html" title="websocket::error"><code class="computeroutput"><span class="identifier">error</span><span class="special">::</span><span class="identifier">closed</span></code></a>. This indicates to the caller
         that the connection has been closed cleanly.
       </p>
 <div class="important"><table border="0" summary="Important">
@@ -135,7 +135,7 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-          To receive the <a class="link" href="../../"><code class="computeroutput"><span class="identifier">error</span><span class="special">::</span><span class="identifier">closed</span></code></a> error, a read operation
+          To receive the <a class="link" href="../ref/boost__beast__websocket__error.html" title="websocket::error"><code class="computeroutput"><span class="identifier">error</span><span class="special">::</span><span class="identifier">closed</span></code></a> error, a read operation
           is required.
         </p></td></tr>
 </table></div>

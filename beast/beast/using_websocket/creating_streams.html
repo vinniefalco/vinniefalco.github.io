@@ -28,7 +28,7 @@
 </h3></div></div></div>
 <p>
         The interface to the WebSocket implementation is a single template class
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">stream</span></code></a>:
+        <a class="link" href="../ref/boost__beast__websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">stream</span></code></a>:
       </p>
 <pre class="programlisting"><span class="comment">// A WebSocket stream</span>
 <span class="keyword">template</span><span class="special">&lt;</span>
@@ -110,7 +110,7 @@
 </pre>
 <p>
         Once the WebSocket stream wrapper is created, the wrapped object may be accessed
-        by calling <a class="link" href="../../"><code class="computeroutput"><span class="identifier">stream</span><span class="special">::</span><span class="identifier">next_layer</span></code></a>:
+        by calling <a class="link" href="../ref/boost__beast__websocket__stream/next_layer/overload1.html" title="websocket::stream::next_layer (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">stream</span><span class="special">::</span><span class="identifier">next_layer</span></code></a>:
       </p>
 <pre class="programlisting"><span class="identifier">ws</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">().</span><span class="identifier">shutdown</span><span class="special">(</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">ip</span><span class="special">::</span><span class="identifier">tcp</span><span class="special">::</span><span class="identifier">socket</span><span class="special">::</span><span class="identifier">shutdown_send</span><span class="special">);</span>
 </pre>

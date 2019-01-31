@@ -27,7 +27,7 @@
 <a name="beast.ref.boost__beast__get_lowest_layer"></a><a class="link" href="boost__beast__get_lowest_layer.html" title="get_lowest_layer">get_lowest_layer</a>
 </h4></div></div></div>
 <p>
-        <a class="indexterm" name="id1195083"></a>
+        <a class="indexterm" name="id1095437"></a>
 Return the lowest layer in a stack of stream layers.
       </p>
 <h5>
@@ -35,7 +35,7 @@ Return the lowest layer in a stack of stream layers.
         <span class="phrase"><a name="beast.ref.boost__beast__get_lowest_layer.synopsis"></a></span><a class="link" href="boost__beast__get_lowest_layer.html#beast.ref.boost__beast__get_lowest_layer.synopsis">Synopsis</a>
       </h5>
 <p>
-        Defined in header <code class="literal">&lt;<a href="../../../../../../boost/beast/core/get_lowest_layer.hpp" target="_top">boost/beast/core/get_lowest_layer.hpp</a>&gt;</code>
+        Defined in header <code class="literal">&lt;<a href="../../../../../../boost/beast/core/stream_traits.hpp" target="_top">boost/beast/core/stream_traits.hpp</a>&gt;</code>
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
@@ -49,7 +49,7 @@ Return the lowest layer in a stack of stream layers.
       </h5>
 <p>
         If <code class="computeroutput"><span class="identifier">t</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">()</span></code>
-        is well-defined, returns <code class="computeroutput"><span class="identifier">lowest_layer</span><span class="special">(</span><span class="identifier">t</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">())</span></code>.
+        is well-defined, returns <code class="computeroutput"><span class="identifier">get_lowest_layer</span><span class="special">(</span><span class="identifier">t</span><span class="special">.</span><span class="identifier">next_layer</span><span class="special">())</span></code>.
         Otherwise, it returns <code class="computeroutput"><span class="identifier">t</span></code>.
       </p>
 <p>

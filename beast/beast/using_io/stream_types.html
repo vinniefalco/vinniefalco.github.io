@@ -141,8 +141,8 @@
         The use of these type checks helps provide more concise errors during compilation:
       </p>
 <div class="table">
-<a name="beast.using_io.stream_types.stream_type_checks"></a><p class="title"><b>Table&#160;1.4.&#160;Stream Type Checks</b></p>
-<div class="table-contents"><table class="table" summary="Stream Type Checks">
+<a name="beast.using_io.stream_types.type_traits_and_metafunctions"></a><p class="title"><b>Table&#160;1.4.&#160;Type Traits and Metafunctions</b></p>
+<div class="table-contents"><table class="table" summary="Type Traits and Metafunctions">
 <colgroup>
 <col>
 <col>
@@ -163,7 +163,19 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">has_get_executor</span></code></a>
+                  <a class="link" href="../ref/boost__beast__executor_type.html" title="executor_type"><code class="computeroutput"><span class="identifier">executor_type</span></code></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  An alias for the type of object returned by <code class="computeroutput"><span class="identifier">get_executor</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../ref/boost__beast__has_get_executor.html" title="has_get_executor"><code class="computeroutput"><span class="identifier">has_get_executor</span></code></a>
                 </p>
               </td>
 <td>
@@ -176,7 +188,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_async_read_stream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_async_read_stream.html" title="is_async_read_stream"><code class="computeroutput"><span class="identifier">is_async_read_stream</span></code></a>
                 </p>
               </td>
 <td>
@@ -188,7 +200,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_async_stream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_async_stream.html" title="is_async_stream"><code class="computeroutput"><span class="identifier">is_async_stream</span></code></a>
                 </p>
               </td>
 <td>
@@ -201,7 +213,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_async_write_stream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_async_write_stream.html" title="is_async_write_stream"><code class="computeroutput"><span class="identifier">is_async_write_stream</span></code></a>
                 </p>
               </td>
 <td>
@@ -213,20 +225,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_completion_handler</span></code></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Determine if a type meets the requirements of <a href="../../../../../../doc/html/boost_asio/reference/CompletionHandler.html" target="_top"><span class="emphasis"><em>CompletionHandler</em></span></a>,
-                  and is callable with a specified signature.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_sync_read_stream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_sync_read_stream.html" title="is_sync_read_stream"><code class="computeroutput"><span class="identifier">is_sync_read_stream</span></code></a>
                 </p>
               </td>
 <td>
@@ -238,7 +237,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_sync_stream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_sync_stream.html" title="is_sync_stream"><code class="computeroutput"><span class="identifier">is_sync_stream</span></code></a>
                 </p>
               </td>
 <td>
@@ -251,7 +250,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_sync_write_stream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_sync_write_stream.html" title="is_sync_write_stream"><code class="computeroutput"><span class="identifier">is_sync_write_stream</span></code></a>
                 </p>
               </td>
 <td>

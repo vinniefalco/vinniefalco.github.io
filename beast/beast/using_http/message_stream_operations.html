@@ -55,48 +55,48 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><span class="bold"><strong>read</strong></span></a>
+                  <a class="link" href="../ref/boost__beast__http__read/overload3.html" title="http::read (3 of 4 overloads)"><span class="bold"><strong>read</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Read a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a> from a <a href="../../../../../../doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="emphasis"><em>SyncReadStream</em></span></a>.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <a class="link" href="../../"><span class="bold"><strong>async_read</strong></span></a>
-                </p>
-              </td>
-<td>
-                <p>
-                  Read a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a> from an <a href="../../../../../../doc/html/boost_asio/reference/AsyncReadStream.html" target="_top"><span class="emphasis"><em>AsyncReadStream</em></span></a>.
+                  Read a <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> from a <a href="../../../../../../doc/html/boost_asio/reference/SyncReadStream.html" target="_top"><span class="emphasis"><em>SyncReadStream</em></span></a>.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><span class="bold"><strong>write</strong></span></a>
+                  <a class="link" href="../ref/boost__beast__http__async_read/overload2.html" title="http::async_read (2 of 2 overloads)"><span class="bold"><strong>async_read</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Write a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a> to a <a href="../../../../../../doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="emphasis"><em>SyncWriteStream</em></span></a>.
+                  Read a <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> from an <a href="../../../../../../doc/html/boost_asio/reference/AsyncReadStream.html" target="_top"><span class="emphasis"><em>AsyncReadStream</em></span></a>.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><span class="bold"><strong>async_write</strong></span></a>
+                  <a class="link" href="../ref/boost__beast__http__write/overload1.html" title="http::write (1 of 6 overloads)"><span class="bold"><strong>write</strong></span></a>
                 </p>
               </td>
 <td>
                 <p>
-                  Write a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span></code></a> to an <a href="../../../../../../doc/html/boost_asio/reference/AsyncWriteStream.html" target="_top"><span class="emphasis"><em>AsyncWriteStream</em></span></a>.
+                  Write a <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> to a <a href="../../../../../../doc/html/boost_asio/reference/SyncWriteStream.html" target="_top"><span class="emphasis"><em>SyncWriteStream</em></span></a>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../ref/boost__beast__http__async_write.html" title="http::async_write"><span class="bold"><strong>async_write</strong></span></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  Write a <a class="link" href="../ref/boost__beast__http__message.html" title="http::message"><code class="computeroutput"><span class="identifier">message</span></code></a> to an <a href="../../../../../../doc/html/boost_asio/reference/AsyncWriteStream.html" target="_top"><span class="emphasis"><em>AsyncWriteStream</em></span></a>.
                 </p>
               </td>
 </tr>
@@ -106,7 +106,7 @@
 <br class="table-break"><p>
         All synchronous stream operations come in two varieties. One which throws
         an exception upon error, and another which accepts as the last parameter
-        an argument of type <a class="link" href="../../"><code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code></a>.
+        an argument of type <a class="link" href="../ref/boost__beast__error_code.html" title="error_code"><code class="computeroutput"><span class="identifier">error_code</span><span class="special">&amp;</span></code></a>.
         If an error occurs this argument will be set to contain the error code.
       </p>
 <h5>
@@ -127,7 +127,7 @@
 <span class="identifier">read</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">buffer</span><span class="special">,</span> <span class="identifier">req</span><span class="special">);</span>
 </pre>
 <p>
-        This example uses <a class="link" href="../../"><code class="computeroutput"><span class="identifier">flat_buffer</span></code></a>. Beast's <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> is optimized for structured
+        This example uses <a class="link" href="../ref/boost__beast__flat_buffer.html" title="flat_buffer"><code class="computeroutput"><span class="identifier">flat_buffer</span></code></a>. Beast's <a class="link" href="../ref/boost__beast__http__basic_parser.html" title="http::basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> is optimized for structured
         HTTP data located in a single contiguous (<span class="emphasis"><em>flat</em></span>) memory
         buffer. When not using a flat buffer the implementation may perform an additional
         memory allocations to restructure the input into a single buffer for parsing.
@@ -164,7 +164,7 @@
 </pre>
 <p>
         If a read stream algorithm cannot complete its operation without exceeding
-        the maximum specified size of the dynamic buffer provided, the error <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffer_overflow</span></code></a>
+        the maximum specified size of the dynamic buffer provided, the error <a class="link" href="../ref/boost__beast__http__error.html" title="http::error"><code class="computeroutput"><span class="identifier">buffer_overflow</span></code></a>
         is returned. This is one technique which may be used to impose a limit on
         the maximum size of an HTTP message header for protection from buffer overflow
         attacks. The following code will print the error message:

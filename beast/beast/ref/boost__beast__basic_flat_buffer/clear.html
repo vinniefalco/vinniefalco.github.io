@@ -27,9 +27,9 @@
 <a name="beast.ref.boost__beast__basic_flat_buffer.clear"></a><a class="link" href="clear.html" title="basic_flat_buffer::clear">basic_flat_buffer::clear</a>
 </h5></div></div></div>
 <p>
-          <a class="indexterm" name="id1096485"></a>
-Deallocate the internal buffer and reduce capacity
-          to zero.
+          <a class="indexterm" name="id983398"></a>
+Set the size of the readable and writable bytes to
+          zero.
         </p>
 <h6>
 <a name="beast.ref.boost__beast__basic_flat_buffer.clear.h0"></a>
@@ -43,12 +43,8 @@ Deallocate the internal buffer and reduce capacity
           <span class="phrase"><a name="beast.ref.boost__beast__basic_flat_buffer.clear.description"></a></span><a class="link" href="clear.html#beast.ref.boost__beast__basic_flat_buffer.clear.description">Description</a>
         </h6>
 <p>
-          This function deallocates the dynamically allocated internal buffer, and
-          reduces the capacity to zero without affecting the maximum size. The readable
-          and writable bytes will be empty after the object is cleared.
-        </p>
-<p>
-          Buffer sequences previously obtained using <a class="link" href="data.html" title="basic_flat_buffer::data"><code class="computeroutput"><span class="identifier">basic_flat_buffer</span><span class="special">::</span><span class="identifier">data</span></code></a> or <a class="link" href="prepare.html" title="basic_flat_buffer::prepare"><code class="computeroutput"><span class="identifier">basic_flat_buffer</span><span class="special">::</span><span class="identifier">prepare</span></code></a> become invalid.
+          This clears the buffer without changing capacity. Buffer sequences previously
+          obtained using <a class="link" href="data.html" title="basic_flat_buffer::data"><code class="computeroutput"><span class="identifier">basic_flat_buffer</span><span class="special">::</span><span class="identifier">data</span></code></a> or <a class="link" href="prepare.html" title="basic_flat_buffer::prepare"><code class="computeroutput"><span class="identifier">basic_flat_buffer</span><span class="special">::</span><span class="identifier">prepare</span></code></a> become invalid.
         </p>
 <h6>
 <a name="beast.ref.boost__beast__basic_flat_buffer.clear.h2"></a>

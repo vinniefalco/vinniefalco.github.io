@@ -34,7 +34,7 @@
         body, which presumably may be expensive to compute or large. This behavior
         is described in <a href="https://tools.ietf.org/html/rfc7231#section-5.1.1" target="_top">rfc7231
         section 5.1.1</a>. Handling the Expect field can be implemented easily
-        in a server by constructing a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">parser</span></code></a> to read the header first,
+        in a server by constructing a <a class="link" href="../ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> to read the header first,
         then send an informational HTTP response, and finally read the body using
         the same parser instance. A synchronous version of this server action looks
         like this:

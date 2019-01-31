@@ -6,8 +6,8 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Beast">
 <link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Beast">
-<link rel="prev" href="design_choices/faq.html" title="FAQ">
-<link rel="next" href="quickref.html" title="Reference">
+<link rel="prev" href="ref/boost__beast__zlib__z_params/total_out.html" title="zlib::z_params::total_out">
+<link rel="next" href="introduction.html" title="Introduction">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,7 +20,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="design_choices/faq.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="quickref.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="ref/boost__beast__zlib__z_params/total_out.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="introduction.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
@@ -28,6 +28,298 @@
 </h2></div></div></div>
 <h4>
 <a name="beast.release_notes.h0"></a>
+      <span class="phrase"><a name="beast.release_notes.boost_1_70"></a></span><a class="link" href="release_notes.html#beast.release_notes.boost_1_70">Boost
+      1.70</a>
+    </h4>
+<div class="tip"><table border="0" summary="Tip">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="../../../../../doc/src/images/tip.png"></td>
+<th align="left">Tip</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        The namespace alias <code class="computeroutput"><span class="identifier">net</span></code> is
+        used throughout for <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span></code>.
+      </p></td></tr>
+</table></div>
+<p>
+      <span class="bold"><strong>New Features</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1305" target="_top">#1305</a>) Better <code class="computeroutput"><span class="identifier">flat_buffer</span></code>,
+          <code class="computeroutput"><span class="identifier">flat_static_buffer</span></code>, <code class="computeroutput"><span class="identifier">multi_buffer</span></code>, and <code class="computeroutput"><span class="identifier">static_buffer</span></code>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Revise all reference documentation
+              </li>
+<li class="listitem">
+                Move construction does not always invalidate buffers
+              </li>
+<li class="listitem">
+                non-const <code class="computeroutput"><span class="identifier">data</span><span class="special">()</span></code>
+                returns a mutable buffer sequence
+              </li>
+<li class="listitem">
+                Add <code class="computeroutput"><span class="identifier">cdata</span><span class="special">()</span></code>
+                to also return constant readable bytes
+              </li>
+<li class="listitem">
+                Eligible member functions are declared <code class="computeroutput"><span class="keyword">noexcept</span></code>
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1345" target="_top">#1345</a>) Better <code class="computeroutput"><span class="identifier">flat_buffer</span></code>,
+          <code class="computeroutput"><span class="identifier">multi_buffer</span></code>
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Add <code class="computeroutput"><span class="identifier">clear</span></code>, <code class="computeroutput"><span class="identifier">reserve</span><span class="special">()</span></code>,
+                <code class="computeroutput"><span class="identifier">max_size</span><span class="special">()</span></code>,
+                <code class="computeroutput"><span class="identifier">shrink_to_fit</span><span class="special">()</span></code>
+              </li>
+<li class="listitem">
+                Respect Allocator <code class="computeroutput"><span class="identifier">max_size</span><span class="special">()</span></code>
+              </li>
+<li class="listitem">
+                Specify exception safety
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1384" target="_top">#1384</a>) New functions <code class="computeroutput"><span class="identifier">bind_back_handler</span></code>,
+          <code class="computeroutput"><span class="identifier">bind_front_handler</span></code>
+        </li>
+<li class="listitem">
+          Better <code class="computeroutput"><span class="identifier">static_buffer</span></code>,
+          <code class="computeroutput"><span class="identifier">flat_static_buffer</span></code>
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Add <code class="computeroutput"><span class="identifier">clear</span><span class="special">()</span></code>
+              </li>
+<li class="listitem">
+                More members are <code class="computeroutput"><span class="keyword">noexcept</span></code>
+              </li>
+<li class="listitem">
+                Specify exception safety
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          Faster <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">string_to_field</span></code>
+        </li>
+<li class="listitem">
+          New file &lt;boost/beast/core/buffer_traits.hpp&gt;
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                New variadic <code class="computeroutput"><span class="identifier">is_const_buffer_sequence</span></code>
+              </li>
+<li class="listitem">
+                New variadic <code class="computeroutput"><span class="identifier">is_mutable_buffer_sequence</span></code>
+              </li>
+<li class="listitem">
+                New trait <code class="computeroutput"><span class="identifier">buffers_iterator_type</span></code>
+              </li>
+<li class="listitem">
+                New trait <code class="computeroutput"><span class="identifier">buffers_type</span></code>
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          New classes <code class="computeroutput"><span class="identifier">async_op_base</span></code>,
+          <code class="computeroutput"><span class="identifier">stable_async_op_base</span></code>
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Handle boilerplate for writing composed operations
+              </li>
+<li class="listitem">
+                New <code class="computeroutput"><span class="identifier">allocate_stable</span></code>
+                is preferred over <code class="computeroutput"><span class="identifier">handler_ptr</span></code>
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          New <code class="computeroutput"><span class="identifier">buffer_size</span></code> replacement
+          for <code class="computeroutput"><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span></code>
+        </li>
+<li class="listitem">
+          New:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">saved_handler</span></code>
+              </li>
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">buffers_range_ref</span></code>
+              </li>
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">dynamic_buffer_ref</span></code>
+              </li>
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">executor_type</span></code>
+              </li>
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">get_lowest_layer</span></code>,
+                <code class="computeroutput"><span class="identifier">lowest_layer_type</span></code>
+              </li>
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">close_socket</span></code>, <code class="computeroutput"><span class="identifier">beast_close_socket</span></code>
+              </li>
+<li class="listitem">
+                <code class="computeroutput"><span class="identifier">error</span></code>, <code class="computeroutput"><span class="identifier">condition</span></code>
+              </li>
+</ul></div>
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>API Changes</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          HTTP stream algorithms return the number of bytes transferred from the
+          stream. Previously, they returned the number of bytes consumed by the parser.
+          <span class="emphasis"><em>Actions Required</em></span>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                Callers depending on the return value of <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">read</span></code>
+                or <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">async_read</span></code> overloads should adjust
+                the usage of the returned value as needed.
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          Metafunctions <code class="computeroutput"><span class="identifier">has_get_executor</span></code>,
+          <code class="computeroutput"><span class="identifier">is_sync_stream</span></code>, <code class="computeroutput"><span class="identifier">is_sync_read_stream</span></code>, <code class="computeroutput"><span class="identifier">is_sync_write_stream</span></code>,
+          <code class="computeroutput"><span class="identifier">is_async_stream</span></code>, <code class="computeroutput"><span class="identifier">is_async_read_stream</span></code>, and <code class="computeroutput"><span class="identifier">is_async_write_stream</span></code> are in stream_traits.hpp.
+          <span class="emphasis"><em>Actions Required</em></span>: Include stream_traits.hpp as needed.
+        </li>
+<li class="listitem">
+          Metafunction <code class="computeroutput"><span class="identifier">is_file</span></code> is
+          in file_base.hpp. <span class="emphasis"><em>Actions Required</em></span>: Include file_base.hpp
+          as needed.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">flat_static_buffer</span><span class="special">::</span><span class="identifier">reset</span><span class="special">()</span></code>
+          is deprecated. <span class="emphasis"><em>Actions Required</em></span>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                call <code class="computeroutput"><span class="identifier">clear</span><span class="special">()</span></code>
+                instead.
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">buffers_adapter</span></code> is spelled
+          <code class="computeroutput"><span class="identifier">buffers_adaptor</span></code>. <span class="emphasis"><em>Actions
+          Required</em></span>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                Replace <code class="computeroutput"><span class="identifier">buffers_adapter</span></code>
+                with <code class="computeroutput"><span class="identifier">buffers_adaptor</span></code>,
+                or define <code class="computeroutput"><span class="identifier">BOOST_BEAST_ALLOW_DEPRECATED</span></code>.
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">buffers</span></code> is spelled <code class="computeroutput"><span class="identifier">make_printable</span></code>. <span class="emphasis"><em>Actions Required</em></span>:
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                Replace <code class="computeroutput"><span class="identifier">buffers</span></code> with
+                <code class="computeroutput"><span class="identifier">make_printable</span></code>, and
+                include "make_printable.hpp" instead of "ostream.hpp".
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">file_mode</span><span class="special">::</span><span class="identifier">append_new</span></code> is removed, as it makes no
+          sense. <span class="emphasis"><em>Actions Required</em></span>: - Replace <code class="computeroutput"><span class="identifier">file_mode</span><span class="special">::</span><span class="identifier">append_new</span></code>
+          with either <code class="computeroutput"><span class="identifier">file_mode</span><span class="special">::</span><span class="identifier">append</span></code> or <code class="computeroutput"><span class="identifier">file_mode</span><span class="special">::</span><span class="identifier">append_existing</span></code>
+          as needed.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">buffers_range_ref</span></code> is preferred
+          to <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">reference_wrapper</span></code>. <span class="emphasis"><em>Actions
+          Required</em></span>: - Call <code class="computeroutput"><span class="identifier">buffers_range_ref</span></code>
+          with the buffer, instead of calling <code class="computeroutput"><span class="identifier">buffers_range</span></code>
+          with a reference wrapper constructed from the buffer.
+        </li>
+<li class="listitem">
+          Nested <code class="computeroutput"><span class="identifier">lowest_layer</span></code> and
+          <code class="computeroutput"><span class="identifier">lowest_layer_type</span></code> are removed.
+          <span class="emphasis"><em>Actions Required</em></span>: Use the free function <code class="computeroutput"><span class="identifier">get_lowest_layer</span></code> and the type trait
+          <code class="computeroutput"><span class="identifier">lowest_layer_type</span></code> instead.
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>Examples</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1100" target="_top">#1100</a>) http-crawl clears the response before each read
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1347" target="_top">#1347</a>) Improve echo-op
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1401" target="_top">#1401</a>) Examples use <code class="computeroutput"><span class="identifier">flat_buffer</span></code>
+        </li>
+<li class="listitem">
+          New example [ <a href="../../../example/websocket/server/chat-multi" target="_top">example/websocket/server/chat-multi</a>]
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">async_echo</span></code> works with move-only
+          handlers
+        </li>
+</ul></div>
+<p>
+      <span class="bold"><strong>Fixes</strong></span>
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1223" target="_top">#1223</a>) HTTP read counts bytes correctly when an error occurs
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1247" target="_top">#1247</a>) Update <code class="computeroutput"><span class="identifier">ssl_stream</span></code>
+          for Asio changes
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1279" target="_top">#1279</a>) Enable explicit instantiations of <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code>
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1290" target="_top">#1290</a>) Don't use deprecated Asio interfaces
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1306" target="_top">#1306</a>) <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">message</span></code> is not-a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">empty_value</span></code>
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1306" target="_top">#1306</a>) <code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">stream</span></code> has fewer dependencies
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1365" target="_top">#1365</a>) Handler wrappers decay parameters sooner
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1408" target="_top">#1408</a>) <code class="computeroutput"><span class="identifier">session_alloc</span></code>
+          is thread-safe
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1414" target="_top">#1414</a>) Boost.System is header-only
+        </li>
+<li class="listitem">
+          ( <a href="https://github.com/boostorg/beast/issues/1418" target="_top">#1418</a>) <code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">stream</span></code> maintains a handler work guard
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">buffers_cat</span></code> correctly skips
+          empty buffers when iterated
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">ostream</span></code> does not overflow
+          or exceed the dynamic buffer's maximum size
+        </li>
+<li class="listitem">
+          Fixes to <code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">async_read</span></code>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">file_mode</span><span class="special">::</span><span class="identifier">append_existing</span></code> works correctly
+        </li>
+<li class="listitem">
+          A handler work guard is maintained on paused websocket operations
+        </li>
+<li class="listitem">
+          All behavior of default-constructed iterators is conforming
+        </li>
+</ul></div>
+<h4>
+<a name="beast.release_notes.h1"></a>
       <span class="phrase"><a name="beast.release_notes.boost_1_69"></a></span><a class="link" href="release_notes.html#beast.release_notes.boost_1_69">Boost
       1.69</a>
     </h4>
@@ -64,7 +356,7 @@
           ( <a href="https://github.com/boostorg/beast/issues/1091" target="_top">#1091</a>) Fix timer on websocket upgrade in examples
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/1270" target="_top">#1270</a>) <a class="link" href="../"><code class="computeroutput"><span class="identifier">basic_fields</span></code></a> uses intrusive base
+          ( <a href="https://github.com/boostorg/beast/issues/1270" target="_top">#1270</a>) <a class="link" href="ref/boost__beast__http__basic_fields.html" title="http::basic_fields"><code class="computeroutput"><span class="identifier">basic_fields</span></code></a> uses intrusive base
           hooks
         </li>
 <li class="listitem">
@@ -90,7 +382,7 @@
           Add <code class="computeroutput"><span class="identifier">timeout_socket</span></code>
         </li></ul></div>
 <h4>
-<a name="beast.release_notes.h1"></a>
+<a name="beast.release_notes.h2"></a>
       <span class="phrase"><a name="beast.release_notes.boost_1_68"></a></span><a class="link" href="release_notes.html#beast.release_notes.boost_1_68">Boost
       1.68</a>
     </h4>
@@ -112,33 +404,33 @@
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/1108" target="_top">#1108</a>) New <a class="link" href="../"><code class="computeroutput"><span class="identifier">flat_stream</span></code></a> for working around
+          ( <a href="https://github.com/boostorg/beast/issues/1108" target="_top">#1108</a>) New <a class="link" href="ref/boost__beast__flat_stream.html" title="flat_stream"><code class="computeroutput"><span class="identifier">flat_stream</span></code></a> for working around
           an SSL stream performance limitation
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/1151" target="_top">#1151</a>, <a href="https://github.com/boostorg/beast/issues/595" target="_top">#595</a>) New <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">icy_stream</span></code></a> stream filter allows
+          ( <a href="https://github.com/boostorg/beast/issues/1151" target="_top">#1151</a>, <a href="https://github.com/boostorg/beast/issues/595" target="_top">#595</a>) New <a class="link" href="ref/boost__beast__http__icy_stream.html" title="http::icy_stream"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">icy_stream</span></code></a> stream filter allows
           parsing ICY HTTP response handshakes
         </li>
 <li class="listitem">
-          New <a class="link" href="../"><code class="computeroutput"><span class="identifier">ssl_stream</span></code></a>
+          New <a class="link" href="ref/boost__beast__ssl_stream.html" title="ssl_stream"><code class="computeroutput"><span class="identifier">ssl_stream</span></code></a>
           for better SSL performance and move constructability
         </li>
 <li class="listitem">
-          New <a class="link" href="../"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">connect</span></code></a>,
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">error</span></code></a>,
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">fail_count</span></code></a>,
-          and <a class="link" href="../"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">stream</span></code></a>
+          New <a class="link" href="ref/boost__beast__test__error.html" title="test::error"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">connect</span></code></a>,
+          <a class="link" href="ref/boost__beast__test__error.html" title="test::error"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">error</span></code></a>,
+          <a class="link" href="ref/boost__beast__test__error.html" title="test::error"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">fail_count</span></code></a>,
+          and <a class="link" href="ref/boost__beast__test__error.html" title="test::error"><code class="computeroutput"><span class="identifier">test</span><span class="special">::</span><span class="identifier">stream</span></code></a>
           utilities for writing unit tests.
         </li>
 <li class="listitem">
-          New <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">is_mutable_body_writer</span></code></a> metafunction
+          New <a class="link" href="ref/boost__beast__http__is_mutable_body_writer.html" title="http::is_mutable_body_writer"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">is_mutable_body_writer</span></code></a> metafunction
         </li>
 <li class="listitem">
-          New <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">seed_prng</span></code></a> for manually providing
+          New <a class="link" href="ref/boost__beast__websocket__seed_prng.html" title="websocket::seed_prng"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">seed_prng</span></code></a> for manually providing
           entropy to the PRNG
         </li>
 <li class="listitem">
-          New <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">secure_prng</span></code></a> to control whether
+          New <a class="link" href="ref/boost__beast__websocket__stream/secure_prng.html" title="websocket::stream::secure_prng"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">secure_prng</span></code></a> to control whether
           the connection uses a secure PRNG
         </li>
 </ul></div>
@@ -150,7 +442,7 @@
           Generated WebSocket masks use a secure PRNG by default
         </li>
 <li class="listitem">
-          Improvements to <a class="link" href="../"><code class="computeroutput"><span class="identifier">buffers_adaptor</span></code></a>
+          Improvements to <a class="link" href="ref/boost__beast__buffers_adaptor.html" title="buffers_adaptor"><code class="computeroutput"><span class="identifier">buffers_adaptor</span></code></a>
         </li>
 <li class="listitem">
           ( <a href="https://github.com/boostorg/beast/issues/1188" target="_top">#1188</a>) Set "/permissive-" for MSVC builds
@@ -159,7 +451,7 @@
           ( <a href="https://github.com/boostorg/beast/issues/1109" target="_top">#1109</a>) Use a shared string for example HTTP server doc roots
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/1079" target="_top">#1079</a>) Add <a class="link" href="../"><code class="computeroutput"><span class="identifier">handler_ptr</span><span class="special">::</span><span class="identifier">has_value</span></code></a>
+          ( <a href="https://github.com/boostorg/beast/issues/1079" target="_top">#1079</a>) Add <a class="link" href="ref/boost__beast__handler_ptr/has_value.html" title="handler_ptr::has_value"><code class="computeroutput"><span class="identifier">handler_ptr</span><span class="special">::</span><span class="identifier">has_value</span></code></a>
         </li>
 </ul></div>
 <p>
@@ -205,20 +497,20 @@
           Tidy up websocket stream javadocs
         </li>
 <li class="listitem">
-          Fix move-only arguments in <a class="link" href="../"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a>
+          Fix move-only arguments in <a class="link" href="ref/boost__beast__bind_handler.html" title="bind_handler"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a>
         </li>
 <li class="listitem">
-          Fix <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">parser</span></code></a> constructor javadoc
+          Fix <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">parser</span></code></a> constructor javadoc
         </li>
 <li class="listitem">
-          Fix <a class="link" href="../"><code class="computeroutput"><span class="identifier">buffers_adaptor</span></code></a> iterator value
+          Fix <a class="link" href="ref/boost__beast__buffers_adaptor.html" title="buffers_adaptor"><code class="computeroutput"><span class="identifier">buffers_adaptor</span></code></a> iterator value
           type
         </li>
 <li class="listitem">
-          Fix <a class="link" href="../"><code class="computeroutput"><span class="identifier">buffers_adaptor</span><span class="special">::</span><span class="identifier">max_size</span></code></a>
+          Fix <a class="link" href="ref/boost__beast__buffers_adaptor/max_size.html" title="buffers_adaptor::max_size"><code class="computeroutput"><span class="identifier">buffers_adaptor</span><span class="special">::</span><span class="identifier">max_size</span></code></a>
         </li>
 <li class="listitem">
-          Fix <a class="link" href="../"><code class="computeroutput"><span class="identifier">buffers_prefix</span></code></a> iterator decrement
+          Fix <a class="link" href="ref/boost__beast__buffers_prefix.html" title="buffers_prefix"><code class="computeroutput"><span class="identifier">buffers_prefix</span></code></a> iterator decrement
         </li>
 <li class="listitem">
           Fix <a class="link" href="concepts/Fields.html" title="Fields"><span class="emphasis"><em>Fields</em></span></a>,
@@ -243,12 +535,12 @@
         </li>
 </ul></div>
 <h4>
-<a name="beast.release_notes.h2"></a>
+<a name="beast.release_notes.h3"></a>
       <span class="phrase"><a name="beast.release_notes.boost_1_67"></a></span><a class="link" href="release_notes.html#beast.release_notes.boost_1_67">Boost
       1.67</a>
     </h4>
 <p>
-      This version fixes significant defects in <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> which can lead to asserts or
+      This version fixes significant defects in <a class="link" href="ref/boost__beast__websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> which can lead to asserts or
       undefined behavior. Users are encouraged to update to the latest Boost release.
     </p>
 <p>
@@ -264,7 +556,7 @@
 <li class="listitem">
           ( <a href="https://github.com/boostorg/beast/issues/849" target="_top">#849</a>) WebSocket permessage-deflate support is now a compile-time feature.
           This adds an additional <code class="computeroutput"><span class="keyword">bool</span></code>
-          template parameter to <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> When <code class="computeroutput"><span class="identifier">deflateSupported</span></code>
+          template parameter to <a class="link" href="ref/boost__beast__websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> When <code class="computeroutput"><span class="identifier">deflateSupported</span></code>
           is <code class="computeroutput"><span class="keyword">true</span></code>, the stream will be
           capable of negotiating the permessage-deflate websocket extension per the
           configured run-time settings. When <code class="computeroutput"><span class="identifier">deflateSupported</span></code>
@@ -275,15 +567,15 @@
           when instantiating streams will be smaller.
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/949" target="_top">#949</a>) WebSocket error codes are revised. New <a class="link" href="../">error
+          ( <a href="https://github.com/boostorg/beast/issues/949" target="_top">#949</a>) WebSocket error codes are revised. New <a class="link" href="ref/boost__beast__websocket__error.html" title="websocket::error">error
           codes</a> are added for more fine-grained failure outcomes. Messages
           for error codes are more verbose to help pinpoint the problem. Error codes
-          are now also mapped to newly added <a class="link" href="../">error
+          are now also mapped to newly added <a class="link" href="ref/boost__beast__websocket__condition.html" title="websocket::condition">error
           conditions</a> to simplify comparisons. The error codes <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">failed</span></code> and <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">handshake_failed</span></code>
           are removed. Actions required: Code which explicitly compares <code class="computeroutput"><span class="identifier">error_code</span></code> values against the constant
           <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">handshake_failed</span></code> should compare against
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">handshake_failed</span></code></a> instead. Code
-          which explicitly compares error_code values against the constant <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">failed</span></code> should compare against <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">protocol_violation</span></code></a> instead.
+          <a class="link" href="ref/boost__beast__websocket__condition.html" title="websocket::condition"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">handshake_failed</span></code></a> instead. Code
+          which explicitly compares error_code values against the constant <code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">error</span><span class="special">::</span><span class="identifier">failed</span></code> should compare against <a class="link" href="ref/boost__beast__websocket__condition.html" title="websocket::condition"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">protocol_violation</span></code></a> instead.
         </li>
 </ul></div>
 <p>
@@ -291,10 +583,10 @@
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/857" target="_top">#857</a>) <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span></code></a> uses less storage
+          ( <a href="https://github.com/boostorg/beast/issues/857" target="_top">#857</a>) <a class="link" href="ref/boost__beast__http__basic_fields.html" title="http::basic_fields"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span></code></a> uses less storage
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/894" target="_top">#894</a>) <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span></code></a> exception specifiers
+          ( <a href="https://github.com/boostorg/beast/issues/894" target="_top">#894</a>) <a class="link" href="ref/boost__beast__http__basic_fields.html" title="http::basic_fields"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span></code></a> exception specifiers
           are provided
         </li>
 <li class="listitem">
@@ -307,7 +599,7 @@
           ( <a href="https://github.com/boostorg/beast/issues/955" target="_top">#955</a>) The asynchronous SSL detector example uses a stackless coroutine
         </li>
 <li class="listitem">
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a>
+          <a class="link" href="ref/boost__beast__bind_handler.html" title="bind_handler"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a>
           works with boost placeholders
         </li>
 <li class="listitem">
@@ -338,7 +630,7 @@
           ( <a href="https://github.com/boostorg/beast/issues/954" target="_top">#954</a>) The control callback is invoked on the proper executor
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/994" target="_top">#994</a>) Fix iterator version of <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span><span class="special">::</span><span class="identifier">erase</span></code></a>
+          ( <a href="https://github.com/boostorg/beast/issues/994" target="_top">#994</a>) Fix iterator version of <a class="link" href="ref/boost__beast__http__basic_fields/erase/overload1.html" title="http::basic_fields::erase (1 of 3 overloads)"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span><span class="special">::</span><span class="identifier">erase</span></code></a>
         </li>
 <li class="listitem">
           ( <a href="https://github.com/boostorg/beast/issues/992" target="_top">#992</a>) Fix use-after-move in example request handlers
@@ -347,7 +639,7 @@
           ( <a href="https://github.com/boostorg/beast/issues/988" target="_top">#988</a>) Type check completion handlers
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/985" target="_top">#985</a>) Tidy up <a class="link" href="../"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a> doc
+          ( <a href="https://github.com/boostorg/beast/issues/985" target="_top">#985</a>) Tidy up <a class="link" href="ref/boost__beast__bind_handler.html" title="bind_handler"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a> doc
         </li>
 <li class="listitem">
           Fix memory leak in advanced server examples
@@ -383,17 +675,17 @@
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          Remove unintended public members of <a class="link" href="../"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>. Actions required:
+          Remove unintended public members of <a class="link" href="ref/boost__beast__handler_ptr.html" title="handler_ptr"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>. Actions required:
           don't call non-public members.
         </li>
 <li class="listitem">
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>
+          <a class="link" href="ref/boost__beast__handler_ptr.html" title="handler_ptr"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>
           is a move-only type, with <code class="computeroutput"><span class="identifier">unique_ptr</span></code>
           semantics. Actions required: user-defined composed operations using <code class="computeroutput"><span class="identifier">handler_ptr</span></code> to manage state can only
           be moved, not copied.
         </li>
 <li class="listitem">
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>
+          <a class="link" href="ref/boost__beast__handler_ptr.html" title="handler_ptr"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>
           gives the strong exception guarantee. The constructor signature for managed
           objects constructed by <code class="computeroutput"><span class="identifier">handler_ptr</span></code>
           now receives a <code class="computeroutput"><span class="keyword">const</span></code> reference
@@ -403,22 +695,22 @@
           to the handler.
         </li>
 <li class="listitem">
-          ( <a href="https://github.com/boostorg/beast/issues/896" target="_top">#896</a>) <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span></code></a> does not support
+          ( <a href="https://github.com/boostorg/beast/issues/896" target="_top">#896</a>) <a class="link" href="ref/boost__beast__http__basic_fields.html" title="http::basic_fields"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">basic_fields</span></code></a> does not support
           fancy pointers
         </li>
 <li class="listitem">
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">parser</span></code></a>
+          <a class="link" href="ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">parser</span></code></a>
           is no longer <span class="bold"><strong>MoveConstructible</strong></span>
         </li>
 <li class="listitem">
           ( <a href="https://github.com/boostorg/beast/issues/930" target="_top">#930</a>) <code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">reader_impl</span></code> is deprecated and will be
-          removed in the next release. Actions required: Call <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">writer_impl</span></code></a> instead of <code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">reader_impl</span></code>.
+          removed in the next release. Actions required: Call <a class="link" href="ref/boost__beast__http__serializer/writer_impl.html" title="http::serializer::writer_impl"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">writer_impl</span></code></a> instead of <code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">reader_impl</span></code>.
         </li>
 <li class="listitem">
           ( <a href="https://github.com/boostorg/beast/issues/884" target="_top">#884</a>) The <a class="link" href="concepts/BodyReader.html" title="BodyReader"><span class="emphasis"><em>BodyReader</em></span></a>
           and <a class="link" href="concepts/BodyWriter.html" title="BodyWriter"><span class="emphasis"><em>BodyWriter</em></span></a>
           concept constructor requirements have changed. They now require the header
-          and body elements to be passed as distinct <a class="link" href="../"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">header</span></code></a> and <code class="computeroutput"><span class="identifier">value_type</span></code>
+          and body elements to be passed as distinct <a class="link" href="ref/boost__beast__http__header.html" title="http::header"><code class="computeroutput"><span class="identifier">http</span><span class="special">::</span><span class="identifier">header</span></code></a> and <code class="computeroutput"><span class="identifier">value_type</span></code>
           objects. This enables the composition of body types. The previous single-argument
           constructors are deprecated and will be removed in the next version. Actions
           required: Change user-defined instances of <a class="link" href="concepts/BodyReader.html" title="BodyReader"><span class="emphasis"><em>BodyReader</em></span></a>
@@ -429,7 +721,7 @@
           to be accepted).
         </li>
 <li class="listitem">
-          <a class="link" href="../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">control_callback</span></code></a> now copies or
+          <a class="link" href="ref/boost__beast__websocket__stream/control_callback.html" title="websocket::stream::control_callback"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span><span class="special">::</span><span class="identifier">control_callback</span></code></a> now copies or
           moves the function object.
         </li>
 <li class="listitem">
@@ -443,7 +735,7 @@
         </li>
 </ul></div>
 <h4>
-<a name="beast.release_notes.h3"></a>
+<a name="beast.release_notes.h4"></a>
       <span class="phrase"><a name="beast.release_notes.boost_1_66"></a></span><a class="link" href="release_notes.html#beast.release_notes.boost_1_66">Boost
       1.66</a>
     </h4>
@@ -461,7 +753,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="design_choices/faq.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="quickref.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="ref/boost__beast__zlib__z_params/total_out.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="introduction.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

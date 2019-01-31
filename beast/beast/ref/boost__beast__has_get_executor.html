@@ -34,7 +34,7 @@
         <span class="phrase"><a name="beast.ref.boost__beast__has_get_executor.synopsis"></a></span><a class="link" href="boost__beast__has_get_executor.html#beast.ref.boost__beast__has_get_executor.synopsis">Synopsis</a>
       </h5>
 <p>
-        Defined in header <code class="literal">&lt;<a href="../../../../../../boost/beast/core/type_traits.hpp" target="_top">boost/beast/core/type_traits.hpp</a>&gt;</code>
+        Defined in header <code class="literal">&lt;<a href="../../../../../../boost/beast/core/stream_traits.hpp" target="_top">boost/beast/core/stream_traits.hpp</a>&gt;</code>
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
@@ -58,7 +58,7 @@
         Use with tag dispatching:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
-<span class="keyword">void</span> <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">T</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">true_type</span><span class="special">)</span>
+<span class="keyword">void</span> <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">true_type</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="identifier">net</span><span class="special">::</span><span class="identifier">post</span><span class="special">(</span>
         <span class="identifier">t</span><span class="special">.</span><span class="identifier">get_executor</span><span class="special">(),</span>
@@ -69,13 +69,13 @@
 <span class="special">}</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
-<span class="keyword">void</span> <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">T</span><span class="special">&amp;,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">false_type</span><span class="special">)</span>
+<span class="keyword">void</span> <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">false_type</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="comment">// T does not have get_executor</span>
 <span class="special">}</span>
 
 <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
-<span class="keyword">void</span> <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">T</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span>
+<span class="keyword">void</span> <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span>
 <span class="special">{</span>
     <span class="identifier">maybe_hello</span><span class="special">(</span><span class="identifier">t</span><span class="special">,</span> <span class="identifier">has_get_executor</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;{});</span>
 <span class="special">}</span>

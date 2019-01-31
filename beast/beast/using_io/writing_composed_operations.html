@@ -83,7 +83,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_op_base</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">stable_async_op_base</span></code></a>
+                  <a class="link" href="../ref/boost__beast__async_op_base.html" title="async_op_base"><code class="computeroutput"><span class="identifier">async_op_base</span></code></a> <a class="link" href="../ref/boost__beast__stable_async_op_base.html" title="stable_async_op_base"><code class="computeroutput"><span class="identifier">stable_async_op_base</span></code></a>
                 </p>
               </td>
 <td>
@@ -99,7 +99,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">allocate_stable</span></code></a>
+                  <a class="link" href="../ref/boost__beast__allocate_stable.html" title="allocate_stable"><code class="computeroutput"><span class="identifier">allocate_stable</span></code></a>
                 </p>
               </td>
 <td>
@@ -116,7 +116,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a>
+                  <a class="link" href="../ref/boost__beast__bind_handler.html" title="bind_handler"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a>
                 </p>
               </td>
 <td>
@@ -137,7 +137,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">bind_back_handler</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">bind_front_handler</span></code></a>
+                  <a class="link" href="../ref/boost__beast__bind_back_handler.html" title="bind_back_handler"><code class="computeroutput"><span class="identifier">bind_back_handler</span></code></a> <a class="link" href="../ref/boost__beast__bind_front_handler.html" title="bind_front_handler"><code class="computeroutput"><span class="identifier">bind_front_handler</span></code></a>
                 </p>
               </td>
 <td>
@@ -157,7 +157,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>
+                  <a class="link" href="../ref/boost__beast__handler_ptr.html" title="handler_ptr"><code class="computeroutput"><span class="identifier">handler_ptr</span></code></a>
                 </p>
               </td>
 <td>
@@ -176,7 +176,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">saved_handler</span></code></a>
+                  <a class="link" href="../ref/boost__beast__saved_handler.html" title="saved_handler"><code class="computeroutput"><span class="identifier">saved_handler</span></code></a>
                 </p>
               </td>
 <td>
@@ -303,7 +303,7 @@
         <span class="identifier">BOOST_ASIO_HANDLER_TYPE</span><span class="special">(</span>
             <span class="identifier">CompletionToken</span><span class="special">,</span> <span class="keyword">void</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">))&gt;{</span>
                 <span class="identifier">stream</span><span class="special">,</span>
-                <span class="identifier">init</span><span class="special">.</span><span class="identifier">completion_handler</span><span class="special">}(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">error_code</span><span class="special">{},</span> <span class="number">0</span><span class="special">);</span>
+                <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">init</span><span class="special">.</span><span class="identifier">completion_handler</span><span class="special">)}({},</span> <span class="number">0</span><span class="special">);</span>
 
     <span class="comment">// This hook lets the caller see a return value when appropriate.</span>
     <span class="comment">// For example this might return std::future&lt;error_code&gt; if</span>
@@ -552,7 +552,7 @@
               immediately or not, the handler will not be invoked from within this
               function. Invocation of the handler will be performed in a manner equivalent
               to using <a href="../../../../../../doc/html/boost_asio/reference/post.html" target="_top"><code class="computeroutput"><span class="identifier">net</span><span class="special">::</span><span class="identifier">post</span></code></a></em></span>. The function
-              <a class="link" href="../../"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a> is provided for
+              <a class="link" href="../ref/boost__beast__bind_handler.html" title="bind_handler"><code class="computeroutput"><span class="identifier">bind_handler</span></code></a> is provided for
               this purpose.
             </li>
 </ul></div>

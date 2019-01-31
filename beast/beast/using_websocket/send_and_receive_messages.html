@@ -70,7 +70,7 @@
 <td>
                 <p>
                   At the top layer, these functions allow for an entire message to
-                  be sent or received. They are designed for ease of use: <a class="link" href="../../"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_write</span></code></a>.
+                  be sent or received. They are designed for ease of use: <a class="link" href="../ref/boost__beast__websocket__stream/read/overload2.html" title="websocket::stream::read (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">read</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/write/overload2.html" title="websocket::stream::write (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">write</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/async_read.html" title="websocket::stream::async_read"><code class="computeroutput"><span class="identifier">async_read</span></code></a>, and <a class="link" href="../ref/boost__beast__websocket__stream/async_write.html" title="websocket::stream::async_write"><code class="computeroutput"><span class="identifier">async_write</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -89,7 +89,7 @@
                 <p>
                   These read functions enable partial message data to be received
                   into a <a class="link" href="../concepts/DynamicBuffer.html" title="DynamicBuffer"><span class="emphasis"><em>DynamicBuffer</em></span></a>.
-                  They can be configured to perform bounded work: <a class="link" href="../../"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a>.
+                  They can be configured to perform bounded work: <a class="link" href="../ref/boost__beast__websocket__stream/read_some/overload2.html" title="websocket::stream::read_some (2 of 4 overloads)"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, and <a class="link" href="../ref/boost__beast__websocket__stream/async_read_some/overload1.html" title="websocket::stream::async_read_some (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -108,8 +108,8 @@
                 <p>
                   At the lowest level these read and write functions enable partial
                   message data to be transacted using a constant or mutable buffer
-                  sequence: <a class="link" href="../../"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a>, and
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_write_some</span></code></a>.
+                  sequence: <a class="link" href="../ref/boost__beast__websocket__stream/read_some/overload4.html" title="websocket::stream::read_some (4 of 4 overloads)"><code class="computeroutput"><span class="identifier">read_some</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/write_some/overload2.html" title="websocket::stream::write_some (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/async_read_some/overload2.html" title="websocket::stream::async_read_some (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">async_read_some</span></code></a>, and
+                  <a class="link" href="../ref/boost__beast__websocket__stream/async_write_some.html" title="websocket::stream::async_write_some"><code class="computeroutput"><span class="identifier">async_write_some</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -146,7 +146,7 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-          <a class="link" href="../../"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> is not thread-safe. Calls
+          <a class="link" href="../ref/boost__beast__websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">websocket</span><span class="special">::</span><span class="identifier">stream</span></code></a> is not thread-safe. Calls
           to stream member functions must all be made from the same implicit or explicit
           strand.
         </p></td></tr>
@@ -191,14 +191,13 @@
 <span class="comment">// message was in binary mode, otherwise we will send in text mode.</span>
 <span class="identifier">ws</span><span class="special">.</span><span class="identifier">binary</span><span class="special">(</span><span class="identifier">ws</span><span class="special">.</span><span class="identifier">got_binary</span><span class="special">());</span>
 
-<span class="comment">// This buffer adapter allows us to iterate through buffer in pieces</span>
+<span class="comment">// This buffer adaptor allows us to iterate through buffer in pieces</span>
 <span class="identifier">buffers_suffix</span><span class="special">&lt;</span><span class="identifier">multi_buffer</span><span class="special">::</span><span class="identifier">const_buffers_type</span><span class="special">&gt;</span> <span class="identifier">cb</span><span class="special">{</span><span class="identifier">buffer</span><span class="special">.</span><span class="identifier">data</span><span class="special">()};</span>
 
 <span class="comment">// Echo the received message in pieces.</span>
 <span class="comment">// This will cause the message to be broken up into multiple frames.</span>
 <span class="keyword">for</span><span class="special">(;;)</span>
 <span class="special">{</span>
-    <span class="keyword">using</span> <span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">;</span>
     <span class="keyword">if</span><span class="special">(</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb</span><span class="special">)</span> <span class="special">&gt;</span> <span class="number">512</span><span class="special">)</span>
     <span class="special">{</span>
         <span class="comment">// There are more than 512 bytes left to send, just</span>
@@ -206,7 +205,7 @@
         <span class="comment">// the stream that the message is not complete.</span>
         <span class="identifier">ws</span><span class="special">.</span><span class="identifier">write_some</span><span class="special">(</span><span class="keyword">false</span><span class="special">,</span> <span class="identifier">buffers_prefix</span><span class="special">(</span><span class="number">512</span><span class="special">,</span> <span class="identifier">cb</span><span class="special">));</span>
 
-        <span class="comment">// This efficiently discards data from the adapter by</span>
+        <span class="comment">// This efficiently discards data from the adaptor by</span>
         <span class="comment">// simply ignoring it, but does not actually affect the</span>
         <span class="comment">// underlying dynamic buffer.</span>
         <span class="identifier">cb</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="number">512</span><span class="special">);</span>

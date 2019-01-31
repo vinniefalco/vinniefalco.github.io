@@ -28,7 +28,7 @@
 </h3></div></div></div>
 <p>
         While the parsers included in the library will handle a broad number of use-cases,
-        the <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> interface can be subclassed
+        the <a class="link" href="../ref/boost__beast__http__basic_parser.html" title="http::basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> interface can be subclassed
         to implement custom strategies for storing parsed results: the basic parser
         processes the incoming octets into elements according to the HTTP/1 protocol
         specification, while the derived class decides what to do with those elements.
@@ -53,7 +53,7 @@
 <p>
         The basic parser uses the <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern" target="_top">Curiously
         Recurring Template Pattern</a>. To declare your user defined parser,
-        derive it from <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a>. The interface to the
+        derive it from <a class="link" href="../ref/boost__beast__http__basic_parser.html" title="http::basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a>. The interface to the
         parser is event-driven. Member functions of the derived class (termed "callbacks"
         in this context) are invoked with parsed elements as they become available,
         requiring either the <code class="computeroutput"><span class="keyword">friend</span></code>

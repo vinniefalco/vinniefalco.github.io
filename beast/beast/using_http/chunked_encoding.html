@@ -46,9 +46,9 @@
         Chunks</a>
       </h5>
 <p>
-        The <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> automatically applies
+        The <a class="link" href="../ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> automatically applies
         the chunked transfer encoding when a message returns <code class="computeroutput"><span class="keyword">true</span></code>
-        from <a class="link" href="../../"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">chunked</span></code></a>. The boundaries between
+        from <a class="link" href="../ref/boost__beast__http__message/chunked/overload1.html" title="http::message::chunked (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">message</span><span class="special">::</span><span class="identifier">chunked</span></code></a>. The boundaries between
         chunks emitted by the serializer are implementation defined. Chunk extensions
         and trailers are omitted. Applications which need precise control over the
         chunk boundaries, extensions, and trailers may use a set of helper classes
@@ -82,7 +82,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">chunk_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__chunk_body.html" title="http::chunk_body"><code class="computeroutput"><span class="identifier">chunk_body</span></code></a>
                 </p>
               </td>
 <td>
@@ -94,7 +94,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">chunk_crlf</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__chunk_crlf.html" title="http::chunk_crlf"><code class="computeroutput"><span class="identifier">chunk_crlf</span></code></a>
                 </p>
               </td>
 <td>
@@ -108,10 +108,10 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">chunk_extensions</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__chunk_extensions.html" title="http::chunk_extensions"><code class="computeroutput"><span class="identifier">chunk_extensions</span></code></a>
                 </p>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_chunk_extensions</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_chunk_extensions.html" title="http::basic_chunk_extensions"><code class="computeroutput"><span class="identifier">basic_chunk_extensions</span></code></a>
                 </p>
               </td>
 <td>
@@ -124,7 +124,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">chunk_header</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__chunk_header.html" title="http::chunk_header"><code class="computeroutput"><span class="identifier">chunk_header</span></code></a>
                 </p>
               </td>
 <td>
@@ -141,7 +141,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">chunk_last</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__chunk_last.html" title="http::chunk_last"><code class="computeroutput"><span class="identifier">chunk_last</span></code></a>
                 </p>
               </td>
 <td>
@@ -155,10 +155,10 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">make_chunk</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__make_chunk.html" title="http::make_chunk"><code class="computeroutput"><span class="identifier">make_chunk</span></code></a>
                 </p>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">make_chunk_last</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__make_chunk_last.html" title="http::make_chunk_last"><code class="computeroutput"><span class="identifier">make_chunk_last</span></code></a>
                 </p>
               </td>
 <td>
@@ -317,9 +317,9 @@
 
 <span class="comment">// Manually emit a chunk by first writing the chunk-size header with the correct size</span>
 <span class="identifier">net</span><span class="special">::</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">chunk_header</span><span class="special">{</span>
-    <span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb1</span><span class="special">)</span> <span class="special">+</span>
-    <span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb2</span><span class="special">)</span> <span class="special">+</span>
-    <span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb3</span><span class="special">)});</span>
+    <span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb1</span><span class="special">)</span> <span class="special">+</span>
+    <span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb2</span><span class="special">)</span> <span class="special">+</span>
+    <span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">cb3</span><span class="special">)});</span>
 
 <span class="comment">// And then output the chunk body in three pieces ("chunk the chunk")</span>
 <span class="identifier">net</span><span class="special">::</span><span class="identifier">write</span><span class="special">(</span><span class="identifier">sock</span><span class="special">,</span> <span class="identifier">cb1</span><span class="special">);</span>
@@ -335,12 +335,12 @@
         Chunks</a>
       </h5>
 <p>
-        The <a class="link" href="../../"><code class="computeroutput"><span class="identifier">parser</span></code></a>
+        The <a class="link" href="../ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a>
         automatically removes the chunked transfer coding when it is the last encoding
         in the list. However, it also discards the chunk extensions and does not
         provide a way to determine the boundaries between chunks. Advanced applications
         which need to access the chunk extensions or read complete individual chunks
-        may use a callback interface provided by <a class="link" href="../../"><code class="computeroutput"><span class="identifier">parser</span></code></a>:
+        may use a callback interface provided by <a class="link" href="../ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a>:
       </p>
 <div class="table">
 <a name="beast.using_http.chunked_encoding.chunking_parse_callbacks"></a><p class="title"><b>Table&#160;1.24.&#160;Chunking Parse Callbacks</b></p>
@@ -365,7 +365,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">on_chunk_header</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__parser/on_chunk_header.html" title="http::parser::on_chunk_header"><code class="computeroutput"><span class="identifier">on_chunk_header</span></code></a>
                 </p>
               </td>
 <td>
@@ -379,7 +379,7 @@
                   have been parsed.
                 </p>
                 <p>
-                  The extensions are provided in raw, validated form, use <a class="link" href="../../"><code class="computeroutput"><span class="identifier">chunk_extensions</span><span class="special">::</span><span class="identifier">parse</span></code></a> to parse the extensions
+                  The extensions are provided in raw, validated form, use <a class="link" href="../ref/boost__beast__http__basic_chunk_extensions/parse.html" title="http::basic_chunk_extensions::parse"><code class="computeroutput"><span class="identifier">chunk_extensions</span><span class="special">::</span><span class="identifier">parse</span></code></a> to parse the extensions
                   into a structured container for easier access. The implementation
                   type-erases the callback without requiring a dynamic allocation.
                   For this reason, the callback object is passed by a non-constant
@@ -399,7 +399,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">on_chunk_body</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__parser/on_chunk_body.html" title="http::parser::on_chunk_body"><code class="computeroutput"><span class="identifier">on_chunk_body</span></code></a>
                 </p>
               </td>
 <td>

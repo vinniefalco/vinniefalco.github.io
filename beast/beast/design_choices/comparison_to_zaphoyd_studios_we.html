@@ -381,13 +381,13 @@
                     (modeled after <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span><span class="special">::</span><span class="identifier">streambuf</span></code>).
                   </p>
 <p>
-                    Beast comes with the class <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_multi_buffer</span></code></a>,
+                    Beast comes with the class <a class="link" href="../ref/boost__beast__basic_multi_buffer.html" title="basic_multi_buffer"><code class="computeroutput"><span class="identifier">basic_multi_buffer</span></code></a>,
                     an efficient implementation of the <a class="link" href="../concepts/DynamicBuffer.html" title="DynamicBuffer"><span class="emphasis"><em>DynamicBuffer</em></span></a>
                     concept which makes use of multiple allocated octet arrays. If
                     an incoming message is broken up into multiple pieces, no reallocation
                     occurs. Instead, new allocations are appended to the sequence
                     when existing allocations are filled. Beast does not impose any
-                    particular memory management model on callers. The <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_multi_buffer</span></code></a> provided
+                    particular memory management model on callers. The <a class="link" href="../ref/boost__beast__basic_multi_buffer.html" title="basic_multi_buffer"><code class="computeroutput"><span class="identifier">basic_multi_buffer</span></code></a> provided
                     by beast supports standard allocators through a template argument.
                     Use the <a class="link" href="../concepts/DynamicBuffer.html" title="DynamicBuffer"><span class="emphasis"><em>DynamicBuffer</em></span></a>
                     that comes with beast, customize the allocator if you desire,

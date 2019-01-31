@@ -28,13 +28,13 @@
       Parsing</a>
 </h3></div></div></div>
 <p>
-        A subclass of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> can be invoked directly,
+        A subclass of <a class="link" href="../ref/boost__beast__http__basic_parser.html" title="http::basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> can be invoked directly,
         without using the provided stream operations. This could be useful for implementing
         algorithms on objects whose interface does not conform to <a class="link" href="../concepts/streams.html" title="Streams"><span class="emphasis"><em>Stream</em></span></a>.
         For example, a <a href="http://zeromq.org/" target="_top"><span class="bold"><strong>ZeroMQ</strong></span>
         socket</a>. The basic parser interface is interactive; the caller invokes
-        the function <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">put</span></code></a> repeatedly with buffers until
-        an error occurs or the parsing is done. The function <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">put_eof</span></code></a> Is used when the caller
+        the function <a class="link" href="../ref/boost__beast__http__basic_parser/put.html" title="http::basic_parser::put"><code class="computeroutput"><span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">put</span></code></a> repeatedly with buffers until
+        an error occurs or the parsing is done. The function <a class="link" href="../ref/boost__beast__http__basic_parser/put_eof.html" title="http::basic_parser::put_eof"><code class="computeroutput"><span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">put_eof</span></code></a> Is used when the caller
         knows that there will never be more data (for example, if the underlying
         connection is closed),
       </p>
@@ -75,7 +75,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">eager</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_parser/eager/overload2.html" title="http::basic_parser::eager (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">eager</span></code></a>
                 </p>
               </td>
 <td>
@@ -101,7 +101,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">skip</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_parser/skip/overload2.html" title="http::basic_parser::skip (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">skip</span></code></a>
                 </p>
               </td>
 <td>
@@ -126,7 +126,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">body_limit</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_parser/body_limit.html" title="http::basic_parser::body_limit"><code class="computeroutput"><span class="identifier">body_limit</span></code></a>
                 </p>
               </td>
 <td>
@@ -147,7 +147,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">header_limit</span></code></a>
+                  <a class="link" href="../ref/boost__beast__http__basic_parser/header_limit.html" title="http::basic_parser::header_limit"><code class="computeroutput"><span class="identifier">header_limit</span></code></a>
                 </p>
               </td>
 <td>
@@ -175,7 +175,7 @@
           The standard library provides the type <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">istream</span></code>
           for performing high level read operations on character streams. The variable
           <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cin</span></code> is based on this input stream. This
-          example uses the buffer oriented interface of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> to build a stream
+          example uses the buffer oriented interface of <a class="link" href="../ref/boost__beast__http__basic_parser.html" title="http::basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> to build a stream
           operation which parses an HTTP message from a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">istream</span></code>:
         </p>
 <pre class="programlisting"><span class="comment">/** Read a message from a `std::istream`.

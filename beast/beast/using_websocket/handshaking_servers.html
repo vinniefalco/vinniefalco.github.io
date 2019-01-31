@@ -28,7 +28,7 @@
       (Servers)</a>
 </h3></div></div></div>
 <p>
-        A <a class="link" href="../../"><code class="computeroutput"><span class="identifier">stream</span></code></a> automatically handles receiving
+        A <a class="link" href="../ref/boost__beast__websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">stream</span></code></a> automatically handles receiving
         and processing the HTTP response to the handshake request. The call to handshake
         is successful if a HTTP response is received with the <a href="https://tools.ietf.org/html/rfc6455#section-4.2.2" target="_top"><span class="emphasis"><em>101
         Switching Protocols</em></span></a> status code. On failure, an error
@@ -88,7 +88,7 @@
         <span class="phrase"><a name="beast.using_websocket.handshaking_servers.decorators"></a></span><a class="link" href="handshaking_servers.html#beast.using_websocket.handshaking_servers.decorators">Decorators</a>
       </h5>
 <p>
-        If the caller wishes to add or modify fields, the member functions <a class="link" href="../../"><code class="computeroutput"><span class="identifier">accept_ex</span></code></a> and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_accept_ex</span></code></a> are provided which
+        If the caller wishes to add or modify fields, the member functions <a class="link" href="../ref/boost__beast__websocket__stream/accept_ex.html" title="websocket::stream::accept_ex"><code class="computeroutput"><span class="identifier">accept_ex</span></code></a> and <a class="link" href="../ref/boost__beast__websocket__stream/async_accept_ex.html" title="websocket::stream::async_accept_ex"><code class="computeroutput"><span class="identifier">async_accept_ex</span></code></a> are provided which
         allow an additional function object, called a <span class="emphasis"><em>decorator</em></span>,
         to be passed. The decorator is invoked to modify the HTTP Upgrade request
         as needed. This example sets the Server field on the response:
@@ -153,11 +153,11 @@
 <p>
         When implementing an HTTP server that also supports WebSocket, the server
         usually reads the HTTP request from the client. To detect when the incoming
-        HTTP request is a WebSocket Upgrade request, the function <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_upgrade</span></code></a> may be used.
+        HTTP request is a WebSocket Upgrade request, the function <a class="link" href="../ref/boost__beast__websocket__is_upgrade.html" title="websocket::is_upgrade"><code class="computeroutput"><span class="identifier">is_upgrade</span></code></a> may be used.
       </p>
 <p>
         Once the caller determines that the HTTP request is a WebSocket Upgrade,
-        additional overloads of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">accept</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">accept_ex</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_accept</span></code></a>, and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_accept_ex</span></code></a> are provided which
+        additional overloads of <a class="link" href="../ref/boost__beast__websocket__stream/accept.html" title="websocket::stream::accept"><code class="computeroutput"><span class="identifier">accept</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/accept_ex.html" title="websocket::stream::accept_ex"><code class="computeroutput"><span class="identifier">accept_ex</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/async_accept.html" title="websocket::stream::async_accept"><code class="computeroutput"><span class="identifier">async_accept</span></code></a>, and <a class="link" href="../ref/boost__beast__websocket__stream/async_accept_ex.html" title="websocket::stream::async_accept_ex"><code class="computeroutput"><span class="identifier">async_accept_ex</span></code></a> are provided which
         receive the entire HTTP request header as an object to perform the handshake.
         In this example, the request is first read in using the HTTP algorithms,
         and then passed to a newly constructed stream:
@@ -199,7 +199,7 @@
         6 octets after accepting an incoming connection to determine if a TLS protocol
         is being negotiated, and choose a suitable implementation at run-time. In
         the case where the server wishes to accept the incoming request as an HTTP
-        WebSocket Upgrade request, additional overloads of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">accept</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">accept_ex</span></code></a>, <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_accept</span></code></a>, and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_accept_ex</span></code></a> are provided which
+        WebSocket Upgrade request, additional overloads of <a class="link" href="../ref/boost__beast__websocket__stream/accept.html" title="websocket::stream::accept"><code class="computeroutput"><span class="identifier">accept</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/accept_ex.html" title="websocket::stream::accept_ex"><code class="computeroutput"><span class="identifier">accept_ex</span></code></a>, <a class="link" href="../ref/boost__beast__websocket__stream/async_accept.html" title="websocket::stream::async_accept"><code class="computeroutput"><span class="identifier">async_accept</span></code></a>, and <a class="link" href="../ref/boost__beast__websocket__stream/async_accept_ex.html" title="websocket::stream::async_accept_ex"><code class="computeroutput"><span class="identifier">async_accept_ex</span></code></a> are provided which
         receive the additional buffered octets and consume them as part of the handshake.
       </p>
 <p>
@@ -219,7 +219,7 @@
         The implementation uses a fixed-size storage area to hold buffers passed
         using these functions. If an application is reaching the limit of the internal
         buffer size, then the websocket stream may be instantiated with the next
-        layer type of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffered_read_stream</span></code></a> to wrap the
+        layer type of <a class="link" href="../ref/boost__beast__buffered_read_stream.html" title="buffered_read_stream"><code class="computeroutput"><span class="identifier">buffered_read_stream</span></code></a> to wrap the
         underlying stream. The buffered handshake data may be first placed into the
         buffered read stream, which uses a dynamically sized buffer.
       </p>

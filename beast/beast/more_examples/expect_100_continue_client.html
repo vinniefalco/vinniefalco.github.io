@@ -34,7 +34,7 @@
         body, which presumably may be expensive to compute or large. This behavior
         is described in <a href="https://tools.ietf.org/html/rfc7231#section-5.1.1" target="_top">rfc7231
         section 5.1.1</a>. Invoking the 100-continue behavior is implemented
-        easily in a client by constructing a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> to send the header first,
+        easily in a client by constructing a <a class="link" href="../ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> to send the header first,
         then receiving the server response, and finally conditionally send the body
         using the same serializer instance. A synchronous, simplified version (no
         timeout) of this client action looks like this:

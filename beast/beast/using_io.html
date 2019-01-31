@@ -27,16 +27,14 @@
 <a name="beast.using_io"></a><a class="link" href="using_io.html" title="Using Networking">Using Networking</a>
 </h2></div></div></div>
 <p>
-      This library depends and builds on the networking facilities destined to become
-      part of the official C++ standard library. The latest draft of the proposal
-      to add these networking facilities is called the <a href="http://cplusplus.github.io/networking-ts/draft.pdf" target="_top">Networking
-      Technical Specification</a>. This specification is projected to become
-      official no sooner than the year 2023. There are three implementations of this
-      specification, which differ cosmetically but otherwise use the same function
-      signatures and type declarations: the reference networking-ts implementation,
-      the Boost.Asio implementation, and the stand-alone Asio implementation. The
-      following table illustrates shows how an I/O context variable is declared by
-      including the appropriate header and using a suitable namespace alias:
+      This library uses the <a href="http://cplusplus.github.io/networking-ts/draft.pdf" target="_top">Networking
+      Technical Specification</a>, scheduled to become an official part of C++
+      no sooner than the year 2023. Three implementations exist, with cosmetic differences
+      but otherwise using the same function signatures and type declarations: Boost.Asio,
+      stand-alone Asio, and networking-ts-impl. This table shows how a variable of
+      the each library's <code class="computeroutput"><span class="identifier">io_context</span></code>
+      type is declared by including the appropriate header and using a suitable namespace
+      alias:
     </p>
 <div class="table">
 <a name="beast.using_io.networking_implementations"></a><p class="title"><b>Table&#160;1.1.&#160;Networking Implementations</b></p>
@@ -102,11 +100,10 @@
 </div>
 <br class="table-break"><p>
       This document refers to the three implementations above interchangeably and
-      collectively as "networking." The Boost.Asio and Asio flavors of
-      networking provide additional functionality which is not currently proposed
-      for C++ (but will likely appear in a future specification). Examples of functionality
-      in Boost.Asio not present in the proposed networking draft include support
-      for:
+      collectively as <span class="bold"><strong>Networking</strong></span> (or just <span class="emphasis"><em>networking</em></span>).
+      The Boost.Asio and Asio flavors of Networking provide additional features not
+      currently proposed for C++, but likely to appear in a future specification,
+      such as:
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -127,24 +124,24 @@
         </li>
 </ul></div>
 <p>
-      In this documentation, the example code, and the implementation, the <code class="computeroutput"><span class="identifier">net</span></code> namespace is used to qualify networking
+      Boost.Beast depends specifically on the Boost.Asio flavor of Networking, although
+      this may change in the future. While this library offers performant implementations
+      of the HTTP and WebSocket network protocols, it depends on the networking interfaces
+      to perform general tasks such as performing domain name resolution (DNS lookup),
+      establishing outgoing connections, and accepting incoming connections. Callers
+      are responsible for interacting with networking to initialize objects to the
+      correct state where they are usable by this library.
+    </p>
+<p>
+      In this documentation, the example code, and the implementation, the <code class="computeroutput"><span class="identifier">net</span></code> namespace is used to qualify Networking
       identifiers. For Boost.Beast, <code class="computeroutput"><span class="identifier">net</span></code>
       will be an alias for the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">asio</span></code> namespace.
     </p>
 <p>
-      While this library offers performant implementations of the HTTP and WebSocket
-      network protocols, it depends on the networking interface to perform tasks
-      which are not specific to the protocol. Examples of these tasks include performing
-      domain name resolution (DNS lookup), establishing outgoing connections, and
-      accepting incoming connections. Callers are responsible for interacting with
-      networking to initialize objects to the correct state where they are usable
-      by this library.
-    </p>
-<p>
-      To facilitiate interacting with networking, the library provides an extensive
-      collection of types and algorithms. This section of the documentation explains
-      these types and algorithms, provides examples of usage, and also provides refreshers
-      and tutorials for working with networking.
+      To further ease of use, this library provides an extensive collection of types
+      and algorithms. This section of the documentation explains these types and
+      algorithms, provides examples of usage, and also provides refreshers and tutorials
+      for working with networking.
     </p>
 <h4>
 <a name="beast.using_io.h0"></a>

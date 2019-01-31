@@ -37,7 +37,7 @@
         The example that follows implements a synchronous HTTP relay. It uses a fixed
         size buffer, to avoid reading in the entire body so that the upstream connection
         sees a header without unnecessary latency. This example brings together all
-        of the concepts discussed so far, it uses both a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> and a <a class="link" href="../../"><code class="computeroutput"><span class="identifier">parser</span></code></a> to achieve its goal:
+        of the concepts discussed so far, it uses both a <a class="link" href="../ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> and a <a class="link" href="../ref/boost__beast__http__parser.html" title="http::parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> to achieve its goal:
       </p>
 <pre class="programlisting"><span class="comment">/** Relay an HTTP message.
 

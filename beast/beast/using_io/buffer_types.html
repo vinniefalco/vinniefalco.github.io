@@ -59,7 +59,21 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_cat</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffer_size.html" title="buffer_size"><code class="computeroutput"><span class="identifier">buffer_size</span></code></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  This is a more reliable version of <a href="../../../../../../doc/html/boost_asio/reference/buffer_size.html" target="_top"><code class="computeroutput"><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span></code></a> which is
+                  easier to use and also works for types which are convertible to
+                  <code class="computeroutput"><span class="identifier">net</span><span class="special">::</span><span class="identifier">const_buffer</span></code> or <code class="computeroutput"><span class="identifier">net</span><span class="special">::</span><span class="identifier">mutable_buffer</span></code>.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../ref/boost__beast__buffers_cat.html" title="buffers_cat"><code class="computeroutput"><span class="identifier">buffers_cat</span></code></a>
                 </p>
               </td>
 <td>
@@ -76,21 +90,21 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_cat_view</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_cat_view.html" title="buffers_cat_view"><code class="computeroutput"><span class="identifier">buffers_cat_view</span></code></a>
                 </p>
               </td>
 <td>
                 <p>
                   This class represents the buffer sequence formed by concatenating
                   two or more buffer sequences. This is type of object returned by
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_cat</span></code></a>.
+                  <a class="link" href="../ref/boost__beast__buffers_cat.html" title="buffers_cat"><code class="computeroutput"><span class="identifier">buffers_cat</span></code></a>.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_front</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_front.html" title="buffers_front"><code class="computeroutput"><span class="identifier">buffers_front</span></code></a>
                 </p>
               </td>
 <td>
@@ -103,7 +117,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_prefix</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_prefix.html" title="buffers_prefix"><code class="computeroutput"><span class="identifier">buffers_prefix</span></code></a>
                 </p>
               </td>
 <td>
@@ -116,21 +130,21 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_prefix_view</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_prefix_view.html" title="buffers_prefix_view"><code class="computeroutput"><span class="identifier">buffers_prefix_view</span></code></a>
                 </p>
               </td>
 <td>
                 <p>
                   This class represents the buffer sequence formed from a prefix
                   of an existing buffer sequence. This is the type of buffer returned
-                  by <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_prefix</span></code></a>.
+                  by <a class="link" href="../ref/boost__beast__buffers_prefix.html" title="buffers_prefix"><code class="computeroutput"><span class="identifier">buffers_prefix</span></code></a>.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_range</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_range_ref</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_range.html" title="buffers_range"><code class="computeroutput"><span class="identifier">buffers_range</span></code></a> <a class="link" href="../ref/boost__beast__buffers_range_ref.html" title="buffers_range_ref"><code class="computeroutput"><span class="identifier">buffers_range_ref</span></code></a>
                 </p>
               </td>
 <td>
@@ -144,8 +158,8 @@
                   buffer sequence.
                 </p>
                 <p>
-                  The function <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_range</span></code></a> maintains
-                  a copy of the buffer sequence, while <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_range_ref</span></code></a> maintains
+                  The function <a class="link" href="../ref/boost__beast__buffers_range_ref.html" title="buffers_range_ref"><code class="computeroutput"><span class="identifier">buffers_range</span></code></a> maintains
+                  a copy of the buffer sequence, while <a class="link" href="../ref/boost__beast__buffers_range_ref.html" title="buffers_range_ref"><code class="computeroutput"><span class="identifier">buffers_range_ref</span></code></a> maintains
                   a reference (in this case, the caller must ensure that the lifetime
                   of the referenced buffer sequence extends until the range object
                   is destroyed).
@@ -155,7 +169,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_suffix</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_suffix.html" title="buffers_suffix"><code class="computeroutput"><span class="identifier">buffers_suffix</span></code></a>
                 </p>
               </td>
 <td>
@@ -170,7 +184,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_to_string</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_to_string.html" title="buffers_to_string"><code class="computeroutput"><span class="identifier">buffers_to_string</span></code></a>
                 </p>
               </td>
 <td>
@@ -212,7 +226,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_adaptor</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_adaptor.html" title="buffers_adaptor"><code class="computeroutput"><span class="identifier">buffers_adaptor</span></code></a>
                 </p>
               </td>
 <td>
@@ -228,7 +242,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">flat_buffer</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_flat_buffer</span></code></a>
+                  <a class="link" href="../ref/boost__beast__flat_buffer.html" title="flat_buffer"><code class="computeroutput"><span class="identifier">flat_buffer</span></code></a> <a class="link" href="../ref/boost__beast__basic_flat_buffer.html" title="basic_flat_buffer"><code class="computeroutput"><span class="identifier">basic_flat_buffer</span></code></a>
                 </p>
               </td>
 <td>
@@ -243,7 +257,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">multi_buffer</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">basic_multi_buffer</span></code></a>
+                  <a class="link" href="../ref/boost__beast__multi_buffer.html" title="multi_buffer"><code class="computeroutput"><span class="identifier">multi_buffer</span></code></a> <a class="link" href="../ref/boost__beast__basic_multi_buffer.html" title="basic_multi_buffer"><code class="computeroutput"><span class="identifier">basic_multi_buffer</span></code></a>
                 </p>
               </td>
 <td>
@@ -258,7 +272,22 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">flat_static_buffer</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">flat_static_buffer_base</span></code></a>
+                  <a class="link" href="../ref/boost__beast__dynamic_buffer_ref.html" title="dynamic_buffer_ref"><code class="computeroutput"><span class="identifier">dynamic_buffer_ref</span></code></a> <a class="link" href="../ref/boost__beast__dynamic_buffer_ref_wrapper.html" title="dynamic_buffer_ref_wrapper"><code class="computeroutput"><span class="identifier">dynamic_buffer_ref_wrapper</span></code></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  This function returns a wrapper containing a reference to the passed
+                  dynamic buffer, permitting a Beast dynamic buffer type (which acts
+                  like a true container type) to be used with Networking algorithms
+                  which want to take ownership of the dynamic buffer in their interface.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../ref/boost__beast__flat_static_buffer.html" title="flat_static_buffer"><code class="computeroutput"><span class="identifier">flat_static_buffer</span></code></a> <a class="link" href="../ref/boost__beast__flat_static_buffer_base.html" title="flat_static_buffer_base"><code class="computeroutput"><span class="identifier">flat_static_buffer_base</span></code></a>
                 </p>
               </td>
 <td>
@@ -275,7 +304,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">static_buffer</span></code></a> <a class="link" href="../../"><code class="computeroutput"><span class="identifier">static_buffer_base</span></code></a>
+                  <a class="link" href="../ref/boost__beast__static_buffer.html" title="static_buffer"><code class="computeroutput"><span class="identifier">static_buffer</span></code></a> <a class="link" href="../ref/boost__beast__static_buffer_base.html" title="static_buffer_base"><code class="computeroutput"><span class="identifier">static_buffer_base</span></code></a>
                 </p>
               </td>
 <td>
@@ -319,7 +348,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">make_printable</span></code></a>
+                  <a class="link" href="../ref/boost__beast__make_printable.html" title="make_printable"><code class="computeroutput"><span class="identifier">make_printable</span></code></a>
                 </p>
               </td>
 <td>
@@ -332,7 +361,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">ostream</span></code></a>
+                  <a class="link" href="../ref/boost__beast__ostream.html" title="ostream"><code class="computeroutput"><span class="identifier">ostream</span></code></a>
                 </p>
               </td>
 <td>
@@ -374,7 +403,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_iterator_type</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_iterator_type.html" title="buffers_iterator_type"><code class="computeroutput"><span class="identifier">buffers_iterator_type</span></code></a>
                 </p>
               </td>
 <td>
@@ -387,7 +416,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">buffers_type</span></code></a>
+                  <a class="link" href="../ref/boost__beast__buffers_type.html" title="buffers_type"><code class="computeroutput"><span class="identifier">buffers_type</span></code></a>
                 </p>
               </td>
 <td>
@@ -401,7 +430,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_const_buffer_sequence</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_const_buffer_sequence.html" title="is_const_buffer_sequence"><code class="computeroutput"><span class="identifier">is_const_buffer_sequence</span></code></a>
                 </p>
               </td>
 <td>
@@ -417,7 +446,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_mutable_buffer_sequence</span></code></a>
+                  <a class="link" href="../ref/boost__beast__is_mutable_buffer_sequence.html" title="is_mutable_buffer_sequence"><code class="computeroutput"><span class="identifier">is_mutable_buffer_sequence</span></code></a>
                 </p>
               </td>
 <td>

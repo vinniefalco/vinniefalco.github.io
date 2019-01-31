@@ -28,7 +28,7 @@
       Serializing</a>
 </h3></div></div></div>
 <p>
-        An instance of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> can be invoked directly,
+        An instance of <a class="link" href="../ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> can be invoked directly,
         without using the provided stream operations. This could be useful for implementing
         algorithms on objects whose interface does not conform to <a class="link" href="../concepts/streams.html" title="Streams"><span class="emphasis"><em>Stream</em></span></a>.
         For example, a <a href="https://github.com/libuv/libuv" target="_top"><span class="bold"><strong>libuv</strong></span>
@@ -37,12 +37,12 @@
         been generated. Then the serializer is destroyed.
       </p>
 <p>
-        To obtain the serialized next buffer sequence, call <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">next</span></code></a>. Then, call <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">consume</span></code></a> to indicate the number of
+        To obtain the serialized next buffer sequence, call <a class="link" href="../ref/boost__beast__http__serializer/next.html" title="http::serializer::next"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">next</span></code></a>. Then, call <a class="link" href="../ref/boost__beast__http__serializer/consume.html" title="http::serializer::consume"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">consume</span></code></a> to indicate the number of
         bytes consumed. This updates the next set of buffers to be returned, if any.
         <code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">next</span></code> takes an error code parameter and
         invokes a visitor argument with the error code and buffer of unspecified
         type. In C++14 this is easily expressed with a generic lambda. The function
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">is_done</span></code></a> will return <code class="computeroutput"><span class="keyword">true</span></code> when all the buffers have been produced.
+        <a class="link" href="../ref/boost__beast__http__serializer/is_done.html" title="http::serializer::is_done"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">is_done</span></code></a> will return <code class="computeroutput"><span class="keyword">true</span></code> when all the buffers have been produced.
         This C++14 example prints the buffers to standard output:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">isRequest</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Body</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Fields</span><span class="special">&gt;</span>
@@ -58,7 +58,7 @@
             <span class="special">{</span>
                 <span class="identifier">ec</span> <span class="special">=</span> <span class="special">{};</span>
                 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">buffers</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">);</span>
-                <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
+                <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
             <span class="special">});</span>
     <span class="special">}</span>
     <span class="keyword">while</span><span class="special">(!</span> <span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="special">!</span> <span class="identifier">sr</span><span class="special">.</span><span class="identifier">is_done</span><span class="special">());</span>
@@ -84,7 +84,7 @@
     <span class="special">{</span>
         <span class="identifier">ec</span> <span class="special">=</span> <span class="special">{};</span>
         <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">buffers</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">);</span>
-        <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
+        <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
     <span class="special">}</span>
 <span class="special">};</span>
 
@@ -114,10 +114,10 @@
         In some cases, such as the handling of the <a href="https://tools.ietf.org/html/rfc7231#section-5.1.1" target="_top">Expect:
         100-continue</a> field, it may be desired to first serialize the header,
         perform some other action, and then continue with serialization of the body.
-        This is accomplished by calling <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">split</span></code></a> with a boolean indicating
+        This is accomplished by calling <a class="link" href="../ref/boost__beast__http__serializer/split.html" title="http::serializer::split"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">split</span></code></a> with a boolean indicating
         that when buffers are produced, the last buffer containing serialized header
         octets will not contain any octets corresponding to the body. The function
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">is_header_done</span></code></a> informs the caller
+        <a class="link" href="../ref/boost__beast__http__serializer/is_header_done.html" title="http::serializer::is_header_done"><code class="computeroutput"><span class="identifier">serializer</span><span class="special">::</span><span class="identifier">is_header_done</span></code></a> informs the caller
         whether the header been serialized fully. In this C++14 example we print
         the header first, followed by the body:
       </p>
@@ -136,7 +136,7 @@
             <span class="special">{</span>
                 <span class="identifier">ec</span> <span class="special">=</span> <span class="special">{};</span>
                 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">buffers</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">);</span>
-                <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
+                <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
             <span class="special">});</span>
     <span class="special">}</span>
     <span class="keyword">while</span><span class="special">(!</span> <span class="identifier">sr</span><span class="special">.</span><span class="identifier">is_header_done</span><span class="special">());</span>
@@ -150,7 +150,7 @@
                 <span class="special">{</span>
                     <span class="identifier">ec</span> <span class="special">=</span> <span class="special">{};</span>
                     <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">buffers</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">);</span>
-                    <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">net</span><span class="special">::</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
+                    <span class="identifier">sr</span><span class="special">.</span><span class="identifier">consume</span><span class="special">(</span><span class="identifier">buffer_size</span><span class="special">(</span><span class="identifier">buffer</span><span class="special">));</span>
                 <span class="special">});</span>
         <span class="special">}</span>
         <span class="keyword">while</span><span class="special">(!</span> <span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="special">!</span> <span class="identifier">sr</span><span class="special">.</span><span class="identifier">is_done</span><span class="special">());</span>
@@ -168,7 +168,7 @@
           The standard library provides the type <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span></code>
           for performing high level write operations on character streams. The variable
           <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span></code> is based on this output stream.
-          This example uses the buffer oriented interface of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">serializer</span></code></a> to write an HTTP message
+          This example uses the buffer oriented interface of <a class="link" href="../ref/boost__beast__http__serializer.html" title="http::serializer"><code class="computeroutput"><span class="identifier">serializer</span></code></a> to write an HTTP message
           to a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span></code>:
         </p>
 <pre class="programlisting"><span class="comment">// The detail namespace means "not public"</span>

@@ -33,7 +33,7 @@
         bytes remaining at receiving endpoints and also closes the underlying TCP/IP
         connection. Orderly shutdowns are always preferred; for TLS or SSL streams,
         a protocol-level shutdown is desired. This presents a small issue for the
-        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">stream</span></code></a>
+        <a class="link" href="../ref/boost__beast__websocket__stream.html" title="websocket::stream"><code class="computeroutput"><span class="identifier">stream</span></code></a>
         implementation: the stream's <code class="computeroutput"><span class="identifier">NextLayer</span></code>
         template type requires only <a class="link" href="../concepts/streams.html#beast.concepts.streams.SyncStream"><span class="emphasis"><em>SyncStream</em></span></a>
         or <a class="link" href="../concepts/streams.html#beast.concepts.streams.AsyncStream"><span class="emphasis"><em>AsyncStream</em></span></a>,
@@ -46,11 +46,11 @@
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-            <a class="link" href="../../"><code class="computeroutput"><span class="identifier">teardown</span></code></a>: Overloads of this
+            <a class="link" href="../ref/boost__beast__websocket__teardown.html" title="websocket::teardown"><code class="computeroutput"><span class="identifier">teardown</span></code></a>: Overloads of this
             function drain and shut down a stream synchronously.
           </li>
 <li class="listitem">
-            <a class="link" href="../../"><code class="computeroutput"><span class="identifier">async_teardown</span></code></a>: Overloads of
+            <a class="link" href="../ref/boost__beast__websocket__teardown.html" title="websocket::teardown"><code class="computeroutput"><span class="identifier">async_teardown</span></code></a>: Overloads of
             this function drain and shut down a stream asynchronously.
           </li>
 </ul></div>
