@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MutableDynamicBuffer: a refinement of DynamicBuffer</title>
+    <style type="text/css">
+    body
+    {
+        font-size: 10pt;
+        font-family: sans-serif;
+    }
+    code
+    {
+        display: block;
+        white-space: pre;
+        margin-top: -1.00em;
+        margin-left: 2.0em;
+    }
+    p
+    {
+        text-align: justify
+    }
+    p > code
+    {
+        margin-top: initial;
+        margin-left: initial;
+    }
+    li {
+        text-align: justify
+    }
+    ol.p
+    {
+        margin-left: -2.0em;
+    }
+    blockquote.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    p.note
+    {
+        background-color:#E0E0E0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    ins { background-color: #CCFFCC; }
+    del { background-color: #FFCCCC; }
+    .insert { background-color: #CCFFCC; }
+    address {text-align:right;}
+    h1 {text-align:center;}
+    span.comment {color:#C80000;}
+    table {
+        border-collapse: collapse;
+    }
+    td, th {
+        border: 1px solid silver;
+    }
+    </style>
+</head>
+<body>
+<pre>
+Doc. no:  D0000R0
+Audience: LEWG, SG1
+Date:     2018-12-27
+Reply-To: Vinnie Falco (<a href="mailto:vinnie.falco@gmail.com">vinnie.falco@gmail.com</a>)
+</pre>
+<hr>
+<h1>MutableDynamicBuffer: a refinement of DynamicBuffer</h1>
+
+
+
+<h2>Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#motivation">Motivation and Scope</a></li>
+<li><a href="#impact">Impact On the Standard</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#wording">Proposed Wording</a></li>
+<li><a href="#credits">Acknowledgements</a></li>
+<li><a href="#references">References</a></li>
+</ol>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="overview">1. Overview</h2>
+<p>
+We propose a refinement of the Networking TS named requirement
+<em>DynamicBuffer</em>, and some adjustments to improve the wording
+of the existing named requirement.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="motivation">2. Motivation and Scope</h2>
+<p>
+Currently, the readable bytes of a <em>MutableBufferSequence</em> only
+need to meet the requirements of <em>ConstBufferSequence</em>. However,
+some interface designs may be enabled and some algorithms may be optimized
+if they can require a dynamic buffer's readable bytes to be mutable. We
+propose a refinement of <em>DynamicBuffer</em>, called
+<em>MutableDynamicBuffer</em> which requires that the readable bytes are
+mutable.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="impact">3. Impact on the Standard</h2>
+<p>
+This paper proposes additions to Networking TS, and also proposes changes
+to existing wording in the TS which more accurately expresses intent.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="discussion">4. Discussion</h2>
+
+<!----------------------------------------------------------------------------->
+
+<h2 id="wording">5. Proposed Wording</h2>
+<p>
+These changes are relative to
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4771.pdf">N4771</a>.
+</p>
+
+<ol>
+
+<li><p>Modify "Table 14 - DynamicBuffer requirements" as indicated</p>
+<p><tt>
+    <del>X::const_buffers_type</del>
+    <ins>X::readable_bytes_type</ins>
+    </tt></p></li>
+<p><tt>
+    <del>X::mutable_buffers_type</del>
+    <ins>X::writable_bytes_type</ins>
+    </tt></p></li>
+
+</ol>
+
+<!----------------------------------------------------------------------------->
+
+<a name="credits"></a><h2>6. Acknowledgements</h2>
+<p>
+We thank Christopher Kohlhoff for reviewing the proposed changes for
+accuracy, for editorial improvements, and for example implementations.
+</p>
+
+<!----------------------------------------------------------------------------->
+
+<a name="references"></a><h2>7. References</h2>
+
+<b>[1]</b>
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1194r0.html">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1194r0.html</a><br>
+<br>
+
+<b>[2]</b>
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0443r9.html">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0443r9.html</a><br>
+<br>
+
+<b>[3]</b>
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1244r0.html">http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1244r0.html</a><br>
+<br>
+
+</body>
+</html>
