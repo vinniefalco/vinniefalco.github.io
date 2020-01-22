@@ -1,0 +1,680 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>value</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Boost.URL">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="boost__url__optional.html" title="optional">
+<link rel="next" href="boost__url__generic_category.html" title="generic_category">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.URI Logo" width="880" height="80" src="../../images/doc-logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__url__optional.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__url__generic_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="url.ref.boost__url__value"></a><a class="link" href="boost__url__value.html" title="value">value</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1071078"></a>
+      </p>
+<h5>
+<a name="url.ref.boost__url__value.h0"></a>
+        <span class="phrase"><a name="url.ref.boost__url__value.synopsis"></a></span><a class="link" href="boost__url__value.html#url.ref.boost__url__value.synopsis">Synopsis</a>
+      </h5>
+<p>
+        Defined in header <code class="literal">&lt;<a href="https://github.com/vinniefalco/url/blob/master/include/boost/url/value.hpp" target="_top">boost/url/value.hpp</a>&gt;</code>
+      </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">value</span> <span class="special">=</span> <span class="identifier">dynamic_value</span><span class="special">&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span><span class="special">&lt;</span> <span class="keyword">char</span> <span class="special">&gt;</span> <span class="special">&gt;;</span>
+</pre>
+<h5>
+<a name="url.ref.boost__url__value.h1"></a>
+        <span class="phrase"><a name="url.ref.boost__url__value.member_functions"></a></span><a class="link" href="boost__url__value.html#url.ref.boost__url__value.member_functions">Member
+        Functions</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/capacity.html" title="dynamic_value::capacity">capacity</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the number of characters that may be stored without a reallocation.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/data.html" title="dynamic_value::data">data</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return a pointer to the characters in the URL.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/dynamic_value.html" title="dynamic_value::dynamic_value">dynamic_value</a></strong></span>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_authority.html" title="dynamic_value::encoded_authority">encoded_authority</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the authority.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_fragment.html" title="dynamic_value::encoded_fragment">encoded_fragment</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the fragment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_host.html" title="dynamic_value::encoded_host">encoded_host</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the encoded host.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_hostname.html" title="dynamic_value::encoded_hostname">encoded_hostname</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the hostname.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_origin.html" title="dynamic_value::encoded_origin">encoded_origin</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the origin.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_password.html" title="dynamic_value::encoded_password">encoded_password</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the password.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_path.html" title="dynamic_value::encoded_path">encoded_path</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the path.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_query.html" title="dynamic_value::encoded_query">encoded_query</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_url.html" title="dynamic_value::encoded_url">encoded_url</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the URL.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_userinfo.html" title="dynamic_value::encoded_userinfo">encoded_userinfo</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the userinfo.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/encoded_username.html" title="dynamic_value::encoded_username">encoded_username</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the username.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/fragment.html" title="dynamic_value::fragment">fragment</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the fragment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/fragment_part.html" title="dynamic_value::fragment_part">fragment_part</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the fragment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/has_authority.html" title="dynamic_value::has_authority">has_authority</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return true if an authority is present.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/host.html" title="dynamic_value::host">host</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the type of host present, if any.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/hostname.html" title="dynamic_value::hostname">hostname</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the hostname.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/operator_eq_.html" title="dynamic_value::operator=">operator=</a></strong></span>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/params.html" title="dynamic_value::params">params</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/password.html" title="dynamic_value::password">password</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the password.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/port.html" title="dynamic_value::port">port</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the port.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/port_part.html" title="dynamic_value::port_part">port_part</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the port.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/query.html" title="dynamic_value::query">query</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/query_part.html" title="dynamic_value::query_part">query_part</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/scheme.html" title="dynamic_value::scheme">scheme</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the scheme.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/segments.html" title="dynamic_value::segments">segments</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the path.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_authority.html" title="dynamic_value::set_encoded_authority">set_encoded_authority</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the authority.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_fragment.html" title="dynamic_value::set_encoded_fragment">set_encoded_fragment</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the fragment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_host.html" title="dynamic_value::set_encoded_host">set_encoded_host</a></strong></span>
+                </p>
+              </td>
+<td>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_hostname.html" title="dynamic_value::set_encoded_hostname">set_encoded_hostname</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the hostname.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_origin.html" title="dynamic_value::set_encoded_origin">set_encoded_origin</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the origin to the specified value.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_password.html" title="dynamic_value::set_encoded_password">set_encoded_password</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the encoded password.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_path.html" title="dynamic_value::set_encoded_path">set_encoded_path</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the path.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_query.html" title="dynamic_value::set_encoded_query">set_encoded_query</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_url.html" title="dynamic_value::set_encoded_url">set_encoded_url</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the URL.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_userinfo.html" title="dynamic_value::set_encoded_userinfo">set_encoded_userinfo</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the userinfo.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_encoded_username.html" title="dynamic_value::set_encoded_username">set_encoded_username</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the encoded username.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_fragment.html" title="dynamic_value::set_fragment">set_fragment</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the fragment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_fragment_part.html" title="dynamic_value::set_fragment_part">set_fragment_part</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the fragment.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_hostname.html" title="dynamic_value::set_hostname">set_hostname</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the hostname.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_password.html" title="dynamic_value::set_password">set_password</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the password.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_port.html" title="dynamic_value::set_port">set_port</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the port.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_port_part.html" title="dynamic_value::set_port_part">set_port_part</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the port.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_query.html" title="dynamic_value::set_query">set_query</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_query_part.html" title="dynamic_value::set_query_part">set_query_part</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the query.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_scheme.html" title="dynamic_value::set_scheme">set_scheme</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the scheme.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/set_username.html" title="dynamic_value::set_username">set_username</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Set the username.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/size.html" title="dynamic_value::size">size</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the number of characters in the URL.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__url__dynamic_value/username.html" title="dynamic_value::username">username</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the username.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="url.ref.boost__url__value.h2"></a>
+        <span class="phrase"><a name="url.ref.boost__url__value.description"></a></span><a class="link" href="boost__url__value.html#url.ref.boost__url__value.description">Description</a>
+      </h5>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__url__optional.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__url__generic_category.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

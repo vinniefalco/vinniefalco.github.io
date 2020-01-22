@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>dynamic_value::set_hostname</title>
+<link rel="stylesheet" href="../../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="Boost.URL">
+<link rel="up" href="../boost__url__dynamic_value.html" title="dynamic_value">
+<link rel="prev" href="encoded_hostname.html" title="dynamic_value::encoded_hostname">
+<link rel="next" href="set_encoded_hostname.html" title="dynamic_value::set_encoded_hostname">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.URI Logo" width="880" height="80" src="../../../images/doc-logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="encoded_hostname.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__url__dynamic_value.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="set_encoded_hostname.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="url.ref.boost__url__dynamic_value.set_hostname"></a><a class="link" href="set_hostname.html" title="dynamic_value::set_hostname">dynamic_value::set_hostname</a>
+</h4></div></div></div>
+<p>
+          <a class="indexterm" name="id1003778"></a>
+        </p>
+<p>
+          (Inherited from <a class="link" href="../boost__url__basic_value.html" title="basic_value"><code class="computeroutput"><span class="identifier">basic_value</span></code></a>)
+        </p>
+<p>
+          Set the hostname.
+        </p>
+<h6>
+<a name="url.ref.boost__url__dynamic_value.set_hostname.h0"></a>
+          <span class="phrase"><a name="url.ref.boost__url__dynamic_value.set_hostname.synopsis"></a></span><a class="link" href="set_hostname.html#url.ref.boost__url__dynamic_value.set_hostname.synopsis">Synopsis</a>
+        </h6>
+<pre class="programlisting"><span class="identifier">basic_value</span><span class="special">&amp;</span>
+<span class="identifier">set_hostname</span><span class="special">(</span>
+    <span class="identifier">string_view</span> <span class="identifier">s</span><span class="special">);</span>
+</pre>
+<h6>
+<a name="url.ref.boost__url__dynamic_value.set_hostname.h1"></a>
+          <span class="phrase"><a name="url.ref.boost__url__dynamic_value.set_hostname.description"></a></span><a class="link" href="set_hostname.html#url.ref.boost__url__dynamic_value.set_hostname.description">Description</a>
+        </h6>
+<p>
+          The hostname is set to the specified string, replacing any previous hostname:
+        </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              If the string is empty, the hostname is cleared. If the hostname was
+              the last remaining portion of the authority, then the entire authority
+              is removed including the leading double slash ("//"), else
+            </li>
+<li class="listitem">
+              If the string is a valid <span class="emphasis"><em>IPv6Address</em></span>, the hostname
+              is set to the literal string and <a class="link" href="host.html" title="dynamic_value::host"><code class="computeroutput"><span class="identifier">host</span></code></a> will return <a class="link" href="../boost__url__host_type.html" title="host_type"><code class="computeroutput"><span class="identifier">host_type</span><span class="special">::</span><span class="identifier">ipv6</span></code></a>, else
+            </li>
+<li class="listitem">
+              If the string is a valid <span class="emphasis"><em>IPv6Future</em></span>, the hostname
+              is set to the literal string and <a class="link" href="host.html" title="dynamic_value::host"><code class="computeroutput"><span class="identifier">host</span></code></a> will return <a class="link" href="../boost__url__host_type.html" title="host_type"><code class="computeroutput"><span class="identifier">host_type</span><span class="special">::</span><span class="identifier">ipvfuture</span></code></a>, else
+            </li>
+<li class="listitem">
+              If the string is a valid <span class="emphasis"><em>IPv4Address</em></span>, the hostname
+              is set to the literal string and <a class="link" href="host.html" title="dynamic_value::host"><code class="computeroutput"><span class="identifier">host</span></code></a> will return <a class="link" href="../boost__url__host_type.html" title="host_type"><code class="computeroutput"><span class="identifier">host_type</span><span class="special">::</span><span class="identifier">ipv4</span></code></a>, otherwise
+            </li>
+<li class="listitem">
+              The hostname is set to the specified string. Any special or reserved
+              characters in the string are automatically percent-encoded.
+            </li>
+</ul></div>
+<p>
+          If the URL previously did not contain an authority (<a class="link" href="has_authority.html" title="dynamic_value::has_authority"><code class="computeroutput"><span class="identifier">has_authority</span></code></a> returns <code class="computeroutput"><span class="keyword">false</span></code>), and <code class="computeroutput"><span class="identifier">s</span></code>
+          is not empty, then the authority is added including a leading double slash
+          ("//").
+        </p>
+<h6>
+<a name="url.ref.boost__url__dynamic_value.set_hostname.h2"></a>
+          <span class="phrase"><a name="url.ref.boost__url__dynamic_value.set_hostname.abnf"></a></span><a class="link" href="set_hostname.html#url.ref.boost__url__dynamic_value.set_hostname.abnf">ABNF</a>
+        </h6>
+<pre class="programlisting"><span class="identifier">IPv4address</span>   <span class="special">=</span> <span class="identifier">dec</span><span class="special">-</span><span class="identifier">octet</span> <span class="string">"."</span> <span class="identifier">dec</span><span class="special">-</span><span class="identifier">octet</span> <span class="string">"."</span> <span class="identifier">dec</span><span class="special">-</span><span class="identifier">octet</span> <span class="string">"."</span> <span class="identifier">dec</span><span class="special">-</span><span class="identifier">octet</span>
+
+<span class="identifier">IPv6address</span>   <span class="special">=</span>                            <span class="number">6</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">ls32</span>
+              <span class="special">/</span>                       <span class="string">"::"</span> <span class="number">5</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">ls32</span>
+              <span class="special">/</span> <span class="special">[</span>               <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span> <span class="number">4</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">ls32</span>
+              <span class="special">/</span> <span class="special">[</span> <span class="special">*</span><span class="number">1</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span> <span class="number">3</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">ls32</span>
+              <span class="special">/</span> <span class="special">[</span> <span class="special">*</span><span class="number">2</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span> <span class="number">2</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">ls32</span>
+              <span class="special">/</span> <span class="special">[</span> <span class="special">*</span><span class="number">3</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span>    <span class="identifier">h16</span> <span class="string">":"</span>   <span class="identifier">ls32</span>
+              <span class="special">/</span> <span class="special">[</span> <span class="special">*</span><span class="number">4</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span>              <span class="identifier">ls32</span>
+              <span class="special">/</span> <span class="special">[</span> <span class="special">*</span><span class="number">5</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span>              <span class="identifier">h16</span>
+              <span class="special">/</span> <span class="special">[</span> <span class="special">*</span><span class="number">6</span><span class="special">(</span> <span class="identifier">h16</span> <span class="string">":"</span> <span class="special">)</span> <span class="identifier">h16</span> <span class="special">]</span> <span class="string">"::"</span>
+
+<span class="identifier">IPvFuture</span>     <span class="special">=</span> <span class="string">"v"</span> <span class="number">1</span><span class="special">*</span><span class="identifier">HEXDIG</span> <span class="string">"."</span> <span class="number">1</span><span class="special">*(</span> <span class="identifier">unreserved</span> <span class="special">/</span> <span class="identifier">sub</span><span class="special">-</span><span class="identifier">delims</span> <span class="special">/</span> <span class="string">":"</span> <span class="special">)</span>
+</pre>
+<h6>
+<a name="url.ref.boost__url__dynamic_value.set_hostname.h3"></a>
+          <span class="phrase"><a name="url.ref.boost__url__dynamic_value.set_hostname.exception_safety"></a></span><a class="link" href="set_hostname.html#url.ref.boost__url__dynamic_value.set_hostname.exception_safety">Exception
+          Safety</a>
+        </h6>
+<p>
+          Strong guarantee. Calls to allocate may throw.
+        </p>
+<h6>
+<a name="url.ref.boost__url__dynamic_value.set_hostname.h4"></a>
+          <span class="phrase"><a name="url.ref.boost__url__dynamic_value.set_hostname.parameters"></a></span><a class="link" href="set_hostname.html#url.ref.boost__url__dynamic_value.set_hostname.parameters">Parameters</a>
+        </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Name
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Description
+                  </p>
+                </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">s</span></code>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The string to set. This string may contain any characters, including
+                    nulls.
+                  </p>
+                </td>
+</tr></tbody>
+</table></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="encoded_hostname.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__url__dynamic_value.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="set_encoded_hostname.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

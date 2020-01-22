@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>host_type</title>
+<link rel="stylesheet" href="../../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Boost.URL">
+<link rel="up" href="../ref.html" title="Reference">
+<link rel="prev" href="boost__url__condition.html" title="condition">
+<link rel="next" href="boost__url__scheme.html" title="scheme">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.URI Logo" width="880" height="80" src="../../images/doc-logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__url__condition.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__url__scheme.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="url.ref.boost__url__host_type"></a><a class="link" href="boost__url__host_type.html" title="host_type">host_type</a>
+</h3></div></div></div>
+<p>
+        <a class="indexterm" name="id1068551"></a>
+      </p>
+<p>
+        Identifies the type of host in a URL.
+      </p>
+<h5>
+<a name="url.ref.boost__url__host_type.h0"></a>
+        <span class="phrase"><a name="url.ref.boost__url__host_type.synopsis"></a></span><a class="link" href="boost__url__host_type.html#url.ref.boost__url__host_type.synopsis">Synopsis</a>
+      </h5>
+<p>
+        Defined in header <code class="literal">&lt;<a href="https://github.com/vinniefalco/url/blob/master/include/boost/url/host_type.hpp" target="_top">boost/url/host_type.hpp</a>&gt;</code>
+      </p>
+<pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">host_type</span>
+</pre>
+<h5>
+<a name="url.ref.boost__url__host_type.h1"></a>
+        <span class="phrase"><a name="url.ref.boost__url__host_type.values"></a></span><a class="link" href="boost__url__host_type.html#url.ref.boost__url__host_type.values">Values</a>
+      </h5>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Name
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">none</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  No host is specified.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">name</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A host is specified by reg-name.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">ipv4</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A host is specified by IPv4address.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">ipv6</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A host is specified by IPv6address.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">ipvfuture</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  A host is specified by IPvFuture.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<h5>
+<a name="url.ref.boost__url__host_type.h2"></a>
+        <span class="phrase"><a name="url.ref.boost__url__host_type.description"></a></span><a class="link" href="boost__url__host_type.html#url.ref.boost__url__host_type.description">Description</a>
+      </h5>
+<p>
+        Values of this type are returned by URL views and containers to indicate
+        the type of host present in a URL.
+      </p>
+<h5>
+<a name="url.ref.boost__url__host_type.h3"></a>
+        <span class="phrase"><a name="url.ref.boost__url__host_type.see_also"></a></span><a class="link" href="boost__url__host_type.html#url.ref.boost__url__host_type.see_also">See
+        Also</a>
+      </h5>
+<p>
+        <a class="link" href="boost__url__view/host.html" title="view::host"><code class="computeroutput"><span class="identifier">view</span><span class="special">::</span><span class="identifier">host</span></code></a>,
+        <a class="link" href="boost__url__basic_value/host.html" title="basic_value::host"><code class="computeroutput"><span class="identifier">basic_value</span><span class="special">::</span><span class="identifier">host</span></code></a>
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__url__condition.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__url__scheme.html"><img src="../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
