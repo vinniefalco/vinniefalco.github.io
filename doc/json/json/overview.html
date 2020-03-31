@@ -27,9 +27,9 @@
         This library provides containers and algorithms which implement JSON (<a href="https://json.org/" target="_top">"JavaScript Object Notation"</a>),
         a lightweight data-interchange format. This format is easy for humans to
         read and write, and easy for machines to parse and generate. It is based
-        on a subset of the Javascript Programming Language, <a href="https://www.ecma-international.org/ecma-262/10.0/index.html" target="_top">Standard
-        ECMA-262</a>. JSON is a text format that is language-indepdent but uses
-        conventions that are familiar to programmers of the C-family of languages,
+        on a subset of the JavaScript Programming Language, <a href="https://www.ecma-international.org/ecma-262/10.0/index.html" target="_top">Standard
+        ECMA-262</a>. JSON is a text format that is language-independent but
+        uses conventions that are familiar to programmers of the C-family of languages,
         including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These
         properties make JSON an ideal data-interchange language.
       </p>
@@ -63,6 +63,9 @@
             Uniform interface on all C++ versions.
           </li>
 <li class="listitem">
+            Key lookup in objects has constant average complexity.
+          </li>
+<li class="listitem">
             Strict parser and serializer which work incrementally.
           </li>
 <li class="listitem">
@@ -85,7 +88,7 @@
             features
           </li></ul></div>
 <p>
-        Tested with these compilers: msvc-14+, gcc 4.8.4+, clang 3.6+.
+        Tested with these compilers: msvc-14.1+, gcc 4.8.4+, clang 3.6+.
       </p>
 <p>
         Typically a program will need to link statically or dynamically with the
@@ -103,7 +106,8 @@
         Boost.JSON may also be used without the rest of Boost, simply by defining
         the macro <code class="computeroutput"><span class="identifier">BOOST_JSON_STANDALONE</span></code>.
         This configuration requires C++17 or later, and the addition of the file
-        src/src.cpp to the target application.
+        <code class="computeroutput"><span class="identifier">src</span><span class="special">/</span><span class="identifier">src</span><span class="special">.</span><span class="identifier">cpp</span></code>
+        to the target application.
       </p>
 </div>
 <h4>
@@ -140,20 +144,20 @@
             excluded from the headers and emitted in a separate static or dynamic
             library.
           </p></dd>
-<dt><span class="term"> "Why <a class="link" href="ref/boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> and <a class="link" href="ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a> instead of <code class="computeroutput"><span class="identifier">std</span></code> types?" </span></dt>
+<dt><span class="term"> "Why <a class="link" href="../"><code class="computeroutput"><span class="identifier">storage</span></code></a> and <a class="link" href="ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a> instead of <code class="computeroutput"><span class="identifier">std</span></code> types?" </span></dt>
 <dd><p>
             The standard's <a href="https://en.cppreference.com/w/cpp/memory/memory_resource" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">pmr</span><span class="special">::</span><span class="identifier">memory_resource</span></code></a> is only available
             since C++17. <a href="https://en.cppreference.com/w/cpp/memory/polymorphic_allocator" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">pmr</span><span class="special">::</span><span class="identifier">polymorphic_allocator</span></code></a> treats
             the memory resource as a reference with respect to ownership. Boost.JSON
             uses a reference counted smart pointer container to simplify the lifetime
-            management of memory resources. The library defines its own <a class="link" href="ref/boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> type which declares
+            management of memory resources. The library defines its own <a class="link" href="../"><code class="computeroutput"><span class="identifier">storage</span></code></a> type which declares
             the reference counter intrusively, allowing a 50% space savings over
             using a <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">shared_ptr</span></code></a>.
           </p></dd>
 <dt><span class="term"> "Why <a class="link" href="ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a> instead of <a href="https://en.cppreference.com/w/cpp/string/basic_string" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code></a>?"
         </span></dt>
 <dd><p>
-            The string provided by the library uses the <a class="link" href="ref/boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> allocator model, has
+            The string provided by the library uses the <a class="link" href="../"><code class="computeroutput"><span class="identifier">storage</span></code></a> allocator model, has
             the same interface on all C++ versions, and has an optimized class layout
             to keep the size of JSON values small.
           </p></dd>

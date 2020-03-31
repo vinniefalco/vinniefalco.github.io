@@ -20,7 +20,7 @@
 <a name="json.ref.boost__json__string.shrink_to_fit"></a><a class="link" href="shrink_to_fit.html" title="string::shrink_to_fit">string::shrink_to_fit</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1128922"></a>
+          <a class="indexterm" name="id1127286"></a>
         </p>
 <p>
           Request the removal of unused capacity.
@@ -39,9 +39,7 @@
 <p>
           This performs a non-binding request to reduce <a class="link" href="capacity.html" title="string::capacity"><code class="computeroutput"><span class="identifier">capacity</span><span class="special">()</span></code></a>
           to <a class="link" href="size.html" title="string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>. The request may or may not be
-          fulfilled. If reallocation occurs, all iterators including any past-the-end
-          iterators, and all references to characters are invalidated. Otherwise,
-          no iterators or references are invalidated.
+          fulfilled.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.shrink_to_fit.h2"></a>
@@ -52,11 +50,12 @@
         </p>
 <h6>
 <a name="json.ref.boost__json__string.shrink_to_fit.h3"></a>
-          <span class="phrase"><a name="json.ref.boost__json__string.shrink_to_fit.exception_safety"></a></span><a class="link" href="shrink_to_fit.html#json.ref.boost__json__string.shrink_to_fit.exception_safety">Exception
-          Safety</a>
+          <span class="phrase"><a name="json.ref.boost__json__string.shrink_to_fit.remarks"></a></span><a class="link" href="shrink_to_fit.html#json.ref.boost__json__string.shrink_to_fit.remarks">Remarks</a>
         </h6>
 <p>
-          No-throw guarantee.
+          If reallocation occurs, all iterators including any past-the-end iterators,
+          and all references to characters are invalidated. Otherwise, no iterators
+          or references are invalidated.
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

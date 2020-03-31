@@ -20,7 +20,7 @@
 <a name="json.ref.boost__json__string.swap"></a><a class="link" href="swap.html" title="string::swap">string::swap</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1151662"></a>
+          <a class="indexterm" name="id1149598"></a>
         </p>
 <p>
           Swap the contents.
@@ -39,7 +39,7 @@
         </h6>
 <p>
           Exchanges the contents of this string with another string. Ownership of
-          the respective <a class="link" href="../boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> objects is not transferred.
+          the respective <a class="link" href="storage.html" title="string::storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> objects is not transferred.
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -55,14 +55,6 @@
 </ul></div>
 <h6>
 <a name="json.ref.boost__json__string.swap.h2"></a>
-          <span class="phrase"><a name="json.ref.boost__json__string.swap.preconditions"></a></span><a class="link" href="swap.html#json.ref.boost__json__string.swap.preconditions">Preconditions</a>
-        </h6>
-<p>
-          <code class="computeroutput"><span class="special">&amp;</span><span class="identifier">other</span>
-          <span class="special">!=</span> <span class="keyword">this</span></code>
-        </p>
-<h6>
-<a name="json.ref.boost__json__string.swap.h3"></a>
           <span class="phrase"><a name="json.ref.boost__json__string.swap.complexity"></a></span><a class="link" href="swap.html#json.ref.boost__json__string.swap.complexity">Complexity</a>
         </h6>
 <p>
@@ -70,15 +62,28 @@
           plus <code class="computeroutput"><span class="identifier">other</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span></code>.
         </p>
 <h6>
+<a name="json.ref.boost__json__string.swap.h3"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.swap.precondition"></a></span><a class="link" href="swap.html#json.ref.boost__json__string.swap.precondition">Precondition</a>
+        </h6>
+<pre class="programlisting"><span class="special">&amp;</span><span class="identifier">other</span> <span class="special">!=</span> <span class="keyword">this</span>
+</pre>
+<h6>
 <a name="json.ref.boost__json__string.swap.h4"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.swap.remarks"></a></span><a class="link" href="swap.html#json.ref.boost__json__string.swap.remarks">Remarks</a>
+        </h6>
+<p>
+          Calls to storage::allocate may throw.
+        </p>
+<h6>
+<a name="json.ref.boost__json__string.swap.h5"></a>
           <span class="phrase"><a name="json.ref.boost__json__string.swap.exception_safety"></a></span><a class="link" href="swap.html#json.ref.boost__json__string.swap.exception_safety">Exception
           Safety</a>
         </h6>
 <p>
-          Strong guarantee. Calls to <a class="link" href="../boost__json__storage/allocate.html" title="storage::allocate"><code class="computeroutput"><span class="identifier">storage</span><span class="special">::</span><span class="identifier">allocate</span></code></a> may throw.
+          Strong guarantee.
         </p>
 <h6>
-<a name="json.ref.boost__json__string.swap.h5"></a>
+<a name="json.ref.boost__json__string.swap.h6"></a>
           <span class="phrase"><a name="json.ref.boost__json__string.swap.parameters"></a></span><a class="link" href="swap.html#json.ref.boost__json__string.swap.parameters">Parameters</a>
         </h6>
 <div class="informaltable"><table class="table">

@@ -20,7 +20,10 @@
 <a name="json.ref.boost__json__string.copy"></a><a class="link" href="copy.html" title="string::copy">string::copy</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1150962"></a>
+          <a class="indexterm" name="id1145825"></a>
+        </p>
+<p>
+          Copy a substring to another string.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.copy.h0"></a>
@@ -36,6 +39,120 @@
 <a name="json.ref.boost__json__string.copy.h1"></a>
           <span class="phrase"><a name="json.ref.boost__json__string.copy.description"></a></span><a class="link" href="copy.html#json.ref.boost__json__string.copy.description">Description</a>
         </h6>
+<p>
+          Copies <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">min</span><span class="special">(</span><span class="identifier">count</span><span class="special">,</span> <span class="identifier">size</span><span class="special">()</span> <span class="special">-</span> <span class="identifier">pos</span><span class="special">)</span></code> characters starting at index <code class="computeroutput"><span class="identifier">pos</span></code> to the string pointed to by <code class="computeroutput"><span class="identifier">dest</span></code>.
+        </p>
+<h6>
+<a name="json.ref.boost__json__string.copy.h2"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.copy.remarks"></a></span><a class="link" href="copy.html#json.ref.boost__json__string.copy.remarks">Remarks</a>
+        </h6>
+<p>
+          The resulting string is not null terminated.
+        </p>
+<h6>
+<a name="json.ref.boost__json__string.copy.h3"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.copy.return_value"></a></span><a class="link" href="copy.html#json.ref.boost__json__string.copy.return_value">Return
+          Value</a>
+        </h6>
+<p>
+          The number of characters copied.
+        </p>
+<h6>
+<a name="json.ref.boost__json__string.copy.h4"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.copy.parameters"></a></span><a class="link" href="copy.html#json.ref.boost__json__string.copy.parameters">Parameters</a>
+        </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Name
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Description
+                  </p>
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">count</span></code>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The number of characters to copy.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">dest</span></code>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The string to copy to.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">pos</span></code>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The index to begin copying from. The default argument for this
+                    parameter is <code class="computeroutput"><span class="number">0</span></code>.
+                  </p>
+                </td>
+</tr>
+</tbody>
+</table></div>
+<h6>
+<a name="json.ref.boost__json__string.copy.h5"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.copy.exceptions"></a></span><a class="link" href="copy.html#json.ref.boost__json__string.copy.exceptions">Exceptions</a>
+        </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Type
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Thrown On
+                  </p>
+                </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">out_of_range</span></code>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    <code class="computeroutput"><span class="identifier">pos</span> <span class="special">&gt;</span>
+                    <span class="identifier">max_size</span><span class="special">()</span></code>
+                  </p>
+                </td>
+</tr></tbody>
+</table></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>

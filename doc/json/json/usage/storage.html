@@ -66,7 +66,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../ref/boost__json__is_storage.html" title="is_storage"><code class="computeroutput"><span class="identifier">is_storage</span></code></a>
+                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">is_storage</span></code></a>
                 </p>
               </td>
 <td>
@@ -79,7 +79,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../ref/boost__json__make_storage.html" title="make_storage"><code class="computeroutput"><span class="identifier">make_storage</span></code></a>
+                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">make_storage</span></code></a>
                 </p>
               </td>
 <td>
@@ -92,7 +92,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../ref/boost__json__pool.html" title="pool"><code class="computeroutput"><span class="identifier">pool</span></code></a>
+                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">pool</span></code></a>
                 </p>
               </td>
 <td>
@@ -108,7 +108,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../ref/boost__json__scoped_storage.html" title="scoped_storage"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a>
+                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a>
                 </p>
               </td>
 <td>
@@ -121,7 +121,7 @@
 <tr>
 <td>
                 <p>
-                  <a class="link" href="../ref/boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a>
+                  <a class="link" href="../../"><code class="computeroutput"><span class="identifier">storage</span></code></a>
                 </p>
               </td>
 <td>
@@ -177,7 +177,7 @@
         Storage</a>
       </h5>
 <p>
-        The library provides another implementation called <a class="link" href="../ref/boost__json__pool.html" title="pool"><code class="computeroutput"><span class="identifier">pool</span></code></a>, optimized for parsing without
+        The library provides another implementation called <a class="link" href="../../"><code class="computeroutput"><span class="identifier">pool</span></code></a>, optimized for parsing without
         subsequent modification. This implementation allocates large equal-sized
         blocks and divides them up as needed to satisfy allocation requests, and
         only deallocates when the lifetime of the storage ends. This example shows
@@ -186,7 +186,7 @@
       </p>
 <pre class="programlisting"><span class="identifier">value</span> <span class="identifier">parse_fast</span><span class="special">(</span> <span class="identifier">string_view</span> <span class="identifier">s</span> <span class="special">)</span>
 <span class="special">{</span>
-    <span class="keyword">return</span> <span class="identifier">parse</span><span class="special">(</span> <span class="identifier">s</span><span class="special">,</span> <span class="identifier">make_storage</span><span class="special">&lt;</span><span class="identifier">pool</span><span class="special">&gt;()</span> <span class="special">);</span>
+    <span class="keyword">return</span> <span class="identifier">parse</span><span class="special">(</span> <span class="identifier">s</span><span class="special">,</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span>
 <span class="special">}</span>
 </pre>
 <p>
@@ -214,14 +214,14 @@
         dispatches the command, and then destroys the value. In this use-case, the
         lifetime of the value is bounded by the function in which it appears. To
         make this case more efficient, we can construct the block storage using the
-        <a class="link" href="../ref/boost__json__scoped_storage.html" title="scoped_storage"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a>
+        <a class="link" href="../../"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a>
         wrapper and use that for the storage instead:
       </p>
 <pre class="programlisting"><span class="keyword">void</span> <span class="identifier">do_rpc</span><span class="special">(</span> <span class="identifier">string_view</span> <span class="identifier">cmd</span> <span class="special">)</span>
 <span class="special">{</span>
-    <span class="identifier">scoped_storage</span><span class="special">&lt;</span><span class="identifier">pool</span><span class="special">&gt;</span> <span class="identifier">sp</span><span class="special">;</span>
+    <span class="identifier">monotonic_resource</span> <span class="identifier">mr</span><span class="special">;</span>
 
-    <span class="identifier">value</span> <span class="keyword">const</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">parse</span><span class="special">(</span> <span class="identifier">cmd</span><span class="special">,</span> <span class="identifier">sp</span> <span class="special">);</span>
+    <span class="identifier">value</span> <span class="keyword">const</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">parse</span><span class="special">(</span> <span class="identifier">cmd</span><span class="special">,</span> <span class="special">&amp;</span><span class="identifier">mr</span> <span class="special">);</span>
 
     <span class="identifier">do_json</span><span class="special">(</span> <span class="identifier">jv</span> <span class="special">);</span>
 <span class="special">}</span>
@@ -236,7 +236,7 @@
 <th align="left">Caution</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-          Care must be taken to ensure that any instances of <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>, <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a>, <a class="link" href="../ref/boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a>, or <a class="link" href="../ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a> that use <a class="link" href="../ref/boost__json__scoped_storage.html" title="scoped_storage"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a> are not accessed
+          Care must be taken to ensure that any instances of <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>, <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a>, <a class="link" href="../ref/boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a>, or <a class="link" href="../ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a> that use <a class="link" href="../../"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a> are not accessed
           after the storage is destroyed, otherwise the behavior is undefined.
         </p></td></tr>
 </table></div>
@@ -248,7 +248,7 @@
 <p>
         Users who need precise control over the allocation can implement their own
         type which meets the <span class="emphasis"><em>Storage</em></span> named requirements. These
-        types will work with both <a class="link" href="../ref/boost__json__make_storage.html" title="make_storage"><code class="computeroutput"><span class="identifier">make_storage</span></code></a> and <a class="link" href="../ref/boost__json__scoped_storage.html" title="scoped_storage"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a>. The requirements
+        types will work with both <a class="link" href="../../"><code class="computeroutput"><span class="identifier">make_storage</span></code></a> and <a class="link" href="../../"><code class="computeroutput"><span class="identifier">scoped_storage</span></code></a>. The requirements
         are as follows:
       </p>
 <h5>
@@ -349,7 +349,7 @@
                   is <code class="computeroutput"><span class="keyword">true</span></code> for the default
                   storage, which uses global operator <code class="computeroutput"><span class="keyword">new</span></code>
                   and <code class="computeroutput"><span class="keyword">delete</span></code>. But it
-                  is <code class="computeroutput"><span class="keyword">false</span></code> for <a class="link" href="../ref/boost__json__pool.html" title="pool"><code class="computeroutput"><span class="identifier">pool</span></code></a>,
+                  is <code class="computeroutput"><span class="keyword">false</span></code> for <a class="link" href="../../"><code class="computeroutput"><span class="identifier">pool</span></code></a>,
                   since it frees all the memory when it goes out of scope.
                 </p>
                 <p>
@@ -403,21 +403,14 @@
 <a name="json.usage.storage.h4"></a>
         <span class="phrase"><a name="json.usage.storage.exemplar"></a></span><a class="link" href="storage.html#json.usage.storage.exemplar">Exemplar</a>
       </h5>
-<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">Storage</span>
-<span class="special">{</span>
-    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span> <span class="identifier">id</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
-    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">bool</span> <span class="identifier">need_free</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
-
-    <span class="keyword">void</span><span class="special">*</span> <span class="identifier">allocate</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">bytes</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">align</span> <span class="special">);</span>
-    <span class="keyword">void</span> <span class="identifier">deallocate</span><span class="special">(</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">p</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">bytes</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">align</span> <span class="special">);</span>
-<span class="special">};</span>
+<pre class="programlisting"><span class="comment">// TODO</span>
 </pre>
 <h5>
 <a name="json.usage.storage.h5"></a>
         <span class="phrase"><a name="json.usage.storage.models"></a></span><a class="link" href="storage.html#json.usage.storage.models">Models</a>
       </h5>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-            <a class="link" href="../ref/boost__json__pool.html" title="pool"><code class="computeroutput"><span class="identifier">pool</span></code></a>
+            <a class="link" href="../../"><code class="computeroutput"><span class="identifier">pool</span></code></a>
           </li></ul></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

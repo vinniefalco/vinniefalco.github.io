@@ -24,7 +24,7 @@
         stores an instance of <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a> as the underlying representation
         for a JSON object . Instances of the <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a> type are associative containers
         holding key and value pairs, where the key is a non-modifiable character
-        string and the mapped type is a <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>. These containers are modeled
+        string and the mapped type is a <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>. These containers are modelled
         after <a href="https://en.cppreference.com/w/cpp/container/unordered_map" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">unordered_map</span></code></a>
         with these unique properties:
       </p>
@@ -40,7 +40,7 @@
             The order of insertions is preserved, as long as there are no removals.
           </li>
 <li class="listitem">
-            All inserted values will use the same <a class="link" href="../ref/boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> as the container itself.
+            All inserted values will use the same <a class="link" href="../../"><code class="computeroutput"><span class="identifier">storage</span></code></a> as the container itself.
           </li>
 </ul></div>
 <p>
@@ -49,7 +49,7 @@
       </p>
 <pre class="programlisting"><span class="identifier">object</span> <span class="identifier">obj1</span><span class="special">;</span> <span class="comment">// empty object, default storage</span>
 
-<span class="identifier">object</span> <span class="identifier">obj2</span><span class="special">(</span> <span class="identifier">make_storage</span><span class="special">&lt;</span><span class="identifier">pool</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty object, pool storage</span>
+<span class="identifier">object</span> <span class="identifier">obj2</span><span class="special">(</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty object, pool storage</span>
 </pre>
 <p>
         Initializer lists consisting of two-element key value pairs can be used to

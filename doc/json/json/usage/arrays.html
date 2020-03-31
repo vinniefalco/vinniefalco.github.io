@@ -28,7 +28,7 @@
         Additionally:
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-            All values inserted into the container will use the same <a class="link" href="../ref/boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> as the container itself.
+            All values inserted into the container will use the same <a class="link" href="../../"><code class="computeroutput"><span class="identifier">storage</span></code></a> as the container itself.
           </li></ul></div>
 <p>
         An array may be constructed empty without incurring any memory allocations
@@ -36,7 +36,7 @@
       </p>
 <pre class="programlisting"><span class="identifier">array</span> <span class="identifier">arr1</span><span class="special">;</span> <span class="comment">// empty array, default storage</span>
 
-<span class="identifier">array</span> <span class="identifier">arr2</span><span class="special">(</span> <span class="identifier">make_storage</span><span class="special">&lt;</span><span class="identifier">pool</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty array, pool storage</span>
+<span class="identifier">array</span> <span class="identifier">arr2</span><span class="special">(</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty array, pool storage</span>
 </pre>
 <p>
         Initializer lists can be used to construct objects with initial contents.

@@ -43,28 +43,70 @@
           </p>
 <h6>
 <a name="json.ref.boost__json__string.string.overload8.h2"></a>
-            <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.constraints"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.constraints">Constraints</a>
-          </h6>
-<p>
-            <code class="computeroutput"><span class="identifier">InputIt</span></code>satisfies <span class="bold"><strong>InputIterator</strong></span>.
-          </p>
-<h6>
-<a name="json.ref.boost__json__string.string.overload8.h3"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.complexity"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.complexity">Complexity</a>
           </h6>
 <p>
             Linear in <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">distance</span><span class="special">(</span><span class="identifier">first</span><span class="special">,</span> <span class="identifier">last</span><span class="special">)</span></code>.
           </p>
 <h6>
-<a name="json.ref.boost__json__string.string.overload8.h4"></a>
+<a name="json.ref.boost__json__string.string.overload8.h3"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.exception_safety"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.exception_safety">Exception
             Safety</a>
           </h6>
 <p>
-            Strong guarantee. Calls to <a class="link" href="../../boost__json__storage/allocate.html" title="storage::allocate"><code class="computeroutput"><span class="identifier">storage</span><span class="special">::</span><span class="identifier">allocate</span></code></a> may throw.
+            Strong guarantee.
+          </p>
+<h6>
+<a name="json.ref.boost__json__string.string.overload8.h4"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.remarks"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.remarks">Remarks</a>
+          </h6>
+<p>
+            Calls to storage::allocate may throw.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.string.overload8.h5"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.template_parameters"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.template_parameters">Template
+            Parameters</a>
+          </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                    <p>
+                      Type
+                    </p>
+                  </th>
+<th>
+                    <p>
+                      Description
+                    </p>
+                  </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                    <p>
+                      <code class="computeroutput"><span class="identifier">InputIt</span></code>
+                    </p>
+                  </td>
+<td>
+                    <p>
+                      The type of the iterators.
+                    </p>
+                  </td>
+</tr></tbody>
+</table></div>
+<h6>
+<a name="json.ref.boost__json__string.string.overload8.h6"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.constraints"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.constraints">Constraints</a>
+          </h6>
+<p>
+            <code class="computeroutput"><span class="identifier">InputIt</span></code>satisfies <span class="bold"><strong>InputIterator</strong></span>.
+          </p>
+<h6>
+<a name="json.ref.boost__json__string.string.overload8.h7"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.parameters"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.parameters">Parameters</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -118,16 +160,16 @@
                   </td>
 <td>
                     <p>
-                      An optional pointer to the <a class="link" href="../../boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> to use. The
+                      An optional pointer to the <a class="link" href="../storage.html" title="string::storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> to use. The
                       container will acquire shared ownership of the storage object.
-                      If this parameter is omitted, the default storage is used.
+                      The default argument for this parameter is <code class="computeroutput"><span class="special">{}</span></code>.
                     </p>
                   </td>
 </tr>
 </tbody>
 </table></div>
 <h6>
-<a name="json.ref.boost__json__string.string.overload8.h6"></a>
+<a name="json.ref.boost__json__string.string.overload8.h8"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload8.exceptions"></a></span><a class="link" href="overload8.html#json.ref.boost__json__string.string.overload8.exceptions">Exceptions</a>
           </h6>
 <div class="informaltable"><table class="table">

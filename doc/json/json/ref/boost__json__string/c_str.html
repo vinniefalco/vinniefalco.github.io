@@ -20,10 +20,10 @@
 <a name="json.ref.boost__json__string.c_str"></a><a class="link" href="c_str.html" title="string::c_str">string::c_str</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1123891"></a>
+          <a class="indexterm" name="id1122576"></a>
         </p>
 <p>
-          Access the underlying character array directly.
+          Return the underlying character array directly.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.c_str.h0"></a>
@@ -38,8 +38,8 @@
         </h6>
 <p>
           Returns a pointer to the underlying array serving as storage. The value
-          returned is such that the range <code class="computeroutput"><span class="special">{</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">data</span><span class="special">()+</span><span class="identifier">size</span><span class="special">())</span></code>
-          is always a valid range, even if the container is empty.
+          returned is such that the range <code class="computeroutput"><span class="special">{</span><span class="identifier">c_str</span><span class="special">(),</span> <span class="identifier">c_str</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">size</span><span class="special">()}</span></code> is always a valid range, even if the
+          container is empty.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.c_str.h2"></a>
@@ -50,12 +50,10 @@
         </p>
 <h6>
 <a name="json.ref.boost__json__string.c_str.h3"></a>
-          <span class="phrase"><a name="json.ref.boost__json__string.c_str.return_value"></a></span><a class="link" href="c_str.html#json.ref.boost__json__string.c_str.return_value">Return
-          Value</a>
+          <span class="phrase"><a name="json.ref.boost__json__string.c_str.remarks"></a></span><a class="link" href="c_str.html#json.ref.boost__json__string.c_str.remarks">Remarks</a>
         </h6>
 <p>
-          A pointer to the string. The string is always null terminated. The value
-          returned from this function is never equal to <code class="computeroutput"><span class="keyword">nullptr</span></code>.
+          The value returned from this function is never equal to <code class="computeroutput"><span class="keyword">nullptr</span></code>.
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

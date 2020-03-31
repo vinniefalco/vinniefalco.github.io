@@ -54,7 +54,7 @@
             </td>
 <td>
               <p>
-                Parses the input using a <a class="link" href="ref/boost__json__pool.html" title="pool"><code class="computeroutput"><span class="identifier">pool</span></code></a>, which is optimized
+                Parses the input using a <a class="link" href="../"><code class="computeroutput"><span class="identifier">pool</span></code></a>, which is optimized
                 for parsing but not subsequent modification. The <a class="link" href="ref/boost__json__parser.html" title="parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> object is reused
                 between trials, allowing temporary memory allocated by the implementation
                 to persist and improve performance.
@@ -174,7 +174,7 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>array.json</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_array_json"><span class="bold"><strong>array.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -191,7 +191,7 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>canada.json</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_canada_json"><span class="bold"><strong>canada.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -209,7 +209,7 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>citm_catalog</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_citm_catalog_json"><span class="bold"><strong>citm_catalog.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -226,7 +226,41 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>random.json</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_integers_32_json"><span class="bold"><strong>integers-32.json</strong></span></a>
+              </p>
+            </td>
+<td>
+              <p>
+                1,353KB
+              </p>
+            </td>
+<td>
+              <p>
+                One array with random 32-bit integers.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_integers_64_json"><span class="bold"><strong>integers-64.json</strong></span></a>
+              </p>
+            </td>
+<td>
+              <p>
+                596KB
+              </p>
+            </td>
+<td>
+              <p>
+                One array with random 64-bit integers.
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_random_json"><span class="bold"><strong>random.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -243,7 +277,7 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>small.json</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_small_json"><span class="bold"><strong>small.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -260,7 +294,7 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>strings.json</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_strings_json"><span class="bold"><strong>strings.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -277,7 +311,7 @@
 <tr>
 <td>
               <p>
-                <span class="bold"><strong>twitter.json</strong></span>
+                <a class="link" href="benchmarks.html#json.benchmarks.parse_twitter_json"><span class="bold"><strong>twitter.json</strong></span></a>
               </p>
             </td>
 <td>
@@ -321,6 +355,38 @@
     </p>
 <h4>
 <a name="json.benchmarks.h3"></a>
+      <span class="phrase"><a name="json.benchmarks.parse_integers_32_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_integers_32_json">Parse
+      integers-32.json</a>
+    </h4>
+<p>
+      <span class="inlinemediaobject"><img src="images/parse-integers-32.png" width="668"></span>
+    </p>
+<h4>
+<a name="json.benchmarks.h4"></a>
+      <span class="phrase"><a name="json.benchmarks.serialize_integers_32_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_integers_32_json">Serialize
+      integers-32.json</a>
+    </h4>
+<p>
+      <span class="inlinemediaobject"><img src="images/serialize-integers-32.png" width="668"></span>
+    </p>
+<h4>
+<a name="json.benchmarks.h5"></a>
+      <span class="phrase"><a name="json.benchmarks.parse_integers_64_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_integers_64_json">Parse
+      integers-64.json</a>
+    </h4>
+<p>
+      <span class="inlinemediaobject"><img src="images/parse-integers-64.png" width="668"></span>
+    </p>
+<h4>
+<a name="json.benchmarks.h6"></a>
+      <span class="phrase"><a name="json.benchmarks.serialize_integers_64_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_integers_64_json">Serialize
+      integers-64.json</a>
+    </h4>
+<p>
+      <span class="inlinemediaobject"><img src="images/serialize-integers-64.png" width="668"></span>
+    </p>
+<h4>
+<a name="json.benchmarks.h7"></a>
       <span class="phrase"><a name="json.benchmarks.parse_small_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_small_json">Parse
       small.json</a>
     </h4>
@@ -328,7 +394,7 @@
       <span class="inlinemediaobject"><img src="images/parse-small.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h4"></a>
+<a name="json.benchmarks.h8"></a>
       <span class="phrase"><a name="json.benchmarks.serialize_small_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_small_json">Serialize
       small.json</a>
     </h4>
@@ -336,7 +402,7 @@
       <span class="inlinemediaobject"><img src="images/serialize-small.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h5"></a>
+<a name="json.benchmarks.h9"></a>
       <span class="phrase"><a name="json.benchmarks.parse_array_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_array_json">Parse
       array.json</a>
     </h4>
@@ -344,7 +410,7 @@
       <span class="inlinemediaobject"><img src="images/parse-array.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h6"></a>
+<a name="json.benchmarks.h10"></a>
       <span class="phrase"><a name="json.benchmarks.serialize_array_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_array_json">Serialize
       array.json</a>
     </h4>
@@ -352,7 +418,7 @@
       <span class="inlinemediaobject"><img src="images/serialize-array.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h7"></a>
+<a name="json.benchmarks.h11"></a>
       <span class="phrase"><a name="json.benchmarks.parse_random_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_random_json">Parse
       random.json</a>
     </h4>
@@ -360,7 +426,7 @@
       <span class="inlinemediaobject"><img src="images/parse-random.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h8"></a>
+<a name="json.benchmarks.h12"></a>
       <span class="phrase"><a name="json.benchmarks.serialize_random_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_random_json">Serialize
       random.json</a>
     </h4>
@@ -368,7 +434,7 @@
       <span class="inlinemediaobject"><img src="images/serialize-random.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h9"></a>
+<a name="json.benchmarks.h13"></a>
       <span class="phrase"><a name="json.benchmarks.parse_twitter_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_twitter_json">Parse
       twitter.json</a>
     </h4>
@@ -376,7 +442,7 @@
       <span class="inlinemediaobject"><img src="images/parse-twitter.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h10"></a>
+<a name="json.benchmarks.h14"></a>
       <span class="phrase"><a name="json.benchmarks.serialize_twitter_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_twitter_json">Serialize
       twitter.json</a>
     </h4>
@@ -384,7 +450,7 @@
       <span class="inlinemediaobject"><img src="images/serialize-twitter.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h11"></a>
+<a name="json.benchmarks.h15"></a>
       <span class="phrase"><a name="json.benchmarks.parse_citm_catalog_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_citm_catalog_json">Parse
       citm_catalog.json</a>
     </h4>
@@ -392,7 +458,7 @@
       <span class="inlinemediaobject"><img src="images/parse-citm-catalog.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h12"></a>
+<a name="json.benchmarks.h16"></a>
       <span class="phrase"><a name="json.benchmarks.serialize_citm_catalog_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_citm_catalog_json">Serialize
       citm_catalog.json</a>
     </h4>
@@ -400,7 +466,7 @@
       <span class="inlinemediaobject"><img src="images/serialize-citm-catalog.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h13"></a>
+<a name="json.benchmarks.h17"></a>
       <span class="phrase"><a name="json.benchmarks.parse_canada_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.parse_canada_json">Parse
       canada.json</a>
     </h4>
@@ -408,7 +474,7 @@
       <span class="inlinemediaobject"><img src="images/parse-canada.png" width="668"></span>
     </p>
 <h4>
-<a name="json.benchmarks.h14"></a>
+<a name="json.benchmarks.h18"></a>
       <span class="phrase"><a name="json.benchmarks.serialize_canada_json"></a></span><a class="link" href="benchmarks.html#json.benchmarks.serialize_canada_json">Serialize
       canada.json</a>
     </h4>

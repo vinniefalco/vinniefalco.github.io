@@ -44,10 +44,10 @@
                 If <code class="computeroutput"><span class="special">*</span><span class="identifier">other</span><span class="special">.</span><span class="identifier">storage</span><span class="special">()</span> <span class="special">==</span> <span class="special">*</span><span class="identifier">sp</span></code>,
                 ownership of the underlying memory is transferred in constant time,
                 with no possibility of exceptions. After construction, the moved-from
-                string behaves as if newly constructed with its current <a class="link" href="../../boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a>.
+                string behaves as if newly constructed with its current <a class="link" href="../storage.html" title="string::storage"><code class="computeroutput"><span class="identifier">storage</span></code></a>. Otherwise,
               </li>
 <li class="listitem">
-                if <code class="computeroutput"><span class="special">*</span><span class="identifier">other</span><span class="special">.</span><span class="identifier">storage</span><span class="special">()</span> <span class="special">!=</span> <span class="special">*</span><span class="identifier">sp</span></code>,
+                If <code class="computeroutput"><span class="special">*</span><span class="identifier">other</span><span class="special">.</span><span class="identifier">storage</span><span class="special">()</span> <span class="special">!=</span> <span class="special">*</span><span class="identifier">sp</span></code>,
                 a copy of the characters in <code class="computeroutput"><span class="identifier">other</span></code>
                 is made. In this case, the moved-from container is not changed.
               </li>
@@ -65,10 +65,17 @@
             Safety</a>
           </h6>
 <p>
-            Strong guarantee. Calls to <a class="link" href="../../boost__json__storage/allocate.html" title="storage::allocate"><code class="computeroutput"><span class="identifier">storage</span><span class="special">::</span><span class="identifier">allocate</span></code></a> may throw.
+            Strong guarantee.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.string.overload12.h4"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.string.overload12.remarks"></a></span><a class="link" href="overload12.html#json.ref.boost__json__string.string.overload12.remarks">Remarks</a>
+          </h6>
+<p>
+            Calls to storage::allocate may throw.
+          </p>
+<h6>
+<a name="json.ref.boost__json__string.string.overload12.h5"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload12.parameters"></a></span><a class="link" href="overload12.html#json.ref.boost__json__string.string.overload12.parameters">Parameters</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -109,9 +116,9 @@
                   </td>
 <td>
                     <p>
-                      An optional pointer to the <a class="link" href="../../boost__json__storage.html" title="storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> to use. The
+                      An optional pointer to the <a class="link" href="../storage.html" title="string::storage"><code class="computeroutput"><span class="identifier">storage</span></code></a> to use. The
                       container will acquire shared ownership of the storage object.
-                      If this parameter is omitted, the default storage is used.
+                      The default argument for this parameter is <code class="computeroutput"><span class="special">{}</span></code>.
                     </p>
                   </td>
 </tr>

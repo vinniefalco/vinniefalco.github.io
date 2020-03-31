@@ -20,6 +20,9 @@
 <a name="json.ref.boost__json__string.resize.overload2"></a><a class="link" href="overload2.html" title="string::resize (2 of 2 overloads)">string::resize
           (2 of 2 overloads)</a>
 </h5></div></div></div>
+<p>
+            Change the size of the string.
+          </p>
 <h6>
 <a name="json.ref.boost__json__string.resize.overload2.h0"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.resize.overload2.synopsis"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.resize.overload2.synopsis">Synopsis</a>
@@ -33,6 +36,94 @@
 <a name="json.ref.boost__json__string.resize.overload2.h1"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.resize.overload2.description"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.resize.overload2.description">Description</a>
           </h6>
+<p>
+            Resizes the string to contain <code class="computeroutput"><span class="identifier">count</span></code>
+            characters. If <code class="computeroutput"><span class="identifier">count</span> <span class="special">&gt;</span> <span class="identifier">size</span><span class="special">()</span></code>, copies of <code class="computeroutput"><span class="identifier">ch</span></code>
+            are appended. Otherwise, <code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code> is reduced to <code class="computeroutput"><span class="identifier">count</span></code>.
+          </p>
+<h6>
+<a name="json.ref.boost__json__string.resize.overload2.h2"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.resize.overload2.parameters"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.resize.overload2.parameters">Parameters</a>
+          </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                    <p>
+                      Name
+                    </p>
+                  </th>
+<th>
+                    <p>
+                      Description
+                    </p>
+                  </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                    <p>
+                      <code class="computeroutput"><span class="identifier">count</span></code>
+                    </p>
+                  </td>
+<td>
+                    <p>
+                      The size to resize the string to.
+                    </p>
+                  </td>
+</tr>
+<tr>
+<td>
+                    <p>
+                      <code class="computeroutput"><span class="identifier">ch</span></code>
+                    </p>
+                  </td>
+<td>
+                    <p>
+                      The characters to append if the size increases.
+                    </p>
+                  </td>
+</tr>
+</tbody>
+</table></div>
+<h6>
+<a name="json.ref.boost__json__string.resize.overload2.h3"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.resize.overload2.exceptions"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.resize.overload2.exceptions">Exceptions</a>
+          </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                    <p>
+                      Type
+                    </p>
+                  </th>
+<th>
+                    <p>
+                      Thrown On
+                    </p>
+                  </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                    <p>
+                      <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">out_of_range</span></code>
+                    </p>
+                  </td>
+<td>
+                    <p>
+                      <code class="computeroutput"><span class="identifier">count</span> <span class="special">&gt;</span>
+                      <span class="identifier">max_size</span><span class="special">()</span></code>
+                    </p>
+                  </td>
+</tr></tbody>
+</table></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>

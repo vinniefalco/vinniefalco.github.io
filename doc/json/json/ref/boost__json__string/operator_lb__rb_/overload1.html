@@ -21,7 +21,7 @@
           (1 of 2 overloads)</a>
 </h5></div></div></div>
 <p>
-            Access a character.
+            Return a character without bounds checking.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.operator_lb__rb_.overload1.h0"></a>
@@ -36,23 +36,21 @@
             <span class="phrase"><a name="json.ref.boost__json__string.operator_lb__rb_.overload1.description"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_lb__rb_.overload1.description">Description</a>
           </h6>
 <p>
-            Returns a reference to the character specified at location <code class="computeroutput"><span class="identifier">pos</span></code>. No bounds checking is performed.
+            Returns a reference to the character specified at location <code class="computeroutput"><span class="identifier">pos</span></code>.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.operator_lb__rb_.overload1.h2"></a>
-            <span class="phrase"><a name="json.ref.boost__json__string.operator_lb__rb_.overload1.precondition"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_lb__rb_.overload1.precondition">Precondition</a>
-          </h6>
-<p>
-            <code class="computeroutput"><span class="identifier">pos</span> <span class="special">&gt;=</span>
-            <span class="identifier">size</span></code>
-          </p>
-<h6>
-<a name="json.ref.boost__json__string.operator_lb__rb_.overload1.h3"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.operator_lb__rb_.overload1.complexity"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_lb__rb_.overload1.complexity">Complexity</a>
           </h6>
 <p>
             Constant.
           </p>
+<h6>
+<a name="json.ref.boost__json__string.operator_lb__rb_.overload1.h3"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.operator_lb__rb_.overload1.precondition"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_lb__rb_.overload1.precondition">Precondition</a>
+          </h6>
+<pre class="programlisting"><span class="identifier">pos</span> <span class="special">&gt;=</span> <span class="identifier">size</span>
+</pre>
 <h6>
 <a name="json.ref.boost__json__string.operator_lb__rb_.overload1.h4"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.operator_lb__rb_.overload1.parameters"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_lb__rb_.overload1.parameters">Parameters</a>
@@ -82,7 +80,7 @@
                   </td>
 <td>
                     <p>
-                      A zero-based index
+                      A zero-based index to access.
                     </p>
                   </td>
 </tr></tbody>

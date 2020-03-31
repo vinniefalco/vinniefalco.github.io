@@ -20,7 +20,7 @@
 <a name="json.ref.boost__json__string.clear"></a><a class="link" href="clear.html" title="string::clear">string::clear</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1129046"></a>
+          <a class="indexterm" name="id1127430"></a>
         </p>
 <p>
           Clear the contents.
@@ -39,8 +39,7 @@
 <p>
           Erases all characters from the string. After this call, <a class="link" href="size.html" title="string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>
           returns zero but <a class="link" href="capacity.html" title="string::capacity"><code class="computeroutput"><span class="identifier">capacity</span><span class="special">()</span></code></a>
-          is unchanged. All references, pointers, or iterators referring to contained
-          elements are invalidated. Any past-the-end iterators are also invalidated.
+          is unchanged.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.clear.h2"></a>
@@ -48,6 +47,14 @@
         </h6>
 <p>
           Linear in <a class="link" href="size.html" title="string::size"><code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code></a>.
+        </p>
+<h6>
+<a name="json.ref.boost__json__string.clear.h3"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.clear.remarks"></a></span><a class="link" href="clear.html#json.ref.boost__json__string.clear.remarks">Remarks</a>
+        </h6>
+<p>
+          All references, pointers, or iterators referring to contained elements
+          are invalidated. Any past-the-end iterators are also invalidated.
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

@@ -7,13 +7,13 @@
 <link rel="home" href="../../index.html" title="Boost.JSON">
 <link rel="up" href="../usage.html" title="Usage">
 <link rel="prev" href="serializing.html" title="Serializing">
-<link rel="next" href="../examples.html" title="Examples">
+<link rel="next" href="initializer_lists.html" title="Initializer Lists">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.JSON Logo" width="880" height="80" src="../../images/doc-logo.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="serializing.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../examples.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="serializing.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="initializer_lists.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -226,14 +226,15 @@
     <span class="comment">// array with the real part first, and the imaginary</span>
     <span class="comment">// part last.</span>
     <span class="comment">//</span>
-    <span class="comment">// at() throws if index is out of range.</span>
-    <span class="comment">//</span>
     <span class="comment">// value_cast() throws if the JSON value does</span>
     <span class="comment">// not contain an applicable kind for the type T.</span>
 
+    <span class="keyword">if</span><span class="special">(</span><span class="identifier">a</span><span class="special">.</span><span class="identifier">size</span><span class="special">()</span> <span class="special">!=</span> <span class="number">2</span><span class="special">)</span>
+        <span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">invalid_argument</span><span class="special">(</span>
+            <span class="string">"invalid json for std::complex"</span><span class="special">);</span>
     <span class="keyword">return</span> <span class="special">{</span>
-        <span class="identifier">value_cast</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;(</span> <span class="identifier">a</span><span class="special">.</span><span class="identifier">at</span><span class="special">(</span><span class="number">0</span><span class="special">)</span> <span class="special">),</span>
-        <span class="identifier">value_cast</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;(</span> <span class="identifier">a</span><span class="special">.</span><span class="identifier">at</span><span class="special">(</span><span class="number">1</span><span class="special">)</span> <span class="special">)</span> <span class="special">};</span>
+        <span class="identifier">value_cast</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;(</span> <span class="identifier">a</span><span class="special">[</span><span class="number">0</span><span class="special">]</span> <span class="special">),</span>
+        <span class="identifier">value_cast</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;(</span> <span class="identifier">a</span><span class="special">[</span><span class="number">1</span><span class="special">]</span> <span class="special">)</span> <span class="special">};</span>
 <span class="special">}</span>
 </pre>
 <p>
@@ -290,7 +291,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="serializing.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../examples.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="serializing.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="initializer_lists.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

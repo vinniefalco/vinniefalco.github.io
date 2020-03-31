@@ -20,10 +20,10 @@
 <a name="json.ref.boost__json__string.cend"></a><a class="link" href="cend.html" title="string::cend">string::cend</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1127297"></a>
+          <a class="indexterm" name="id1125550"></a>
         </p>
 <p>
-          Return an iterator to the character following the last character.
+          Return an iterator to the end.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.cend.h0"></a>
@@ -37,11 +37,20 @@
           <span class="phrase"><a name="json.ref.boost__json__string.cend.description"></a></span><a class="link" href="cend.html#json.ref.boost__json__string.cend.description">Description</a>
         </h6>
 <p>
-          The character acts as a placeholder; attempting to access it results in
-          undefined behavior.
+          Returns an iterator to the character following the last character of the
+          string. If the container is empty, the returned iterator will be equal
+          to <a class="link" href="begin/overload1.html" title="string::begin (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">begin</span><span class="special">()</span></code></a>.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.cend.h2"></a>
+          <span class="phrase"><a name="json.ref.boost__json__string.cend.remarks"></a></span><a class="link" href="cend.html#json.ref.boost__json__string.cend.remarks">Remarks</a>
+        </h6>
+<p>
+          The pointed-to character acts as a placeholder; attempting to access it
+          results in undefined behavior.
+        </p>
+<h6>
+<a name="json.ref.boost__json__string.cend.h3"></a>
           <span class="phrase"><a name="json.ref.boost__json__string.cend.complexity"></a></span><a class="link" href="cend.html#json.ref.boost__json__string.cend.complexity">Complexity</a>
         </h6>
 <p>

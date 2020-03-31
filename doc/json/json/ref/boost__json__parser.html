@@ -94,7 +94,7 @@
 <tr>
 <td>
                 <p>
-                  <span class="bold"><strong><a class="link" href="boost__json__parser/is_done.html" title="parser::is_done">is_done</a></strong></span>
+                  <span class="bold"><strong><a class="link" href="boost__json__parser/is_complete.html" title="parser::is_complete">is_complete</a></strong></span>
                 </p>
               </td>
 <td>
@@ -181,18 +181,6 @@
 <tr>
 <td>
                 <p>
-                  <span class="bold"><strong><a class="link" href="boost__json__parser/write_some.html" title="parser::write_some">write_some</a></strong></span>
-                </p>
-              </td>
-<td>
-                <p>
-                  Parse JSON incrementally.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
                   <span class="bold"><strong><a class="link" href="boost__json__parser/_parser.html" title="parser::~parser">~parser</a></strong></span>
                 </p>
               </td>
@@ -242,19 +230,13 @@
 <tr>
 <td>
                 <p>
-                  <span class="bold"><strong><a class="link" href="boost__json__parser/restore_state.html" title="parser::restore_state">restore_state</a></strong></span>
+                  <span class="bold"><strong><a class="link" href="boost__json__parser/write_some.html" title="parser::write_some">write_some</a></strong></span>
                 </p>
               </td>
-<td>
-              </td>
-</tr>
-<tr>
 <td>
                 <p>
-                  <span class="bold"><strong><a class="link" href="boost__json__parser/save_state.html" title="parser::save_state">save_state</a></strong></span>
+                  Parse JSON incrementally.
                 </p>
-              </td>
-<td>
               </td>
 </tr>
 </tbody>
@@ -275,9 +257,9 @@
 <p>
         Before parsing a new JSON, the function <a class="link" href="boost__json__parser/start.html" title="parser::start"><code class="computeroutput"><span class="identifier">start</span></code></a> must be called, optionally
         passing the storage pointer to be used by the <a class="link" href="boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a> container into which the parsed
-        results are stored. After the parse is started, the functions <a class="link" href="boost__json__parser/write_some/overload1.html" title="parser::write_some (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="boost__json__parser/write/overload1.html" title="parser::write (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">write</span></code></a>, and <a class="link" href="boost__json__parser/finish/overload1.html" title="parser::finish (1 of 4 overloads)"><code class="computeroutput"><span class="identifier">finish</span></code></a> may be called to provide
+        results are stored. After the parse is started, the functions <a class="link" href="boost__json__parser/write_some.html" title="parser::write_some"><code class="computeroutput"><span class="identifier">write_some</span></code></a>, <a class="link" href="boost__json__parser/write/overload1.html" title="parser::write (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">write</span></code></a>, and <a class="link" href="boost__json__parser/finish/overload1.html" title="parser::finish (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">finish</span></code></a> may be called to provide
         successive buffers of characters of the JSON. The caller can check that the
-        parse is complete by calling <a class="link" href="boost__json__parser/is_done.html" title="parser::is_done"><code class="computeroutput"><span class="identifier">is_done</span></code></a>, or that a non-successful
+        parse is complete by calling <a class="link" href="boost__json__parser/is_complete.html" title="parser::is_complete"><code class="computeroutput"><span class="identifier">is_complete</span></code></a>, or that a non-successful
         error code is returned.
       </p>
 <h5>
@@ -286,7 +268,7 @@
         Parsing</a>
       </h5>
 <p>
-        The <a class="link" href="boost__json__parser/write_some/overload1.html" title="parser::write_some (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">write_some</span></code></a> function allows partial
+        The <a class="link" href="boost__json__parser/write_some.html" title="parser::write_some"><code class="computeroutput"><span class="identifier">write_some</span></code></a> function allows partial
         data to be written. This is useful when not all of the serialized JSON is
         present at once and it is desired to process the data as it becomes available,
         such as when reading from a network socket or other device. The incremental

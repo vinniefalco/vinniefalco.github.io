@@ -21,16 +21,13 @@
           (2 of 2 overloads)</a>
 </h5></div></div></div>
 <p>
-            (Inherited from <a class="link" href="../../boost__json__basic_parser.html" title="basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a>)
-          </p>
-<p>
             Parse JSON incrementally.
           </p>
 <h6>
 <a name="json.ref.boost__json__parser.write.overload2.h0"></a>
             <span class="phrase"><a name="json.ref.boost__json__parser.write.overload2.synopsis"></a></span><a class="link" href="overload2.html#json.ref.boost__json__parser.write.overload2.synopsis">Synopsis</a>
           </h6>
-<pre class="programlisting"><span class="keyword">void</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span>
 <span class="identifier">write</span><span class="special">(</span>
     <span class="keyword">char</span> <span class="keyword">const</span><span class="special">*</span> <span class="identifier">data</span><span class="special">,</span>
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">);</span>
@@ -40,10 +37,9 @@
             <span class="phrase"><a name="json.ref.boost__json__parser.write.overload2.description"></a></span><a class="link" href="overload2.html#json.ref.boost__json__parser.write.overload2.description">Description</a>
           </h6>
 <p>
-            This function parses the JSON in the specified buffer, emitting SAX parsing
-            events by calling the derived class. The parse proceeds from the current
-            state, which is at the beginning of a new JSON or in the middle of the
-            current JSON if any characters were already parsed.
+            This function parses the JSON in the specified buffer. The parse proceeds
+            from the current state, which is at the beginning of a new JSON or in
+            the middle of the current JSON if any characters were already parsed.
           </p>
 <p>
             The characters in the buffer are processed starting from the beginning,
@@ -54,6 +50,10 @@
                 All of the characters in the buffer have been parsed, or
               </li>
 <li class="listitem">
+                A complete JSON is parsed, including any optional trailing whitespace
+                in the buffer, or
+              </li>
+<li class="listitem">
                 A parsing error occurs.
               </li>
 </ul></div>
@@ -61,7 +61,7 @@
             The supplied buffer does not need to contain the entire JSON. Subsequent
             calls can provide more serialized data, allowing JSON to be processed
             incrementally. The end of the serialized JSON can be indicated by calling
-            <a class="link" href="../finish/overload4.html" title="parser::finish (4 of 4 overloads)"><code class="computeroutput"><span class="identifier">finish</span><span class="special">()</span></code></a>.
+            <a class="link" href="../finish/overload2.html" title="parser::finish (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">finish</span><span class="special">()</span></code></a>.
           </p>
 <h6>
 <a name="json.ref.boost__json__parser.write.overload2.h2"></a>
@@ -121,6 +121,15 @@
 </table></div>
 <h6>
 <a name="json.ref.boost__json__parser.write.overload2.h4"></a>
+            <span class="phrase"><a name="json.ref.boost__json__parser.write.overload2.return_value"></a></span><a class="link" href="overload2.html#json.ref.boost__json__parser.write.overload2.return_value">Return
+            Value</a>
+          </h6>
+<p>
+            The number of characters consumed from the buffer, which may be less
+            than the size provided.
+          </p>
+<h6>
+<a name="json.ref.boost__json__parser.write.overload2.h5"></a>
             <span class="phrase"><a name="json.ref.boost__json__parser.write.overload2.exceptions"></a></span><a class="link" href="overload2.html#json.ref.boost__json__parser.write.overload2.exceptions">Exceptions</a>
           </h6>
 <div class="informaltable"><table class="table">

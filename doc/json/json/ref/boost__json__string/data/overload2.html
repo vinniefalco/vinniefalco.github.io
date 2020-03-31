@@ -21,7 +21,7 @@
           (2 of 2 overloads)</a>
 </h5></div></div></div>
 <p>
-            Access the underlying character array directly.
+            Return the underlying character array directly.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.data.overload2.h0"></a>
@@ -35,25 +35,23 @@
             <span class="phrase"><a name="json.ref.boost__json__string.data.overload2.description"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.data.overload2.description">Description</a>
           </h6>
 <p>
-            Returns a pointer to the underlying array serving as storage. The value
-            returned is such that the range <code class="computeroutput"><span class="special">{</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">data</span><span class="special">()+</span><span class="identifier">size</span><span class="special">())</span></code>
-            is always a valid range, even if the container is empty.
+            Returns a pointer to the underlying array serving as storage.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.data.overload2.h2"></a>
+            <span class="phrase"><a name="json.ref.boost__json__string.data.overload2.remarks"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.data.overload2.remarks">Remarks</a>
+          </h6>
+<p>
+            The value returned is such that the range <code class="computeroutput"><span class="special">{</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">data</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">size</span><span class="special">())</span></code> is always a valid range, even if the
+            container is empty. The value returned from this function is never equal
+            to <code class="computeroutput"><span class="keyword">nullptr</span></code>.
+          </p>
+<h6>
+<a name="json.ref.boost__json__string.data.overload2.h3"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.data.overload2.complexity"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.data.overload2.complexity">Complexity</a>
           </h6>
 <p>
             Constant.
-          </p>
-<h6>
-<a name="json.ref.boost__json__string.data.overload2.h3"></a>
-            <span class="phrase"><a name="json.ref.boost__json__string.data.overload2.return_value"></a></span><a class="link" href="overload2.html#json.ref.boost__json__string.data.overload2.return_value">Return
-            Value</a>
-          </h6>
-<p>
-            A pointer to the string. The string is always null terminated. The value
-            returned from this function is never equal to <code class="computeroutput"><span class="keyword">nullptr</span></code>.
           </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
