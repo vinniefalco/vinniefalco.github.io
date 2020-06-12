@@ -1,26 +1,26 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>error</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../index.html" title="Boost.JSON">
 <link rel="up" href="../ref.html" title="Reference">
-<link rel="prev" href="boost__relocate.html" title="boost::relocate">
+<link rel="prev" href="boost__json__operator_lt__lt_/overload4.html" title="operator&lt;&lt; (4 of 4 overloads)">
 <link rel="next" href="boost__json__condition.html" title="condition">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.JSON Logo" width="880" height="80" src="../../images/doc-logo.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="boost__relocate.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__condition.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="boost__json__operator_lt__lt_/overload4.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__condition.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="json.ref.boost__json__error"></a><a class="link" href="boost__json__error.html" title="error">error</a>
 </h3></div></div></div>
 <p>
-        <a class="indexterm" name="id1209008"></a>
+        <a class="indexterm" name="id1259238"></a>
       </p>
 <p>
         Error codes returned by JSON operations.
@@ -30,7 +30,7 @@
         <span class="phrase"><a name="json.ref.boost__json__error.synopsis"></a></span><a class="link" href="boost__json__error.html#json.ref.boost__json__error.synopsis">Synopsis</a>
       </h5>
 <p>
-        Defined in header <code class="literal">&lt;<a href="https://github.com/vinniefalco/json/blob/master/include/boost/json/error.hpp" target="_top">boost/json/error.hpp</a>&gt;</code>
+        Defined in header <code class="literal">&lt;<a href="https://github.com/cppalliance/json/blob/master/include/boost/json/error.hpp" target="_top">boost/json/error.hpp</a>&gt;</code>
       </p>
 <pre class="programlisting"><span class="keyword">enum</span> <span class="identifier">error</span>
 </pre>
@@ -95,18 +95,6 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">mantissa_overflow</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  mantissa overflow
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
                   <code class="computeroutput"><span class="identifier">exponent_overflow</span></code>
                 </p>
               </td>
@@ -125,54 +113,6 @@
 <td>
                 <p>
                   too deep
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">illegal_char</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  illegal character for value
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">illegal_control_char</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  illegal control character
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">illegal_escape_char</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  illegal character in escape sequence
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">illegal_extra_digits</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  illegal extra digits in number
                 </p>
               </td>
 </tr>
@@ -203,54 +143,6 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">need_start</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  The parser needs to be started.
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">expected_comma</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  expected comma
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">expected_colon</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  expected colon
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">expected_quotes</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  expected quotes
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
                   <code class="computeroutput"><span class="identifier">expected_hex_digit</span></code>
                 </p>
               </td>
@@ -275,108 +167,48 @@
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">expected_mantissa</span></code>
+                  <code class="computeroutput"><span class="identifier">object_too_large</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  expected mantissa
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">expected_fraction</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  expected fractional part of mantissa
+                  An object contains too many elements.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">expected_exponent</span></code>
+                  <code class="computeroutput"><span class="identifier">array_too_large</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  expected exponent here
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">expected_true</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  expected 'true'
+                  An array contains too many elements.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">expected_false</span></code>
+                  <code class="computeroutput"><span class="identifier">key_too_large</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  expected 'false'
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">expected_null</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  expected 'null'
+                  A key is too large.
                 </p>
               </td>
 </tr>
 <tr>
 <td>
                 <p>
-                  <code class="computeroutput"><span class="identifier">not_object</span></code>
+                  <code class="computeroutput"><span class="identifier">string_too_large</span></code>
                 </p>
               </td>
 <td>
                 <p>
-                  not an object
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">not_array</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  not an array
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">not_string</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  not a string
+                  A string is too large.
                 </p>
               </td>
 </tr>
@@ -389,42 +221,6 @@
 <td>
                 <p>
                   not a number
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">not_bool</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  not a boolean
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">not_null</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  not a null
-                </p>
-              </td>
-</tr>
-<tr>
-<td>
-                <p>
-                  <code class="computeroutput"><span class="identifier">integer_overflow</span></code>
-                </p>
-              </td>
-<td>
-                <p>
-                  integer overflow
                 </p>
               </td>
 </tr>
@@ -459,12 +255,12 @@
         <span class="phrase"><a name="json.ref.boost__json__error.description"></a></span><a class="link" href="boost__json__error.html#json.ref.boost__json__error.description">Description</a>
       </h5>
 <p>
-        Convenience header <code class="literal">&lt;<a href="https://github.com/vinniefalco/json/blob/master/include/boost/json.hpp" target="_top">boost/json.hpp</a>&gt;</code>
+        Convenience header <code class="literal">&lt;<a href="https://github.com/cppalliance/json/blob/master/include/boost/json.hpp" target="_top">boost/json.hpp</a>&gt;</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
@@ -472,7 +268,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="boost__relocate.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__condition.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="boost__json__operator_lt__lt_/overload4.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__condition.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

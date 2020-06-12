@@ -1,13 +1,13 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>string::operator= (1 of 5 overloads)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>string::operator= (1 of 4 overloads)</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../../../index.html" title="Boost.JSON">
 <link rel="up" href="../operator_eq_.html" title="string::operator=">
 <link rel="prev" href="../operator_eq_.html" title="string::operator=">
-<link rel="next" href="overload2.html" title="string::operator= (2 of 5 overloads)">
+<link rel="next" href="overload2.html" title="string::operator= (2 of 4 overloads)">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.JSON Logo" width="880" height="80" src="../../../../images/doc-logo.png"></td></tr></table>
@@ -17,8 +17,8 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h5 class="title">
-<a name="json.ref.boost__json__string.operator_eq_.overload1"></a><a class="link" href="overload1.html" title="string::operator= (1 of 5 overloads)">string::operator=
-          (1 of 5 overloads)</a>
+<a name="json.ref.boost__json__string.operator_eq_.overload1"></a><a class="link" href="overload1.html" title="string::operator= (1 of 4 overloads)">string::operator=
+          (1 of 4 overloads)</a>
 </h5></div></div></div>
 <p>
             Copy assignment.
@@ -51,17 +51,11 @@
             Safety</a>
           </h6>
 <p>
-            Strong guarantee.
+            Strong guarantee. Calls to <code class="computeroutput"><span class="identifier">memory_resource</span><span class="special">::</span><span class="identifier">allocate</span></code>
+            may throw.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.operator_eq_.overload1.h4"></a>
-            <span class="phrase"><a name="json.ref.boost__json__string.operator_eq_.overload1.remarks"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_eq_.overload1.remarks">Remarks</a>
-          </h6>
-<p>
-            Calls to storage::allocate may throw.
-          </p>
-<h6>
-<a name="json.ref.boost__json__string.operator_eq_.overload1.h5"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.operator_eq_.overload1.return_value"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_eq_.overload1.return_value">Return
             Value</a>
           </h6>
@@ -69,7 +63,7 @@
             <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
           </p>
 <h6>
-<a name="json.ref.boost__json__string.operator_eq_.overload1.h6"></a>
+<a name="json.ref.boost__json__string.operator_eq_.overload1.h5"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.operator_eq_.overload1.parameters"></a></span><a class="link" href="overload1.html#json.ref.boost__json__string.operator_eq_.overload1.parameters">Parameters</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -105,7 +99,7 @@
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

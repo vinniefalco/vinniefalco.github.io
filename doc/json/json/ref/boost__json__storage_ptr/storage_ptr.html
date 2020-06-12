@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>storage_ptr::storage_ptr</title>
 <link rel="stylesheet" href="../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,49 +20,44 @@
 <a name="json.ref.boost__json__storage_ptr.storage_ptr"></a><a class="link" href="storage_ptr.html" title="storage_ptr::storage_ptr">storage_ptr::storage_ptr</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1087728"></a>
+          <a class="indexterm" name="id1127774"></a>
         </p>
 <p>
-          Default constructor.
+          Constructor.
         </p>
 <pre class="programlisting"><a class="link" href="storage_ptr/overload1.html" title="storage_ptr::storage_ptr (1 of 5 overloads)">storage_ptr</a><span class="special">();</span>
-  <span class="emphasis"><em>&#187; <a class="link" href="storage_ptr/overload1.html" title="storage_ptr::storage_ptr (1 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
-</pre>
-<p>
-          Construct a pointer to default storage.
-        </p>
-<pre class="programlisting"><a class="link" href="storage_ptr/overload2.html" title="storage_ptr::storage_ptr (2 of 5 overloads)">storage_ptr</a><span class="special">(</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">nullptr_t</span><span class="special">);</span>
-  <span class="emphasis"><em>&#187; <a class="link" href="storage_ptr/overload2.html" title="storage_ptr::storage_ptr (2 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
-</pre>
-<p>
-          Construct a pointer to a memory resource.
-        </p>
-<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
-    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span>
-    <span class="special">[</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">][</span><span class="identifier">role</span> <span class="identifier">red</span> <span class="identifier">error</span><span class="special">.</span><span class="identifier">param</span> <span class="identifier">neither</span> <span class="identifier">has</span> <span class="identifier">a</span> <span class="identifier">declname</span> <span class="identifier">nor</span> <span class="identifier">a</span> <span class="char">'class '</span> <span class="identifier">prefix</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">type</span><span class="special">]</span> <span class="special">=</span> <span class="keyword">typename</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">enable_if</span><span class="special">&lt;</span>            <span class="identifier">std</span><span class="special">::</span><span class="identifier">is_convertible</span><span class="special">&lt;</span>                <span class="identifier">T</span><span class="special">*,</span> <a class="link" href="../boost__json__memory_resource.html" title="memory_resource">memory_resource</a><span class="special">*&gt;::</span><a class="link" href="../boost__json__value.html" title="value">value</a><span class="special">&gt;&gt;</span>
+  <span class="emphasis"><em>» <a class="link" href="storage_ptr/overload1.html" title="storage_ptr::storage_ptr (1 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<a class="link" href="storage_ptr/overload2.html" title="storage_ptr::storage_ptr (2 of 5 overloads)">storage_ptr</a><span class="special">(</span>
+    <span class="identifier">T</span><span class="special">*</span> <span class="identifier">r</span><span class="special">);</span>
+  <span class="emphasis"><em>» <a class="link" href="storage_ptr/overload2.html" title="storage_ptr::storage_ptr (2 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <a class="link" href="storage_ptr/overload3.html" title="storage_ptr::storage_ptr (3 of 5 overloads)">storage_ptr</a><span class="special">(</span>
-    <span class="identifier">T</span><span class="special">*</span> <span class="identifier">p</span><span class="special">);</span>
-  <span class="emphasis"><em>&#187; <a class="link" href="storage_ptr/overload3.html" title="storage_ptr::storage_ptr (3 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+    <span class="identifier">polymorphic_allocator</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">alloc</span><span class="special">);</span>
+  <span class="emphasis"><em>» <a class="link" href="storage_ptr/overload3.html" title="storage_ptr::storage_ptr (3 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
 </pre>
 <p>
           Move constructor.
         </p>
 <pre class="programlisting"><a class="link" href="storage_ptr/overload4.html" title="storage_ptr::storage_ptr (4 of 5 overloads)">storage_ptr</a><span class="special">(</span>
     <span class="identifier">storage_ptr</span><span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
-  <span class="emphasis"><em>&#187; <a class="link" href="storage_ptr/overload4.html" title="storage_ptr::storage_ptr (4 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+  <span class="emphasis"><em>» <a class="link" href="storage_ptr/overload4.html" title="storage_ptr::storage_ptr (4 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
 </pre>
 <p>
           Copy constructor.
         </p>
 <pre class="programlisting"><a class="link" href="storage_ptr/overload5.html" title="storage_ptr::storage_ptr (5 of 5 overloads)">storage_ptr</a><span class="special">(</span>
     <span class="identifier">storage_ptr</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
-  <span class="emphasis"><em>&#187; <a class="link" href="storage_ptr/overload5.html" title="storage_ptr::storage_ptr (5 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+  <span class="emphasis"><em>» <a class="link" href="storage_ptr/overload5.html" title="storage_ptr::storage_ptr (5 of 5 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
 </pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

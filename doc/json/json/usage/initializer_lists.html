@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Initializer Lists</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,7 +20,7 @@
 <a name="json.usage.initializer_lists"></a><a class="link" href="initializer_lists.html" title="Initializer Lists">Initializer Lists</a>
 </h3></div></div></div>
 <p>
-        Initializer lists can be used to construct or assign objects of type <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>:
+        Initializer lists can be used to construct or assign a <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>:
       </p>
 <pre class="programlisting"><span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="special">{</span>
     <span class="special">{</span> <span class="string">"name"</span><span class="special">,</span> <span class="string">"John Doe"</span> <span class="special">},</span>
@@ -38,7 +38,7 @@
 
 <span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">as_array</span><span class="special">().</span><span class="identifier">size</span><span class="special">()</span> <span class="special">==</span> <span class="number">4</span> <span class="special">);</span>
 
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="string">"[true,2,\"hello\",null]"</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="string">"[true,2,\"hello\",null]"</span> <span class="special">);</span>
 </pre>
 <p>
         Initializer lists can be nested. Here we construct an array as an element
@@ -50,7 +50,7 @@
 
 <span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">as_array</span><span class="special">().</span><span class="identifier">back</span><span class="special">().</span><span class="identifier">is_array</span><span class="special">()</span> <span class="special">);</span>
 
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="string">"[true,2,\"hello\",[\"bye\",null,false]]"</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="string">"[true,2,\"hello\",[\"bye\",null,false]]"</span> <span class="special">);</span>
 </pre>
 <p>
         When a two element initializer list is nested within an enclosing initializer
@@ -70,7 +70,7 @@
 
 <span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jv1</span><span class="special">.</span><span class="identifier">as_object</span><span class="special">().</span><span class="identifier">size</span><span class="special">()</span> <span class="special">==</span> <span class="number">2</span> <span class="special">);</span>
 
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">jv1</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">R</span><span class="string">"({"</span><span class="identifier">hello</span><span class="string">":42,"</span><span class="identifier">world</span><span class="string">":43})"</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">jv1</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">R</span><span class="string">"({"</span><span class="identifier">hello</span><span class="string">":42,"</span><span class="identifier">world</span><span class="string">":43})"</span> <span class="special">);</span>
 
 <span class="comment">// All of the following are arrays</span>
 
@@ -93,24 +93,21 @@
 
 <span class="identifier">assert</span><span class="special">(</span> <span class="identifier">ja</span><span class="special">[</span><span class="number">0</span><span class="special">].</span><span class="identifier">is_array</span><span class="special">()</span> <span class="special">&amp;&amp;</span> <span class="identifier">ja</span><span class="special">[</span><span class="number">1</span><span class="special">].</span><span class="identifier">is_array</span><span class="special">());</span>
 
-<span class="identifier">assert</span> <span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">R</span><span class="string">"([["</span><span class="identifier">hello</span><span class="string">",42],["</span><span class="identifier">world</span><span class="string">",43]])"</span> <span class="special">);</span>
+<span class="identifier">assert</span> <span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">R</span><span class="string">"([["</span><span class="identifier">hello</span><span class="string">",42],["</span><span class="identifier">world</span><span class="string">",43]])"</span> <span class="special">);</span>
 </pre>
 <p>
         Initializer lists can be used to unambiguously construct or assign an <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a>
         or <a class="link" href="../ref/boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a>:
       </p>
-<pre class="programlisting"><span class="identifier">value</span> <span class="identifier">jv1</span> <span class="special">=</span> <span class="special">{</span> <span class="special">{</span> <span class="string">"mercury"</span><span class="special">,</span> <span class="number">36</span> <span class="special">},</span> <span class="special">{</span> <span class="string">"venus"</span><span class="special">,</span> <span class="number">67</span> <span class="special">},</span> <span class="special">{</span> <span class="string">"earth"</span><span class="special">,</span> <span class="number">93</span> <span class="special">}</span> <span class="special">};</span>
+<pre class="programlisting"><span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="special">{</span> <span class="special">{</span> <span class="string">"mercury"</span><span class="special">,</span> <span class="number">36</span> <span class="special">},</span> <span class="special">{</span> <span class="string">"venus"</span><span class="special">,</span> <span class="number">67</span> <span class="special">},</span> <span class="special">{</span> <span class="string">"earth"</span><span class="special">,</span> <span class="number">93</span> <span class="special">}</span> <span class="special">};</span>
 
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jv1</span><span class="special">.</span><span class="identifier">is_object</span><span class="special">()</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jv</span><span class="special">.</span><span class="identifier">is_object</span><span class="special">()</span> <span class="special">);</span>
 
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">jv1</span><span class="special">)</span> <span class="special">==</span> <span class="string">"{\"mercury\":36,\"venus\":67,\"earth\":93}"</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="string">"{\"mercury\":36,\"venus\":67,\"earth\":93}"</span> <span class="special">);</span>
 
 <span class="identifier">array</span> <span class="identifier">ja</span> <span class="special">=</span> <span class="special">{</span> <span class="special">{</span> <span class="string">"mercury"</span><span class="special">,</span> <span class="number">36</span> <span class="special">},</span> <span class="special">{</span> <span class="string">"venus"</span><span class="special">,</span> <span class="number">67</span> <span class="special">},</span> <span class="special">{</span> <span class="string">"earth"</span><span class="special">,</span> <span class="number">93</span> <span class="special">}</span> <span class="special">};</span>
 
-<span class="keyword">for</span> <span class="special">(</span><span class="identifier">value</span><span class="special">&amp;</span> <span class="identifier">jv2</span> <span class="special">:</span> <span class="identifier">ja</span><span class="special">)</span>
-  <span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jv2</span><span class="special">.</span><span class="identifier">is_array</span><span class="special">()</span> <span class="special">);</span>
-
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">ja</span><span class="special">)</span> <span class="special">==</span> <span class="string">"[[\"mercury\",36],[\"venus\",67],[\"earth\",93]]"</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">ja</span><span class="special">)</span> <span class="special">==</span> <span class="string">"[[\"mercury\",36],[\"venus\",67],[\"earth\",93]]"</span> <span class="special">);</span>
 </pre>
 <p>
         Similarly, an initializer list for an <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a> is always interpreted as
@@ -143,7 +140,7 @@
 
 <span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">jo2</span><span class="special">.</span><span class="identifier">empty</span><span class="special">()</span> <span class="special">&amp;&amp;</span> <span class="identifier">jo1</span><span class="special">.</span><span class="identifier">empty</span><span class="special">()</span> <span class="special">);</span>
 
-<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">to_string</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">R</span><span class="string">"({"</span><span class="identifier">clients</span><span class="string">":{"</span><span class="identifier">john</span><span class="string">":100,"</span><span class="identifier">dave</span><span class="string">":500,"</span><span class="identifier">joe</span><span class="string">":300}})"</span> <span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">serialize</span><span class="special">(</span><span class="identifier">jv</span><span class="special">)</span> <span class="special">==</span> <span class="identifier">R</span><span class="string">"({"</span><span class="identifier">clients</span><span class="string">":{"</span><span class="identifier">john</span><span class="string">":100,"</span><span class="identifier">dave</span><span class="string">":500,"</span><span class="identifier">joe</span><span class="string">":300}})"</span> <span class="special">);</span>
 </pre>
 <div class="warning"><table border="0" summary="Warning">
 <tr>
@@ -162,7 +159,7 @@
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

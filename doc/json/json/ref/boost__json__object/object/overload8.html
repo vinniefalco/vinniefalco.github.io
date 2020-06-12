@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>object::object (8 of 11 overloads)</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -35,7 +35,8 @@
             <span class="phrase"><a name="json.ref.boost__json__object.object.overload8.description"></a></span><a class="link" href="overload8.html#json.ref.boost__json__object.object.overload8.description">Description</a>
           </h6>
 <p>
-            The object is constructed with a copy of the contents of <code class="computeroutput"><span class="identifier">other</span></code>, using the storage of <code class="computeroutput"><span class="identifier">other</span></code>.
+            The object is constructed with a copy of the contents of <code class="computeroutput"><span class="identifier">other</span></code>, using <code class="computeroutput"><span class="identifier">other</span></code>'s
+            memory resource.
           </p>
 <h6>
 <a name="json.ref.boost__json__object.object.overload8.h2"></a>
@@ -50,7 +51,8 @@
             Safety</a>
           </h6>
 <p>
-            Strong guarantee. Calls to storage::allocate may throw.
+            Strong guarantee. Calls to <code class="computeroutput"><span class="identifier">memory_resource</span><span class="special">::</span><span class="identifier">allocate</span></code>
+            may throw.
           </p>
 <h6>
 <a name="json.ref.boost__json__object.object.overload8.h4"></a>
@@ -89,7 +91,7 @@
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

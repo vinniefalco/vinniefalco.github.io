@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>array::crend</title>
 <link rel="stylesheet" href="../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,7 +20,7 @@
 <a name="json.ref.boost__json__array.crend"></a><a class="link" href="crend.html" title="array::crend">array::crend</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1012793"></a>
+          <a class="indexterm" name="id1046815"></a>
         </p>
 <p>
           Return a const reverse iterator to the element following the last element
@@ -39,7 +39,7 @@
         </h6>
 <p>
           The pointed-to element corresponds to the element preceding the first element
-          of the non-reversed container. This element acts as a placeholder, attempting
+          of the non-reversed container. The element acts as a placeholder; attempting
           to access it results in undefined behavior.
         </p>
 <h6>
@@ -49,10 +49,18 @@
 <p>
           Constant.
         </p>
+<h6>
+<a name="json.ref.boost__json__array.crend.h3"></a>
+          <span class="phrase"><a name="json.ref.boost__json__array.crend.exception_safety"></a></span><a class="link" href="crend.html#json.ref.boost__json__array.crend.exception_safety">Exception
+          Safety</a>
+        </h6>
+<p>
+          No-throw guarantee.
+        </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

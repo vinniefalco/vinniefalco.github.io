@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>array::reference</title>
 <link rel="stylesheet" href="../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,7 +20,7 @@
 <a name="json.ref.boost__json__array.reference"></a><a class="link" href="reference.html" title="array::reference">array::reference</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id991810"></a>
+          <a class="indexterm" name="id1020461"></a>
         </p>
 <p>
           A reference to an element.
@@ -33,6 +33,40 @@
 </pre>
 <h6>
 <a name="json.ref.boost__json__array.reference.h1"></a>
+          <span class="phrase"><a name="json.ref.boost__json__array.reference.types"></a></span><a class="link" href="reference.html#json.ref.boost__json__array.reference.types">Types</a>
+        </h6>
+<div class="informaltable"><table class="table">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Name
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Description
+                  </p>
+                </th>
+</tr></thead>
+<tbody><tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../boost__json__value/allocator_type.html" title="value::allocator_type">allocator_type</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    The type of <span class="emphasis"><em>Allocator</em></span> returned by <a class="link" href="../boost__json__value/get_allocator.html" title="value::get_allocator"><code class="computeroutput"><span class="identifier">get_allocator</span></code></a>.
+                  </p>
+                </td>
+</tr></tbody>
+</table></div>
+<h6>
+<a name="json.ref.boost__json__array.reference.h2"></a>
           <span class="phrase"><a name="json.ref.boost__json__array.reference.member_functions"></a></span><a class="link" href="reference.html#json.ref.boost__json__array.reference.member_functions">Member
           Functions</a>
         </h6>
@@ -62,8 +96,7 @@
                 </td>
 <td>
                   <p>
-                    Return a reference to the underlying <code class="computeroutput"><span class="identifier">array</span></code>,
-                    or throw an exception.
+                    Return a reference to the underlying <a class="link" href="../boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a>, or throw an exception.
                   </p>
                 </td>
 </tr>
@@ -279,6 +312,18 @@
 <tr>
 <td>
                   <p>
+                    <span class="bold"><strong><a class="link" href="../boost__json__value/get_allocator.html" title="value::get_allocator">get_allocator</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Return the associated <a class="link" href="../boost__json__memory_resource.html" title="memory_resource"><code class="computeroutput"><span class="identifier">memory_resource</span></code></a>.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
                     <span class="bold"><strong><a class="link" href="../boost__json__value/get_array.html" title="value::get_array">get_array</a></strong></span>
                   </p>
                 </td>
@@ -386,103 +431,13 @@
 <tr>
 <td>
                   <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_array.html" title="value::if_array">if_array</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="identifier">array</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_bool.html" title="value::if_bool">if_bool</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="keyword">bool</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_double.html" title="value::if_double">if_double</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="keyword">double</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_int64.html" title="value::if_int64">if_int64</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int64</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_object.html" title="value::if_object">if_object</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="identifier">object</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_string.html" title="value::if_string">if_string</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="identifier">string</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
-                    <span class="bold"><strong><a class="link" href="../boost__json__value/if_uint64.html" title="value::if_uint64">if_uint64</a></strong></span>
-                  </p>
-                </td>
-<td>
-                  <p>
-                    Return a pointer to the underlying <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64</span></code>,
-                    or <code class="computeroutput"><span class="keyword">nullptr</span></code>.
-                  </p>
-                </td>
-</tr>
-<tr>
-<td>
-                  <p>
                     <span class="bold"><strong><a class="link" href="../boost__json__value/is_array.html" title="value::is_array">is_array</a></strong></span>
                   </p>
                 </td>
 <td>
                   <p>
-                    Returns true if this is an <code class="computeroutput"><span class="identifier">array</span></code>.
+                    Return an <a class="link" href="../boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a> pointer if this
+                    is an array, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -494,7 +449,8 @@
                 </td>
 <td>
                   <p>
-                    Returns true if this is a <code class="computeroutput"><span class="keyword">bool</span></code>.
+                    Return a <code class="computeroutput"><span class="keyword">bool</span></code> pointer
+                    if this is a boolean, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -506,7 +462,8 @@
                 </td>
 <td>
                   <p>
-                    Returns true if this is a <code class="computeroutput"><span class="keyword">double</span></code>.
+                    Return a <code class="computeroutput"><span class="keyword">double</span></code>
+                    pointer if this is a double, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -518,7 +475,8 @@
                 </td>
 <td>
                   <p>
-                    Returns true if this is a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span></code>.
+                    Return an <code class="computeroutput"><span class="identifier">int64_t</span></code>
+                    pointer if this is a signed integer, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -554,7 +512,8 @@
                 </td>
 <td>
                   <p>
-                    Returns true if this is an <code class="computeroutput"><span class="identifier">object</span></code>.
+                    Return an <a class="link" href="../boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a> pointer if this
+                    is an object, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -578,7 +537,8 @@
                 </td>
 <td>
                   <p>
-                    Returns true if this is a <code class="computeroutput"><span class="identifier">string</span></code>.
+                    Return a <a class="link" href="../boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a> pointer if this
+                    is a string, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -602,7 +562,8 @@
                 </td>
 <td>
                   <p>
-                    Returns true if this is a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span></code>.
+                    Return a <code class="computeroutput"><span class="identifier">uint64_t</span></code>
+                    pointer if this is a signed integer, else return <code class="computeroutput"><span class="keyword">nullptr</span></code>
                   </p>
                 </td>
 </tr>
@@ -647,7 +608,7 @@
                 </td>
 <td>
                   <p>
-                    Return the storage associated with the value.
+                    Return the memory resource associated with the value.
                   </p>
                 </td>
 </tr>
@@ -729,8 +690,8 @@
 </tbody>
 </table></div>
 <h6>
-<a name="json.ref.boost__json__array.reference.h2"></a>
-          <span class="phrase"><a name="json.ref.boost__json__array.reference.thread_safety"></a></span><a class="link" href="reference.html#json.ref.boost__json__array.reference.thread_safety">Thread Safety:</a>
+<a name="json.ref.boost__json__array.reference.h3"></a>
+          <span class="phrase"><a name="json.ref.boost__json__array.reference.thread_safety"></a></span><a class="link" href="reference.html#json.ref.boost__json__array.reference.thread_safety">Thread Safety</a>
         </h6>
 <p>
           Distinct instances may be accessed concurrently. Non-const member functions
@@ -738,13 +699,13 @@
           functions of that instance.
         </p>
 <h6>
-<a name="json.ref.boost__json__array.reference.h3"></a>
+<a name="json.ref.boost__json__array.reference.h4"></a>
           <span class="phrase"><a name="json.ref.boost__json__array.reference.description"></a></span><a class="link" href="reference.html#json.ref.boost__json__array.reference.description">Description</a>
         </h6>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

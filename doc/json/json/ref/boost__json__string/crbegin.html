@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>string::crbegin</title>
 <link rel="stylesheet" href="../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,7 +20,7 @@
 <a name="json.ref.boost__json__string.crbegin"></a><a class="link" href="crbegin.html" title="string::crbegin">string::crbegin</a>
 </h4></div></div></div>
 <p>
-          <a class="indexterm" name="id1125988"></a>
+          <a class="indexterm" name="id1160762"></a>
         </p>
 <p>
           Return a reverse iterator to the first character of the reversed container.
@@ -38,7 +38,8 @@
         </h6>
 <p>
           Returns the pointed-to character that corresponds to the last character
-          of the non-reversed container.
+          of the non-reversed container. If the container is empty, <a class="link" href="crend.html" title="string::crend"><code class="computeroutput"><span class="identifier">crend</span><span class="special">()</span></code></a>
+          is returned.
         </p>
 <h6>
 <a name="json.ref.boost__json__string.crbegin.h2"></a>
@@ -49,15 +50,16 @@
         </p>
 <h6>
 <a name="json.ref.boost__json__string.crbegin.h3"></a>
-          <span class="phrase"><a name="json.ref.boost__json__string.crbegin.remarks"></a></span><a class="link" href="crbegin.html#json.ref.boost__json__string.crbegin.remarks">Remarks</a>
+          <span class="phrase"><a name="json.ref.boost__json__string.crbegin.exception_safety"></a></span><a class="link" href="crbegin.html#json.ref.boost__json__string.crbegin.exception_safety">Exception
+          Safety</a>
         </h6>
 <p>
-          If the container is empty, the returned iterator is equal to <a class="link" href="rend/overload1.html" title="string::rend (1 of 2 overloads)"><code class="computeroutput"><span class="identifier">rend</span><span class="special">()</span></code></a>
+          No-throw guarantee.
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

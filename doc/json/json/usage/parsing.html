@@ -1,19 +1,19 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Parsing</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../index.html" title="Boost.JSON">
 <link rel="up" href="../usage.html" title="Usage">
-<link rel="prev" href="storage.html" title="Storage">
+<link rel="prev" href="allocators/uses_allocator.html" title="Uses-allocator construction">
 <link rel="next" href="serializing.html" title="Serializing">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.JSON Logo" width="880" height="80" src="../../images/doc-logo.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="storage.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="serializing.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="allocators/uses_allocator.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="serializing.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -25,7 +25,7 @@
         parsing:
       </p>
 <div class="table">
-<a name="json.usage.parsing.parsing_functions_and_types"></a><p class="title"><b>Table&#160;4.&#160;Parsing Functions and Types</b></p>
+<a name="json.usage.parsing.parsing_functions_and_types"></a><p class="title"><b>Table 3. Parsing Functions and Types</b></p>
 <div class="table-contents"><table class="table" summary="Parsing Functions and Types">
 <colgroup>
 <col>
@@ -83,6 +83,19 @@
                 </p>
               </td>
 </tr>
+<tr>
+<td>
+                <p>
+                  <a class="link" href="../ref/boost__json__parse_options.html" title="parse_options"><code class="computeroutput"><span class="identifier">parse_options</span></code></a>
+                </p>
+              </td>
+<td>
+                <p>
+                  A structure used to select which extensions are enabled during
+                  parsing.
+                </p>
+              </td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -103,9 +116,10 @@
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Parsing failed: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">ec</span><span class="special">.</span><span class="identifier">message</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
 </pre>
 <p>
-        The calls above will produce values that use the default storage. Each parse
-        function allows an additional parameter specifying the storage to use. Here
-        we start the parser with a new instance of <a class="link" href="../../"><code class="computeroutput"><span class="identifier">pool</span></code></a> for the resulting value:
+        The calls above will produce values that use the default memory resource.
+        Each parse function allows an additional parameter specifying the memory
+        resource to use. Here we reset the parser with a new instance of <a class="link" href="../ref/boost__json__monotonic_resource.html" title="monotonic_resource"><code class="computeroutput"><span class="identifier">monotonic_resource</span></code></a> for the resulting
+        value:
       </p>
 <pre class="programlisting"><span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">parse</span><span class="special">(</span> <span class="string">"[1,2,3,4,5]"</span><span class="special">,</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span>
 </pre>
@@ -114,25 +128,28 @@
         internal structures to assist with performance. If a program needs to parse
         multiple JSONs sequentially, performance can be improved by declaring the
         parser instance explicitly and using the parser's buffer-oriented interface.
-        This stateful interface uses the functions <a class="link" href="../ref/boost__json__parser/write_some.html" title="parser::write_some"><code class="computeroutput"><span class="identifier">write_some</span></code></a> and <a class="link" href="../ref/boost__json__parser/write.html" title="parser::write"><code class="computeroutput"><span class="identifier">write</span></code></a> to supply zero or more sequential
+        This stateful interface uses the functions <a class="link" href="../ref/boost__json__parser/write.html" title="parser::write"><code class="computeroutput"><span class="identifier">write</span></code></a> and <a class="link" href="../ref/boost__json__parser/finish.html" title="parser::finish"><code class="computeroutput"><span class="identifier">finish</span></code></a> to supply zero or more sequential
         character buffers representing the JSON, while the function <a class="link" href="../ref/boost__json__parser/finish.html" title="parser::finish"><code class="computeroutput"><span class="identifier">finish</span></code></a> is used to inform the parser
         that an optional final character buffer represents the end of the JSON. This
         example parses a complete JSON using the stateful API:
       </p>
 <pre class="programlisting"><span class="identifier">parser</span> <span class="identifier">p</span><span class="special">;</span>
+<span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
 
 <span class="comment">// This must be called once before parsing every new JSON.</span>
-<span class="identifier">p</span><span class="special">.</span><span class="identifier">start</span><span class="special">();</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span>
 
 <span class="comment">// Write the entire character buffer, indicating</span>
 <span class="comment">// to the parser that there is no more data.</span>
-<span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="string">"[1,2,3,4,5]"</span><span class="special">,</span> <span class="number">11</span> <span class="special">);</span>
-<span class="identifier">p</span><span class="special">.</span><span class="identifier">finish</span><span class="special">();</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="string">"[1,2,3,4,5]"</span><span class="special">,</span> <span class="number">11</span><span class="special">,</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="keyword">if</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">)</span>
+    <span class="identifier">p</span><span class="special">.</span><span class="identifier">finish</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
 
 <span class="comment">// Take ownership of the resulting value.</span>
-<span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">();</span>
+<span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
 
-<span class="comment">// At this point the parser may be re-used by calling p.start() again.</span>
+<span class="comment">// At this point the parser may be re-used by calling p.reset() again.</span>
 </pre>
 <p>
         Explicit parser instances may also be used to process serialized JSON incrementally.
@@ -143,7 +160,7 @@
 <span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
 
 <span class="comment">// This must be called once before parsing every new JSON</span>
-<span class="identifier">p</span><span class="special">.</span><span class="identifier">start</span><span class="special">();</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span>
 
 <span class="comment">// Write the first part of the buffer</span>
 <span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="string">"[1,2,"</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="identifier">ec</span><span class="special">);</span>
@@ -157,38 +174,82 @@
 
 <span class="comment">// Take ownership of the resulting value.</span>
 <span class="keyword">if</span><span class="special">(!</span> <span class="identifier">ec</span><span class="special">)</span>
-    <span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">();</span>
+    <span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
 
-<span class="comment">// At this point the parser may be re-used by calling p.start() again.</span>
+<span class="identifier">assert</span><span class="special">(!</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="comment">// At this point the parser may be re-used by calling p.reset() again.</span>
 </pre>
 <h5>
 <a name="json.usage.parsing.h0"></a>
-        <span class="phrase"><a name="json.usage.parsing.storage"></a></span><a class="link" href="parsing.html#json.usage.parsing.storage">Storage</a>
+        <span class="phrase"><a name="json.usage.parsing.allocators"></a></span><a class="link" href="parsing.html#json.usage.parsing.allocators">Allocators</a>
       </h5>
 <p>
-        When <a class="link" href="../ref/boost__json__parser/start.html" title="parser::start"><code class="computeroutput"><span class="identifier">start</span></code></a>
-        is called with no arguments, the parser constructs the resulting <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a> using the default storage.
-        Alternatively, the storage to use may be supplied as an argument. This example
-        uses a scoped instance of block storage:
+        When <a class="link" href="../ref/boost__json__parser/reset.html" title="parser::reset"><code class="computeroutput"><span class="identifier">reset</span></code></a>
+        is called with no arguments, the parser constructs the resulting <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a> using the default memory resource.
+        A <a class="link" href="../ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a>
+        can also be passed to the function, and the resulting <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a> will use the specified resource.
+        This example uses a noncounted <code class="computeroutput"><span class="identifier">monotonic_resource</span></code>
+        as the allocator:
       </p>
 <pre class="programlisting"><span class="special">{</span>
     <span class="identifier">parser</span> <span class="identifier">p</span><span class="special">;</span>
     <span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
 
-    <span class="comment">// Declare a new, scoped instance of the block storage</span>
     <span class="identifier">monotonic_resource</span> <span class="identifier">mr</span><span class="special">;</span>
 
-    <span class="comment">// Use the scoped instance for the parsed value</span>
-    <span class="identifier">p</span><span class="special">.</span><span class="identifier">start</span><span class="special">(</span> <span class="special">&amp;</span><span class="identifier">mr</span> <span class="special">);</span>
+    <span class="comment">// Use the monotonic resource for the parsed value</span>
+    <span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span> <span class="special">&amp;</span><span class="identifier">mr</span> <span class="special">);</span>
 
     <span class="comment">// Write the entire JSON</span>
     <span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="string">"[1,2,3,4,5]"</span><span class="special">,</span> <span class="number">11</span><span class="special">,</span> <span class="identifier">ec</span> <span class="special">);</span>
     <span class="keyword">if</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">)</span>
         <span class="identifier">p</span><span class="special">.</span><span class="identifier">finish</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
 
-    <span class="comment">// The value will use the instance of block storage created above</span>
-    <span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">();</span>
+    <span class="comment">// The value will use the monotonic resource created above</span>
+    <span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
 <span class="special">}</span>
+</pre>
+<p>
+        The allocation of the intermediate storage used by <a class="link" href="../ref/boost__json__parser.html" title="parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> can also be controlled. When
+        constructing a <a class="link" href="../ref/boost__json__parser.html" title="parser"><code class="computeroutput"><span class="identifier">parser</span></code></a>, a <a class="link" href="../ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a> can be passed to the
+        constructor and the managed resource will be used to allocate any intermediate
+        storage needed during parsing. If this argument is not provided, the default
+        memory resource will be used instead. The parser will retain its intermediate
+        storage for the duration of its lifetime, reusing it to parse subsequent
+        documents:
+      </p>
+<pre class="programlisting"><span class="identifier">storage_ptr</span> <span class="identifier">sp</span> <span class="special">=</span>
+    <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;();</span>
+
+<span class="identifier">parser</span> <span class="identifier">p</span><span class="special">(</span> <span class="identifier">sp</span> <span class="special">);</span>
+<span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+
+<span class="comment">// Fully parses a valid JSON string and</span>
+<span class="comment">// extracts the resulting value</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span> <span class="identifier">sp</span> <span class="special">);</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="string">"[true, false, 1, 0]"</span><span class="special">,</span> <span class="number">19</span><span class="special">,</span> <span class="identifier">ec</span> <span class="special">);</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">finish</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">value</span> <span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="comment">// The intermediate storage that was used</span>
+<span class="comment">// for the last value will be reused here.</span>
+
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span> <span class="identifier">sp</span> <span class="special">);</span>
+
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="string">"[null]"</span><span class="special">,</span> <span class="number">6</span><span class="special">,</span> <span class="identifier">ec</span> <span class="special">);</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">finish</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">jv</span> <span class="special">=</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">release</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">);</span>
 </pre>
 <h5>
 <a name="json.usage.parsing.h1"></a>
@@ -207,28 +268,41 @@
 <span class="special">{</span>
     <span class="comment">// The null parser discards all the data</span>
 
-    <span class="keyword">class</span> <span class="identifier">null_parser</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">basic_parser</span>
+    <span class="keyword">class</span> <span class="identifier">null_parser</span>
     <span class="special">{</span>
-        <span class="keyword">friend</span> <span class="keyword">class</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">json</span><span class="special">::</span><span class="identifier">basic_parser</span><span class="special">;</span>
+        <span class="keyword">struct</span> <span class="identifier">handler</span>
+        <span class="special">{</span>
+            <span class="keyword">bool</span> <span class="identifier">on_document_begin</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_document_end</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_object_begin</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_object_end</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_array_begin</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_array_end</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_key_part</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_key</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_string_part</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_string</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_number_part</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_int64</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span><span class="special">,</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_uint64</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span><span class="special">,</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_double</span><span class="special">(</span> <span class="keyword">double</span><span class="special">,</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_bool</span><span class="special">(</span> <span class="keyword">bool</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_null</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_comment_part</span><span class="special">(</span><span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+            <span class="keyword">bool</span> <span class="identifier">on_comment</span><span class="special">(</span><span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+        <span class="special">};</span>
+
+        <span class="identifier">basic_parser</span><span class="special">&lt;</span><span class="identifier">handler</span><span class="special">&gt;</span> <span class="identifier">p_</span><span class="special">;</span>
 
     <span class="keyword">public</span><span class="special">:</span>
-        <span class="identifier">null_parser</span><span class="special">()</span> <span class="special">{}</span>
-        <span class="special">~</span><span class="identifier">null_parser</span><span class="special">()</span> <span class="special">{}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_document_begin</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_document_end</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_object_begin</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_object_end</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_array_begin</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_array_end</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_key_part</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_key</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_string_part</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_string</span><span class="special">(</span> <span class="identifier">string_view</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_int64</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_uint64</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_double</span><span class="special">(</span> <span class="keyword">double</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_bool</span><span class="special">(</span> <span class="keyword">bool</span><span class="special">,</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
-        <span class="keyword">bool</span> <span class="identifier">on_null</span><span class="special">(</span> <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="special">)</span> <span class="special">{</span> <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span> <span class="special">}</span>
+        <span class="identifier">null_parser</span><span class="special">()</span>
+            <span class="special">:</span> <span class="identifier">p_</span><span class="special">(</span><span class="identifier">parse_options</span><span class="special">())</span>
+        <span class="special">{</span>
+        <span class="special">}</span>
+
+        <span class="special">~</span><span class="identifier">null_parser</span><span class="special">()</span>
+        <span class="special">{</span>
+        <span class="special">}</span>
 
         <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span>
         <span class="identifier">write</span><span class="special">(</span>
@@ -236,9 +310,7 @@
             <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">,</span>
             <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">)</span>
         <span class="special">{</span>
-            <span class="keyword">auto</span> <span class="keyword">const</span> <span class="identifier">n</span> <span class="special">=</span>
-                <span class="identifier">basic_parser</span><span class="special">::</span><span class="identifier">write_some</span><span class="special">(</span>
-                <span class="special">*</span><span class="keyword">this</span><span class="special">,</span> <span class="keyword">false</span><span class="special">,</span> <span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">,</span> <span class="identifier">ec</span><span class="special">);</span>
+            <span class="keyword">auto</span> <span class="keyword">const</span> <span class="identifier">n</span> <span class="special">=</span> <span class="identifier">p_</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="keyword">false</span><span class="special">,</span> <span class="identifier">data</span><span class="special">,</span> <span class="identifier">size</span><span class="special">,</span> <span class="identifier">ec</span> <span class="special">);</span>
             <span class="keyword">if</span><span class="special">(!</span> <span class="identifier">ec</span> <span class="special">&amp;&amp;</span> <span class="identifier">n</span> <span class="special">&lt;</span> <span class="identifier">size</span><span class="special">)</span>
                 <span class="identifier">ec</span> <span class="special">=</span> <span class="identifier">error</span><span class="special">::</span><span class="identifier">extra_data</span><span class="special">;</span>
             <span class="keyword">return</span> <span class="identifier">n</span><span class="special">;</span>
@@ -256,10 +328,186 @@
     <span class="keyword">return</span> <span class="keyword">true</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
+<h5>
+<a name="json.usage.parsing.h2"></a>
+        <span class="phrase"><a name="json.usage.parsing.extensions"></a></span><a class="link" href="parsing.html#json.usage.parsing.extensions">Extensions</a>
+      </h5>
+<p>
+        The library provides support for the following JSON syntax extensions:
+      </p>
+<div class="table">
+<a name="json.usage.parsing.supported_extensions"></a><p class="title"><b>Table 4. Supported Extensions</b></p>
+<div class="table-contents"><table class="table" summary="Supported Extensions">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                <p>
+                  Extension
+                </p>
+              </th>
+<th>
+                <p>
+                  Description
+                </p>
+              </th>
+<th>
+                <p>
+                  Example
+                </p>
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                <p>
+                  Comments
+                </p>
+              </td>
+<td>
+                <p>
+                  Permits C and C++ style comments to appear within whitespace.
+                </p>
+              </td>
+<td>
+                <p>
+                  The following is considered valid:
+                </p>
+<pre class="programlisting"><span class="special">{</span>
+  <span class="string">"primes"</span><span class="special">:</span> <span class="special">[</span><span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">,</span> <span class="number">5</span><span class="special">,</span> <span class="number">7</span><span class="special">,</span> <span class="number">11</span><span class="special">],</span>
+  <span class="string">"fibonacci"</span><span class="special">:</span> <span class="special">[</span><span class="number">0</span> <span class="comment">/* maybe remove 0 */</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="number">1</span><span class="special">,</span> <span class="number">2</span><span class="special">,</span> <span class="number">3</span><span class="special">]</span>
+  <span class="comment">// TODO: add more</span>
+<span class="special">}</span>
+</pre>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  Trailing Commas
+                </p>
+              </td>
+<td>
+                <p>
+                  Allows a comma to appear after the last element of an object or
+                  array.
+                </p>
+              </td>
+<td>
+                <p>
+                  The following is considered valid:
+                </p>
+<pre class="programlisting"><span class="special">[</span>
+  <span class="special">{</span><span class="string">"key"</span><span class="special">:</span> <span class="string">"value"</span><span class="special">,},</span>
+  <span class="number">2</span><span class="special">,</span>
+  <span class="number">3</span><span class="special">,</span>
+<span class="special">]</span>
+</pre>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  Skip UTF-8 Validation
+                </p>
+              </td>
+<td>
+                <p>
+                  UTF-8 byte sequences appearing within strings are not checked for
+                  validity (as defined by <a href="https://www.unicode.org/versions/Unicode13.0.0/UnicodeStandard-13.0.pdf" target="_top">The
+                  Unicode Standard Version 13.0 Section 3.9</a>).
+                </p>
+              </td>
+<td>
+                <p>
+                  A string containing the invalid UTF-8 byte sequence <code class="computeroutput"><span class="number">0xC0</span> <span class="number">0x9F</span></code>
+                  is considered valid.
+                </p>
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br class="table-break"><div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          Disabling UTF-8 validation can yield a sizeable increase in performance
+          when parsing JSON containing UTF-8 byte sequences that are guaranteed to
+          be valid. Documents that only contain ASCII characters also benefit, but
+          the performance increase is less significant.
+        </p></td></tr>
+</table></div>
+<p>
+        Without configuration, <a class="link" href="../ref/boost__json__basic_parser.html" title="basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> and <a class="link" href="../ref/boost__json__parser.html" title="parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> will only parse JSON deemed
+        well-formed by the <a href="https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf" target="_top">JSON
+        Data Interchange Syntax</a> specification:
+      </p>
+<pre class="programlisting"><span class="identifier">string_view</span> <span class="identifier">good</span> <span class="special">=</span> <span class="string">"{\"valid\":\"json\"}"</span><span class="special">;</span>
+<span class="identifier">string_view</span> <span class="identifier">bad</span> <span class="special">=</span> <span class="string">"{\"invalid\":\"json\",}"</span><span class="special">;</span>
+
+<span class="comment">// A default constructed parser will not</span>
+<span class="comment">// accept non-standard JSON</span>
+<span class="identifier">parser</span> <span class="identifier">p</span><span class="special">;</span>
+<span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="identifier">good</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">good</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="comment">// Valid JSON</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">ec</span><span class="special">.</span><span class="identifier">clear</span><span class="special">();</span>
+
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span>
+<span class="identifier">p</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="identifier">bad</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">bad</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="comment">// Error, trailing commas are not permitted</span>
+<span class="comment">// by the JSON specification</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
+</pre>
+<p>
+        Extensions can be enabled by passing <a class="link" href="../ref/boost__json__parse_options.html" title="parse_options"><code class="computeroutput"><span class="identifier">parse_options</span></code></a> to <a class="link" href="../ref/boost__json__parser.html" title="parser"><code class="computeroutput"><span class="identifier">parser</span></code></a> upon construction. Users
+        implementing custom parsers derived from <a class="link" href="../ref/boost__json__basic_parser.html" title="basic_parser"><code class="computeroutput"><span class="identifier">basic_parser</span></code></a> can pass <a class="link" href="../ref/boost__json__parse_options.html" title="parse_options"><code class="computeroutput"><span class="identifier">parse_options</span></code></a> to the base class's
+        constructor:
+      </p>
+<pre class="programlisting"><span class="identifier">string_view</span> <span class="identifier">comment</span> <span class="special">=</span> <span class="string">"/* example comment */[1, 2, 3]"</span><span class="special">;</span>
+
+<span class="comment">// Comments are not permitted by default</span>
+<span class="identifier">parser</span> <span class="identifier">p1</span><span class="special">;</span>
+
+<span class="identifier">parse_options</span> <span class="identifier">po</span><span class="special">;</span>
+<span class="identifier">po</span><span class="special">.</span><span class="identifier">allow_comments</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
+
+<span class="comment">// Constructs a parser that will treat</span>
+<span class="comment">// comments as whitespace.</span>
+<span class="identifier">parser</span> <span class="identifier">p2</span><span class="special">(</span><span class="identifier">storage_ptr</span><span class="special">(),</span> <span class="identifier">po</span><span class="special">);</span>
+
+<span class="identifier">error_code</span> <span class="identifier">ec</span><span class="special">;</span>
+
+<span class="identifier">p1</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span>
+<span class="identifier">p1</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="identifier">comment</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">comment</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="comment">// Error, invalid JSON</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="identifier">ec</span><span class="special">.</span><span class="identifier">clear</span><span class="special">();</span>
+
+<span class="identifier">p2</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span>
+<span class="identifier">p2</span><span class="special">.</span><span class="identifier">write</span><span class="special">(</span> <span class="identifier">comment</span><span class="special">.</span><span class="identifier">data</span><span class="special">(),</span> <span class="identifier">comment</span><span class="special">.</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">ec</span> <span class="special">);</span>
+
+<span class="comment">// Ok, comments are permitted</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="special">!</span> <span class="identifier">ec</span> <span class="special">);</span>
+</pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
@@ -267,7 +515,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="storage.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="serializing.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="allocators/uses_allocator.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../usage.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="serializing.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

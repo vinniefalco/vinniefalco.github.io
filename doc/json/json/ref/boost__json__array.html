@@ -1,19 +1,19 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>array</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../index.html" title="Boost.JSON">
 <link rel="up" href="../ref.html" title="Reference">
 <link rel="prev" href="../ref.html" title="Reference">
-<link rel="next" href="boost__json__array/size_type.html" title="array::size_type">
+<link rel="next" href="boost__json__array/allocator_type.html" title="array::allocator_type">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.JSON Logo" width="880" height="80" src="../../images/doc-logo.png"></td></tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="../ref.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__array/size_type.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="../ref.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__array/allocator_type.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -27,7 +27,7 @@
         <span class="phrase"><a name="json.ref.boost__json__array.synopsis"></a></span><a class="link" href="boost__json__array.html#json.ref.boost__json__array.synopsis">Synopsis</a>
       </h5>
 <p>
-        Defined in header <code class="literal">&lt;<a href="https://github.com/vinniefalco/json/blob/master/include/boost/json/array.hpp" target="_top">boost/json/array.hpp</a>&gt;</code>
+        Defined in header <code class="literal">&lt;<a href="https://github.com/cppalliance/json/blob/master/include/boost/json/array.hpp" target="_top">boost/json/array.hpp</a>&gt;</code>
       </p>
 <pre class="programlisting"><span class="keyword">class</span> <span class="identifier">array</span>
 </pre>
@@ -53,6 +53,18 @@
               </th>
 </tr></thead>
 <tbody>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__json__array/allocator_type.html" title="array::allocator_type">allocator_type</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  The type of <span class="emphasis"><em>Allocator</em></span> returned by <a class="link" href="boost__json__array/get_allocator.html" title="array::get_allocator"><code class="computeroutput"><span class="identifier">get_allocator</span></code></a>.
+                </p>
+              </td>
+</tr>
 <tr>
 <td>
                 <p>
@@ -325,6 +337,18 @@
 <tr>
 <td>
                 <p>
+                  <span class="bold"><strong><a class="link" href="boost__json__array/contains.html" title="array::contains">contains</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return a pointer to an element, or nullptr if the index is invalid.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
                   <span class="bold"><strong><a class="link" href="boost__json__array/crbegin.html" title="array::crbegin">crbegin</a></strong></span>
                 </p>
               </td>
@@ -432,6 +456,18 @@
 <td>
                 <p>
                   Access the first element.
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <span class="bold"><strong><a class="link" href="boost__json__array/get_allocator.html" title="array::get_allocator">get_allocator</a></strong></span>
+                </p>
+              </td>
+<td>
+                <p>
+                  Return the associated <a class="link" href="boost__json__memory_resource.html" title="memory_resource"><code class="computeroutput"><span class="identifier">memory_resource</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -591,7 +627,7 @@
               </td>
 <td>
                 <p>
-                  Return the storage used by the array.
+                  Return the associated <a class="link" href="boost__json__memory_resource.html" title="memory_resource"><code class="computeroutput"><span class="identifier">memory_resource</span></code></a>.
                 </p>
               </td>
 </tr>
@@ -651,7 +687,7 @@
               </td>
 <td>
                 <p>
-                  Return the maximum number of elements the array can hold.
+                  Return the maximum number of elements any array can hold.
                 </p>
               </td>
 </tr></tbody>
@@ -661,13 +697,13 @@
         <span class="phrase"><a name="json.ref.boost__json__array.description"></a></span><a class="link" href="boost__json__array.html#json.ref.boost__json__array.description">Description</a>
       </h5>
 <p>
-        This is the type used to represent JSON array values. It is modeled for equivalence
-        to <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">value</span><span class="special">&gt;</span></code>.
+        This is the type used to represent a JSON array as a modifiable container.
+        The interface and performance characteristics are modeled after <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">value</span><span class="special">&gt;</span></code>.
       </p>
 <p>
-        The elements are stored contiguously, which means that elements can be accessed
-        not only through iterators, but also using offsets to regular pointers to
-        elements. A pointer to an element of an <a class="link" href="boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a> may be passed to any function
+        Elements are stored contiguously, which means that they can be accessed not
+        only through iterators, but also using offsets to regular pointers to elements.
+        A pointer to an element of an <a class="link" href="boost__json__array.html" title="array"><code class="computeroutput"><span class="identifier">array</span></code></a> may be passed to any function
         that expects a pointer to <a class="link" href="boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>.
       </p>
 <p>
@@ -702,11 +738,11 @@
 </ul></div>
 <h5>
 <a name="json.ref.boost__json__array.h5"></a>
-        <span class="phrase"><a name="json.ref.boost__json__array.storage0"></a></span><a class="link" href="boost__json__array.html#json.ref.boost__json__array.storage0">Storage</a>
+        <span class="phrase"><a name="json.ref.boost__json__array.allocators"></a></span><a class="link" href="boost__json__array.html#json.ref.boost__json__array.allocators">Allocators</a>
       </h5>
 <p>
         All elements stored in the container, and their children if any, will use
-        the same storage that was used to construct the container.
+        the same memory resource that was used to construct the container.
       </p>
 <h5>
 <a name="json.ref.boost__json__array.h6"></a>
@@ -722,16 +758,16 @@
         <span class="phrase"><a name="json.ref.boost__json__array.satisfies"></a></span><a class="link" href="boost__json__array.html#json.ref.boost__json__array.satisfies">Satisfies</a>
       </h5>
 <p>
-        Meets the requirements of <span class="emphasis"><em>Container</em></span>, <span class="emphasis"><em>ContiguousContainer</em></span>,
-        <span class="emphasis"><em>ReversibleContainer</em></span>, and <span class="emphasis"><em>SequenceContainer</em></span>.
+        <span class="emphasis"><em>ContiguousContainer</em></span>, <span class="emphasis"><em>ReversibleContainer</em></span>,
+        and <span class="emphasis"><em>SequenceContainer</em></span>.
       </p>
 <p>
-        Convenience header <code class="literal">&lt;<a href="https://github.com/vinniefalco/json/blob/master/include/boost/json.hpp" target="_top">boost/json.hpp</a>&gt;</code>
+        Convenience header <code class="literal">&lt;<a href="https://github.com/cppalliance/json/blob/master/include/boost/json.hpp" target="_top">boost/json.hpp</a>&gt;</code>
       </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
@@ -739,7 +775,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="../ref.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__array/size_type.html"><img src="../../images/next.png" alt="Next"></a>
+<a accesskey="p" href="../ref.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="boost__json__array/allocator_type.html"><img src="../../images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

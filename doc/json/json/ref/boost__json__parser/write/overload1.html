@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>parser::write (1 of 2 overloads)</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -61,8 +61,8 @@
 <p>
             The supplied buffer does not need to contain the entire JSON. Subsequent
             calls can provide more serialized data, allowing JSON to be processed
-            incrementally. The end of the serialized JSON can be indicated by calling
-            <a class="link" href="../finish/overload2.html" title="parser::finish (2 of 2 overloads)"><code class="computeroutput"><span class="identifier">finish</span><span class="special">()</span></code></a>.
+            incrementally. The end of the serialized JSON is be indicated by calling
+            <a class="link" href="../finish.html" title="parser::finish"><code class="computeroutput"><span class="identifier">finish</span><span class="special">()</span></code></a>.
           </p>
 <h6>
 <a name="json.ref.boost__json__parser.write.overload1.h2"></a>
@@ -73,6 +73,15 @@
           </p>
 <h6>
 <a name="json.ref.boost__json__parser.write.overload1.h3"></a>
+            <span class="phrase"><a name="json.ref.boost__json__parser.write.overload1.return_value"></a></span><a class="link" href="overload1.html#json.ref.boost__json__parser.write.overload1.return_value">Return
+            Value</a>
+          </h6>
+<p>
+            The number of characters consumed from the buffer, which may be less
+            than the size provided.
+          </p>
+<h6>
+<a name="json.ref.boost__json__parser.write.overload1.h4"></a>
             <span class="phrase"><a name="json.ref.boost__json__parser.write.overload1.parameters"></a></span><a class="link" href="overload1.html#json.ref.boost__json__parser.write.overload1.parameters">Parameters</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -132,19 +141,10 @@
 </tr>
 </tbody>
 </table></div>
-<h6>
-<a name="json.ref.boost__json__parser.write.overload1.h4"></a>
-            <span class="phrase"><a name="json.ref.boost__json__parser.write.overload1.return_value"></a></span><a class="link" href="overload1.html#json.ref.boost__json__parser.write.overload1.return_value">Return
-            Value</a>
-          </h6>
-<p>
-            The number of characters consumed from the buffer, which may be less
-            than the size provided.
-          </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

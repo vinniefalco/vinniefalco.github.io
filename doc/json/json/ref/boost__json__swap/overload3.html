@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>swap (3 of 4 overloads)</title>
 <link rel="stylesheet" href="../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -28,7 +28,7 @@
           <span class="phrase"><a name="json.ref.boost__json__swap.overload3.synopsis"></a></span><a class="link" href="overload3.html#json.ref.boost__json__swap.overload3.synopsis">Synopsis</a>
         </h6>
 <p>
-          Defined in header <code class="literal">&lt;<a href="https://github.com/vinniefalco/json/blob/master/include/boost/json/string.hpp" target="_top">boost/json/string.hpp</a>&gt;</code>
+          Defined in header <code class="literal">&lt;<a href="https://github.com/cppalliance/json/blob/master/include/boost/json/string.hpp" target="_top">boost/json/string.hpp</a>&gt;</code>
         </p>
 <pre class="programlisting"><span class="keyword">void</span>
 <span class="identifier">swap</span><span class="special">(</span>
@@ -42,7 +42,8 @@
 <p>
           Exchanges the contents of the string <code class="computeroutput"><span class="identifier">lhs</span></code>
           with another string <code class="computeroutput"><span class="identifier">rhs</span></code>.
-          Ownership of the respective storage objects is not transferred.
+          Ownership of the respective <a class="link" href="../boost__json__memory_resource.html" title="memory_resource"><code class="computeroutput"><span class="identifier">memory_resource</span></code></a> objects is not
+          transferred.
         </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -75,15 +76,15 @@
           Safety</a>
         </h6>
 <p>
-          Strong guarantee.
+          Strong guarantee. Calls to <code class="computeroutput"><span class="identifier">memory_resource</span><span class="special">::</span><span class="identifier">allocate</span></code>
+          may throw.
         </p>
 <h6>
 <a name="json.ref.boost__json__swap.overload3.h5"></a>
-          <span class="phrase"><a name="json.ref.boost__json__swap.overload3.remarks"></a></span><a class="link" href="overload3.html#json.ref.boost__json__swap.overload3.remarks">Remarks</a>
+          <span class="phrase"><a name="json.ref.boost__json__swap.overload3.effects"></a></span><a class="link" href="overload3.html#json.ref.boost__json__swap.overload3.effects">Effects</a>
         </h6>
-<p>
-          Calls to storage::allocate may throw.
-        </p>
+<pre class="programlisting"><span class="identifier">lhs</span><span class="special">.</span><span class="identifier">swap</span><span class="special">(</span> <span class="identifier">rhs</span> <span class="special">);</span>
+</pre>
 <h6>
 <a name="json.ref.boost__json__swap.overload3.h6"></a>
           <span class="phrase"><a name="json.ref.boost__json__swap.overload3.parameters"></a></span><a class="link" href="overload3.html#json.ref.boost__json__swap.overload3.parameters">Parameters</a>
@@ -132,13 +133,21 @@
 </tr>
 </tbody>
 </table></div>
+<h6>
+<a name="json.ref.boost__json__swap.overload3.h7"></a>
+          <span class="phrase"><a name="json.ref.boost__json__swap.overload3.see_also"></a></span><a class="link" href="overload3.html#json.ref.boost__json__swap.overload3.see_also">See
+          Also</a>
+        </h6>
 <p>
-          Convenience header <code class="literal">&lt;<a href="https://github.com/vinniefalco/json/blob/master/include/boost/json.hpp" target="_top">boost/json.hpp</a>&gt;</code>
+          <a class="link" href="../boost__json__string/swap.html" title="string::swap"><code class="computeroutput"><span class="identifier">string</span><span class="special">::</span><span class="identifier">swap</span></code></a>
+        </p>
+<p>
+          Convenience header <code class="literal">&lt;<a href="https://github.com/cppalliance/json/blob/master/include/boost/json.hpp" target="_top">boost/json.hpp</a>&gt;</code>
         </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

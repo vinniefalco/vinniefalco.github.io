@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Comparison to Other Libraries</title>
 <link rel="stylesheet" href="../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,9 +20,10 @@
 <a name="json.comparison"></a><a class="link" href="comparison.html" title="Comparison to Other Libraries">Comparison to Other Libraries</a>
 </h2></div></div></div>
 <p>
-      There are a great many C++ JSON libraries, but two are noteworthy for the purpose
-      of comparison: <a href="https://rapidjson.org/" target="_top">RapidJSON</a> and <a href="https://nlohmann.github.io/json/" target="_top">JSON for Modern C++</a> (referred
-      to herein as nlohmann's JSON, or nlohmann).
+      There exist many C++ JSON libraries, but two are particularly noteworthy for
+      the purpose of comparison: <a href="https://rapidjson.org/" target="_top">RapidJSON</a>
+      and <a href="https://nlohmann.github.io/json/" target="_top">JSON for Modern C++</a>
+      (referred to herein as nlohmann's JSON, or nlohmann).
     </p>
 <h4>
 <a name="json.comparison.h0"></a>
@@ -61,34 +62,34 @@
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          <span class="red">&#10008;</span> <code class="computeroutput"><span class="identifier">basic_json</span></code>
+          <span class="red">✘</span> <code class="computeroutput"><span class="identifier">basic_json</span></code>
           is a class template. Libraries must agree on the choices of template parameters
           to be interoperable.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Too much customization. We struggle
+          <span class="red">✘</span> Too much customization. We struggle
           to see a use case for making <code class="computeroutput"><span class="identifier">BooleanType</span></code>
           anything other than <code class="computeroutput"><span class="keyword">bool</span></code>.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Poor separation of concerns. The
+          <span class="red">✘</span> Poor separation of concerns. The
           <code class="computeroutput"><span class="identifier">basic_json</span></code> container declaration
           needlessly conflates parsing and serialization APIs.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Limited allocator support. Only stateless
+          <span class="red">✘</span> Limited allocator support. Only stateless
           allocators are allowed, which rules out the most important type of allocator,
           a local arena-based implementation.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> No incremental parsing, no incremental
+          <span class="red">✘</span> No incremental parsing, no incremental
           serialization.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Slow parsing and serialization performance.
+          <span class="red">✘</span> Slow parsing and serialization performance.
         </li>
 <li class="listitem">
-          <span class="green">&#10004;</span> Full-featured, including JSON Pointer,
+          <span class="green">✔</span> Full-featured, including JSON Pointer,
           CBOR, and others.
         </li>
 </ul></div>
@@ -111,7 +112,7 @@
 </pre>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          <span class="red">&#10008;</span> The value type is not regular. Assignment
+          <span class="red">✘</span> The value type is not regular. Assignment
           is destructive, performing <code class="computeroutput"><span class="identifier">a</span>
           <span class="special">=</span> <span class="identifier">b</span></code>
           is equivalent to <code class="computeroutput"><span class="identifier">a</span> <span class="special">=</span>
@@ -119,25 +120,25 @@
           copy construction or copy assignment allowed.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Object types have no hash table or
+          <span class="red">✘</span> Object types have no hash table or
           index to reduce the cost of lookups.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Allocators have reference semantics.
+          <span class="red">✘</span> Allocators have reference semantics.
           Problems with lifetime are easily encountered.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> The interface of the array and object
+          <span class="red">✘</span> The interface of the array and object
           types are considerably different from their standard library equivalents,
           and not idiomatic.
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> No incremental parsing, no incremental
+          <span class="red">✘</span> No incremental parsing, no incremental
           serialization.
         </li>
 <li class="listitem">
-          <span class="green">&#10004;</span> Parsing and serialization performance
-          is best-in-class.
+          <span class="green">✔</span> Parsing and serialization performance
+          is better than most other libraries.
         </li>
 </ul></div>
 <h4>
@@ -157,20 +158,20 @@
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          <span class="red">&#10008;</span> Sequential access only, via <code class="computeroutput"><span class="identifier">ParsedJson</span><span class="special">::</span><span class="identifier">BasicIterator</span></code>
+          <span class="red">✘</span> Sequential access only, via <code class="computeroutput"><span class="identifier">ParsedJson</span><span class="special">::</span><span class="identifier">BasicIterator</span></code>
         </li>
 <li class="listitem">
-          <span class="red">&#10008;</span> Read-only, can only be populated by
+          <span class="red">✘</span> Read-only, can only be populated by
           the provided SIMD JSON parser.
         </li>
 <li class="listitem">
-          <span class="green">&#10004;</span> The fastest available JSON parser.
+          <span class="green">✔</span> The fastest available JSON parser.
         </li>
 </ul></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

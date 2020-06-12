@@ -1,13 +1,13 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>string::string (9 of 15 overloads)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>string::string (9 of 12 overloads)</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../../../index.html" title="Boost.JSON">
 <link rel="up" href="../string.html" title="string::string">
-<link rel="prev" href="overload8.html" title="string::string (8 of 15 overloads)">
-<link rel="next" href="overload10.html" title="string::string (10 of 15 overloads)">
+<link rel="prev" href="overload8.html" title="string::string (8 of 12 overloads)">
+<link rel="next" href="overload10.html" title="string::string (10 of 12 overloads)">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost.JSON Logo" width="880" height="80" src="../../../../images/doc-logo.png"></td></tr></table>
@@ -17,18 +17,19 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h5 class="title">
-<a name="json.ref.boost__json__string.string.overload9"></a><a class="link" href="overload9.html" title="string::string (9 of 15 overloads)">string::string
-          (9 of 15 overloads)</a>
+<a name="json.ref.boost__json__string.string.overload9"></a><a class="link" href="overload9.html" title="string::string (9 of 12 overloads)">string::string
+          (9 of 12 overloads)</a>
 </h5></div></div></div>
 <p>
-            Copy constructor.
+            Constructor.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.string.overload9.h0"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload9.synopsis"></a></span><a class="link" href="overload9.html#json.ref.boost__json__string.string.overload9.synopsis">Synopsis</a>
           </h6>
 <pre class="programlisting"><span class="identifier">string</span><span class="special">(</span>
-    <span class="identifier">string</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">string</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">,</span>
+    <span class="identifier">storage_ptr</span> <span class="identifier">sp</span><span class="special">);</span>
 </pre>
 <h6>
 <a name="json.ref.boost__json__string.string.overload9.h1"></a>
@@ -50,17 +51,11 @@
             Safety</a>
           </h6>
 <p>
-            Strong guarantee.
+            Strong guarantee. Calls to <code class="computeroutput"><span class="identifier">memory_resource</span><span class="special">::</span><span class="identifier">allocate</span></code>
+            may throw.
           </p>
 <h6>
 <a name="json.ref.boost__json__string.string.overload9.h4"></a>
-            <span class="phrase"><a name="json.ref.boost__json__string.string.overload9.remarks"></a></span><a class="link" href="overload9.html#json.ref.boost__json__string.string.overload9.remarks">Remarks</a>
-          </h6>
-<p>
-            Calls to storage::allocate may throw.
-          </p>
-<h6>
-<a name="json.ref.boost__json__string.string.overload9.h5"></a>
             <span class="phrase"><a name="json.ref.boost__json__string.string.overload9.parameters"></a></span><a class="link" href="overload9.html#json.ref.boost__json__string.string.overload9.parameters">Parameters</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -80,7 +75,8 @@
                     </p>
                   </th>
 </tr></thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>
                     <p>
                       <code class="computeroutput"><span class="identifier">other</span></code>
@@ -91,12 +87,27 @@
                       The string to use as a source to copy from.
                     </p>
                   </td>
-</tr></tbody>
+</tr>
+<tr>
+<td>
+                    <p>
+                      <code class="computeroutput"><span class="identifier">sp</span></code>
+                    </p>
+                  </td>
+<td>
+                    <p>
+                      An optional pointer to the <a class="link" href="../../boost__json__memory_resource.html" title="memory_resource"><code class="computeroutput"><span class="identifier">memory_resource</span></code></a> to
+                      use. The container will acquire shared ownership of the memory
+                      resource. The default argument for this parameter is <code class="computeroutput"><span class="special">{}</span></code>.
+                    </p>
+                  </td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>storage_ptr::storage_ptr (5 of 5 overloads)</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -35,9 +35,22 @@
             <span class="phrase"><a name="json.ref.boost__json__storage_ptr.storage_ptr.overload5.description"></a></span><a class="link" href="overload5.html#json.ref.boost__json__storage_ptr.storage_ptr.overload5.description">Description</a>
           </h6>
 <p>
-            This function acquires shared ownership of the storage pointed to by
-            <code class="computeroutput"><span class="identifier">other</span></code>.
+            This function constructs a pointer that points to the same memory resource
+            as <code class="computeroutput"><span class="identifier">other</span></code>, with the same
+            ownership:
           </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+                If <code class="computeroutput"><span class="identifier">other</span></code> is non-owning,
+                then <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                will be be non-owning.
+              </li>
+<li class="listitem">
+                If <code class="computeroutput"><span class="identifier">other</span></code> has shared
+                ownership, then <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                will acquire shared ownership.
+              </li>
+</ul></div>
 <h6>
 <a name="json.ref.boost__json__storage_ptr.storage_ptr.overload5.h2"></a>
             <span class="phrase"><a name="json.ref.boost__json__storage_ptr.storage_ptr.overload5.complexity"></a></span><a class="link" href="overload5.html#json.ref.boost__json__storage_ptr.storage_ptr.overload5.complexity">Complexity</a>
@@ -82,7 +95,7 @@
                   </td>
 <td>
                     <p>
-                      The storage pointer to construct from.
+                      The pointer to construct from.
                     </p>
                   </td>
 </tr></tbody>
@@ -90,7 +103,7 @@
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

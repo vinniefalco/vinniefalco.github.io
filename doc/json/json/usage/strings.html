@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Using Strings</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -20,11 +20,10 @@
 <a name="json.usage.strings"></a><a class="link" href="strings.html" title="Using Strings">Using Strings</a>
 </h3></div></div></div>
 <p>
-        Modifiable sequences of characters are represented using instances of type
+        Modifiable sequences of characters are represented using objects of type
         <a class="link" href="../ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a>.
-        These strings have a modified <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a>
-        based version of the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>
-        interface, and operate the same way, except that:
+        The interface and functionality of <a class="link" href="../ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a> is the same as <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_string</span></code>
+        except that:
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -33,29 +32,30 @@
           </li>
 <li class="listitem">
             <a class="link" href="../ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a>
-            only uses <code class="computeroutput"><span class="keyword">char</span></code> as its character
+            uses <code class="computeroutput"><span class="keyword">char</span></code> as its character
             type,
           </li>
 <li class="listitem">
             redundant overloads for string operations have been replaced with a
-            <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a> based interface,
+            <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a>
+            based interface,
           </li>
 <li class="listitem">
             access to characters in the range <code class="computeroutput"><span class="special">[</span><span class="identifier">size</span><span class="special">(),</span> <span class="identifier">capacity</span><span class="special">())</span></code>
             is permitted, and
           </li>
 <li class="listitem">
-            <a class="link" href="../../"><code class="computeroutput"><span class="identifier">storage</span></code></a>
+            <a class="link" href="../ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a>
             is used instead of <a href="https://en.cppreference.com/w/cpp/named_req/Allocator" target="_top"><span class="emphasis"><em>Allocator</em></span></a>.
           </li>
 </ul></div>
 <p>
         With augmented interface, operations requiring an input string are implemented
-        as a single overload with a parameter of type <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a>,
-        and can accept most string-like objects. Objects such as null terminated
-        character pointers, <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>, <code class="computeroutput"><span class="identifier">json</span><span class="special">::</span><span class="identifier">string</span></code>,
-        subranges of strings, and objects convertible to <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a>
-        can all be passed to these functions.
+        as a single overload with a parameter of type <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a>, and can accept most
+        string-like objects. Objects such as null terminated character pointers,
+        <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span></code>, <code class="computeroutput"><span class="identifier">json</span><span class="special">::</span><span class="identifier">string</span></code>,
+        subranges of strings, and objects convertible to <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a> can all be passed to
+        these functions.
       </p>
 <pre class="programlisting"><span class="identifier">json</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">str</span> <span class="special">=</span> <span class="string">"Boost.JSON"</span><span class="special">;</span>
 <span class="identifier">json</span><span class="special">::</span><span class="identifier">string_view</span> <span class="identifier">sv</span> <span class="special">=</span> <span class="identifier">str</span><span class="special">;</span>
@@ -82,10 +82,10 @@
             substring, or
           </li>
 <li class="listitem">
-            a parameter of a type convertible to <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a>, or
+            a parameter of a type convertible to <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a>, or
           </li>
 <li class="listitem">
-            a parameter of a type convertible to <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a> and two <code class="computeroutput"><span class="identifier">size_type</span></code> parameters that specify a
+            a parameter of a type convertible to <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a> and two <code class="computeroutput"><span class="identifier">size_type</span></code> parameters that specify a
             substring, or
           </li>
 <li class="listitem">
@@ -98,8 +98,7 @@
           </li>
 </ul></div>
 <p>
-        are replaced with with an overload accepting a <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a>
-        parameter.
+        are replaced with with an overload accepting a <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a> parameter.
       </p>
 <p>
         This design removes several redundant overloads from the interface. For example,
@@ -122,8 +121,8 @@
 <p>
         With the removal of overloads that specify parameters for a substring, a
         member function <code class="computeroutput"><span class="identifier">subview</span></code> that
-        returns a <a href="https://en.cppreference.com/w/cpp/string/basic_string_view" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string_view</span></code></a>
-        is provided to facilitate cheap substring operations:
+        returns a <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a> is provided to facilitate
+        cheap substring operations:
       </p>
 <pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">sstr1</span> <span class="special">=</span> <span class="string">"helloworld"</span><span class="special">;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">sstr2</span> <span class="special">=</span> <span class="string">"world"</span><span class="special">;</span>
@@ -131,26 +130,24 @@
 <span class="identifier">json</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">jstr1</span> <span class="special">=</span> <span class="string">"helloworld"</span><span class="special">;</span>
 <span class="identifier">json</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">jstr2</span> <span class="special">=</span> <span class="string">"world"</span><span class="special">;</span>
 
-
-<span class="identifier">assert</span><span class="special">(</span><span class="identifier">jstr2</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="number">0</span><span class="special">,</span> <span class="identifier">jstr1</span><span class="special">.</span><span class="identifier">subview</span><span class="special">(</span><span class="number">0</span><span class="special">,</span> <span class="number">6</span><span class="special">))</span> <span class="special">==</span> <span class="string">"helloworld"</span><span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">jstr2</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="number">0</span><span class="special">,</span> <span class="identifier">jstr1</span><span class="special">.</span><span class="identifier">subview</span><span class="special">(</span><span class="number">0</span><span class="special">,</span> <span class="number">5</span><span class="special">))</span> <span class="special">==</span> <span class="string">"helloworld"</span> <span class="special">);</span>
 
 <span class="comment">// this is equivalent to</span>
-
-<span class="identifier">assert</span><span class="special">(</span><span class="identifier">sstr1</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="number">0</span><span class="special">,</span> <span class="identifier">sstr2</span><span class="special">,</span> <span class="number">0</span><span class="special">,</span> <span class="number">6</span><span class="special">)</span> <span class="special">==</span> <span class="string">"helloworld"</span><span class="special">);</span>
+<span class="identifier">assert</span><span class="special">(</span> <span class="identifier">sstr2</span><span class="special">.</span><span class="identifier">insert</span><span class="special">(</span><span class="number">0</span><span class="special">,</span> <span class="identifier">sstr1</span><span class="special">,</span> <span class="number">0</span><span class="special">,</span> <span class="number">5</span><span class="special">)</span> <span class="special">==</span> <span class="string">"helloworld"</span> <span class="special">);</span>
 </pre>
 <p>
         A <a class="link" href="../ref/boost__json__string.html" title="string"><code class="computeroutput"><span class="identifier">string</span></code></a>
-        may be constructed using the default storage without incurring any memory
-        allocations, or can use a specified storage:
+        may be constructed using the default memory resource without incurring any
+        memory allocations. Alternatively, a <a class="link" href="../ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a> can be provided explicitly:
       </p>
-<pre class="programlisting"><span class="identifier">string</span> <span class="identifier">str1</span><span class="special">;</span> <span class="comment">// empty string, default storage</span>
+<pre class="programlisting"><span class="identifier">string</span> <span class="identifier">str1</span><span class="special">;</span> <span class="comment">// empty string, uses the default memory resource</span>
 
-<span class="identifier">string</span> <span class="identifier">str2</span><span class="special">(</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty string, pool storage</span>
+<span class="identifier">string</span> <span class="identifier">str2</span><span class="special">(</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty string, uses a counted monotonic resource</span>
 </pre>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

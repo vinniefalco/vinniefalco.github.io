@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Using Objects</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -23,10 +23,9 @@
         A <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>
         stores an instance of <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a> as the underlying representation
         for a JSON object . Instances of the <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a> type are associative containers
-        holding key and value pairs, where the key is a non-modifiable character
-        string and the mapped type is a <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>. These containers are modelled
-        after <a href="https://en.cppreference.com/w/cpp/container/unordered_map" target="_top"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">unordered_map</span></code></a>
-        with these unique properties:
+        holding key and value pairs, where the key is a <a class="link" href="../ref/boost__json__string_view.html" title="string_view"><code class="computeroutput"><span class="identifier">string_view</span></code></a> and the mapped type
+        is a <a class="link" href="../ref/boost__json__value.html" title="value"><code class="computeroutput"><span class="identifier">value</span></code></a>.
+        These containers are modelled after standard maps with these properties:
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
@@ -40,16 +39,18 @@
             The order of insertions is preserved, as long as there are no removals.
           </li>
 <li class="listitem">
-            All inserted values will use the same <a class="link" href="../../"><code class="computeroutput"><span class="identifier">storage</span></code></a> as the container itself.
+            All inserted values will use the same <a class="link" href="../ref/boost__json__memory_resource.html" title="memory_resource"><code class="computeroutput"><span class="identifier">memory_resource</span></code></a> as the container
+            itself.
           </li>
 </ul></div>
 <p>
-        An object may be constructed empty without incurring any memory allocations
-        using the default storage, or a specified storage:
+        An empty object may be constructed without incurring any memory allocations
+        using the default memory resource. A <a class="link" href="../ref/boost__json__storage_ptr.html" title="storage_ptr"><code class="computeroutput"><span class="identifier">storage_ptr</span></code></a> can also be explicitly
+        specified:
       </p>
-<pre class="programlisting"><span class="identifier">object</span> <span class="identifier">obj1</span><span class="special">;</span> <span class="comment">// empty object, default storage</span>
+<pre class="programlisting"><span class="identifier">object</span> <span class="identifier">obj1</span><span class="special">;</span> <span class="comment">// empty object, uses the default memory resource</span>
 
-<span class="identifier">object</span> <span class="identifier">obj2</span><span class="special">(</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty object, pool storage</span>
+<span class="identifier">object</span> <span class="identifier">obj2</span><span class="special">(</span> <span class="identifier">make_counted_resource</span><span class="special">&lt;</span><span class="identifier">monotonic_resource</span><span class="special">&gt;()</span> <span class="special">);</span> <span class="comment">// empty object, uses a counted monotonic resource</span>
 </pre>
 <p>
         Initializer lists consisting of two-element key value pairs can be used to
@@ -85,16 +86,21 @@
 </pre>
 <p>
         Internally, the container computes a hash table over the keys so that the
-        complexity of lookups is O(1) on average.
+        complexity of lookups is in constant time, on average.
       </p>
 <p>
         For the complete listing of all available member functions and nested types,
         see the reference page for <a class="link" href="../ref/boost__json__object.html" title="object"><code class="computeroutput"><span class="identifier">object</span></code></a>.
       </p>
+<p>
+        As with <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">pair</span></code>, the <a class="link" href="../ref/boost__json__key_value_pair.html" title="key_value_pair"><code class="computeroutput"><span class="identifier">key_value_pair</span></code></a> type can be used
+        with structured bindings in C++17. Specializations of <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple_size</span></code>,
+        <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple_element</span></code>, and overloads of <a class="link" href="../ref/boost__json__get.html" title="get"><code class="computeroutput"><span class="identifier">get</span></code></a> are all provided for this purpose.
+      </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>

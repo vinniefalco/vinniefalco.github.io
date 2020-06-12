@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>storage_ptr::storage_ptr (1 of 5 overloads)</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
@@ -21,7 +21,7 @@
           (1 of 5 overloads)</a>
 </h5></div></div></div>
 <p>
-            Default constructor.
+            Constructor.
           </p>
 <h6>
 <a name="json.ref.boost__json__storage_ptr.storage_ptr.overload1.h0"></a>
@@ -34,9 +34,9 @@
             <span class="phrase"><a name="json.ref.boost__json__storage_ptr.storage_ptr.overload1.description"></a></span><a class="link" href="overload1.html#json.ref.boost__json__storage_ptr.storage_ptr.overload1.description">Description</a>
           </h6>
 <p>
-            This constructs a default storage pointer. The default storage is not
-            reference counted, uses global operator new and delete to obtain memory,
-            and requires calls to <code class="computeroutput"><span class="identifier">deallocate</span></code>.
+            This constructs a non-owning pointer that refers to the default memory
+            resource, which uses the standard global system heap to allocate and
+            free memory.
           </p>
 <h6>
 <a name="json.ref.boost__json__storage_ptr.storage_ptr.overload1.h2"></a>
@@ -56,7 +56,7 @@
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2019 Vinnie Falco<p>
+<td align="right"><div class="copyright-footer">Copyright © 2019, 2020 Vinnie Falco<br>Copyright © 2020 Krystian Stasiowski<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
