@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syntax Theme Editor</title>
+  <style>
+    @font-face {
+      font-family: 'Monaspace Neon';
+      src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.101/fonts/webfonts/MonaspaceNeon-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Monaspace Neon';
+      src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.101/fonts/webfonts/MonaspaceNeon-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Monaspace Xenon';
+      src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.101/fonts/webfonts/MonaspaceXenon-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: italic;
+    }
+    @font-face {
+      font-family: 'Monaspace Xenon';
+      src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.101/fonts/webfonts/MonaspaceXenon-Italic.woff') format('woff');
+      font-weight: 400;
+      font-style: italic;
+    }
+    
+    :root {
+      --bg: #1a1a1e;
+      --bg-code: #0d0d0f;
+      --bg-panel: #232328;
+      --border: #3a3a42;
+      --text: #c8c8d0;
+      --text-dim: #808088;
+      
+      --tok-keyword: #ffffff;
+      --tok-text: #ffffff;
+      --tok-literal: #ffffff;
+      --tok-comment: #ffffff;
+      --tok-preprocessor: #ffffff;
+      --tok-attribute: #ffffff;
+    }
+    
+    :root.light {
+      --bg: #f5f5f7;
+      --bg-code: #ffffff;
+      --bg-panel: #e8e8ec;
+      --border: #c8c8d0;
+      --text: #24242a;
+      --text-dim: #6e6e78;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Monaspace Neon', 'SF Mono', 'Consolas', monospace;
+      font-feature-settings: 'liga' 1, 'calt' 1;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
+    }
+    
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    .panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--bg-panel);
+      border-right: 1px solid var(--border);
+      padding: 24px 20px;
+      overflow-y: auto;
+      transition: background 0.2s, border-color 0.2s;
+      z-index: 100;
+    }
+    
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .panel h1 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    
+    .toggle-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .toggle-track {
+      width: 40px;
+      height: 22px;
+      background: var(--border);
+      border-radius: 11px;
+      position: relative;
+      transition: background 0.2s;
+    }
+    
+    .toggle-track::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      background: var(--text);
+      border-radius: 50%;
+      transition: transform 0.2s, background 0.2s;
+    }
+    
+    .toggle.active .toggle-track {
+      background: var(--tok-keyword);
+    }
+    
+    .toggle.active .toggle-track::after {
+      transform: translateX(18px);
+      background: #fff;
+    }
+    
+    .color-group {
+      margin-bottom: 16px;
+    }
+    
+    .color-group label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    
+    .color-group label:hover {
+      color: var(--text);
+    }
+    
+    .color-group input[type="color"] {
+      -webkit-appearance: none;
+      width: 32px;
+      height: 24px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+    }
+    
+    .color-group input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 2px;
+    }
+    
+    .color-group input[type="color"]::-webkit-color-swatch {
+      border-radius: 2px;
+      border: none;
+    }
+    
+    .color-hex {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: inherit;
+      margin-left: auto;
+    }
+    
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin: 20px 0 12px 0;
+    }
+    
+    .actions {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    button {
+      font-family: inherit;
+      font-size: 12px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    
+    button:hover {
+      background: var(--border);
+    }
+    
+    button.primary {
+      background: var(--tok-keyword);
+      border-color: var(--tok-keyword);
+      color: #000;
+    }
+    
+    button.primary:hover {
+      opacity: 0.9;
+    }
+    
+    .saved-indicator {
+      font-size: 11px;
+      color: var(--tok-literal);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    
+    .saved-indicator.show {
+      opacity: 1;
+    }
+    
+    .main {
+      margin-left: 280px;
+      padding: 40px;
+      flex: 1;
+      min-height: 100vh;
+    }
+    
+    .main h2 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    
+    .code-block {
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    
+    .code-block pre {
+      font-family: 'Monaspace Neon', 'SF Mono', 'Consolas', monospace;
+      font-feature-settings: 'liga' 1, 'calt' 1;
+      font-size: 13px;
+      line-height: 1.7;
+      tab-size: 4;
+    }
+    
+    .exposition {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      line-height: 1.8;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    
+    .exposition p {
+      margin-bottom: 12px;
+    }
+    
+    .exposition p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .exposition code {
+      background: var(--bg-code);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+    
+    /* Token styles */
+    .tok-keyword { color: var(--tok-keyword); }
+    .tok-text { color: var(--tok-text); }
+    .tok-literal { color: var(--tok-literal); }
+    .tok-comment {
+      color: var(--tok-comment);
+      font-family: 'Monaspace Xenon', 'SF Mono', 'Consolas', monospace;
+      font-style: oblique -10deg;
+      font-feature-settings: 'liga' 1, 'calt' 1;
+    }
+    .tok-preprocessor { color: var(--tok-preprocessor); }
+    .tok-attribute { color: var(--tok-attribute); }
+    
+    .css-output {
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 10px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-all;
+      color: var(--text-dim);
+      max-height: 160px;
+      overflow-y: auto;
+      transition: background 0.2s, border-color 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <div class="panel-header">
+        <h1>Token Colors</h1>
+        <div class="toggle" id="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-label" id="theme-label">Dark</span>
+          <div class="toggle-track"></div>
+        </div>
+      </div>
+      
+      <div class="color-group">
+        <label>
+          <input type="color" id="col-keyword" value="#ffffff">
+          <span>Keyword</span>
+          <span class="color-hex" id="hex-keyword">#ffffff</span>
+        </label>
+      </div>
+      
+      <div class="color-group">
+        <label>
+          <input type="color" id="col-text" value="#ffffff">
+          <span>Text</span>
+          <span class="color-hex" id="hex-text">#ffffff</span>
+        </label>
+      </div>
+      
+      <div class="color-group">
+        <label>
+          <input type="color" id="col-literal" value="#ffffff">
+          <span>Literal</span>
+          <span class="color-hex" id="hex-literal">#ffffff</span>
+        </label>
+      </div>
+      
+      <div class="color-group">
+        <label>
+          <input type="color" id="col-comment" value="#ffffff">
+          <span>Comment</span>
+          <span class="color-hex" id="hex-comment">#ffffff</span>
+        </label>
+      </div>
+      
+      <div class="color-group">
+        <label>
+          <input type="color" id="col-preprocessor" value="#ffffff">
+          <span>Preprocessor</span>
+          <span class="color-hex" id="hex-preprocessor">#ffffff</span>
+        </label>
+      </div>
+      
+      <div class="color-group">
+        <label>
+          <input type="color" id="col-attribute" value="#ffffff">
+          <span>Attribute</span>
+          <span class="color-hex" id="hex-attribute">#ffffff</span>
+        </label>
+      </div>
+      
+      <div class="actions">
+        <button class="primary" onclick="saveToURL()">Save to URL</button>
+        <div class="saved-indicator" id="saved-indicator">✓ Saved to URL</div>
+        <button onclick="copyCSS()">Copy CSS Variables</button>
+        <button onclick="resetColors()">Reset to Default</button>
+      </div>
+      
+      <div class="section-label">CSS Output</div>
+      <div class="css-output" id="css-output"></div>
+    </div>
+    
+    <div class="main">
+      <h2>C++ Sample</h2>
+      <div class="code-block">
+        <pre id="code-cpp"></pre>
+      </div>
+      
+      <div class="exposition">
+        <p>This editor provides a syntax highlighter with simplified token categories: <code class="tok-keyword">keywords</code>, <code class="tok-text">text</code>, <code class="tok-literal">literals</code>, <code class="tok-comment">comments</code>, <code class="tok-preprocessor">preprocessor</code>, and <code class="tok-attribute">attributes</code>.</p>
+        <p>Uses Monaspace Neon for code and Monaspace Xenon (slanted) for comments. Click <code>Save to URL</code> to persist your theme. Light and dark modes maintain separate palettes.</p>
+      </div>
+      
+      <h2>Template Metaprogramming</h2>
+      <div class="code-block">
+        <pre id="code-template"></pre>
+      </div>
+      
+      <h2>Modern C++20</h2>
+      <div class="code-block">
+        <pre id="code-modern"></pre>
+      </div>
+      
+      <h2>Mixed Content</h2>
+      <div class="code-block">
+        <pre id="code-mixed"></pre>
+      </div>
+    </div>
+  </div>
+
+<script>
+const T = {
+  KEYWORD: 'keyword',
+  TEXT: 'text',
+  LITERAL: 'literal',
+  COMMENT: 'comment',
+  PREPROCESSOR: 'preprocessor',
+  ATTRIBUTE: 'attribute'
+};
+
+const KEYWORDS = new Set([
+  'alignas', 'alignof', 'and', 'and_eq', 'asm', 'auto', 'bitand',
+  'bitor', 'bool', 'break', 'case', 'catch', 'char', 'char8_t',
+  'char16_t', 'char32_t', 'class', 'compl', 'concept', 'const',
+  'consteval', 'constexpr', 'constinit', 'const_cast', 'continue',
+  'co_await', 'co_return', 'co_yield', 'decltype', 'default', 'delete',
+  'do', 'double', 'dynamic_cast', 'else', 'enum', 'explicit', 'export',
+  'extern', 'false', 'final', 'float', 'for', 'friend', 'goto', 'if',
+  'import', 'inline', 'int', 'long', 'module', 'mutable', 'namespace',
+  'new', 'noexcept', 'not', 'not_eq', 'nullptr', 'operator', 'or',
+  'or_eq', 'override', 'private', 'protected', 'public', 'register',
+  'reinterpret_cast', 'requires', 'return', 'short', 'signed', 'sizeof',
+  'static', 'static_assert', 'static_cast', 'struct', 'switch',
+  'template', 'this', 'thread_local', 'throw', 'true', 'try', 'typedef',
+  'typeid', 'typename', 'union', 'unsigned', 'using', 'virtual', 'void',
+  'volatile', 'wchar_t', 'while', 'xor', 'xor_eq'
+]);
+
+const OPERATORS = /^(?:->|<=>|<<=?|>>=?|&&|\|\||::|\+\+|--|[+\-*\/%&|^~!=<>]=?|[?:])/;
+const PUNCTUATION = /^[{}()\[\];,.]/;
+const NUMBER = /^(?:0[xX][0-9a-fA-F']+|0[bB][01']+|0[0-7']*|[1-9][0-9']*(?:\.[0-9']*)?(?:[eE][+-]?[0-9]+)?)[uUlLfF]*/;
+const IDENTIFIER = /^[a-zA-Z_][a-zA-Z0-9_]*/;
+
+function tokenize(code) {
+  const tokens = [];
+  let i = 0;
+  
+  while (i < code.length) {
+    // Whitespace
+    if (/\s/.test(code[i])) {
+      let start = i;
+      while (i < code.length && /\s/.test(code[i])) i++;
+      tokens.push({ type: null, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // Attributes [[...]]
+    if (code.slice(i, i + 2) === '[[') {
+      let start = i;
+      i += 2;
+      let depth = 1;
+      while (i < code.length && depth > 0) {
+        if (code.slice(i, i + 2) === '[[') { depth++; i += 2; }
+        else if (code.slice(i, i + 2) === ']]') { depth--; i += 2; }
+        else i++;
+      }
+      tokens.push({ type: T.ATTRIBUTE, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // Line comment
+    if (code.slice(i, i + 2) === '//') {
+      let start = i;
+      while (i < code.length && code[i] !== '\n') i++;
+      tokens.push({ type: T.COMMENT, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // Block comment
+    if (code.slice(i, i + 2) === '/*') {
+      let start = i;
+      i += 2;
+      while (i < code.length && code.slice(i, i + 2) !== '*/') i++;
+      i += 2;
+      tokens.push({ type: T.COMMENT, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // Preprocessor
+    if (code[i] === '#' && (i === 0 || code[i - 1] === '\n')) {
+      let start = i;
+      while (i < code.length && code[i] !== '\n') {
+        if (code[i] === '\\' && code[i + 1] === '\n') i += 2;
+        else i++;
+      }
+      tokens.push({ type: T.PREPROCESSOR, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // String literals
+    if (code[i] === '"' || code[i] === "'") {
+      let quote = code[i];
+      let start = i;
+      i++;
+      while (i < code.length && code[i] !== quote) {
+        if (code[i] === '\\') i++;
+        i++;
+      }
+      i++;
+      tokens.push({ type: T.LITERAL, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // Raw string literals
+    if (code[i] === 'R' && code[i + 1] === '"') {
+      let start = i;
+      i += 2;
+      let delim = '';
+      while (code[i] !== '(') { delim += code[i]; i++; }
+      i++;
+      let end = ')' + delim + '"';
+      while (i < code.length && code.slice(i, i + end.length) !== end) i++;
+      i += end.length;
+      tokens.push({ type: T.LITERAL, value: code.slice(start, i) });
+      continue;
+    }
+    
+    // Numbers
+    let numMatch = code.slice(i).match(NUMBER);
+    if (numMatch && (i === 0 || !/[a-zA-Z_]/.test(code[i - 1]))) {
+      tokens.push({ type: T.LITERAL, value: numMatch[0] });
+      i += numMatch[0].length;
+      continue;
+    }
+    
+    // Identifiers and keywords
+    let idMatch = code.slice(i).match(IDENTIFIER);
+    if (idMatch) {
+      let word = idMatch[0];
+      let type = KEYWORDS.has(word) ? T.KEYWORD : T.TEXT;
+      tokens.push({ type, value: word });
+      i += word.length;
+      continue;
+    }
+    
+    // Operators
+    let opMatch = code.slice(i).match(OPERATORS);
+    if (opMatch) {
+      tokens.push({ type: T.TEXT, value: opMatch[0] });
+      i += opMatch[0].length;
+      continue;
+    }
+    
+    // Punctuation
+    let punctMatch = code.slice(i).match(PUNCTUATION);
+    if (punctMatch) {
+      tokens.push({ type: T.TEXT, value: punctMatch[0] });
+      i += punctMatch[0].length;
+      continue;
+    }
+    
+    // Fallback
+    tokens.push({ type: T.TEXT, value: code[i] });
+    i++;
+  }
+  
+  return tokens;
+}
+
+function highlight(code) {
+  return tokenize(code).map(t => {
+    const escaped = t.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return t.type ? `<span class="tok-${t.type}">${escaped}</span>` : escaped;
+  }).join('');
+}
+
+const CODE_CPP = `#include <iostream>
+#include <vector>
+#include <string>
+
+namespace demo {
+
+/// A simple container wrapper
+template<typename T>
+class Container {
+public:
+    [[nodiscard]] explicit Container(size_t capacity = 16)
+        : data_(capacity)
+        , size_(0)
+    {
+    }
+    
+    void push_back(const T& value) {
+        if (size_ < data_.size()) {
+            data_[size_++] = value;
+        }
+    }
+    
+    [[nodiscard]] size_t size() const noexcept {
+        return size_;
+    }
+    
+private:
+    std::vector<T> data_;
+    size_t size_;
+};
+
+} // namespace demo
+
+int main() {
+    demo::Container<int> c(32);
+    
+    for (int i = 0; i < 10; ++i) {
+        c.push_back(i * 2);
+    }
+    
+    std::cout << "Size: " << c.size() << "\\n";
+    return 0;
+}`;
+
+const CODE_TEMPLATE = `template<typename... Args>
+struct type_list {};
+
+template<typename List>
+struct size;
+
+template<typename... Ts>
+struct size<type_list<Ts...>>
+    : std::integral_constant<size_t, sizeof...(Ts)>
+{
+};
+
+template<typename List, typename T>
+struct push_front;
+
+template<typename... Ts, typename T>
+struct push_front<type_list<Ts...>, T> {
+    using type = type_list<T, Ts...>;
+};
+
+template<typename List, template<typename> class Pred>
+struct filter;
+
+template<template<typename> class Pred>
+struct filter<type_list<>, Pred> {
+    using type = type_list<>;
+};
+
+template<typename Head, typename... Tail, template<typename> class Pred>
+struct filter<type_list<Head, Tail...>, Pred> {
+    using rest = typename filter<type_list<Tail...>, Pred>::type;
+    using type = std::conditional_t<
+        Pred<Head>::value,
+        typename push_front<rest, Head>::type,
+        rest
+    >;
+};`;
+
+const CODE_MODERN = `#include <coroutine>
+#include <concepts>
+#include <ranges>
+
+template<std::integral T>
+generator<T> fibonacci(T limit) {
+    T a = 0, b = 1;
+    while (a < limit) {
+        co_yield a;
+        auto next = a + b;
+        a = b;
+        b = next;
+    }
+}
+
+[[nodiscard]] auto process_data(std::span<const int> input)
+    -> std::vector<int>
+{
+    namespace rv = std::views;
+    
+    auto result = input
+        | rv::filter([](int x) { return x > 0; })
+        | rv::transform([](int x) { return x * 2; })
+        | rv::take(100);
+    
+    return std::vector(result.begin(), result.end());
+}
+
+template<typename F>
+concept Invocable = requires(F f) {
+    { f() } -> std::convertible_to<bool>;
+};`;
+
+const CODE_MIXED = `/* Multi-line comment
+   spanning several lines */
+constexpr auto magic = 0xDEAD'BEEF;
+const char* raw = R"delim(
+    Raw string with "quotes" and
+    multiple lines
+)delim";
+
+// Operators and punctuation showcase
+[[maybe_unused]] auto result = (a <=> b) == std::strong_ordering::less;
+ptr->member = obj.*pmem;
+value <<= 4;
+flag &&= condition || fallback;
+
+[[deprecated("use new_func instead")]]
+void old_func() {}`;
+
+function render() {
+  document.getElementById('code-cpp').innerHTML = highlight(CODE_CPP);
+  document.getElementById('code-template').innerHTML = highlight(CODE_TEMPLATE);
+  document.getElementById('code-modern').innerHTML = highlight(CODE_MODERN);
+  document.getElementById('code-mixed').innerHTML = highlight(CODE_MIXED);
+  updateCSSOutput();
+}
+
+let isDark = true;
+
+const TOKEN_NAMES = ['keyword', 'text', 'literal', 'comment', 'preprocessor', 'attribute'];
+
+const darkDefaults = {
+  keyword: '#ffffff', text: '#ffffff', literal: '#ffffff',
+  comment: '#ffffff', preprocessor: '#ffffff', attribute: '#ffffff'
+};
+
+const lightDefaults = {
+  keyword: '#000000', text: '#000000', literal: '#000000',
+  comment: '#000000', preprocessor: '#000000', attribute: '#000000'
+};
+
+let darkColors = { ...darkDefaults };
+let lightColors = { ...lightDefaults };
+
+function getCurrentColors() {
+  return isDark ? darkColors : lightColors;
+}
+
+function applyColors() {
+  const colors = getCurrentColors();
+  TOKEN_NAMES.forEach(name => {
+    const color = colors[name];
+    document.getElementById(`col-${name}`).value = color;
+    document.getElementById(`hex-${name}`).textContent = color;
+    document.documentElement.style.setProperty(`--tok-${name}`, color);
+  });
+  updateCSSOutput();
+}
+
+function toggleTheme() {
+  isDark = !isDark;
+  const toggle = document.getElementById('theme-toggle');
+  const label = document.getElementById('theme-label');
+  
+  if (isDark) {
+    document.documentElement.classList.remove('light');
+    toggle.classList.remove('active');
+    label.textContent = 'Dark';
+  } else {
+    document.documentElement.classList.add('light');
+    toggle.classList.add('active');
+    label.textContent = 'Light';
+  }
+  
+  applyColors();
+}
+
+TOKEN_NAMES.forEach(name => {
+  const input = document.getElementById(`col-${name}`);
+  const hex = document.getElementById(`hex-${name}`);
+  
+  input.addEventListener('input', () => {
+    const color = input.value;
+    const colors = getCurrentColors();
+    colors[name] = color;
+    hex.textContent = color;
+    document.documentElement.style.setProperty(`--tok-${name}`, color);
+    updateCSSOutput();
+  });
+});
+
+function updateCSSOutput() {
+  const colors = getCurrentColors();
+  const mode = isDark ? 'dark' : 'light';
+  const css = `/* ${mode} theme */\n` + TOKEN_NAMES.map(k => `--tok-${k}: ${colors[k]};`).join('\n');
+  document.getElementById('css-output').textContent = css;
+}
+
+function copyCSS() {
+  navigator.clipboard.writeText(document.getElementById('css-output').textContent);
+}
+
+function resetColors() {
+  if (isDark) darkColors = { ...darkDefaults };
+  else lightColors = { ...lightDefaults };
+  applyColors();
+}
+
+function saveToURL() {
+  const params = new URLSearchParams();
+  params.set('mode', isDark ? 'dark' : 'light');
+  
+  TOKEN_NAMES.forEach(name => {
+    const dc = darkColors[name].replace('#', '');
+    const lc = lightColors[name].replace('#', '');
+    if (dc !== darkDefaults[name].replace('#', '')) params.set(`d_${name}`, dc);
+    if (lc !== lightDefaults[name].replace('#', '')) params.set(`l_${name}`, lc);
+  });
+  
+  const url = window.location.pathname + '?' + params.toString();
+  window.history.replaceState({}, '', url);
+  
+  const indicator = document.getElementById('saved-indicator');
+  indicator.classList.add('show');
+  setTimeout(() => indicator.classList.remove('show'), 2000);
+}
+
+function loadFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  
+  TOKEN_NAMES.forEach(name => {
+    const dc = params.get(`d_${name}`);
+    const lc = params.get(`l_${name}`);
+    if (dc) darkColors[name] = '#' + dc;
+    if (lc) lightColors[name] = '#' + lc;
+  });
+  
+  const mode = params.get('mode');
+  if (mode === 'light') {
+    isDark = false;
+    document.documentElement.classList.add('light');
+    document.getElementById('theme-toggle').classList.add('active');
+    document.getElementById('theme-label').textContent = 'Light';
+  }
+}
+
+loadFromURL();
+applyColors();
+render();
+</script>
+</body>
+</html>
